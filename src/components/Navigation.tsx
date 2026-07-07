@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import siteData from "@/data/siteData.json";
+import { projectItems } from "@/data/projects";
 
 const navCategories = [
   {
@@ -32,6 +33,14 @@ const navCategories = [
       { href: "/work/cado-sets", label: "CADO SETS" },
       { href: "/work/cado-architect", label: "CADO ARCHITECT" },
     ],
+  },
+  {
+    label: "Projects",
+    href: "/gallery/projects",
+    submenu: projectItems.map((item) => ({
+      href: `/work/${item.slug}`,
+      label: item.title,
+    })),
   },
   { label: "Biography", href: "/work/BIOGRAPHY" },
   { label: "News", href: "/work/in-the-news" },

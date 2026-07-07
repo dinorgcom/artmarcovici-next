@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import siteData from "@/data/siteData.json";
+import { projectItems } from "@/data/projects";
 
 type NavItem = {
   slug: string;
@@ -24,14 +25,21 @@ const categoryMap: Record<string, string> = {
   more: "other",
 };
 
+function getNav(category: string): NavCategory | null {
+  if (category === "projects") {
+    return { label: "Projects", items: projectItems };
+  }
+  const navKey = categoryMap[category];
+  return navKey ? navigation[navKey] ?? null : null;
+}
+
 export function generateStaticParams() {
-  return Object.keys(categoryMap).map((category) => ({ category }));
+  return [...Object.keys(categoryMap), "projects"].map((category) => ({ category }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
-  const navKey = categoryMap[category];
-  const nav = navKey ? navigation[navKey] : null;
+  const nav = getNav(category);
   return {
     title: nav?.label || "Gallery",
   };
@@ -39,10 +47,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 
 export default async function GalleryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
-  const navKey = categoryMap[category];
-  if (!navKey) notFound();
-
-  const nav = navigation[navKey];
+  const nav = getNav(category);
   if (!nav) notFound();
 
   return (

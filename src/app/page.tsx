@@ -99,11 +99,12 @@ export default function Home() {
         <h2 className="font-serif text-3xl md:text-4xl text-center mb-4">Collections</h2>
         <div className="w-16 h-px bg-[--color-accent] mx-auto mb-12" />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             { title: "Artworks", href: "/gallery/artworks", desc: "Paintings, prints & mixed media" },
             { title: "Mosaic", href: "/gallery/mosaic", desc: "Mosaic art series" },
             { title: "CADO", href: "/gallery/cado", desc: "Sculptural building elements" },
+            { title: "Projects", href: "/gallery/projects", desc: "Conceptual & business art projects" },
           ].map((cat) => (
             <Link
               key={cat.title}
