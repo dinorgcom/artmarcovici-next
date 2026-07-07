@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Environment, Lightformer } from "@react-three/drei";
 import * as THREE from "three";
 import {
   BODY_HEIGHTS,
@@ -30,22 +30,27 @@ interface SceneProps {
 
 /* ---------- piece symbol as canvas texture (matches printed canisters) ---------- */
 
-function useSymbolTexture(color: Color, type: PieceState["type"]) {
+function useSymbolTexture(color: Color, type: PieceState["type"], mirrored: boolean) {
   return useMemo(() => {
     const canvas = document.createElement("canvas");
-    canvas.width = 128;
-    canvas.height = 128;
+    canvas.width = 256;
+    canvas.height = 256;
     const ctx = canvas.getContext("2d")!;
-    ctx.clearRect(0, 0, 128, 128);
-    ctx.fillStyle = color === "w" ? "#22201d" : "#e8e5df";
-    ctx.font = '90px "Segoe UI Symbol", "Noto Sans Symbols 2", serif';
+    ctx.clearRect(0, 0, 256, 256);
+    // planes rotated by 180° need a pre-mirrored glyph to read correctly
+    if (mirrored) {
+      ctx.translate(256, 0);
+      ctx.scale(-1, 1);
+    }
+    ctx.fillStyle = color === "w" ? "#1c1a17" : "#efece5";
+    ctx.font = '190px "Segoe UI Symbol", "Noto Sans Symbols 2", serif';
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(PIECE_SYMBOLS[color][type], 64, 70);
+    ctx.fillText(PIECE_SYMBOLS[color][type], 128, 140);
     const tex = new THREE.CanvasTexture(canvas);
-    tex.anisotropy = 4;
+    tex.anisotropy = 8;
     return tex;
-  }, [color, type]);
+  }, [color, type, mirrored]);
 }
 
 /* ---------- one camera-figure ---------- */
@@ -66,7 +71,8 @@ function PieceFigure({
   const group = useRef<THREE.Group>(null);
   const head = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
-  const symbol = useSymbolTexture(piece.color, piece.type);
+  const symbolFront = useSymbolTexture(piece.color, piece.type, piece.color === "w");
+  const symbolBack = useSymbolTexture(piece.color, piece.type, piece.color === "b");
   // deterministic per-piece phase so each camera pans on its own rhythm
   const phase = useMemo(() => {
     let h = 0;
@@ -121,13 +127,20 @@ function PieceFigure({
         <cylinderGeometry args={[0.23, 0.25, bodyH, 24]} />
         <meshStandardMaterial color={bodyColor} roughness={0.55} metalness={0.05} />
       </mesh>
-      {/* printed piece symbol, facing the opponent */}
+      {/* printed piece symbol on both sides — toward the opponent and toward the own player */}
       <mesh
-        position={[-Math.sin(forward) * 0.236, bodyH * 0.5, -Math.cos(forward) * 0.236]}
+        position={[-Math.sin(forward) * 0.262, bodyH * 0.5, -Math.cos(forward) * 0.262]}
         rotation={[0, forward + Math.PI, 0]}
       >
-        <planeGeometry args={[0.3, 0.3]} />
-        <meshBasicMaterial map={symbol} transparent depthWrite={false} />
+        <planeGeometry args={[0.34, 0.34]} />
+        <meshBasicMaterial map={symbolFront} transparent />
+      </mesh>
+      <mesh
+        position={[Math.sin(forward) * 0.262, bodyH * 0.5, Math.cos(forward) * 0.262]}
+        rotation={[0, forward, 0]}
+      >
+        <planeGeometry args={[0.34, 0.34]} />
+        <meshBasicMaterial map={symbolBack} transparent />
       </mesh>
       {/* pan-tilt camera head */}
       <group ref={head} position={[0, bodyH + 0.13, 0]} rotation={[0, forward, 0]}>
@@ -135,20 +148,47 @@ function PieceFigure({
           <sphereGeometry args={[0.17, 24, 18]} />
           <meshStandardMaterial color={headColor} roughness={0.4} />
         </mesh>
-        {/* lens ring + lens looking along -z of the head */}
+        {/* lens barrel + reflective glass lens looking along -z of the head */}
         <mesh position={[0, 0, -0.145]} rotation={[Math.PI / 2, 0, 0]}>
           <cylinderGeometry args={[0.075, 0.075, 0.07, 20]} />
-          <meshStandardMaterial color={piece.color === "w" ? "#c9c6bf" : "#3a3a3a"} roughness={0.3} />
+          <meshStandardMaterial
+            color={piece.color === "w" ? "#c9c6bf" : "#3a3a3a"}
+            roughness={0.25}
+            metalness={0.3}
+            envMapIntensity={0.8}
+          />
         </mesh>
-        <mesh position={[0, 0, -0.185]} rotation={[Math.PI / 2, 0, 0]}>
-          <cylinderGeometry args={[0.045, 0.045, 0.02, 20]} />
-          <meshStandardMaterial color="#0a0a12" roughness={0.1} metalness={0.4} />
+        <mesh position={[0, 0, -0.181]} rotation={[Math.PI / 2, 0, 0]}>
+          <cylinderGeometry args={[0.055, 0.055, 0.014, 24]} />
+          <meshPhysicalMaterial
+            color="#05070d"
+            roughness={0.04}
+            metalness={0.7}
+            clearcoat={1}
+            clearcoatRoughness={0.03}
+            envMapIntensity={2.2}
+          />
         </mesh>
-        {/* little antenna */}
-        <mesh position={[0.1, 0.16, 0.05]} rotation={[0, 0, -0.35]}>
-          <cylinderGeometry args={[0.012, 0.012, 0.22, 8]} />
-          <meshStandardMaterial color={headColor} roughness={0.6} />
+        {/* specular glint on the glass */}
+        <mesh position={[0.02, 0.022, -0.189]}>
+          <sphereGeometry args={[0.011, 8, 8]} />
+          <meshBasicMaterial color="#dcebff" />
         </mesh>
+        {/* antenna: hinge base, tapered shaft, ball tip */}
+        <group position={[0.1, 0.1, 0.06]} rotation={[0.12, 0, -0.32]}>
+          <mesh position={[0, 0.025, 0]}>
+            <cylinderGeometry args={[0.02, 0.026, 0.05, 10]} />
+            <meshStandardMaterial color={headColor} roughness={0.5} />
+          </mesh>
+          <mesh position={[0, 0.17, 0]}>
+            <cylinderGeometry args={[0.007, 0.014, 0.24, 8]} />
+            <meshStandardMaterial color={headColor} roughness={0.45} metalness={0.2} />
+          </mesh>
+          <mesh position={[0, 0.3, 0]}>
+            <sphereGeometry args={[0.017, 10, 8]} />
+            <meshStandardMaterial color={headColor} roughness={0.4} />
+          </mesh>
+        </group>
       </group>
       {/* selection ring for the commander */}
       {(selectable || selected) && (
@@ -353,6 +393,12 @@ export default function ChessScene({
       />
       <directionalLight position={[-6, 8, -6]} intensity={0.5} />
       <pointLight position={[0, 7, 0]} intensity={0.6} />
+      {/* studio-style environment for reflections on lenses and board */}
+      <Environment resolution={64} frames={1}>
+        <Lightformer position={[0, 6, 0]} rotation={[Math.PI / 2, 0, 0]} scale={[8, 8, 1]} intensity={1.6} color="#ffffff" />
+        <Lightformer position={[-6, 3, -4]} rotation={[0, Math.PI / 2, 0]} scale={[6, 3, 1]} intensity={1.2} color="#e8ecf5" />
+        <Lightformer position={[6, 2, 4]} rotation={[0, -Math.PI / 2, 0]} scale={[5, 2, 1]} intensity={0.9} color="#fff4e0" />
+      </Environment>
       <Board targetSquares={targetSquares} onSquarePick={onSquarePick} />
       {pieces.map((piece) => (
         <PieceFigure
