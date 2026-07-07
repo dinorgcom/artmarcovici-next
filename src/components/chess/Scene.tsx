@@ -30,27 +30,58 @@ interface SceneProps {
 
 /* ---------- piece symbol as canvas texture (matches printed canisters) ---------- */
 
-function useSymbolTexture(color: Color, type: PieceState["type"], mirrored: boolean) {
+function useSymbolTexture(color: Color, type: PieceState["type"]) {
   return useMemo(() => {
     const canvas = document.createElement("canvas");
     canvas.width = 256;
     canvas.height = 256;
     const ctx = canvas.getContext("2d")!;
     ctx.clearRect(0, 0, 256, 256);
-    // planes rotated by 180° need a pre-mirrored glyph to read correctly
-    if (mirrored) {
-      ctx.translate(256, 0);
-      ctx.scale(-1, 1);
-    }
     ctx.fillStyle = color === "w" ? "#1c1a17" : "#efece5";
-    ctx.font = '190px "Segoe UI Symbol", "Noto Sans Symbols 2", serif';
+    ctx.font = '170px "Segoe UI Symbol", "Noto Sans Symbols 2", serif';
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(PIECE_SYMBOLS[color][type], 128, 140);
+    ctx.fillText(PIECE_SYMBOLS[color][type], 128, 138);
     const tex = new THREE.CanvasTexture(canvas);
     tex.anisotropy = 8;
     return tex;
-  }, [color, type, mirrored]);
+  }, [color, type]);
+}
+
+/* ---------- curved symbol band hugging the tapered body ---------- */
+
+function SymbolDecal({
+  texture,
+  bodyH,
+  rotationY,
+}: {
+  texture: THREE.CanvasTexture;
+  bodyH: number;
+  rotationY: number;
+}) {
+  // body tapers from r=0.25 at the base to r=0.23 at the top; the band
+  // follows that taper sitting a hair above the surface
+  const radiusAt = (y: number) => 0.25 - 0.02 * (y / bodyH) + 0.004;
+  const bandH = Math.min(0.38, bodyH * 0.7);
+  const y0 = bodyH * 0.5;
+  const thetaLen = 1.35;
+  return (
+    <mesh position={[0, y0, 0]} rotation={[0, rotationY, 0]}>
+      <cylinderGeometry
+        args={[
+          radiusAt(y0 + bandH / 2),
+          radiusAt(y0 - bandH / 2),
+          bandH,
+          24,
+          1,
+          true,
+          Math.PI - thetaLen / 2,
+          thetaLen,
+        ]}
+      />
+      <meshBasicMaterial map={texture} transparent side={THREE.DoubleSide} />
+    </mesh>
+  );
 }
 
 /* ---------- one camera-figure ---------- */
@@ -71,8 +102,7 @@ function PieceFigure({
   const group = useRef<THREE.Group>(null);
   const head = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
-  const symbolFront = useSymbolTexture(piece.color, piece.type, piece.color === "w");
-  const symbolBack = useSymbolTexture(piece.color, piece.type, piece.color === "b");
+  const symbol = useSymbolTexture(piece.color, piece.type);
   // deterministic per-piece phase so each camera pans on its own rhythm
   const phase = useMemo(() => {
     let h = 0;
@@ -127,21 +157,9 @@ function PieceFigure({
         <cylinderGeometry args={[0.23, 0.25, bodyH, 24]} />
         <meshStandardMaterial color={bodyColor} roughness={0.55} metalness={0.05} />
       </mesh>
-      {/* printed piece symbol on both sides — toward the opponent and toward the own player */}
-      <mesh
-        position={[-Math.sin(forward) * 0.262, bodyH * 0.5, -Math.cos(forward) * 0.262]}
-        rotation={[0, forward + Math.PI, 0]}
-      >
-        <planeGeometry args={[0.34, 0.34]} />
-        <meshBasicMaterial map={symbolFront} transparent />
-      </mesh>
-      <mesh
-        position={[Math.sin(forward) * 0.262, bodyH * 0.5, Math.cos(forward) * 0.262]}
-        rotation={[0, forward, 0]}
-      >
-        <planeGeometry args={[0.34, 0.34]} />
-        <meshBasicMaterial map={symbolBack} transparent />
-      </mesh>
+      {/* printed piece symbol, curved onto the tapered body — on both sides */}
+      <SymbolDecal texture={symbol} bodyH={bodyH} rotationY={forward} />
+      <SymbolDecal texture={symbol} bodyH={bodyH} rotationY={forward + Math.PI} />
       {/* pan-tilt camera head */}
       <group ref={head} position={[0, bodyH + 0.13, 0]} rotation={[0, forward, 0]}>
         <mesh castShadow>

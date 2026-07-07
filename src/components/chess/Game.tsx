@@ -228,6 +228,14 @@ export default function Game() {
     return "";
   }, [phase, result, captured, humanColor, turn, selectedPiece, humanPieceId]);
 
+  const prompt = useMemo(() => {
+    if (phase === "commander" && humanColor === turn)
+      return { title: "YOUR MOVE", sub: "choose which figure moves — click a ringed figure" };
+    if (phase === "piece" && selectedPieceId === humanPieceId && humanPieceId)
+      return { title: "YOU ARE CALLED", sub: "drag to look around — click a glowing square" };
+    return null;
+  }, [phase, humanColor, turn, selectedPieceId, humanPieceId]);
+
   /* ---------- render ---------- */
 
   return (
@@ -262,6 +270,20 @@ export default function Game() {
           </div>
         )}
       </div>
+
+      {/* prominent center prompt when it is the human's turn */}
+      {prompt && (
+        <div className="absolute inset-x-0 top-[26%] flex justify-center pointer-events-none">
+          <div className="text-center animate-pulse px-4">
+            <p className="font-serif text-4xl md:text-6xl tracking-widest text-orange-400 drop-shadow-[0_0_18px_rgba(251,146,60,0.65)]">
+              {prompt.title}
+            </p>
+            <p className="mt-2 text-sm md:text-base uppercase tracking-widest text-orange-300/90 drop-shadow-[0_0_8px_rgba(251,146,60,0.5)]">
+              {prompt.sub}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* dispatch log */}
       {phase !== "role" && (
