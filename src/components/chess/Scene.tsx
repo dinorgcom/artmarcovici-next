@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, Environment, Lightformer } from "@react-three/drei";
+import { OrbitControls, Environment, Lightformer, Html } from "@react-three/drei";
 import * as THREE from "three";
 import {
   BODY_HEIGHTS,
@@ -18,14 +18,75 @@ export type ViewMode =
   | { kind: "commander"; color: Color }
   | { kind: "firstPerson"; pieceId: string };
 
+export interface Bubble {
+  square: string;
+  text: string;
+}
+
 interface SceneProps {
   pieces: PieceState[];
   view: ViewMode;
   selectablePieceIds: string[]; // pieces the human commander may pick
   selectedPieceId: string | null; // piece currently chosen to move
   targetSquares: string[]; // legal destinations for the human piece
+  bubbles: Bubble[]; // speech bubbles above figures giving tips
   onPiecePick: (id: string) => void;
   onSquarePick: (square: string) => void;
+}
+
+/* ---------- speech bubble above a figure ---------- */
+
+function SpeechBubbles({ bubbles, pieces }: { bubbles: Bubble[]; pieces: PieceState[] }) {
+  return (
+    <>
+      {bubbles.map((bubble) => {
+        const piece = pieces.find((p) => p.square === bubble.square);
+        if (!piece || piece.square === null) return null;
+        const [x, z] = squareToWorld(piece.square);
+        return (
+          <Html
+            key={`${bubble.square}-${bubble.text}`}
+            position={[x, BODY_HEIGHTS[piece.type] + 0.62, z]}
+            center
+            distanceFactor={7}
+            zIndexRange={[40, 0]}
+            style={{ pointerEvents: "none" }}
+          >
+            <div
+              style={{
+                background: "rgba(248,246,240,0.96)",
+                color: "#1a1a1a",
+                borderRadius: "10px",
+                padding: "6px 10px",
+                maxWidth: "170px",
+                width: "max-content",
+                fontSize: "12px",
+                lineHeight: 1.3,
+                fontFamily: "system-ui, sans-serif",
+                boxShadow: "0 4px 14px rgba(0,0,0,0.5)",
+                position: "relative",
+              }}
+            >
+              {bubble.text}
+              <div
+                style={{
+                  position: "absolute",
+                  left: "50%",
+                  bottom: "-6px",
+                  transform: "translateX(-50%)",
+                  width: 0,
+                  height: 0,
+                  borderLeft: "6px solid transparent",
+                  borderRight: "6px solid transparent",
+                  borderTop: "6px solid rgba(248,246,240,0.96)",
+                }}
+              />
+            </div>
+          </Html>
+        );
+      })}
+    </>
+  );
 }
 
 /* ---------- piece symbol as canvas texture (matches printed canisters) ---------- */
@@ -389,6 +450,7 @@ export default function ChessScene({
   selectablePieceIds,
   selectedPieceId,
   targetSquares,
+  bubbles,
   onPiecePick,
   onSquarePick,
 }: SceneProps) {
@@ -428,6 +490,7 @@ export default function ChessScene({
           hidden={view.kind === "firstPerson" && view.pieceId === piece.id}
         />
       ))}
+      <SpeechBubbles bubbles={bubbles} pieces={pieces} />
       <CameraRig view={view} pieces={pieces} />
     </Canvas>
   );

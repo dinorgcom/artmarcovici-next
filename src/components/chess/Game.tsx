@@ -3,7 +3,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Chess, type Move, type Square } from "chess.js";
-import ChessScene, { type ViewMode } from "./Scene";
+import ChessScene, { type ViewMode, type Bubble } from "./Scene";
+import { getTips, speakTips, stopSpeech } from "./tips";
 import {
   applyMoveToPieces,
   buildInitialPieces,
@@ -42,6 +43,10 @@ export default function Game() {
   const [result, setResult] = useState<string | null>(null);
   const [captured, setCaptured] = useState(false);
   const [spectating, setSpectating] = useState(false);
+  const [bubbles, setBubbles] = useState<Bubble[]>([]);
+  const [muted, setMuted] = useState(false);
+  const mutedRef = useRef(false);
+  const tipsKey = useRef<string | null>(null);
   const logId = useRef(0);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
@@ -78,6 +83,8 @@ export default function Game() {
       const next = applyMoveToPieces(pieces, m);
       setPieces(next);
       setSelectedPieceId(null);
+      setBubbles([]);
+      stopSpeech();
 
       if (mover) {
         let line = `${describePiece(mover)}: "${m.san}"`;
@@ -188,6 +195,9 @@ export default function Game() {
   const restart = useCallback(() => {
     timers.current.forEach(clearTimeout);
     timers.current = [];
+    stopSpeech();
+    setBubbles([]);
+    tipsKey.current = null;
     chessRef.current = new Chess();
     setPieces(buildInitialPieces(chessRef.current));
     setPhase("role");
@@ -236,6 +246,46 @@ export default function Game() {
     return null;
   }, [phase, humanColor, turn, selectedPieceId, humanPieceId]);
 
+  /* ---------- tips from the other figures when it's the human's turn ---------- */
+
+  useEffect(() => {
+    mutedRef.current = muted;
+    if (muted) stopSpeech();
+  }, [muted]);
+
+  useEffect(() => {
+    if (!prompt) {
+      tipsKey.current = null;
+      setBubbles([]);
+      return;
+    }
+    const chess = chessRef.current;
+    const mode = humanColor === turn && phase === "commander" ? "commander" : "piece";
+    const key = `${mode}-${chess.history().length}`;
+    if (tipsKey.current === key) return;
+    tipsKey.current = key;
+
+    let cancelled = false;
+    const fen = chess.fen();
+    const exclude = mode === "piece" ? humanPiece?.square ?? undefined : undefined;
+    getTips(fen, mode, exclude).then((tips) => {
+      if (cancelled || tipsKey.current !== key) return;
+      setBubbles(tips);
+      tips.forEach((t) => pushLog(`${t.square}: "${t.text}"`, turn));
+      if (!mutedRef.current) {
+        const probe = new Chess(fen);
+        speakTips(tips, (square) => {
+          const p = probe.get(square as Square);
+          return p ? p.type : null;
+        });
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prompt, phase, turn]);
+
   /* ---------- render ---------- */
 
   return (
@@ -246,6 +296,7 @@ export default function Game() {
         selectablePieceIds={selectablePieceIds}
         selectedPieceId={selectedPieceId}
         targetSquares={targetSquares}
+        bubbles={bubbles}
         onPiecePick={onPiecePick}
         onSquarePick={onSquarePick}
       />
@@ -261,12 +312,21 @@ export default function Game() {
         {phase !== "role" && (
           <div className="text-right pointer-events-auto">
             <p className="text-sm text-gray-300">{statusText}</p>
-            <button
-              onClick={restart}
-              className="mt-1 text-xs text-gray-600 hover:text-accent transition-colors uppercase tracking-widest"
-            >
-              Restart
-            </button>
+            <div className="mt-1 flex items-center justify-end gap-3">
+              <button
+                onClick={() => setMuted((m) => !m)}
+                title={muted ? "Unmute figure voices" : "Mute figure voices"}
+                className="text-xs text-gray-600 hover:text-accent transition-colors uppercase tracking-widest"
+              >
+                {muted ? "🔇 Sound off" : "🔊 Sound on"}
+              </button>
+              <button
+                onClick={restart}
+                className="text-xs text-gray-600 hover:text-accent transition-colors uppercase tracking-widest"
+              >
+                Restart
+              </button>
+            </div>
           </div>
         )}
       </div>
