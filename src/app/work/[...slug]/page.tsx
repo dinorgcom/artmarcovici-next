@@ -74,6 +74,14 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
         {page.images.length > 0 && (
           <p className="text-sm text-gray-600 mt-2">{page.images.length} works</p>
         )}
+        {fullSlug === "democratic-chess" && (
+          <Link
+            href="/democratic-chess"
+            className="inline-block mt-6 px-8 py-3 border border-accent text-accent hover:bg-accent hover:text-black transition-all duration-300 tracking-widest text-sm uppercase"
+          >
+            Play Democratic Chess
+          </Link>
+        )}
       </div>
 
       {/* Sub-pages grid (for category pages) */}
