@@ -273,7 +273,7 @@ export default function Game() {
 
       {/* prominent center prompt when it is the human's turn */}
       {prompt && (
-        <div className="absolute inset-x-0 top-[26%] flex justify-center pointer-events-none">
+        <div className="absolute inset-x-0 top-[15%] flex justify-center pointer-events-none">
           <div className="text-center animate-pulse px-4">
             <p className="font-serif text-4xl md:text-6xl tracking-widest text-orange-400 drop-shadow-[0_0_18px_rgba(251,146,60,0.65)]">
               {prompt.title}
