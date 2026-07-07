@@ -71,11 +71,6 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
         <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-wide mb-4">
           {page.title}
         </h1>
-        {page.description && (
-          <p className="text-gray-400 max-w-3xl text-lg leading-relaxed">
-            {page.description}
-          </p>
-        )}
         {page.images.length > 0 && (
           <p className="text-sm text-gray-600 mt-2">{page.images.length} works</p>
         )}
