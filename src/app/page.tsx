@@ -48,14 +48,14 @@ export default function Home() {
 
         <div className="relative z-10 text-center px-4">
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-wider mb-6">
-            <span className="text-[--color-accent]">ART</span> MARCOVICI
+            <span className="text-accent">ART</span> MARCOVICI
           </h1>
           <p className="text-lg md:text-xl text-gray-400 max-w-xl mx-auto mb-10 tracking-wide">
             Contemporary Art by Michael Marcovici
           </p>
           <Link
             href="/gallery/artworks"
-            className="inline-block px-8 py-3 border border-[--color-accent] text-[--color-accent] hover:bg-[--color-accent] hover:text-black transition-all duration-300 tracking-widest text-sm uppercase"
+            className="inline-block px-8 py-3 border border-accent text-accent hover:bg-accent hover:text-black transition-all duration-300 tracking-widest text-sm uppercase"
           >
             Explore Works
           </Link>
@@ -65,14 +65,14 @@ export default function Home() {
       {/* Featured Works */}
       <section className="max-w-7xl mx-auto px-4 py-20">
         <h2 className="font-serif text-3xl md:text-4xl text-center mb-4">Featured Works</h2>
-        <div className="w-16 h-px bg-[--color-accent] mx-auto mb-12" />
+        <div className="w-16 h-px bg-accent mx-auto mb-12" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {featured.map((item) => (
             <Link
               key={item.slug}
               href={`/work/${item.slug}`}
-              className="art-card group relative aspect-[4/3] bg-[--color-surface] rounded-lg overflow-hidden"
+              className="art-card group relative aspect-[4/3] bg-surface rounded-lg overflow-hidden"
             >
               {item.images[0] && (
                 <Image
@@ -97,7 +97,7 @@ export default function Home() {
       {/* Categories */}
       <section className="max-w-7xl mx-auto px-4 py-20">
         <h2 className="font-serif text-3xl md:text-4xl text-center mb-4">Collections</h2>
-        <div className="w-16 h-px bg-[--color-accent] mx-auto mb-12" />
+        <div className="w-16 h-px bg-accent mx-auto mb-12" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
@@ -109,9 +109,9 @@ export default function Home() {
             <Link
               key={cat.title}
               href={cat.href}
-              className="group p-8 border border-white/10 rounded-lg hover:border-[--color-accent]/50 transition-all duration-300 text-center"
+              className="group p-8 border border-white/10 rounded-lg hover:border-accent/50 transition-all duration-300 text-center"
             >
-              <h3 className="font-serif text-2xl mb-2 group-hover:text-[--color-accent] transition-colors">
+              <h3 className="font-serif text-2xl mb-2 group-hover:text-accent transition-colors">
                 {cat.title}
               </h3>
               <p className="text-sm text-gray-500">{cat.desc}</p>

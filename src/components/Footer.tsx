@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-serif text-lg text-[--color-accent] mb-4">Art Marcovici</h3>
+            <h3 className="font-serif text-lg text-accent mb-4">Art Marcovici</h3>
             <p className="text-sm text-gray-500">Contemporary Art by Michael Marcovici</p>
           </div>
           <div>

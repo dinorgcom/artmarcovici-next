@@ -33,7 +33,7 @@ export default function ImageGallery({ images, title }: ImageGalleryProps) {
         {images.map((src, i) => (
           <div
             key={i}
-            className="art-card relative aspect-square bg-[--color-surface] rounded-lg overflow-hidden cursor-pointer group"
+            className="art-card relative aspect-square bg-surface rounded-lg overflow-hidden cursor-pointer group"
             onClick={() => openLightbox(i)}
           >
             <Image

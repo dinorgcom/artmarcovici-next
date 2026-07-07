@@ -75,7 +75,7 @@ export default async function GalleryPage({ params }: { params: Promise<{ catego
             <Link
               key={item.slug}
               href={`/work/${item.slug}`}
-              className="art-card group relative aspect-[4/3] bg-[--color-surface] rounded-lg overflow-hidden"
+              className="art-card group relative aspect-[4/3] bg-surface rounded-lg overflow-hidden"
             >
               {thumbnail ? (
                 <Image

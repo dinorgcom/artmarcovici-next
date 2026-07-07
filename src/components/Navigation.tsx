@@ -56,7 +56,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="font-serif text-xl tracking-wider text-[--color-accent] hover:text-white transition-colors">
+          <Link href="/" className="font-serif text-xl tracking-wider text-accent hover:text-white transition-colors">
             ART MARCOVICI
           </Link>
 
@@ -76,7 +76,7 @@ export default function Navigation() {
                   {cat.label}
                 </Link>
                 {cat.submenu && activeDropdown === cat.label && (
-                  <div className="absolute top-full left-0 w-64 bg-[--color-surface] border border-white/10 rounded-lg shadow-2xl py-2 max-h-96 overflow-y-auto">
+                  <div className="absolute top-full left-0 w-64 bg-surface border border-white/10 rounded-lg shadow-2xl py-2 max-h-96 overflow-y-auto">
                     {cat.submenu.map((item) => (
                       <Link
                         key={item.href}
@@ -110,7 +110,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-[--color-surface] border-t border-white/10 max-h-[80vh] overflow-y-auto">
+        <div className="md:hidden bg-surface border-t border-white/10 max-h-[80vh] overflow-y-auto">
           {navCategories.map((cat) => (
             <div key={cat.label}>
               <Link

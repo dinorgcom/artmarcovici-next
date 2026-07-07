@@ -85,7 +85,7 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
               <Link
                 key={sub.slug}
                 href={`/work/${sub.slug}`}
-                className="art-card group relative aspect-square bg-[--color-surface] rounded-lg overflow-hidden"
+                className="art-card group relative aspect-square bg-surface rounded-lg overflow-hidden"
               >
                 {sub.images[0] ? (
                   <img
