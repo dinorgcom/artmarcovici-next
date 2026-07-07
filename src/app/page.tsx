@@ -62,6 +62,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Play Democratic Chess */}
+      <section className="max-w-7xl mx-auto px-4 pt-20">
+        <Link
+          href="/democratic-chess"
+          className="art-card group relative block overflow-hidden rounded-lg border border-accent/30 hover:border-accent transition-colors duration-300"
+        >
+          <div className="absolute inset-0">
+            <Image
+              src="/images/democratic-chess/01.gif"
+              alt="Democratic Chess — camera figures on a chessboard"
+              fill
+              className="object-cover opacity-40 transition-transform duration-700 group-hover:scale-105"
+              unoptimized
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30" />
+          </div>
+          <div className="relative px-8 py-14 md:px-14 md:py-20 max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent mb-3">Playable installation</p>
+            <h2 className="font-serif text-3xl md:text-5xl tracking-wide mb-4">
+              DEMOCRATIC CHESS
+            </h2>
+            <p className="text-gray-300 mb-8 leading-relaxed">
+              Thirty-two camera-figures and two players. The players only decide{" "}
+              <span className="text-white">who</span> moves — the figures see the board through
+              their own lens and decide <span className="text-white">where</span> to go. Take one
+              of the 34 roles; the rest debate around you.
+            </p>
+            <span className="inline-block px-8 py-3 border border-accent text-accent group-hover:bg-accent group-hover:text-black transition-all duration-300 tracking-widest text-sm uppercase">
+              Play now
+            </span>
+          </div>
+        </Link>
+      </section>
+
       {/* Featured Works */}
       <section className="max-w-7xl mx-auto px-4 py-20">
         <h2 className="font-serif text-3xl md:text-4xl text-center mb-4">Featured Works</h2>
