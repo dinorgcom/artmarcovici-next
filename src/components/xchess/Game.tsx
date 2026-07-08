@@ -37,7 +37,7 @@ interface LogEntry {
   kind: "chess" | "econ" | "find" | "system";
 }
 
-type Phase = "human" | "explore" | "ai" | "over";
+type Phase = "human" | "explore" | "develop" | "ai" | "over";
 
 export default function Game() {
   const chessRef = useRef(new Chess());
@@ -49,8 +49,8 @@ export default function Game() {
   const [cash, setCash] = useState<Record<Color, number>>({ w: START_CASH, b: START_CASH });
   const [claims, setClaims] = useState<Claims>({});
   const [selected, setSelected] = useState<string | null>(null);
-  const [devUsed, setDevUsed] = useState(false);
   const [exploreUsed, setExploreUsed] = useState(false);
+  const [devChoice, setDevChoice] = useState<string>("");
   const [exploreSquare, setExploreSquare] = useState<string | null>(null);
   const [log, setLog] = useState<LogEntry[]>([]);
   const [result, setResult] = useState<string | null>(null);
@@ -121,7 +121,7 @@ export default function Game() {
         setExploreSquare(m.to);
         setPhase("explore");
       } else {
-        setPhase("ai");
+        proceedToDevelop(claims, w);
       }
       rerender();
     },
@@ -148,10 +148,28 @@ export default function Game() {
 
   /* ---------- exploration decision ---------- */
 
+  /** After the move (and exploration): open the development window if possible. */
+  const proceedToDevelop = useCallback(
+    (claimsNow: Claims, cashNow: number) => {
+      const developable = Object.entries(claimsNow)
+        .filter(([, c]) => c.owner === HUMAN && c.dev < MAX_DEV)
+        .map(([sq]) => sq);
+      if (developable.length > 0 && cashNow >= DEV_COST) {
+        setDevChoice(developable[0]);
+        setPhase("develop");
+      } else {
+        setPhase("ai");
+      }
+    },
+    []
+  );
+
   const exploreNow = useCallback(
-    (sq: string) => {
+    (sq: string): { newClaims: Claims; newW: number } => {
       const find = findsRef.current[sq];
-      setClaims((c) => ({ ...c, [sq]: { owner: HUMAN, find, dev: 0 } }));
+      const newClaims: Claims = { ...claims, [sq]: { owner: HUMAN, find, dev: 0 } };
+      const newW = cash.w - EXPLORE_COST + find;
+      setClaims(newClaims);
       setCash((c) => ({ ...c, w: c.w - EXPLORE_COST + find }));
       setExploreUsed(true);
       pushLog(
@@ -160,18 +178,23 @@ export default function Game() {
           : `You explore ${sq} for ${money(EXPLORE_COST)} — nothing down there.`,
         "find"
       );
+      return { newClaims, newW };
     },
-    [pushLog]
+    [claims, cash, pushLog]
   );
 
   const resolveExplore = useCallback(
     (doExplore: boolean) => {
       const sq = exploreSquare;
       setExploreSquare(null);
-      if (doExplore && sq) exploreNow(sq);
-      setPhase("ai");
+      if (doExplore && sq) {
+        const { newClaims, newW } = exploreNow(sq);
+        proceedToDevelop(newClaims, newW);
+      } else {
+        proceedToDevelop(claims, cash.w);
+      }
     },
-    [exploreSquare, exploreNow]
+    [exploreSquare, exploreNow, proceedToDevelop, claims, cash]
   );
 
   /** Explore under a standing piece, before moving. */
@@ -187,28 +210,33 @@ export default function Game() {
     exploreNow(selectedStandingExplore);
   }, [selectedStandingExplore, exploreUsed, phase, cash, exploreNow]);
 
-  /* ---------- develop (one per turn) ---------- */
+  /* ---------- develop (only after the move, any of your claims) ---------- */
 
-  const selectedOwnClaim = useMemo(() => {
-    if (!selected) return null;
-    const c = claims[selected];
-    return c && c.owner === HUMAN ? { square: selected, claim: c } : null;
-  }, [selected, claims]);
+  const developableClaims = useMemo(
+    () =>
+      Object.entries(claims)
+        .filter(([, c]) => c.owner === HUMAN && c.dev < MAX_DEV)
+        .map(([sq, c]) => ({ square: sq, claim: c })),
+    [claims]
+  );
 
-  const develop = useCallback(() => {
-    if (!selectedOwnClaim || devUsed || phase !== "human") return;
-    const { square, claim } = selectedOwnClaim;
-    if (claim.dev >= MAX_DEV || cash.w < DEV_COST) return;
-    setClaims((c) => ({ ...c, [square]: { ...claim, dev: claim.dev + 1 } }));
-    setCash((c) => ({ ...c, w: c.w - DEV_COST }));
-    setDevUsed(true);
-    pushLog(
-      `You develop ${square} to level ${claim.dev + 1} (−${money(DEV_COST)}). Toll is now ${money(
-        TOLL_BASE + TOLL_PER_DEV * (claim.dev + 1)
-      )}.`,
-      "econ"
-    );
-  }, [selectedOwnClaim, devUsed, phase, cash, pushLog]);
+  const resolveDevelop = useCallback(
+    (doDevelop: boolean) => {
+      if (doDevelop && devChoice && claims[devChoice] && cash.w >= DEV_COST) {
+        const claim = claims[devChoice];
+        setClaims((c) => ({ ...c, [devChoice]: { ...claim, dev: claim.dev + 1 } }));
+        setCash((c) => ({ ...c, w: c.w - DEV_COST }));
+        pushLog(
+          `You develop ${devChoice} to level ${claim.dev + 1} (−${money(DEV_COST)}). Toll is now ${money(
+            TOLL_BASE + TOLL_PER_DEV * (claim.dev + 1)
+          )}.`,
+          "econ"
+        );
+      }
+      setPhase("ai");
+    },
+    [devChoice, claims, cash, pushLog]
+  );
 
   /* ---------- AI turn ---------- */
 
@@ -226,14 +254,6 @@ export default function Game() {
       if (b < MOVE_COST) return endGame("The Syndicate cannot afford a move — bankrupt. You win.");
 
       let nextClaims = claims;
-      const devSq = aiDevelopAI(chess, nextClaims, b);
-      if (devSq) {
-        const cur = nextClaims[devSq];
-        nextClaims = { ...nextClaims, [devSq]: { ...cur, dev: cur.dev + 1 } };
-        b -= DEV_COST;
-        pushLog(`The Syndicate develops ${devSq} to level ${cur.dev + 1}.`, "econ");
-      }
-
       const mv = chooseMoveAI(chess, nextClaims, b);
       const m = chess.move({ from: mv.from, to: mv.to, promotion: mv.promotion || "q" });
       b -= MOVE_COST;
@@ -277,6 +297,15 @@ export default function Game() {
         }
       }
 
+      // develop after the move (mirror of the human rule)
+      const devSq = aiDevelopAI(chess, nextClaims, b, AI);
+      if (devSq) {
+        const cur = nextClaims[devSq];
+        nextClaims = { ...nextClaims, [devSq]: { ...cur, dev: cur.dev + 1 } };
+        b -= DEV_COST;
+        pushLog(`The Syndicate develops ${devSq} to level ${cur.dev + 1}.`, "econ");
+      }
+
       setClaims(nextClaims);
       if (checkChessEnd()) {
         setCash({ w, b });
@@ -291,7 +320,6 @@ export default function Game() {
       }
       setCash({ w, b });
       if (w < MOVE_COST) return endGame("You cannot afford a move — bankrupt. The Syndicate wins.");
-      setDevUsed(false);
       setExploreUsed(false);
       setPhase("human");
       rerender();
@@ -311,8 +339,8 @@ export default function Game() {
     setCash({ w: START_CASH, b: START_CASH });
     setClaims({});
     setSelected(null);
-    setDevUsed(false);
     setExploreUsed(false);
+    setDevChoice("");
     setExploreSquare(null);
     setLog([]);
     setResult(null);
@@ -450,41 +478,20 @@ export default function Game() {
             {/* actions */}
             <div className="border border-white/10 rounded-lg p-4">
               <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-3">
-                Actions — one exploration {exploreUsed && <span className="text-accent">(used)</span>}, one
-                development {devUsed && <span className="text-accent">(used)</span>} per turn
+                Exploration — one per turn {exploreUsed && <span className="text-accent">(used)</span>}
               </h2>
               <button
                 onClick={exploreStanding}
                 disabled={!selectedStandingExplore || exploreUsed || phase !== "human" || cash.w < EXPLORE_COST}
-                className="w-full mb-2 px-3 py-2 text-sm border border-white/20 text-gray-300 hover:border-accent transition-colors disabled:opacity-40"
+                className="w-full px-3 py-2 text-sm border border-white/20 text-gray-300 hover:border-accent transition-colors disabled:opacity-40"
               >
                 {selectedStandingExplore
                   ? `Explore under ${selectedStandingExplore} (${money(EXPLORE_COST)})`
                   : "Explore (select a piece on unexplored ground)"}
               </button>
-              <button
-                onClick={develop}
-                disabled={
-                  !selectedOwnClaim ||
-                  devUsed ||
-                  phase !== "human" ||
-                  (selectedOwnClaim ? selectedOwnClaim.claim.dev >= MAX_DEV || cash.w < DEV_COST : true)
-                }
-                className="w-full px-3 py-2 text-sm border border-white/20 text-gray-300 hover:border-accent transition-colors disabled:opacity-40"
-              >
-                {selectedOwnClaim
-                  ? selectedOwnClaim.claim.dev >= MAX_DEV
-                    ? `${selectedOwnClaim.square} is fully developed`
-                    : `Develop ${selectedOwnClaim.square} (${money(DEV_COST)})`
-                  : "Develop (select one of your claims)"}
-              </button>
-              {selectedOwnClaim && selectedOwnClaim.claim.dev < MAX_DEV && (
-                <p className="mt-2 text-[11px] text-gray-500">
-                  Level {selectedOwnClaim.claim.dev} → {selectedOwnClaim.claim.dev + 1}: toll{" "}
-                  {money(tollOf(selectedOwnClaim.claim))} → {money(tollOf(selectedOwnClaim.claim) + TOLL_PER_DEV)}, passive +
-                  {money(PASSIVE_PER_DEV)}/turn
-                </p>
-              )}
+              <p className="mt-2 text-[11px] text-gray-500">
+                Development happens after your move — you will be asked.
+              </p>
             </div>
 
             {/* transparent cost table */}
@@ -495,7 +502,10 @@ export default function Game() {
                 Explore a square one of your pieces stands on: <span className="text-white">{money(EXPLORE_COST)}</span>{" "}
                 (one per turn)
               </p>
-              <p>Develop a claim (max {MAX_DEV}): <span className="text-white">{money(DEV_COST)}</span> / level</p>
+              <p>
+                Develop any of your claims after your move (max {MAX_DEV}):{" "}
+                <span className="text-white">{money(DEV_COST)}</span> / level
+              </p>
               <p>
                 Toll on enemy claims: <span className="text-white">{money(TOLL_BASE)} + {money(TOLL_PER_DEV)}×level</span>
               </p>
@@ -537,6 +547,46 @@ export default function Game() {
           </div>
         </div>
       </div>
+
+      {/* develop prompt (after the move) */}
+      {phase === "develop" && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+          <div className="max-w-md w-full border border-accent/40 rounded-xl bg-black/90 p-6 text-center">
+            <h2 className="font-serif text-2xl text-accent mb-2">Develop a claim?</h2>
+            <p className="text-gray-400 text-sm mb-4">
+              One development per turn, {money(DEV_COST)} per level — on any of your claims.
+            </p>
+            <select
+              value={devChoice}
+              onChange={(e) => setDevChoice(e.target.value)}
+              className="w-full bg-black border border-white/20 text-sm text-gray-200 px-2 py-2 mb-2"
+            >
+              {developableClaims.map(({ square, claim }) => (
+                <option key={square} value={square}>
+                  {square} — level {claim.dev} → {claim.dev + 1}, toll {money(tollOf(claim))} →{" "}
+                  {money(tollOf(claim) + TOLL_PER_DEV)}
+                </option>
+              ))}
+            </select>
+            <p className="text-[11px] text-gray-600 mb-5">Each level also pays you {money(PASSIVE_PER_DEV)} per turn.</p>
+            <div className="flex gap-3 justify-center">
+              <button
+                onClick={() => resolveDevelop(true)}
+                disabled={!devChoice || cash.w < DEV_COST}
+                className="px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-black transition-all text-sm uppercase tracking-widest disabled:opacity-40"
+              >
+                Develop ({money(DEV_COST)})
+              </button>
+              <button
+                onClick={() => resolveDevelop(false)}
+                className="px-6 py-2 border border-white/20 text-gray-400 hover:text-white transition-all text-sm uppercase tracking-widest"
+              >
+                End turn
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* explore prompt */}
       {phase === "explore" && exploreSquare && (

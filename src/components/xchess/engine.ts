@@ -135,11 +135,11 @@ export function aiWantsExplore(claims: Claims, cash: number): boolean {
 }
 
 /** Pick a square the AI should develop, or null. */
-export function aiDevelopAI(chess: Chess, claims: Claims, cash: number): string | null {
+export function aiDevelopAI(chess: Chess, claims: Claims, cash: number, me: Color): string | null {
   if (cash < DEV_COST + 700) return null;
   // develop own squares that enemy pieces can currently reach
   const fen = chess.fen().split(" ");
-  fen[1] = chess.turn() === "w" ? "b" : "w";
+  fen[1] = me === "w" ? "b" : "w";
   fen[3] = "-";
   let enemyTargets = new Set<string>();
   try {
@@ -150,7 +150,7 @@ export function aiDevelopAI(chess: Chess, claims: Claims, cash: number): string 
   let best: string | null = null;
   let bestScore = 0;
   for (const [sq, c] of Object.entries(claims)) {
-    if (c.owner !== chess.turn() || c.dev >= MAX_DEV) continue;
+    if (c.owner !== me || c.dev >= MAX_DEV) continue;
     const score = (enemyTargets.has(sq) ? 3 : 1) + c.dev * 0.2;
     if (score > bestScore) {
       bestScore = score;
