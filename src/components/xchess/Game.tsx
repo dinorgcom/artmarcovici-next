@@ -377,9 +377,15 @@ export default function Game() {
                             } ${claim.find >= 1000 ? "shadow-[inset_0_0_12px_rgba(212,168,83,0.5)]" : ""}`}
                           />
                         )}
-                        {claim && claim.dev > 0 && (
-                          <span className="absolute top-0.5 right-1 text-[9px] leading-none pointer-events-none font-bold text-accent">
-                            {"▮".repeat(claim.dev)}
+                        {claim && (
+                          <span
+                            className={`absolute inset-x-0 bottom-0 flex items-center justify-center gap-1 py-[1px] pointer-events-none font-mono text-[9px] leading-none text-white ${
+                              claim.owner === HUMAN ? "bg-blue-600/85" : "bg-red-700/85"
+                            }`}
+                          >
+                            <span className="opacity-90">{claim.owner === HUMAN ? "YOU" : "SYN"}</span>
+                            {claim.dev > 0 && <span className="text-accent tracking-tighter">{"▮".repeat(claim.dev)}</span>}
+                            <span>${tollOf(claim)}</span>
                           </span>
                         )}
                         {claim && claim.find > 0 && (
@@ -402,9 +408,6 @@ export default function Game() {
                             )}
                           </span>
                         )}
-                        {tollDue > 0 && (
-                          <span className="absolute bottom-0.5 right-1 text-[9px] text-red-400 pointer-events-none font-mono">-{tollDue}</span>
-                        )}
                         {piece && (
                           <span
                             className={`text-[min(6.5vw,44px)] leading-none pointer-events-none ${
@@ -417,7 +420,7 @@ export default function Game() {
                             {PIECE_SYMBOLS[piece.color][piece.type as PieceType]}
                           </span>
                         )}
-                        <span className="absolute bottom-0.5 left-1 text-[8px] text-gray-500/70 pointer-events-none">{square}</span>
+                        <span className="absolute top-0.5 right-1 text-[8px] text-gray-500/70 pointer-events-none">{square}</span>
                       </button>
                     );
                   })}
