@@ -42,6 +42,7 @@ const navCategories = [
       label: item.title,
     })),
   },
+  { label: "Book", href: "/command-responsibility" },
   { label: "Biography", href: "/work/BIOGRAPHY" },
   { label: "News", href: "/work/in-the-news" },
   { label: "Contact", href: "/work/about" },
