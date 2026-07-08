@@ -82,6 +82,14 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
             Play Democratic Chess
           </Link>
         )}
+        {fullSlug === "free-market-chess" && (
+          <Link
+            href="/free-market-chess"
+            className="inline-block mt-6 px-8 py-3 border border-accent text-accent hover:bg-accent hover:text-black transition-all duration-300 tracking-widest text-sm uppercase"
+          >
+            Play Free Market Chess
+          </Link>
+        )}
       </div>
 
       {/* Sub-pages grid (for category pages) */}
