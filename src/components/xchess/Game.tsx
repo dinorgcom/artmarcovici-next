@@ -49,7 +49,6 @@ export default function Game() {
   const [cash, setCash] = useState<Record<Color, number>>({ w: START_CASH, b: START_CASH });
   const [claims, setClaims] = useState<Claims>({});
   const [selected, setSelected] = useState<string | null>(null);
-  const [exploreUsed, setExploreUsed] = useState(false);
   const [devChoice, setDevChoice] = useState<string>("");
   const [exploreSquare, setExploreSquare] = useState<string | null>(null);
   const [log, setLog] = useState<LogEntry[]>([]);
@@ -117,7 +116,7 @@ export default function Game() {
       if (w < 0) return endGame("You cannot pay — bankrupt. The Syndicate wins.");
       if (checkChessEnd()) return;
 
-      if (!claims[m.to] && w >= EXPLORE_COST && !exploreUsed) {
+      if (!claims[m.to] && w >= EXPLORE_COST) {
         setExploreSquare(m.to);
         setPhase("explore");
       } else {
@@ -125,7 +124,7 @@ export default function Game() {
       }
       rerender();
     },
-    [chess, cash, claims, exploreUsed, checkChessEnd, endGame, pushLog, rerender]
+    [chess, cash, claims, checkChessEnd, endGame, pushLog, rerender]
   );
 
   const handleSquareClick = useCallback(
@@ -164,51 +163,29 @@ export default function Game() {
     []
   );
 
-  const exploreNow = useCallback(
-    (sq: string): { newClaims: Claims; newW: number } => {
-      const find = findsRef.current[sq];
-      const newClaims: Claims = { ...claims, [sq]: { owner: HUMAN, find, dev: 0 } };
-      const newW = cash.w - EXPLORE_COST + find;
-      setClaims(newClaims);
-      setCash((c) => ({ ...c, w: c.w - EXPLORE_COST + find }));
-      setExploreUsed(true);
-      pushLog(
-        find > 0
-          ? `You explore ${sq} for ${money(EXPLORE_COST)} — and strike ${money(find)}!`
-          : `You explore ${sq} for ${money(EXPLORE_COST)} — nothing down there.`,
-        "find"
-      );
-      return { newClaims, newW };
-    },
-    [claims, cash, pushLog]
-  );
-
   const resolveExplore = useCallback(
     (doExplore: boolean) => {
       const sq = exploreSquare;
       setExploreSquare(null);
       if (doExplore && sq) {
-        const { newClaims, newW } = exploreNow(sq);
+        const find = findsRef.current[sq];
+        const newClaims: Claims = { ...claims, [sq]: { owner: HUMAN, find, dev: 0 } };
+        const newW = cash.w - EXPLORE_COST + find;
+        setClaims(newClaims);
+        setCash((c) => ({ ...c, w: c.w - EXPLORE_COST + find }));
+        pushLog(
+          find > 0
+            ? `You explore ${sq} for ${money(EXPLORE_COST)} — and strike ${money(find)}! The square is yours.`
+            : `You explore ${sq} for ${money(EXPLORE_COST)} — nothing down there, but the square is yours.`,
+          "find"
+        );
         proceedToDevelop(newClaims, newW);
       } else {
         proceedToDevelop(claims, cash.w);
       }
     },
-    [exploreSquare, exploreNow, proceedToDevelop, claims, cash]
+    [exploreSquare, proceedToDevelop, claims, cash, pushLog]
   );
-
-  /** Explore under a standing piece, before moving. */
-  const selectedStandingExplore = useMemo(() => {
-    if (!selected || claims[selected]) return null;
-    const piece = chess.get(selected as Square);
-    return piece && piece.color === HUMAN ? selected : null;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selected, claims, phase, log.length]);
-
-  const exploreStanding = useCallback(() => {
-    if (!selectedStandingExplore || exploreUsed || phase !== "human" || cash.w < EXPLORE_COST) return;
-    exploreNow(selectedStandingExplore);
-  }, [selectedStandingExplore, exploreUsed, phase, cash, exploreNow]);
 
   /* ---------- develop (only after the move, any of your claims) ---------- */
 
@@ -272,29 +249,16 @@ export default function Game() {
         return endGame("The Syndicate cannot pay your toll — bankrupt. You win.");
       }
 
-      if (aiWantsExplore(nextClaims, b)) {
-        // explore the landed square, or the ground under any standing piece
-        let target: string | null = !nextClaims[m.to] ? m.to : null;
-        if (!target) {
-          const standing: string[] = [];
-          for (const row of chess.board()) {
-            for (const cell of row) {
-              if (cell && cell.color === AI && !nextClaims[cell.square]) standing.push(cell.square);
-            }
-          }
-          target = standing.length ? standing[Math.floor(Math.random() * standing.length)] : null;
-        }
-        if (target) {
-          const find = findsRef.current[target];
-          nextClaims = { ...nextClaims, [target]: { owner: AI, find, dev: 0 } };
-          b = b - EXPLORE_COST + find;
-          pushLog(
-            find > 0
-              ? `The Syndicate explores ${target} — and strikes ${money(find)}!`
-              : `The Syndicate explores ${target} — dust and rocks.`,
-            "find"
-          );
-        }
+      if (!nextClaims[m.to] && aiWantsExplore(nextClaims, b)) {
+        const find = findsRef.current[m.to];
+        nextClaims = { ...nextClaims, [m.to]: { owner: AI, find, dev: 0 } };
+        b = b - EXPLORE_COST + find;
+        pushLog(
+          find > 0
+            ? `The Syndicate explores ${m.to} — and strikes ${money(find)}!`
+            : `The Syndicate explores ${m.to} — dust and rocks.`,
+          "find"
+        );
       }
 
       // develop after the move (mirror of the human rule)
@@ -320,7 +284,6 @@ export default function Game() {
       }
       setCash({ w, b });
       if (w < MOVE_COST) return endGame("You cannot afford a move — bankrupt. The Syndicate wins.");
-      setExploreUsed(false);
       setPhase("human");
       rerender();
     }, 900);
@@ -339,7 +302,6 @@ export default function Game() {
     setCash({ w: START_CASH, b: START_CASH });
     setClaims({});
     setSelected(null);
-    setExploreUsed(false);
     setDevChoice("");
     setExploreSquare(null);
     setLog([]);
@@ -475,23 +437,14 @@ export default function Game() {
 
           {/* side panel */}
           <div className="space-y-4">
-            {/* actions */}
+            {/* turn order */}
             <div className="border border-white/10 rounded-lg p-4">
-              <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-3">
-                Exploration — one per turn {exploreUsed && <span className="text-accent">(used)</span>}
-              </h2>
-              <button
-                onClick={exploreStanding}
-                disabled={!selectedStandingExplore || exploreUsed || phase !== "human" || cash.w < EXPLORE_COST}
-                className="w-full px-3 py-2 text-sm border border-white/20 text-gray-300 hover:border-accent transition-colors disabled:opacity-40"
-              >
-                {selectedStandingExplore
-                  ? `Explore under ${selectedStandingExplore} (${money(EXPLORE_COST)})`
-                  : "Explore (select a piece on unexplored ground)"}
-              </button>
-              <p className="mt-2 text-[11px] text-gray-500">
-                Development happens after your move — you will be asked.
-              </p>
+              <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-2">How a turn works</h2>
+              <ol className="text-[11px] text-gray-400 list-decimal list-inside space-y-1">
+                <li>Move a piece ({money(MOVE_COST)}).</li>
+                <li>Landed on unexplored ground? You may explore it ({money(EXPLORE_COST)}) — it becomes yours.</li>
+                <li>Develop one of your claims ({money(DEV_COST)}) — or end your turn.</li>
+              </ol>
             </div>
 
             {/* transparent cost table */}
@@ -499,8 +452,8 @@ export default function Game() {
               <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-2">The rules of the market</h2>
               <p>Move a piece: <span className="text-white">{money(MOVE_COST)}</span></p>
               <p>
-                Explore a square one of your pieces stands on: <span className="text-white">{money(EXPLORE_COST)}</span>{" "}
-                (one per turn)
+                Explore the square you moved to: <span className="text-white">{money(EXPLORE_COST)}</span> — the find and
+                the square become yours
               </p>
               <p>
                 Develop any of your claims after your move (max {MAX_DEV}):{" "}
