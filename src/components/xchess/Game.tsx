@@ -50,6 +50,7 @@ export default function Game() {
   const [claims, setClaims] = useState<Claims>({});
   const [selected, setSelected] = useState<string | null>(null);
   const [devUsed, setDevUsed] = useState(false);
+  const [exploreUsed, setExploreUsed] = useState(false);
   const [exploreSquare, setExploreSquare] = useState<string | null>(null);
   const [log, setLog] = useState<LogEntry[]>([]);
   const [result, setResult] = useState<string | null>(null);
@@ -116,7 +117,7 @@ export default function Game() {
       if (w < 0) return endGame("You cannot pay — bankrupt. The Syndicate wins.");
       if (checkChessEnd()) return;
 
-      if (!claims[m.to] && w >= EXPLORE_COST) {
+      if (!claims[m.to] && w >= EXPLORE_COST && !exploreUsed) {
         setExploreSquare(m.to);
         setPhase("explore");
       } else {
@@ -124,7 +125,7 @@ export default function Game() {
       }
       rerender();
     },
-    [chess, cash, claims, checkChessEnd, endGame, pushLog, rerender]
+    [chess, cash, claims, exploreUsed, checkChessEnd, endGame, pushLog, rerender]
   );
 
   const handleSquareClick = useCallback(
@@ -147,25 +148,44 @@ export default function Game() {
 
   /* ---------- exploration decision ---------- */
 
+  const exploreNow = useCallback(
+    (sq: string) => {
+      const find = findsRef.current[sq];
+      setClaims((c) => ({ ...c, [sq]: { owner: HUMAN, find, dev: 0 } }));
+      setCash((c) => ({ ...c, w: c.w - EXPLORE_COST + find }));
+      setExploreUsed(true);
+      pushLog(
+        find > 0
+          ? `You explore ${sq} for ${money(EXPLORE_COST)} — and strike ${money(find)}!`
+          : `You explore ${sq} for ${money(EXPLORE_COST)} — nothing down there.`,
+        "find"
+      );
+    },
+    [pushLog]
+  );
+
   const resolveExplore = useCallback(
     (doExplore: boolean) => {
       const sq = exploreSquare;
       setExploreSquare(null);
-      if (doExplore && sq) {
-        const find = findsRef.current[sq];
-        setClaims((c) => ({ ...c, [sq]: { owner: HUMAN, find, dev: 0 } }));
-        setCash((c) => ({ ...c, w: c.w - EXPLORE_COST + find }));
-        pushLog(
-          find > 0
-            ? `You explore ${sq} for ${money(EXPLORE_COST)} — and strike ${money(find)}!`
-            : `You explore ${sq} for ${money(EXPLORE_COST)} — nothing down there.`,
-          "find"
-        );
-      }
+      if (doExplore && sq) exploreNow(sq);
       setPhase("ai");
     },
-    [exploreSquare, pushLog]
+    [exploreSquare, exploreNow]
   );
+
+  /** Explore under a standing piece, before moving. */
+  const selectedStandingExplore = useMemo(() => {
+    if (!selected || claims[selected]) return null;
+    const piece = chess.get(selected as Square);
+    return piece && piece.color === HUMAN ? selected : null;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selected, claims, phase, log.length]);
+
+  const exploreStanding = useCallback(() => {
+    if (!selectedStandingExplore || exploreUsed || phase !== "human" || cash.w < EXPLORE_COST) return;
+    exploreNow(selectedStandingExplore);
+  }, [selectedStandingExplore, exploreUsed, phase, cash, exploreNow]);
 
   /* ---------- develop (one per turn) ---------- */
 
@@ -232,16 +252,29 @@ export default function Game() {
         return endGame("The Syndicate cannot pay your toll — bankrupt. You win.");
       }
 
-      if (!nextClaims[m.to] && aiWantsExplore(nextClaims, b)) {
-        const find = findsRef.current[m.to];
-        nextClaims = { ...nextClaims, [m.to]: { owner: AI, find, dev: 0 } };
-        b = b - EXPLORE_COST + find;
-        pushLog(
-          find > 0
-            ? `The Syndicate explores ${m.to} — and strikes ${money(find)}!`
-            : `The Syndicate explores ${m.to} — dust and rocks.`,
-          "find"
-        );
+      if (aiWantsExplore(nextClaims, b)) {
+        // explore the landed square, or the ground under any standing piece
+        let target: string | null = !nextClaims[m.to] ? m.to : null;
+        if (!target) {
+          const standing: string[] = [];
+          for (const row of chess.board()) {
+            for (const cell of row) {
+              if (cell && cell.color === AI && !nextClaims[cell.square]) standing.push(cell.square);
+            }
+          }
+          target = standing.length ? standing[Math.floor(Math.random() * standing.length)] : null;
+        }
+        if (target) {
+          const find = findsRef.current[target];
+          nextClaims = { ...nextClaims, [target]: { owner: AI, find, dev: 0 } };
+          b = b - EXPLORE_COST + find;
+          pushLog(
+            find > 0
+              ? `The Syndicate explores ${target} — and strikes ${money(find)}!`
+              : `The Syndicate explores ${target} — dust and rocks.`,
+            "find"
+          );
+        }
       }
 
       setClaims(nextClaims);
@@ -259,6 +292,7 @@ export default function Game() {
       setCash({ w, b });
       if (w < MOVE_COST) return endGame("You cannot afford a move — bankrupt. The Syndicate wins.");
       setDevUsed(false);
+      setExploreUsed(false);
       setPhase("human");
       rerender();
     }, 900);
@@ -278,6 +312,7 @@ export default function Game() {
     setClaims({});
     setSelected(null);
     setDevUsed(false);
+    setExploreUsed(false);
     setExploreSquare(null);
     setLog([]);
     setResult(null);
@@ -415,8 +450,18 @@ export default function Game() {
             {/* actions */}
             <div className="border border-white/10 rounded-lg p-4">
               <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-3">
-                Development — one per turn {devUsed && <span className="text-accent">(used)</span>}
+                Actions — one exploration {exploreUsed && <span className="text-accent">(used)</span>}, one
+                development {devUsed && <span className="text-accent">(used)</span>} per turn
               </h2>
+              <button
+                onClick={exploreStanding}
+                disabled={!selectedStandingExplore || exploreUsed || phase !== "human" || cash.w < EXPLORE_COST}
+                className="w-full mb-2 px-3 py-2 text-sm border border-white/20 text-gray-300 hover:border-accent transition-colors disabled:opacity-40"
+              >
+                {selectedStandingExplore
+                  ? `Explore under ${selectedStandingExplore} (${money(EXPLORE_COST)})`
+                  : "Explore (select a piece on unexplored ground)"}
+              </button>
               <button
                 onClick={develop}
                 disabled={
@@ -446,7 +491,10 @@ export default function Game() {
             <div className="border border-white/10 rounded-lg p-4 text-[11px] text-gray-400 space-y-1">
               <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-2">The rules of the market</h2>
               <p>Move a piece: <span className="text-white">{money(MOVE_COST)}</span></p>
-              <p>Explore the square you landed on: <span className="text-white">{money(EXPLORE_COST)}</span></p>
+              <p>
+                Explore a square one of your pieces stands on: <span className="text-white">{money(EXPLORE_COST)}</span>{" "}
+                (one per turn)
+              </p>
               <p>Develop a claim (max {MAX_DEV}): <span className="text-white">{money(DEV_COST)}</span> / level</p>
               <p>
                 Toll on enemy claims: <span className="text-white">{money(TOLL_BASE)} + {money(TOLL_PER_DEV)}×level</span>
