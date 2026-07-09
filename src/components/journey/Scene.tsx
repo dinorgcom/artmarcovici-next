@@ -948,7 +948,7 @@ function Memorials() {
 }
 
 /** The airfield and the town of Irena, both part of the Dęblin chapter. */
-function DeblinSurroundings() {
+function DeblinSurroundings({ airfieldLabel }: { airfieldLabel: string }) {
   const [dx, dz] = project(51.56, 21.86);
   return (
     <group>
@@ -980,7 +980,7 @@ function DeblinSurroundings() {
               whiteSpace: "nowrap",
             }}
           >
-            the airfield
+            {airfieldLabel}
           </div>
         </Html>
       </group>
@@ -1101,9 +1101,13 @@ function CameraRig({ focus, controlsRef }: { focus: Station | null; controlsRef:
 export default function JourneyScene({
   focus,
   onSelect,
+  stations = STATIONS,
+  airfieldLabel = "the airfield",
 }: {
   focus: Station | null;
   onSelect: (s: Station) => void;
+  stations?: Station[];
+  airfieldLabel?: string;
 }) {
   const controlsRef = useRef<OrbitControlsImpl | null>(null);
   return (
@@ -1117,9 +1121,9 @@ export default function JourneyScene({
         <Path />
         <Trees />
         <Memorials />
-        <DeblinSurroundings />
+        <DeblinSurroundings airfieldLabel={airfieldLabel} />
 
-        {STATIONS.map((s, i) => (
+        {stations.map((s, i) => (
           <group key={s.slug} position={[s.pos[0], 0, s.pos[1]]}>
             <StationModel kind={s.kind} />
             {/* invisible hit volume */}

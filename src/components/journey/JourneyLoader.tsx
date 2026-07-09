@@ -11,6 +11,6 @@ const Journey = dynamic(() => import("./Journey"), {
   ),
 });
 
-export default function JourneyLoader() {
-  return <Journey />;
+export default function JourneyLoader({ lang = "en" }: { lang?: "en" | "de" }) {
+  return <Journey lang={lang} />;
 }

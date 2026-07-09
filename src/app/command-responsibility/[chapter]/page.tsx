@@ -159,6 +159,15 @@ export default async function ChapterPage({
             <span className="flex-1" />
           )}
         </nav>
+
+        <p className="text-xs text-gray-600 mt-8">
+          <Link
+            href={`/befehlsnotstand/${ch.slug}`}
+            className="hover:text-gray-400 transition-colors"
+          >
+            Dieses Kapitel auf Deutsch lesen →
+          </Link>
+        </p>
       </article>
     </div>
   );

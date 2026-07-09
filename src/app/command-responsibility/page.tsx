@@ -101,6 +101,12 @@ export default function BookPage() {
             >
               Download EPUB (free)
             </a>
+            <Link
+              href="/befehlsnotstand"
+              className="inline-block px-8 py-3 border border-white/30 text-gray-300 hover:border-white hover:text-white transition-all duration-300 tracking-widest text-sm uppercase"
+            >
+              Deutsche Ausgabe
+            </Link>
           </div>
           <p className="text-sm text-gray-600 mt-4">
             {Math.round(totalWords / 1000)}k words · approx. {Math.round(totalWords / 150 / 60 * 10) / 10} hours

@@ -2,10 +2,11 @@
  * Generate the Command Responsibility audiobook via the ElevenLabs API.
  *
  * Usage:
- *   ELEVENLABS_API_KEY=... node scripts/generate-audiobook.mjs [slug ...]
+ *   ELEVENLABS_API_KEY=... node scripts/generate-audiobook.mjs [--book de] [slug ...]
  *
- * Without arguments all chapters are generated; pass chapter slugs to
+ * Without slug arguments all chapters are generated; pass chapter slugs to
  * (re)generate specific ones. Output: public/book/audio/<slug>.mp3
+ * (German edition: --book de reads book-de.json, writes public/book/audio-de/)
  *
  * Optional env:
  *   ELEVENLABS_VOICE_ID  (default: George — calm British narrator)
@@ -16,8 +17,12 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const BOOK = JSON.parse(fs.readFileSync(path.join(ROOT, "src/data/book.json"), "utf-8"));
-const OUT_DIR = path.join(ROOT, "public/book/audio");
+const args = process.argv.slice(2);
+const bookFlag = args.indexOf("--book");
+const LANG = bookFlag !== -1 ? args.splice(bookFlag, 2)[1] : "en";
+const BOOK_FILE = LANG === "de" ? "src/data/book-de.json" : "src/data/book.json";
+const BOOK = JSON.parse(fs.readFileSync(path.join(ROOT, BOOK_FILE), "utf-8"));
+const OUT_DIR = path.join(ROOT, LANG === "de" ? "public/book/audio-de" : "public/book/audio");
 
 const API_KEY = process.env.ELEVENLABS_API_KEY;
 const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || "JBFqnCBsd6RMkjVDRZzb";
@@ -132,7 +137,7 @@ async function generateChapter(ch) {
 
 async function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
-  const only = process.argv.slice(2);
+  const only = args;
   const chapters = BOOK.chapters.filter(
     (ch) => ch.words > 0 && (only.length === 0 || only.includes(ch.slug))
   );
