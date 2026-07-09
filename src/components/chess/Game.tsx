@@ -302,16 +302,16 @@ export default function Game() {
       />
 
       {/* top bar */}
-      <div className="absolute top-16 left-0 right-0 flex items-center justify-between px-4 py-3 bg-gradient-to-b from-black/90 to-transparent pointer-events-none">
-        <div className="pointer-events-auto">
-          <Link href="/work/democratic-chess" className="text-xs tracking-widest text-gray-500 hover:text-white transition-colors uppercase">
+      <div className="absolute top-16 left-0 right-0 flex items-start justify-between gap-3 px-4 py-3 bg-gradient-to-b from-black/90 to-transparent pointer-events-none">
+        <div className="pointer-events-auto shrink-0">
+          <Link href="/work/democratic-chess" className="text-xs tracking-widest text-gray-500 hover:text-white transition-colors uppercase whitespace-nowrap">
             ← Democratic Chess
           </Link>
-          <h1 className="font-serif text-xl text-accent tracking-wider">DEMOCRATIC CHESS</h1>
+          <h1 className="hidden sm:block font-serif text-xl text-accent tracking-wider">DEMOCRATIC CHESS</h1>
         </div>
         {phase !== "role" && (
-          <div className="text-right pointer-events-auto">
-            <p className="text-sm text-gray-300">{statusText}</p>
+          <div className="text-right pointer-events-auto min-w-0">
+            <p className="text-xs sm:text-sm text-gray-300">{statusText}</p>
             <div className="mt-1 flex items-center justify-end gap-3">
               <button
                 onClick={() => setMuted((m) => !m)}
@@ -333,12 +333,12 @@ export default function Game() {
 
       {/* prominent center prompt when it is the human's turn */}
       {prompt && (
-        <div className="absolute inset-x-0 top-[15%] flex justify-center pointer-events-none">
+        <div className="absolute inset-x-0 top-[24%] sm:top-[15%] flex justify-center pointer-events-none">
           <div className="text-center animate-pulse px-4">
-            <p className="font-serif text-4xl md:text-6xl tracking-widest text-orange-400 drop-shadow-[0_0_18px_rgba(251,146,60,0.65)]">
+            <p className="font-serif text-2xl sm:text-4xl md:text-6xl tracking-widest text-orange-400 drop-shadow-[0_0_18px_rgba(251,146,60,0.65)]">
               {prompt.title}
             </p>
-            <p className="mt-2 text-sm md:text-base uppercase tracking-widest text-orange-300/90 drop-shadow-[0_0_8px_rgba(251,146,60,0.5)]">
+            <p className="mt-2 text-xs sm:text-sm md:text-base uppercase tracking-widest text-orange-300/90 drop-shadow-[0_0_8px_rgba(251,146,60,0.5)]">
               {prompt.sub}
             </p>
           </div>
@@ -347,7 +347,7 @@ export default function Game() {
 
       {/* dispatch log */}
       {phase !== "role" && (
-        <div className="absolute bottom-4 left-4 w-80 max-w-[calc(100vw-2rem)] max-h-48 overflow-y-auto rounded-lg border border-white/10 bg-black/70 backdrop-blur-sm p-3 text-xs space-y-1">
+        <div className="absolute bottom-4 left-4 w-80 max-w-[calc(100vw-2rem)] max-h-24 sm:max-h-48 overflow-y-auto rounded-lg border border-white/10 bg-black/70 backdrop-blur-sm p-3 text-xs space-y-1">
           {log.slice(-14).map((e) => (
             <p
               key={e.id}

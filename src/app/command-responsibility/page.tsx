@@ -81,6 +81,12 @@ export default function BookPage() {
             >
               Start Reading
             </Link>
+            <Link
+              href="/command-responsibility/journey"
+              className="inline-block px-8 py-3 border border-accent text-accent hover:bg-accent hover:text-black transition-all duration-300 tracking-widest text-sm uppercase"
+            >
+              Explore the Journey (3D)
+            </Link>
             <a
               href="/book/command-responsibility-hermann-wenkart.pdf"
               download
