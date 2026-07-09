@@ -13,15 +13,18 @@ export const TOLL_BASE = 100;
 export const TOLL_PER_DEV = 250;
 export const PASSIVE_PER_DEV = 25;
 
-/** The hidden treasure distribution: 32×0, 16×250, 8×500, 4×1000, 2×2500, 1×5000, 1×10000. */
+/**
+ * The hidden resource distribution — each value is RECURRING income the owner
+ * collects every round: 32×0, 16×$50, 8×$100, 4×$250, 2×$500, 1×$1000, 1×$2500.
+ */
 export const FIND_DISTRIBUTION: { value: number; count: number }[] = [
   { value: 0, count: 32 },
-  { value: 250, count: 16 },
-  { value: 500, count: 8 },
-  { value: 1000, count: 4 },
-  { value: 2500, count: 2 },
-  { value: 5000, count: 1 },
-  { value: 10000, count: 1 },
+  { value: 50, count: 16 },
+  { value: 100, count: 8 },
+  { value: 250, count: 4 },
+  { value: 500, count: 2 },
+  { value: 1000, count: 1 },
+  { value: 2500, count: 1 },
 ];
 
 const FILES = "abcdefgh";
@@ -59,13 +62,16 @@ export function tollOf(claim: Claim): number {
   return TOLL_BASE + TOLL_PER_DEV * claim.dev;
 }
 
+/** Per-round income: every owned claim pays its find, plus $25 per development level. */
 export function passiveIncome(claims: Claims, color: Color): number {
-  let dev = 0;
-  for (const c of Object.values(claims)) if (c.owner === color) dev += c.dev;
-  return dev * PASSIVE_PER_DEV;
+  let total = 0;
+  for (const c of Object.values(claims)) {
+    if (c.owner === color) total += c.find + c.dev * PASSIVE_PER_DEV;
+  }
+  return total;
 }
 
-/** Expected value of exploring right now, given what has been found so far. */
+/** Expected per-round yield of exploring right now, given what has been found so far. */
 export function explorationEV(claims: Claims): number {
   const remaining: Record<number, number> = {};
   for (const { value, count } of FIND_DISTRIBUTION) remaining[value] = count;
@@ -114,7 +120,7 @@ export function chooseMoveAI(chess: Chess, claims: Claims, cash: number): Move {
       score -= toll * (toll >= cash - MOVE_COST ? 40 : 1.6);
     }
     if (!claim && cash > EXPLORE_COST + 500) {
-      score += Math.min(explorationEV(claims) * 0.35, 250); // treasure hunting
+      score += Math.min(explorationEV(claims) * 4, 350); // recurring income is worth chasing
     }
     const probe = new Chess(chess.fen());
     probe.move({ from: m.from, to: m.to, promotion: m.promotion || "q" });
@@ -131,7 +137,8 @@ export function chooseMoveAI(chess: Chess, claims: Claims, cash: number): Move {
 
 export function aiWantsExplore(claims: Claims, cash: number): boolean {
   if (cash < EXPLORE_COST + 400) return false;
-  return explorationEV(claims) > EXPLORE_COST * 0.55 || cash > 2000;
+  // a recurring find pays for many rounds — explore when the 8-round EV beats the cost
+  return explorationEV(claims) * 8 > EXPLORE_COST || cash > 2000;
 }
 
 /** Pick a square the AI should develop, or null. */

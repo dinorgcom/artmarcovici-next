@@ -37,7 +37,7 @@ interface LogEntry {
   kind: "chess" | "econ" | "find" | "system";
 }
 
-type Phase = "human" | "explore" | "develop" | "ai" | "over";
+type Phase = "human" | "explore" | "reveal" | "develop" | "ai" | "over";
 
 export default function Game() {
   const chessRef = useRef(new Chess());
@@ -50,6 +50,7 @@ export default function Game() {
   const [claims, setClaims] = useState<Claims>({});
   const [selected, setSelected] = useState<string | null>(null);
   const [devChoice, setDevChoice] = useState<string>("");
+  const [reveal, setReveal] = useState<{ square: string; find: number; claims: Claims; w: number } | null>(null);
   const [exploreSquare, setExploreSquare] = useState<string | null>(null);
   const [log, setLog] = useState<LogEntry[]>([]);
   const [result, setResult] = useState<string | null>(null);
@@ -65,7 +66,7 @@ export default function Game() {
   useEffect(() => () => timers.current.forEach(clearTimeout), []);
 
   useEffect(() => {
-    pushLog("The board hides treasures worth $32,000 in total. Every move costs $100. Good luck.", "system");
+    pushLog("Resources worth $7,100 per round are hidden under the board. Every move costs $100. Good luck.", "system");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -170,16 +171,17 @@ export default function Game() {
       if (doExplore && sq) {
         const find = findsRef.current[sq];
         const newClaims: Claims = { ...claims, [sq]: { owner: HUMAN, find, dev: 0 } };
-        const newW = cash.w - EXPLORE_COST + find;
+        const newW = cash.w - EXPLORE_COST;
         setClaims(newClaims);
-        setCash((c) => ({ ...c, w: c.w - EXPLORE_COST + find }));
+        setCash((c) => ({ ...c, w: c.w - EXPLORE_COST }));
         pushLog(
           find > 0
-            ? `You explore ${sq} for ${money(EXPLORE_COST)} — and strike ${money(find)}! The square is yours.`
+            ? `You explore ${sq} for ${money(EXPLORE_COST)} — and strike ${money(find)} per round! The square is yours.`
             : `You explore ${sq} for ${money(EXPLORE_COST)} — nothing down there, but the square is yours.`,
           "find"
         );
-        proceedToDevelop(newClaims, newW);
+        setReveal({ square: sq, find, claims: newClaims, w: newW });
+        setPhase("reveal");
       } else {
         proceedToDevelop(claims, cash.w);
       }
@@ -252,10 +254,10 @@ export default function Game() {
       if (!nextClaims[m.to] && aiWantsExplore(nextClaims, b)) {
         const find = findsRef.current[m.to];
         nextClaims = { ...nextClaims, [m.to]: { owner: AI, find, dev: 0 } };
-        b = b - EXPLORE_COST + find;
+        b -= EXPLORE_COST;
         pushLog(
           find > 0
-            ? `The Syndicate explores ${m.to} — and strikes ${money(find)}!`
+            ? `The Syndicate explores ${m.to} — and strikes ${money(find)} per round!`
             : `The Syndicate explores ${m.to} — dust and rocks.`,
           "find"
         );
@@ -304,6 +306,7 @@ export default function Game() {
     setSelected(null);
     setDevChoice("");
     setExploreSquare(null);
+    setReveal(null);
     setLog([]);
     setResult(null);
     pushLog("New game — fresh treasures have been buried.", "system");
@@ -391,10 +394,10 @@ export default function Game() {
                         {claim && claim.find > 0 && (
                           <span
                             className={`absolute top-0.5 left-1 text-[8px] leading-none pointer-events-none font-mono ${
-                              claim.find >= 1000 ? "text-accent" : dark ? "text-green-400/80" : "text-green-700/80"
+                              claim.find >= 250 ? "text-accent" : dark ? "text-green-400/80" : "text-green-700/80"
                             }`}
                           >
-                            {claim.find >= 1000 ? `${claim.find / 1000}k` : claim.find}
+                            +{claim.find}/r
                           </span>
                         )}
                         {isTarget && (
@@ -455,8 +458,8 @@ export default function Game() {
               <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-2">The rules of the market</h2>
               <p>Move a piece: <span className="text-white">{money(MOVE_COST)}</span></p>
               <p>
-                Explore the square you moved to: <span className="text-white">{money(EXPLORE_COST)}</span> — the find and
-                the square become yours
+                Explore the square you moved to: <span className="text-white">{money(EXPLORE_COST)}</span> — the square
+                becomes yours and pays its resource <span className="text-white">every round</span>
               </p>
               <p>
                 Develop any of your claims after your move (max {MAX_DEV}):{" "}
@@ -465,14 +468,14 @@ export default function Game() {
               <p>
                 Toll on enemy claims: <span className="text-white">{money(TOLL_BASE)} + {money(TOLL_PER_DEV)}×level</span>
               </p>
-              <p>Mine income: <span className="text-white">{money(PASSIVE_PER_DEV)}</span> per level per turn</p>
+              <p>Development bonus: <span className="text-white">{money(PASSIVE_PER_DEV)}</span> per level per round</p>
               <p>Bankruptcy loses. Checkmate wins.</p>
               <div className="border-t border-white/10 mt-2 pt-2">
-                <p className="text-gray-500 mb-1">Treasures still buried (EV {money(ev)}):</p>
+                <p className="text-gray-500 mb-1">Resources still buried (pay per round · EV {money(ev)}/round):</p>
                 <div className="grid grid-cols-4 gap-x-2 gap-y-0.5 font-mono">
                   {finds.map((f) => (
-                    <p key={f.value} className={f.left === 0 ? "text-gray-700 line-through" : f.value >= 1000 ? "text-accent" : ""}>
-                      {f.left}× {f.value >= 1000 ? `$${f.value / 1000}k` : `$${f.value}`}
+                    <p key={f.value} className={f.left === 0 ? "text-gray-700 line-through" : f.value >= 250 ? "text-accent" : ""}>
+                      {f.left}× ${f.value}
                     </p>
                   ))}
                 </div>
@@ -503,6 +506,36 @@ export default function Game() {
           </div>
         </div>
       </div>
+
+      {/* exploration result */}
+      {phase === "reveal" && reveal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+          <div className="max-w-md w-full border border-accent/40 rounded-xl bg-black/90 p-8 text-center">
+            <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">Exploration result — {reveal.square}</p>
+            {reveal.find > 0 ? (
+              <>
+                <h2 className="font-serif text-5xl text-accent mb-2">{money(reveal.find)}</h2>
+                <p className="text-gray-300 mb-6">per round, every round — the claim is yours.</p>
+              </>
+            ) : (
+              <>
+                <h2 className="font-serif text-4xl text-gray-500 mb-2">Nothing.</h2>
+                <p className="text-gray-400 mb-6">Dust and rocks. At least the square is yours now.</p>
+              </>
+            )}
+            <button
+              onClick={() => {
+                const r = reveal;
+                setReveal(null);
+                proceedToDevelop(r.claims, r.w);
+              }}
+              className="px-8 py-2 border border-accent text-accent hover:bg-accent hover:text-black transition-all text-sm uppercase tracking-widest"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* develop prompt (after the move) */}
       {phase === "develop" && (
@@ -550,9 +583,10 @@ export default function Game() {
           <div className="max-w-md w-full border border-accent/40 rounded-xl bg-black/90 p-6 text-center">
             <h2 className="font-serif text-2xl text-accent mb-2">Explore {exploreSquare}?</h2>
             <p className="text-gray-400 text-sm mb-1">
-              Drilling costs <span className="text-white">{money(EXPLORE_COST)}</span>. Expected find: {money(ev)}.
+              Drilling costs <span className="text-white">{money(EXPLORE_COST)}</span>. Expected yield: {money(ev)} per
+              round.
             </p>
-            <p className="text-gray-600 text-xs mb-6">Whatever is down there becomes yours — including nothing.</p>
+            <p className="text-gray-600 text-xs mb-6">Whatever is down there pays you every round — or nothing, forever.</p>
             <div className="flex gap-3 justify-center">
               <button
                 onClick={() => resolveExplore(true)}
