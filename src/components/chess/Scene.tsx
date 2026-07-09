@@ -115,12 +115,20 @@ function PieceFigure({
   const headColor = piece.color === "w" ? "#dfdcd5" : "#242424";
   const forward = piece.color === "w" ? 0 : Math.PI; // yaw 0 faces -z = toward the black side
 
-  useFrame(({ clock }) => {
+  // starting position, applied once on mount — movement afterwards is purely
+  // frame-driven, so re-renders never teleport the figure onto its new square
+  const initialPos = useMemo<[number, number, number]>(() => {
+    const [ix, iz] = squareToWorld(piece.square ?? piece.initialSquare);
+    return [ix, 0, iz];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useFrame(({ clock }, delta) => {
     if (!group.current || piece.square === null) return;
     const [x, z] = squareToWorld(piece.square);
-    // glide to the current square
-    group.current.position.x = THREE.MathUtils.lerp(group.current.position.x, x, 0.06);
-    group.current.position.z = THREE.MathUtils.lerp(group.current.position.z, z, 0.06);
+    // glide across the board to the current square (frame-rate independent)
+    group.current.position.x = THREE.MathUtils.damp(group.current.position.x, x, 3.2, delta);
+    group.current.position.z = THREE.MathUtils.damp(group.current.position.z, z, 3.2, delta);
     // idle: the IP cameras slowly pan around, like in the installation
     if (head.current) {
       const t = clock.elapsedTime;
@@ -130,12 +138,11 @@ function PieceFigure({
   });
 
   if (piece.square === null || hidden) return null;
-  const [x, z] = squareToWorld(piece.square);
 
   return (
     <group
       ref={group}
-      position={[x, 0, z]}
+      position={initialPos}
       onClick={(e) => {
         if (!selectable) return;
         e.stopPropagation();
