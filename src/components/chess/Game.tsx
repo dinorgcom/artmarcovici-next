@@ -48,6 +48,7 @@ export default function Game() {
   const [muted, setMuted] = useState(false);
   const mutedRef = useRef(false);
   const tipsKey = useRef<string | null>(null);
+  const subtitleRound = useRef(0);
   const logId = useRef(0);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
@@ -84,8 +85,8 @@ export default function Game() {
       const next = applyMoveToPieces(pieces, m);
       setPieces(next);
       setSelectedPieceId(null);
-      setSubtitle(null);
-      stopSpeech();
+      // the table talk deliberately keeps running through the move —
+      // coffeehouse regulars don't stop mid-sentence just because someone plays
 
       if (mover) {
         let line = `${describePiece(mover)}: "${m.san}"`;
@@ -257,8 +258,8 @@ export default function Game() {
 
   useEffect(() => {
     if (!prompt) {
+      // let the current round of talk finish on its own; only forget the key
       tipsKey.current = null;
-      setSubtitle(null);
       return;
     }
     const chess = chessRef.current;
@@ -272,6 +273,7 @@ export default function Game() {
     const exclude = mode === "piece" ? humanPiece?.square ?? undefined : undefined;
     getTips(fen, mode, exclude).then((tips) => {
       if (cancelled || tipsKey.current !== key) return;
+      subtitleRound.current++; // retire any earlier muted rotation
       tips.forEach((t) => pushLog(`${t.square}: "${t.text}"`, turn));
       if (!mutedRef.current) {
         const probe = new Chess(fen);
@@ -281,19 +283,22 @@ export default function Game() {
             const p = probe.get(square as Square);
             return p ? p.type : null;
           },
-          (line) => {
-            if (!cancelled && tipsKey.current === key) setSubtitle(line);
-          }
+          // unguarded: the round keeps talking (and subtitling) through moves;
+          // speakTips' generation counter retires it when a new round starts
+          (line) => setSubtitle(line)
         );
       } else {
-        // muted: rotate the subtitles on a timer instead of following the voices
+        // muted: rotate the subtitles on a timer instead of following the voices.
+        // Guarded by the round counter (not the tips key) so the rotation keeps
+        // running through moves and only a newer round retires it.
+        const round = subtitleRound.current;
         tips.forEach((t, i) =>
           later(() => {
-            if (!cancelled && tipsKey.current === key) setSubtitle(t);
+            if (subtitleRound.current === round) setSubtitle(t);
           }, i * 4500)
         );
         later(() => {
-          if (!cancelled && tipsKey.current === key) setSubtitle(null);
+          if (subtitleRound.current === round) setSubtitle(null);
         }, tips.length * 4500);
       }
     });
@@ -326,13 +331,26 @@ export default function Game() {
       {/* film-style subtitle: who is talking right now */}
       {subtitle && (
         <div className="absolute inset-x-0 bottom-28 sm:bottom-20 flex justify-center px-4 pointer-events-none">
-          <div className="max-w-xl text-center bg-black/65 backdrop-blur-sm rounded-lg px-5 py-3 border border-white/10">
+          <div className="relative max-w-xl text-center bg-black/65 backdrop-blur-sm rounded-lg pl-5 pr-9 py-3 border border-white/10 pointer-events-auto">
             <p className="text-[10px] uppercase tracking-widest text-accent mb-1">
               {subtitleSpeaker}
             </p>
             <p className="font-serif italic text-sm sm:text-base text-gray-100">
               “{subtitle.text}”
             </p>
+            <button
+              onClick={() => {
+                subtitleRound.current++;
+                stopSpeech();
+                setSubtitle(null);
+              }}
+              title="Enough chatter"
+              className="absolute top-1.5 right-1.5 w-6 h-6 flex items-center justify-center rounded-full text-gray-500 hover:text-accent hover:bg-white/5 transition-colors"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
         </div>
       )}
@@ -348,18 +366,41 @@ export default function Game() {
         {phase !== "role" && (
           <div className="text-right pointer-events-auto min-w-0">
             <p className="text-xs sm:text-sm text-gray-300">{statusText}</p>
-            <div className="mt-1 flex items-center justify-end gap-3">
+            <div className="mt-2 flex items-center justify-end gap-2">
               <button
                 onClick={() => setMuted((m) => !m)}
                 title={muted ? "Unmute figure voices" : "Mute figure voices"}
-                className="text-xs text-gray-600 hover:text-accent transition-colors uppercase tracking-widest"
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full border text-[10px] uppercase tracking-widest transition-colors ${
+                  muted
+                    ? "border-white/10 text-gray-600 hover:border-white/30 hover:text-gray-300"
+                    : "border-accent/40 text-accent hover:border-accent"
+                }`}
               >
-                {muted ? "🔇 Sound off" : "🔊 Sound on"}
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5.25 9v6h3.5L14 19.5v-15L8.75 9h-3.5z"
+                  />
+                  {muted ? (
+                    <path strokeLinecap="round" d="M17 9.5l4 5m0-5l-4 5" />
+                  ) : (
+                    <path strokeLinecap="round" d="M17.5 8.5a5 5 0 010 7M19.5 6.5a8 8 0 010 11" />
+                  )}
+                </svg>
+                Sound
               </button>
               <button
                 onClick={restart}
-                className="text-xs text-gray-600 hover:text-accent transition-colors uppercase tracking-widest"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500 hover:border-white/30 hover:text-gray-300 transition-colors"
               >
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 12a7.5 7.5 0 0113.05-5.1M19.5 12a7.5 7.5 0 01-13.05 5.1M17.55 3v3.9h-3.9M6.45 21v-3.9h3.9"
+                  />
+                </svg>
                 Restart
               </button>
             </div>
