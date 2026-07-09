@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Environment, Lightformer } from "@react-three/drei";
 import * as THREE from "three";
+import { reportSlide } from "./slideSound";
 import {
   BODY_HEIGHTS,
   eyeHeight,
@@ -115,20 +116,40 @@ function PieceFigure({
   const headColor = piece.color === "w" ? "#dfdcd5" : "#242424";
   const forward = piece.color === "w" ? 0 : Math.PI; // yaw 0 faces -z = toward the black side
 
-  // starting position, applied once on mount — movement afterwards is purely
-  // frame-driven, so re-renders never teleport the figure onto its new square
-  const initialPos = useMemo<[number, number, number]>(() => {
-    const [ix, iz] = squareToWorld(piece.square ?? piece.initialSquare);
-    return [ix, 0, iz];
+  // Place the figure imperatively exactly once, on mount. The group gets no
+  // position prop at all, so nothing React does can ever teleport it — from
+  // then on the only thing moving it is the per-frame glide below.
+  const placeRef = useCallback(
+    (g: THREE.Group | null) => {
+      group.current = g;
+      if (g && !g.userData.placed) {
+        const [ix, iz] = squareToWorld(piece.square ?? piece.initialSquare);
+        g.position.set(ix, 0, iz);
+        g.userData.placed = true;
+      }
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    []
+  );
+  const wasSliding = useRef(false);
 
   useFrame(({ clock }, delta) => {
     if (!group.current || piece.square === null) return;
     const [x, z] = squareToWorld(piece.square);
     // glide across the board to the current square (frame-rate independent)
-    group.current.position.x = THREE.MathUtils.damp(group.current.position.x, x, 3.2, delta);
-    group.current.position.z = THREE.MathUtils.damp(group.current.position.z, z, 3.2, delta);
+    const before = group.current.position.clone();
+    group.current.position.x = THREE.MathUtils.damp(before.x, x, 3.2, delta);
+    group.current.position.z = THREE.MathUtils.damp(before.z, z, 3.2, delta);
+    // sliding sound follows the speed; one final 0 ends it cleanly
+    const moved = Math.hypot(group.current.position.x - before.x, group.current.position.z - before.z);
+    const speed = delta > 0 ? moved / delta : 0;
+    if (speed > 0.12) {
+      wasSliding.current = true;
+      reportSlide(speed);
+    } else if (wasSliding.current) {
+      wasSliding.current = false;
+      reportSlide(0);
+    }
     // idle: the IP cameras slowly pan around, like in the installation
     if (head.current) {
       const t = clock.elapsedTime;
@@ -141,8 +162,7 @@ function PieceFigure({
 
   return (
     <group
-      ref={group}
-      position={initialPos}
+      ref={placeRef}
       onClick={(e) => {
         if (!selectable) return;
         e.stopPropagation();

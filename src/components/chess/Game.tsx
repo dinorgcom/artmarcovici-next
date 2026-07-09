@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Chess, type Move, type Square } from "chess.js";
 import ChessScene, { type ViewMode } from "./Scene";
 import { getTips, speakTips, stopSpeech, type Tip } from "./tips";
+import { setSlideMuted } from "./slideSound";
 import {
   applyMoveToPieces,
   buildInitialPieces,
@@ -250,6 +251,7 @@ export default function Game() {
 
   useEffect(() => {
     mutedRef.current = muted;
+    setSlideMuted(muted);
     if (muted) stopSpeech();
   }, [muted]);
 
