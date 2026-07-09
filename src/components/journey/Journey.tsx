@@ -3,11 +3,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import JourneyScene from "./Scene";
-import { STATIONS, DOCUMENTS, BOOK_TITLE, BOOK_AUTHOR, type Station } from "./stations";
+import { STATIONS, DOCUMENTS, PHOTOS, BOOK_TITLE, BOOK_AUTHOR, type Station } from "./stations";
 
 export default function Journey() {
   const [focus, setFocus] = useState<Station | null>(null);
   const [docsOpen, setDocsOpen] = useState(false);
+  const [photosOpen, setPhotosOpen] = useState(false);
+  const [lightbox, setLightbox] = useState<number | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const select = useCallback((s: Station) => {
@@ -43,12 +45,26 @@ export default function Journey() {
               Arrow keys / WASD to move · drag to look · scroll to zoom
             </p>
           </div>
-          <button
-            onClick={() => setDocsOpen((o) => !o)}
-            className="pointer-events-auto text-xs uppercase tracking-widest text-black/50 hover:text-black transition-colors"
-          >
-            Documents
-          </button>
+          <div className="pointer-events-auto flex gap-5">
+            <button
+              onClick={() => {
+                setPhotosOpen((o) => !o);
+                setDocsOpen(false);
+              }}
+              className="text-xs uppercase tracking-widest text-black/50 hover:text-black transition-colors"
+            >
+              Photos
+            </button>
+            <button
+              onClick={() => {
+                setDocsOpen((o) => !o);
+                setPhotosOpen(false);
+              }}
+              className="text-xs uppercase tracking-widest text-black/50 hover:text-black transition-colors"
+            >
+              Documents
+            </button>
+          </div>
         </div>
       </div>
 
@@ -115,6 +131,78 @@ export default function Journey() {
           >
             Begin in Vienna — Station 01
           </button>
+        </div>
+      )}
+
+      {/* photos drawer */}
+      {photosOpen && (
+        <div className="absolute top-32 right-4 w-[380px] max-w-[calc(100vw-2rem)] max-h-[60vh] overflow-y-auto bg-[#161513]/95 backdrop-blur border border-white/10 rounded-xl p-5 text-gray-300 pointer-events-auto">
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="text-xs uppercase tracking-widest text-gray-500">Photographs from the book</h3>
+            <button onClick={() => setPhotosOpen(false)} className="text-gray-500 hover:text-white leading-none">
+              ×
+            </button>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {PHOTOS.map((photo, i) => (
+              <button key={photo.src} onClick={() => setLightbox(i)} className="text-left group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={photo.src}
+                  alt={photo.caption}
+                  loading="lazy"
+                  className="w-full h-24 object-cover rounded border border-white/10 group-hover:border-accent/60 transition-colors"
+                />
+                <p className="mt-1 text-[10px] text-gray-500 leading-snug line-clamp-2">{photo.caption}</p>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* photo lightbox */}
+      {lightbox !== null && PHOTOS[lightbox] && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm px-4"
+          onClick={() => setLightbox(null)}
+        >
+          <div className="max-w-3xl w-full text-center" onClick={(e) => e.stopPropagation()}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={PHOTOS[lightbox].src}
+              alt={PHOTOS[lightbox].caption}
+              className="max-h-[72vh] w-auto mx-auto rounded shadow-2xl"
+            />
+            <p className="mt-4 text-gray-300 font-serif">{PHOTOS[lightbox].caption}</p>
+            <p className="mt-1 text-xs text-gray-500">
+              From the chapter{" "}
+              <Link href={`/command-responsibility/${PHOTOS[lightbox].chapter}`} className="text-accent hover:underline">
+                {PHOTOS[lightbox].chapterTitle}
+              </Link>
+            </p>
+            <div className="mt-5 flex items-center justify-center gap-6 text-sm">
+              <button
+                onClick={() => setLightbox((i) => (i !== null && i > 0 ? i - 1 : i))}
+                disabled={lightbox <= 0}
+                className="text-gray-400 hover:text-white disabled:opacity-30 uppercase tracking-widest"
+              >
+                ← Prev
+              </button>
+              <button
+                onClick={() => setLightbox(null)}
+                className="px-5 py-1.5 border border-white/20 text-gray-300 hover:text-white uppercase tracking-widest text-xs"
+              >
+                Close
+              </button>
+              <button
+                onClick={() => setLightbox((i) => (i !== null && i < PHOTOS.length - 1 ? i + 1 : i))}
+                disabled={lightbox >= PHOTOS.length - 1}
+                className="text-gray-400 hover:text-white disabled:opacity-30 uppercase tracking-widest"
+              >
+                Next →
+              </button>
+            </div>
+          </div>
         </div>
       )}
 

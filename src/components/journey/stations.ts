@@ -44,6 +44,8 @@ export const MAP_BOUNDS = {
 interface Block {
   type: string;
   text?: string;
+  src?: string;
+  caption?: string;
 }
 interface Chapter {
   slug: string;
@@ -231,3 +233,22 @@ export const DOCUMENTS: { slug: string; title: string; audio: string | null }[] 
 
 export const BOOK_TITLE = book.title as string;
 export const BOOK_AUTHOR = book.author as string;
+
+/** All photographs and diagrams printed in the book, with their captions. */
+export interface BookPhoto {
+  src: string;
+  caption: string;
+  chapter: string;
+  chapterTitle: string;
+}
+
+export const PHOTOS: BookPhoto[] = (book.chapters as Chapter[]).flatMap((c) =>
+  c.blocks
+    .filter((b) => b.src)
+    .map((b) => ({
+      src: b.src as string,
+      caption: b.caption || "",
+      chapter: c.slug,
+      chapterTitle: c.title,
+    }))
+);
