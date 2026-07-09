@@ -37,10 +37,13 @@ const navCategories = [
   {
     label: "Projects",
     href: "/gallery/projects",
-    submenu: projectItems.map((item) => ({
-      href: `/work/${item.slug}`,
-      label: item.title,
-    })),
+    submenu: [
+      ...projectItems.map((item) => ({
+        href: `/work/${item.slug}`,
+        label: item.title,
+      })),
+      { href: "/elements", label: "Elements" },
+    ].sort((a, b) => a.label.localeCompare(b.label)),
   },
   {
     label: "Book",
