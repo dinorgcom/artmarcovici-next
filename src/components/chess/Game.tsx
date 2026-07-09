@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Chess, type Move, type Square } from "chess.js";
-import ChessScene, { type ViewMode, type Bubble } from "./Scene";
-import { getTips, speakTips, stopSpeech } from "./tips";
+import ChessScene, { type ViewMode } from "./Scene";
+import { getTips, speakTips, stopSpeech, type Tip } from "./tips";
 import {
   applyMoveToPieces,
   buildInitialPieces,
@@ -43,7 +43,7 @@ export default function Game() {
   const [result, setResult] = useState<string | null>(null);
   const [captured, setCaptured] = useState(false);
   const [spectating, setSpectating] = useState(false);
-  const [bubbles, setBubbles] = useState<Bubble[]>([]);
+  const [subtitle, setSubtitle] = useState<Tip | null>(null);
   const [muted, setMuted] = useState(false);
   const mutedRef = useRef(false);
   const tipsKey = useRef<string | null>(null);
@@ -83,7 +83,7 @@ export default function Game() {
       const next = applyMoveToPieces(pieces, m);
       setPieces(next);
       setSelectedPieceId(null);
-      setBubbles([]);
+      setSubtitle(null);
       stopSpeech();
 
       if (mover) {
@@ -196,7 +196,7 @@ export default function Game() {
     timers.current.forEach(clearTimeout);
     timers.current = [];
     stopSpeech();
-    setBubbles([]);
+    setSubtitle(null);
     tipsKey.current = null;
     chessRef.current = new Chess();
     setPieces(buildInitialPieces(chessRef.current));
@@ -256,7 +256,7 @@ export default function Game() {
   useEffect(() => {
     if (!prompt) {
       tipsKey.current = null;
-      setBubbles([]);
+      setSubtitle(null);
       return;
     }
     const chess = chessRef.current;
@@ -270,14 +270,29 @@ export default function Game() {
     const exclude = mode === "piece" ? humanPiece?.square ?? undefined : undefined;
     getTips(fen, mode, exclude).then((tips) => {
       if (cancelled || tipsKey.current !== key) return;
-      setBubbles(tips);
       tips.forEach((t) => pushLog(`${t.square}: "${t.text}"`, turn));
       if (!mutedRef.current) {
         const probe = new Chess(fen);
-        speakTips(tips, (square) => {
-          const p = probe.get(square as Square);
-          return p ? p.type : null;
-        });
+        speakTips(
+          tips,
+          (square) => {
+            const p = probe.get(square as Square);
+            return p ? p.type : null;
+          },
+          (line) => {
+            if (!cancelled && tipsKey.current === key) setSubtitle(line);
+          }
+        );
+      } else {
+        // muted: rotate the subtitles on a timer instead of following the voices
+        tips.forEach((t, i) =>
+          later(() => {
+            if (!cancelled && tipsKey.current === key) setSubtitle(t);
+          }, i * 4500)
+        );
+        later(() => {
+          if (!cancelled && tipsKey.current === key) setSubtitle(null);
+        }, tips.length * 4500);
       }
     });
     return () => {
@@ -285,6 +300,12 @@ export default function Game() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prompt, phase, turn]);
+
+  const subtitleSpeaker = useMemo(() => {
+    if (!subtitle) return null;
+    const piece = pieces.find((p) => p.square === subtitle.square);
+    return piece ? `${PIECE_NAMES[piece.type]} ${subtitle.square}` : subtitle.square;
+  }, [subtitle, pieces]);
 
   /* ---------- render ---------- */
 
@@ -296,10 +317,23 @@ export default function Game() {
         selectablePieceIds={selectablePieceIds}
         selectedPieceId={selectedPieceId}
         targetSquares={targetSquares}
-        bubbles={bubbles}
         onPiecePick={onPiecePick}
         onSquarePick={onSquarePick}
       />
+
+      {/* film-style subtitle: who is talking right now */}
+      {subtitle && (
+        <div className="absolute inset-x-0 bottom-28 sm:bottom-20 flex justify-center px-4 pointer-events-none">
+          <div className="max-w-xl text-center bg-black/65 backdrop-blur-sm rounded-lg px-5 py-3 border border-white/10">
+            <p className="text-[10px] uppercase tracking-widest text-accent mb-1">
+              {subtitleSpeaker}
+            </p>
+            <p className="font-serif italic text-sm sm:text-base text-gray-100">
+              “{subtitle.text}”
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* top bar */}
       <div className="absolute top-16 left-0 right-0 flex items-start justify-between gap-3 px-4 py-3 bg-gradient-to-b from-black/90 to-transparent pointer-events-none">

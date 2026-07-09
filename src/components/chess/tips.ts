@@ -198,8 +198,14 @@ function playUrl(url: string): Promise<void> {
  * Speak the round of table talk one figure after the other — a proper
  * coffeehouse argument, not a chorus. ElevenLabs voices per piece type;
  * browser speech synthesis when the voice route is unavailable.
+ * `onLine` fires as each figure takes the floor (null when the round ends)
+ * so the UI can show film-style subtitles.
  */
-export function speakTips(tips: Tip[], typeOf: (square: string) => PieceType | null) {
+export function speakTips(
+  tips: Tip[],
+  typeOf: (square: string) => PieceType | null,
+  onLine?: (tip: Tip | null) => void
+) {
   if (typeof window === "undefined") return;
   const generation = ++speechGeneration;
   stopPlayback();
@@ -217,10 +223,12 @@ export function speakTips(tips: Tip[], typeOf: (square: string) => PieceType | n
         if (url) URL.revokeObjectURL(url);
         continue;
       }
+      onLine?.(tip);
       if (url) await playUrl(url);
       else await speakFallback(tip.text, type);
       await new Promise((r) => setTimeout(r, 350));
     }
+    if (generation === speechGeneration) onLine?.(null);
   })();
 }
 
