@@ -42,7 +42,14 @@ const navCategories = [
       label: item.title,
     })),
   },
-  { label: "Book", href: "/command-responsibility" },
+  {
+    label: "Book",
+    href: "/command-responsibility",
+    submenu: [
+      { href: "/command-responsibility", label: "Command Responsibility (English)" },
+      { href: "/befehlsnotstand", label: "Befehlsnotstand anders gesehen (Deutsch)" },
+    ],
+  },
   { label: "Biography", href: "/work/BIOGRAPHY" },
   { label: "News", href: "/work/in-the-news" },
   { label: "Contact", href: "/work/about" },
