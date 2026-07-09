@@ -5,7 +5,18 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import * as THREE from "three";
-import { STATIONS, type Station, type StationKind } from "./stations";
+import {
+  STATIONS,
+  MAP_BOUNDS,
+  REF_CITIES,
+  MEMORIALS,
+  BORDERS,
+  RIVERS,
+  COASTLINE,
+  project,
+  type Station,
+  type StationKind,
+} from "./stations";
 
 /* Muted, wintry palette — this is a memorial, not a game. */
 const COLORS = {
@@ -114,19 +125,101 @@ function createTextures(): Textures {
         ctx.fillRect(rnd() * s, rnd() * s, 3, 3);
       }
     }),
-    ground: makeTexture(256, (ctx, s, rnd) => {
-      ctx.fillStyle = "#3a3934";
-      ctx.fillRect(0, 0, s, s);
-      for (let i = 0; i < 2600; i++) {
-        const g = 40 + rnd() * 40;
-        ctx.fillStyle = `rgba(${g},${g},${g * 0.9},0.25)`;
-        const r = 1 + rnd() * 4;
-        ctx.beginPath();
-        ctx.arc(rnd() * s, rnd() * s, r, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }, [10, 10]),
+    ground: createMapTexture(),
   };
+}
+
+/**
+ * The ground is a subtle map of central Europe, so the reader can see where
+ * the journey went: faint borders, the Baltic, the Danube and the Vistula,
+ * and a few reference cities. Stations sit at their real coordinates.
+ */
+function createMapTexture(): THREE.CanvasTexture {
+  const W = MAP_BOUNDS.xMax - MAP_BOUNDS.xMin;
+  const H = MAP_BOUNDS.zMax - MAP_BOUNDS.zMin;
+  const cw = 2048;
+  const ch = Math.round((cw * H) / W);
+  const canvas = document.createElement("canvas");
+  canvas.width = cw;
+  canvas.height = ch;
+  const ctx = canvas.getContext("2d")!;
+  const rnd = mulberry32(1940);
+
+  const toCanvas = (lat: number, lon: number): [number, number] => {
+    const [x, z] = project(lat, lon);
+    return [((x - MAP_BOUNDS.xMin) / W) * cw, ((z - MAP_BOUNDS.zMin) / H) * ch];
+  };
+  const tracePath = (pts: [number, number][]) => {
+    ctx.beginPath();
+    pts.forEach(([lat, lon], i) => {
+      const [cx, cy] = toCanvas(lat, lon);
+      if (i === 0) ctx.moveTo(cx, cy);
+      else ctx.lineTo(cx, cy);
+    });
+  };
+
+  // land
+  ctx.fillStyle = "#54524b";
+  ctx.fillRect(0, 0, cw, ch);
+  // mottled ground noise
+  for (let i = 0; i < 9000; i++) {
+    const g = 62 + rnd() * 46;
+    ctx.fillStyle = `rgba(${g},${g},${g * 0.92},0.22)`;
+    const r = 1 + rnd() * 5;
+    ctx.beginPath();
+    ctx.arc(rnd() * cw, rnd() * ch, r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // the Baltic: everything north of the coastline
+  tracePath(COASTLINE);
+  ctx.lineTo(cw + 20, toCanvas(COASTLINE[COASTLINE.length - 1][0], 25.8)[1]);
+  ctx.lineTo(cw + 20, -20);
+  ctx.lineTo(-20, -20);
+  ctx.lineTo(-20, toCanvas(COASTLINE[0][0], 12)[1]);
+  ctx.closePath();
+  ctx.fillStyle = "#454a52";
+  ctx.fill();
+  ctx.strokeStyle = "rgba(190,195,205,0.4)";
+  ctx.lineWidth = 3;
+  tracePath(COASTLINE);
+  ctx.stroke();
+
+  // rivers
+  ctx.strokeStyle = "rgba(130,142,165,0.55)";
+  ctx.lineWidth = 4;
+  ctx.lineJoin = "round";
+  for (const river of RIVERS) {
+    tracePath(river);
+    ctx.stroke();
+  }
+
+  // borders
+  ctx.strokeStyle = "rgba(215,210,198,0.32)";
+  ctx.lineWidth = 3;
+  ctx.setLineDash([14, 10]);
+  for (const border of BORDERS) {
+    tracePath(border);
+    ctx.stroke();
+  }
+  ctx.setLineDash([]);
+
+  // reference cities
+  ctx.font = "italic 30px Georgia, serif";
+  ctx.textAlign = "left";
+  for (const city of REF_CITIES) {
+    const [cx, cy] = toCanvas(city.lat, city.lon);
+    ctx.fillStyle = "rgba(215,210,198,0.5)";
+    ctx.beginPath();
+    ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "rgba(215,210,198,0.45)";
+    ctx.fillText(city.name, cx + 14, cy + 10);
+  }
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.anisotropy = 8;
+  return tex;
 }
 
 const TexturesContext = createContext<Textures | null>(null);
@@ -738,11 +831,16 @@ function Trees() {
     const rnd = mulberry32(42);
     const out: { x: number; z: number; h: number; bare: boolean }[] = [];
     let guard = 0;
-    while (out.length < 52 && guard++ < 500) {
-      const x = (rnd() - 0.5) * 52;
-      const z = (rnd() - 0.5) * 34;
-      const nearStation = STATIONS.some((s) => (s.pos[0] - x) ** 2 + (s.pos[1] - z) ** 2 < 14);
-      if (nearStation) continue;
+    while (out.length < 52 && guard++ < 600) {
+      const x = MAP_BOUNDS.xMin + 2 + rnd() * (MAP_BOUNDS.xMax - MAP_BOUNDS.xMin - 4);
+      const z = MAP_BOUNDS.zMin + 4 + rnd() * (MAP_BOUNDS.zMax - MAP_BOUNDS.zMin - 6);
+      if (z < -22) continue; // the Baltic
+      const nearStation = STATIONS.some((s) => (s.pos[0] - x) ** 2 + (s.pos[1] - z) ** 2 < 16);
+      const nearMemorial = MEMORIALS.some((m) => {
+        const [mx, mz] = project(m.lat, m.lon);
+        return (mx - x) ** 2 + (mz - z) ** 2 < 4;
+      });
+      if (nearStation || nearMemorial) continue;
       out.push({ x, z, h: 0.8 + rnd() * 1.5, bare: rnd() < 0.4 });
     }
     return out;
@@ -757,12 +855,16 @@ function Trees() {
           </mesh>
           {t.bare ? (
             <>
-              <mesh position={[0.1, t.h * 0.7, 0]} rotation={[0, 0, -0.7]}>
-                <cylinderGeometry args={[0.015, 0.025, t.h * 0.45, 4]} />
+              <mesh position={[0.05, t.h * 0.72, 0]} rotation={[0, 0, -0.35]}>
+                <cylinderGeometry args={[0.01, 0.02, t.h * 0.3, 4]} />
                 <meshStandardMaterial color={COLORS.trunk} roughness={1} />
               </mesh>
-              <mesh position={[-0.08, t.h * 0.8, 0.04]} rotation={[0.3, 0, 0.6]}>
-                <cylinderGeometry args={[0.012, 0.02, t.h * 0.4, 4]} />
+              <mesh position={[-0.04, t.h * 0.8, 0.02]} rotation={[0.15, 0, 0.3]}>
+                <cylinderGeometry args={[0.008, 0.016, t.h * 0.26, 4]} />
+                <meshStandardMaterial color={COLORS.trunk} roughness={1} />
+              </mesh>
+              <mesh position={[0, t.h * 0.9, -0.02]} rotation={[-0.2, 0, -0.1]}>
+                <cylinderGeometry args={[0.006, 0.013, t.h * 0.22, 4]} />
                 <meshStandardMaterial color={COLORS.trunk} roughness={1} />
               </mesh>
             </>
@@ -786,11 +888,118 @@ function Trees() {
 
 function Ground() {
   const tx = useTextures();
+  const w = MAP_BOUNDS.xMax - MAP_BOUNDS.xMin;
+  const h = MAP_BOUNDS.zMax - MAP_BOUNDS.zMin;
   return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-      <circleGeometry args={[42, 48]} />
-      <meshStandardMaterial map={tx.ground} color={COLORS.ground} roughness={1} />
+    <mesh
+      rotation={[-Math.PI / 2, 0, 0]}
+      position={[(MAP_BOUNDS.xMin + MAP_BOUNDS.xMax) / 2, 0, (MAP_BOUNDS.zMin + MAP_BOUNDS.zMax) / 2]}
+      receiveShadow
+    >
+      <planeGeometry args={[w, h]} />
+      <meshStandardMaterial map={tx.ground} roughness={1} />
     </mesh>
+  );
+}
+
+/** Quiet memorial markers for the camps named in the book — not stations. */
+function Memorials() {
+  return (
+    <group>
+      {MEMORIALS.map((m) => {
+        const [x, z] = project(m.lat, m.lon);
+        return (
+          <group key={m.name} position={[x, 0, z]}>
+            <mesh position={[0, 0.22, 0]} castShadow>
+              <boxGeometry args={[0.16, 0.44, 0.16]} />
+              <meshStandardMaterial color="#1f1e1b" roughness={1} />
+            </mesh>
+            <mesh position={[0, 0.005, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+              <ringGeometry args={[0.28, 0.32, 32]} />
+              <meshBasicMaterial color="#55534d" transparent opacity={0.5} />
+            </mesh>
+            <Html position={[0, 0.85, 0]} center distanceFactor={16} zIndexRange={[20, 0]} style={{ pointerEvents: "none" }}>
+              <div
+                style={{
+                  fontFamily: "Georgia, serif",
+                  fontSize: "11px",
+                  letterSpacing: "0.12em",
+                  color: "rgba(232,230,225,0.65)",
+                  textShadow: "0 1px 3px rgba(0,0,0,0.6)",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {m.name}
+              </div>
+            </Html>
+          </group>
+        );
+      })}
+    </group>
+  );
+}
+
+/** The airfield and the town of Irena, both part of the Dęblin chapter. */
+function DeblinSurroundings() {
+  const [dx, dz] = project(51.56, 21.86);
+  return (
+    <group>
+      {/* the airfield, south-west of the camp */}
+      <group position={[dx - 3.1, 0, dz + 1.9]} rotation={[0, 0.5, 0]}>
+        <mesh position={[0, 0.01, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[2.6, 0.55]} />
+          <meshStandardMaterial color="#45443f" roughness={1} />
+        </mesh>
+        <mesh position={[0, 0.012, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[2.4, 0.04]} />
+          <meshStandardMaterial color="#5c5a52" roughness={1} />
+        </mesh>
+        {/* hangar */}
+        <group position={[-0.7, 0, 0.75]}>
+          <mesh position={[0, 0.22, 0]} castShadow>
+            <cylinderGeometry args={[0.42, 0.42, 1.0, 12, 1, false, 0, Math.PI]} />
+            <meshStandardMaterial color="#4a4841" roughness={0.95} />
+          </mesh>
+        </group>
+        <Html position={[0.4, 0.7, 0.2]} center distanceFactor={16} zIndexRange={[20, 0]} style={{ pointerEvents: "none" }}>
+          <div
+            style={{
+              fontFamily: "Georgia, serif",
+              fontSize: "10px",
+              fontStyle: "italic",
+              color: "rgba(232,230,225,0.55)",
+              textShadow: "0 1px 3px rgba(0,0,0,0.6)",
+              whiteSpace: "nowrap",
+            }}
+          >
+            the airfield
+          </div>
+        </Html>
+      </group>
+      {/* Irena, the adjoining town */}
+      <group position={[dx + 1.9, 0, dz + 1.6]}>
+        <group rotation={[0, 0.4, 0]}>
+          <House w={0.55} d={0.5} h={0.4} windows={1} seed={11} />
+        </group>
+        <group position={[0.75, 0, 0.35]} rotation={[0, -0.3, 0]}>
+          <House w={0.5} d={0.45} h={0.36} windows={1} seed={12} />
+        </group>
+        <Html position={[0.4, 1.0, 0.2]} center distanceFactor={16} zIndexRange={[20, 0]} style={{ pointerEvents: "none" }}>
+          <div
+            style={{
+              fontFamily: "Georgia, serif",
+              fontSize: "10px",
+              fontStyle: "italic",
+              color: "rgba(232,230,225,0.55)",
+              textShadow: "0 1px 3px rgba(0,0,0,0.6)",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Irena
+          </div>
+        </Html>
+      </group>
+    </group>
   );
 }
 
@@ -841,13 +1050,15 @@ export default function JourneyScene({
   return (
     <Canvas shadows camera={{ position: [-14, 12, 18], fov: 45 }} style={{ background: "#a7abb0" }}>
       <TexturesProvider>
-        <fog attach="fog" args={["#a7abb0", 18, 55]} />
-        <hemisphereLight args={["#c7cbd1", "#3a3a36", 0.9]} />
-        <directionalLight position={[10, 14, 6]} intensity={0.9} castShadow shadow-mapSize={[2048, 2048]} />
+        <fog attach="fog" args={["#a7abb0", 20, 60]} />
+        <hemisphereLight args={["#cdd1d7", "#4a4a44", 1.15]} />
+        <directionalLight position={[10, 14, 6]} intensity={1.15} castShadow shadow-mapSize={[2048, 2048]} />
 
         <Ground />
         <Path />
         <Trees />
+        <Memorials />
+        <DeblinSurroundings />
 
         {STATIONS.map((s, i) => (
           <group key={s.slug} position={[s.pos[0], 0, s.pos[1]]}>

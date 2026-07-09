@@ -64,7 +64,13 @@ export default function Journey() {
                 ×
               </button>
             </div>
-            {focus.excerpt && <p className="text-sm text-gray-400 leading-relaxed mt-2 mb-4">{focus.excerpt}</p>}
+            {focus.excerpt && <p className="text-sm text-gray-400 leading-relaxed mt-2 mb-3">{focus.excerpt}</p>}
+            {focus.mentions && (
+              <p className="text-[11px] text-gray-500 mb-4">
+                <span className="uppercase tracking-widest text-gray-600">Places in this chapter: </span>
+                {focus.mentions}
+              </p>
+            )}
             {focus.audio ? (
               <audio ref={audioRef} key={focus.slug} controls preload="none" className="w-full mb-3">
                 <source src={focus.audio} type="audio/mpeg" />
