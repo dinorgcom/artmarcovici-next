@@ -65,7 +65,8 @@ export async function POST(request: Request) {
         "Cache-Control": "public, max-age=86400",
       },
     });
-  } catch {
+  } catch (err) {
+    console.error("chess-voice fetch failed:", err);
     return NextResponse.json({ reason: "network" }, { status: 503 });
   }
 }
