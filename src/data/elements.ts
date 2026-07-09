@@ -103,21 +103,21 @@ export const ELEMENTS: ElementDatum[] = [
   { z: 81, symbol: "Tl", name: "Thallium", mass: 204.38, price: 4200, density: 11.85 },
   { z: 82, symbol: "Pb", name: "Lead", mass: 207.2, price: 2.0, density: 11.342 },
   { z: 83, symbol: "Bi", name: "Bismuth", mass: 208.98, price: 8, density: 9.807 },
-  { z: 84, symbol: "Po", name: "Polonium", mass: 209, price: 4.9e13, density: 9.32, note: "synthetic — research quantities" },
+  { z: 84, symbol: "Po", name: "Polonium", mass: 209, price: 1.5e9, density: 9.32, note: "Po-210, commercial reactor production — the research isotope Po-209 runs ~$49B/g" },
   { z: 85, symbol: "At", name: "Astatine", mass: 210, price: null, density: null, note: "too unstable — no market" },
   { z: 86, symbol: "Rn", name: "Radon", mass: 222, price: null, density: 0.00973, note: "too unstable — no market" },
   { z: 87, symbol: "Fr", name: "Francium", mass: 223, price: null, density: null, note: "too unstable — no market" },
   { z: 88, symbol: "Ra", name: "Radium", mass: 226, price: null, density: 5.5, note: "no commercial market today" },
-  { z: 89, symbol: "Ac", name: "Actinium", mass: 227, price: 2.9e13, density: 10.07, note: "synthetic — research quantities" },
+  { z: 89, symbol: "Ac", name: "Actinium", mass: 227, price: 2.9e13, density: 10.07, note: "synthetic — no bulk production, research-scale pricing" },
   { z: 90, symbol: "Th", name: "Thorium", mass: 232.04, price: 287, density: 11.72 },
   { z: 91, symbol: "Pa", name: "Protactinium", mass: 231.04, price: 280000, density: 15.37, note: "research quantities" },
   { z: 92, symbol: "U", name: "Uranium", mass: 238.03, price: 150, density: 19.1 },
   { z: 93, symbol: "Np", name: "Neptunium", mass: 237, price: 660000, density: 20.45, note: "synthetic — research quantities" },
   { z: 94, symbol: "Pu", name: "Plutonium", mass: 244, price: 6.5e6, density: 19.84, note: "synthetic — research quantities" },
-  { z: 95, symbol: "Am", name: "Americium", mass: 243, price: 750000, density: 13.69, note: "synthetic — research quantities" },
-  { z: 96, symbol: "Cm", name: "Curium", mass: 247, price: 1.7e11, density: 13.51, note: "synthetic — research quantities" },
-  { z: 97, symbol: "Bk", name: "Berkelium", mass: 247, price: 1.85e11, density: 14.79, note: "synthetic — research quantities" },
-  { z: 98, symbol: "Cf", name: "Californium", mass: 251, price: 2.7e13, density: 15.1, note: "synthetic — research quantities" },
+  { z: 95, symbol: "Am", name: "Americium", mass: 243, price: 728000, density: 13.69, note: "Am-241 — synthetic, research quantities" },
+  { z: 96, symbol: "Cm", name: "Curium", mass: 247, price: 1.85e8, density: 13.51, note: "Cm-244 — synthetic, research quantities" },
+  { z: 97, symbol: "Bk", name: "Berkelium", mass: 247, price: 1.85e11, density: 14.79, note: "Bk-249 — synthetic, research quantities" },
+  { z: 98, symbol: "Cf", name: "Californium", mass: 251, price: 2.7e10, density: 15.1, note: "Cf-252 — synthetic, ~$27M per gram" },
   { z: 99, symbol: "Es", name: "Einsteinium", mass: 252, price: null, density: 8.84, note: "made atoms at a time — no price" },
   { z: 100, symbol: "Fm", name: "Fermium", mass: 257, price: null, density: null, note: "made atoms at a time — no price" },
   { z: 101, symbol: "Md", name: "Mendelevium", mass: 258, price: null, density: null, note: "made atoms at a time — no price" },
@@ -251,9 +251,12 @@ const SUPERSCRIPTS: Record<string, string> = {
   "9": "⁹",
 };
 
+// Prices are written out in full digits so the magnitudes are felt, not
+// abbreviated away ($49,000,000,000,000 instead of $49T). Only values
+// below a millionth of a dollar fall back to scientific notation.
 export function formatUSD(v: number): string {
   if (v === 0) return "$0";
-  if (v >= 1e15 || v < 0.01) {
+  if (v < 1e-6) {
     const [mantissa, exponent] = v.toExponential(2).split("e");
     const sup = String(parseInt(exponent, 10))
       .split("")
@@ -261,11 +264,10 @@ export function formatUSD(v: number): string {
       .join("");
     return `$${mantissa} × 10${sup}`;
   }
-  if (v >= 1e12) return `$${(v / 1e12).toFixed(2)}T`;
-  if (v >= 1e9) return `$${(v / 1e9).toFixed(2)}B`;
-  if (v >= 1e6) return `$${(v / 1e6).toFixed(2)}M`;
-  if (v >= 1e3) return `$${(v / 1e3).toFixed(1)}k`;
-  if (v >= 100) return `$${v.toFixed(0)}`;
-  if (v >= 1) return `$${v.toFixed(2)}`;
-  return `$${v.toFixed(v >= 0.1 ? 3 : 4)}`;
+  if (v < 1) return `$${parseFloat(v.toPrecision(2))}`;
+  // three significant digits, written out with thousands separators
+  const exp = Math.floor(Math.log10(v));
+  const step = Math.pow(10, Math.max(0, exp - 2));
+  const rounded = Math.round(v / step) * step;
+  return `$${rounded.toLocaleString("en-US", { maximumFractionDigits: 2 })}`;
 }
