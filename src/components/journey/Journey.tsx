@@ -39,6 +39,9 @@ export default function Journey() {
             <p className="text-xs text-black/50 max-w-md mt-1">
               {BOOK_AUTHOR}&apos;s path, 1940–1945. Select a station to listen to that chapter.
             </p>
+            <p className="text-[10px] text-black/40 mt-0.5 uppercase tracking-widest">
+              Arrow keys / WASD to move · drag to look · scroll to zoom
+            </p>
           </div>
           <button
             onClick={() => setDocsOpen((o) => !o)}

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useMemo, useRef } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
@@ -891,14 +891,22 @@ function Ground() {
   const w = MAP_BOUNDS.xMax - MAP_BOUNDS.xMin;
   const h = MAP_BOUNDS.zMax - MAP_BOUNDS.zMin;
   return (
-    <mesh
-      rotation={[-Math.PI / 2, 0, 0]}
-      position={[(MAP_BOUNDS.xMin + MAP_BOUNDS.xMax) / 2, 0, (MAP_BOUNDS.zMin + MAP_BOUNDS.zMax) / 2]}
-      receiveShadow
-    >
-      <planeGeometry args={[w, h]} />
-      <meshStandardMaterial map={tx.ground} roughness={1} />
-    </mesh>
+    <group>
+      {/* endless base plane fading into the fog (fog far is 60, so r=80 reads as endless) */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.02, 0]}>
+        <circleGeometry args={[80, 40]} />
+        <meshStandardMaterial color="#54524b" roughness={1} />
+      </mesh>
+      {/* the map itself */}
+      <mesh
+        rotation={[-Math.PI / 2, 0, 0]}
+        position={[(MAP_BOUNDS.xMin + MAP_BOUNDS.xMax) / 2, 0, (MAP_BOUNDS.zMin + MAP_BOUNDS.zMax) / 2]}
+        receiveShadow
+      >
+        <planeGeometry args={[w, h]} />
+        <meshStandardMaterial map={tx.ground} roughness={1} />
+      </mesh>
+    </group>
   );
 }
 
@@ -1023,10 +1031,61 @@ function Path() {
 function CameraRig({ focus, controlsRef }: { focus: Station | null; controlsRef: React.RefObject<OrbitControlsImpl | null> }) {
   const { camera } = useThree();
   const targetPos = useRef(new THREE.Vector3(0, 0, 2));
-  useFrame(() => {
+  const keys = useRef<Set<string>>(new Set());
+  const panning = useRef(false); // arrow keys override the station camera-follow
+
+  useEffect(() => {
+    const relevant = new Set(["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "w", "a", "s", "d", "W", "A", "S", "D"]);
+    const isTyping = () => {
+      const el = document.activeElement;
+      return !!el && ["INPUT", "TEXTAREA", "SELECT", "AUDIO"].includes(el.tagName);
+    };
+    const down = (e: KeyboardEvent) => {
+      if (!relevant.has(e.key) || isTyping()) return;
+      if (e.key.startsWith("Arrow")) e.preventDefault();
+      keys.current.add(e.key.toLowerCase());
+    };
+    const up = (e: KeyboardEvent) => keys.current.delete(e.key.toLowerCase());
+    window.addEventListener("keydown", down);
+    window.addEventListener("keyup", up);
+    return () => {
+      window.removeEventListener("keydown", down);
+      window.removeEventListener("keyup", up);
+    };
+  }, []);
+
+  useEffect(() => {
+    panning.current = false; // a newly selected station takes the camera again
+  }, [focus?.slug]);
+
+  useFrame((_, delta) => {
     const controls = controlsRef.current;
     if (!controls) return;
-    if (focus) {
+
+    // arrow-key / WASD panning in the viewing direction
+    const k = keys.current;
+    let dx = 0;
+    let dz = 0;
+    if (k.has("arrowup") || k.has("w")) dz += 1;
+    if (k.has("arrowdown") || k.has("s")) dz -= 1;
+    if (k.has("arrowleft") || k.has("a")) dx -= 1;
+    if (k.has("arrowright") || k.has("d")) dx += 1;
+    if (dx !== 0 || dz !== 0) {
+      panning.current = true;
+      const forward = new THREE.Vector3();
+      camera.getWorldDirection(forward);
+      forward.y = 0;
+      forward.normalize();
+      const right = new THREE.Vector3().crossVectors(forward, new THREE.Vector3(0, 1, 0));
+      const speed = 12 * delta;
+      const move = forward.multiplyScalar(dz * speed).add(right.multiplyScalar(dx * speed));
+      // stay on the map — clamp the target, move the camera by the clamped delta
+      const before = controls.target.clone();
+      controls.target.add(move);
+      controls.target.x = THREE.MathUtils.clamp(controls.target.x, MAP_BOUNDS.xMin - 4, MAP_BOUNDS.xMax + 4);
+      controls.target.z = THREE.MathUtils.clamp(controls.target.z, MAP_BOUNDS.zMin - 4, MAP_BOUNDS.zMax + 4);
+      camera.position.add(controls.target.clone().sub(before));
+    } else if (focus && !panning.current) {
       targetPos.current.set(focus.pos[0], 0.4, focus.pos[1]);
       controls.target.lerp(targetPos.current, 0.06);
       const desired = new THREE.Vector3(focus.pos[0] + 3.5, 3.2, focus.pos[1] + 5.5);

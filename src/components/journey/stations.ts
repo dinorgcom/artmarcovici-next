@@ -156,10 +156,11 @@ export const REF_CITIES: { name: string; lat: number; lon: number }[] = [
   { name: "Budapest", lat: 47.5, lon: 19.05 },
 ];
 
-/** Camps named in the book — quiet memorial markers, not stations. */
+/** Camps of the family's story — quiet memorial markers, not stations. */
 export const MEMORIALS: { name: string; lat: number; lon: number }[] = [
   { name: "Auschwitz", lat: 50.03, lon: 19.23 },
   { name: "Treblinka", lat: 52.63, lon: 22.05 },
+  { name: "Mauthausen", lat: 48.26, lon: 14.52 },
 ];
 
 /** Simplified border polylines (lat/lon) — drawn subtly on the ground map. */
