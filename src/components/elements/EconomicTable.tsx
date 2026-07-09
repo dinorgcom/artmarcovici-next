@@ -12,10 +12,11 @@ import {
 } from "@/data/elements";
 import PeriodicTable2D, { type ElementCell } from "./PeriodicTable2D";
 import PeriodicTable3D from "./PeriodicTable3D";
+import RankingView from "./RankingView";
 
 export default function EconomicTable() {
   const [metric, setMetric] = useState<MetricKey>("kg");
-  const [view, setView] = useState<"2d" | "3d">("2d");
+  const [view, setView] = useState<"2d" | "3d" | "rank">("2d");
   const [selectedZ, setSelectedZ] = useState<number | null>(79); // gold
 
   const { cells, min, max, cheapest, dearest } = useMemo(() => {
@@ -72,6 +73,7 @@ export default function EconomicTable() {
             [
               ["2d", "2D — Color"],
               ["3d", "3D — Height"],
+              ["rank", "Ranking"],
             ] as const
           ).map(([key, label]) => (
             <button
@@ -104,8 +106,18 @@ export default function EconomicTable() {
       {/* Table */}
       {view === "2d" ? (
         <PeriodicTable2D data={cells} selectedZ={selectedZ} onSelect={setSelectedZ} />
-      ) : (
+      ) : view === "3d" ? (
         <PeriodicTable3D data={cells} selectedZ={selectedZ} onSelect={setSelectedZ} />
+      ) : (
+        <div className="space-y-2">
+          {metric !== "kg" && (
+            <p className="text-xs text-gray-500">
+              ▲▼ = places gained/lost versus the $ / kg ranking — this is what dividing by{" "}
+              {activeMetric.description.replace("price per ", "")} actually changes.
+            </p>
+          )}
+          <RankingView data={cells} metric={metric} selectedZ={selectedZ} onSelect={setSelectedZ} />
+        </div>
       )}
 
       {/* Detail panel */}
