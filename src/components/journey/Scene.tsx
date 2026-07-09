@@ -1011,11 +1011,28 @@ function DeblinSurroundings({ airfieldLabel }: { airfieldLabel: string }) {
   );
 }
 
+/**
+ * Invisible waypoints for the way home (collapse -> homecoming), so the
+ * return leg passes south of the deportation stop instead of across its
+ * circle — the marker sits on the outbound line only (it is chapter 2).
+ */
+const RETURN_VIA: [number, number][] = [
+  [49.45, 19.1],
+  [48.85, 17.6],
+];
+
 function Path() {
   const geometry = useMemo(() => {
-    const pts = STATIONS.filter((s) => s.kind !== "admin").map(
-      (s) => new THREE.Vector3(s.pos[0], 0.03, s.pos[1])
-    );
+    const pts: THREE.Vector3[] = [];
+    for (const s of STATIONS.filter((st) => st.kind !== "admin")) {
+      if (s.slug === "homecoming") {
+        for (const [lat, lon] of RETURN_VIA) {
+          const [x, z] = project(lat, lon);
+          pts.push(new THREE.Vector3(x, 0.03, z));
+        }
+      }
+      pts.push(new THREE.Vector3(s.pos[0], 0.03, s.pos[1]));
+    }
     const curve = new THREE.CatmullRomCurve3(pts, false, "catmullrom", 0.35);
     return new THREE.TubeGeometry(curve, 120, 0.07, 6, false);
   }, []);
