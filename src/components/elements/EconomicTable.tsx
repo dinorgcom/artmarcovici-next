@@ -117,6 +117,7 @@ export default function EconomicTable() {
             </h2>
             <span className="text-sm text-muted">
               Z = {selected.z} · {selected.mass} g/mol
+              {selected.density !== null && ` · ${selected.density} g/cm³`}
             </span>
             {selected.note && <span className="text-xs italic text-gray-500">{selected.note}</span>}
           </div>
@@ -125,16 +126,16 @@ export default function EconomicTable() {
               No market price — this element has never been traded in weighable quantities.
             </p>
           ) : (
-            <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-4 lg:grid-cols-7">
+            <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-4">
               {METRICS.map((m) => {
-                const v = metricValue(selected, m.key)!;
+                const v = metricValue(selected, m.key);
                 return (
                   <div
                     key={m.key}
                     className={`rounded-md px-2 py-1.5 ${m.key === metric ? "bg-white/10" : ""}`}
                   >
                     <dt className="text-[10px] uppercase tracking-wider text-gray-500">{m.label}</dt>
-                    <dd className="mt-0.5 text-sm text-white">{formatUSD(v)}</dd>
+                    <dd className="mt-0.5 text-sm text-white">{v === null ? "—" : formatUSD(v)}</dd>
                   </div>
                 );
               })}
@@ -147,6 +148,8 @@ export default function EconomicTable() {
         Prices are approximate USD per kilogram of the pure element, compiled from public market
         data and literature (2019–2025). Synthetic and radioactive elements carry
         order-of-magnitude estimates for research quantities. Gray cells have no market at all.
+        Per-liter prices use densities at standard conditions — gases as gas at STP, bromine and
+        mercury as liquids.
       </p>
     </div>
   );
