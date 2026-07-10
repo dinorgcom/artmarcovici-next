@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Billboard, Text } from "@react-three/drei";
 
 /**
  * C3 — Money in the World, 1950 to today, as a walkable 3D room.
@@ -223,6 +223,31 @@ export default function C3World() {
                   <meshBasicMaterial color="#29abe2" transparent opacity={0.25} depthWrite={false} />
                 </mesh>
               )}
+              {/* floating label: what the cube is, and how much right now */}
+              <Billboard position={[0, s + 0.55, 0]} follow>
+                <Text
+                  fontSize={Math.min(0.42, Math.max(0.18, 0.14 + s * 0.045))}
+                  color={item.accent ? "#5ec4ee" : "#efefef"}
+                  anchorX="center"
+                  anchorY="bottom"
+                  outlineWidth={0.006}
+                  outlineColor="#2b2a2a"
+                  letterSpacing={0.06}
+                >
+                  {item.label.toUpperCase()}
+                </Text>
+                <Text
+                  position={[0, -0.08, 0]}
+                  fontSize={Math.min(0.34, Math.max(0.15, 0.11 + s * 0.035))}
+                  color={item.accent ? "#29abe2" : "#b9b9b9"}
+                  anchorX="center"
+                  anchorY="top"
+                  outlineWidth={0.005}
+                  outlineColor="#2b2a2a"
+                >
+                  {`${formatAmount(amountAt(item.series, year))} trillion $`}
+                </Text>
+              </Billboard>
             </group>
           ) : null
         )}
