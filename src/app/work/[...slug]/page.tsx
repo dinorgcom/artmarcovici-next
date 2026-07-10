@@ -90,6 +90,14 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
             Play Free Market Chess
           </Link>
         )}
+        {fullSlug === "c3" && (
+          <Link
+            href="/c3"
+            className="inline-block mt-6 px-8 py-3 border border-accent text-accent hover:bg-accent hover:text-black transition-all duration-300 tracking-widest text-sm uppercase"
+          >
+            Explore in 3D — Money in the World Today
+          </Link>
+        )}
       </div>
 
       {/* Sub-pages grid (for category pages) */}
