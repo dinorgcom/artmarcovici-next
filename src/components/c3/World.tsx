@@ -175,11 +175,6 @@ function Room() {
         <planeGeometry args={[60, 30]} />
         <meshStandardMaterial color="#565454" roughness={1} />
       </mesh>
-      {/* side wall, like the corner room of the infographic */}
-      <mesh position={[14, 15, 0]} rotation={[0, -Math.PI / 2, 0]} receiveShadow>
-        <planeGeometry args={[60, 30]} />
-        <meshStandardMaterial color="#7d7b7b" roughness={1} />
-      </mesh>
     </group>
   );
 }
