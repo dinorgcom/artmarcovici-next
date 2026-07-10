@@ -8,13 +8,16 @@ import {
   START_CASH,
   MOVE_COST,
   EXPLORE_COST,
-  DEV_COST,
   MAX_DEV,
-  TOLL_BASE,
-  TOLL_PER_DEV,
+  TOLL_BY_DEV,
+  DEV_COSTS,
   PASSIVE_PER_DEV,
   dealFinds,
   tollOf,
+  devCostOf,
+  moveTolls,
+  moveCostOf,
+  hasAffordableMove,
   passiveIncome,
   explorationEV,
   remainingFinds,
@@ -93,28 +96,35 @@ export default function Game() {
 
   /* ---------- human move ---------- */
 
-  const legalTargets = useMemo(() => {
-    if (!selected || phase !== "human") return new Set<string>();
-    return new Set(chess.moves({ square: selected as Square, verbose: true }).map((m) => m.to));
-  }, [selected, phase, chess]);
+  /** Every legal target of the selected piece, with its full price (tolls included). */
+  const targetCosts = useMemo(() => {
+    const map = new Map<string, { cost: number; move: Move }>();
+    if (!selected || phase !== "human") return map;
+    for (const m of chess.moves({ square: selected as Square, verbose: true })) {
+      map.set(m.to, { cost: moveCostOf(m, claims, AI), move: m });
+    }
+    return map;
+  }, [selected, phase, chess, claims]);
+
+  const legalTargets = useMemo(() => new Set(targetCosts.keys()), [targetCosts]);
 
   const executeHumanMove = useCallback(
     (mv: Move) => {
+      const tolls = moveTolls(mv, claims, AI);
       const m = chess.move({ from: mv.from, to: mv.to, promotion: "q" });
       setSelected(null);
       let w = cash.w - MOVE_COST;
       let b = cash.b;
       pushLog(`You play ${m.san} (−${money(MOVE_COST)} move cost).`, "chess");
 
-      const claim = claims[m.to];
-      if (claim && claim.owner === AI) {
-        const toll = tollOf(claim);
-        w -= toll;
-        b += toll;
-        pushLog(`You pay ${money(toll)} toll on ${m.to} (level ${claim.dev}).`, "econ");
+      if (tolls.length > 0) {
+        const total = tolls.reduce((s, t) => s + t.toll, 0);
+        w -= total;
+        b += total;
+        const parts = tolls.map((t) => `${t.square} ${t.transit ? "transit " : ""}${money(t.toll)}`).join(" + ");
+        pushLog(`You pay ${money(total)} toll (${parts}).`, "econ");
       }
       setCash({ w, b });
-      if (w < 0) return endGame("You cannot pay — bankrupt. The Syndicate wins.");
       if (checkChessEnd()) return;
 
       if (!claims[m.to] && w >= EXPLORE_COST) {
@@ -132,9 +142,13 @@ export default function Game() {
     (sq: string) => {
       if (phase !== "human" || result) return;
       const piece = chess.get(sq as Square);
-      if (selected && legalTargets.has(sq)) {
-        const mv = chess.moves({ square: selected as Square, verbose: true }).find((m) => m.to === sq)!;
-        executeHumanMove(mv);
+      const target = targetCosts.get(sq);
+      if (selected && target) {
+        if (target.cost > cash.w) {
+          pushLog(`${sq} is blocked — the move would cost ${money(target.cost)}, you have ${money(cash.w)}.`, "econ");
+          return;
+        }
+        executeHumanMove(target.move);
         return;
       }
       if (piece && piece.color === HUMAN) setSelected(sq === selected ? null : sq);
@@ -143,7 +157,7 @@ export default function Game() {
         return claims[s];
       }
     },
-    [phase, result, chess, selected, legalTargets, executeHumanMove, claims]
+    [phase, result, chess, selected, targetCosts, cash.w, executeHumanMove, pushLog, claims]
   );
 
   /* ---------- exploration decision ---------- */
@@ -152,9 +166,9 @@ export default function Game() {
   const proceedToDevelop = useCallback(
     (claimsNow: Claims, cashNow: number) => {
       const developable = Object.entries(claimsNow)
-        .filter(([, c]) => c.owner === HUMAN && c.dev < MAX_DEV)
+        .filter(([, c]) => c.owner === HUMAN && c.dev < MAX_DEV && cashNow >= devCostOf(c))
         .map(([sq]) => sq);
-      if (developable.length > 0 && cashNow >= DEV_COST) {
+      if (developable.length > 0) {
         setDevChoice(developable[0]);
         setPhase("develop");
       } else {
@@ -201,13 +215,14 @@ export default function Game() {
 
   const resolveDevelop = useCallback(
     (doDevelop: boolean) => {
-      if (doDevelop && devChoice && claims[devChoice] && cash.w >= DEV_COST) {
+      if (doDevelop && devChoice && claims[devChoice] && cash.w >= devCostOf(claims[devChoice])) {
         const claim = claims[devChoice];
+        const price = devCostOf(claim);
         setClaims((c) => ({ ...c, [devChoice]: { ...claim, dev: claim.dev + 1 } }));
-        setCash((c) => ({ ...c, w: c.w - DEV_COST }));
+        setCash((c) => ({ ...c, w: c.w - price }));
         pushLog(
-          `You develop ${devChoice} to level ${claim.dev + 1} (−${money(DEV_COST)}). Toll is now ${money(
-            TOLL_BASE + TOLL_PER_DEV * (claim.dev + 1)
+          `You develop ${devChoice} to level ${claim.dev + 1} (−${money(price)}). Toll is now ${money(
+            TOLL_BY_DEV[claim.dev + 1]
           )}.`,
           "econ"
         );
@@ -230,25 +245,24 @@ export default function Game() {
         b += pass;
         pushLog(`The Syndicate collects ${money(pass)} from its mines.`, "econ");
       }
-      if (b < MOVE_COST) return endGame("The Syndicate cannot afford a move — bankrupt. You win.");
 
       let nextClaims = claims;
       const mv = chooseMoveAI(chess, nextClaims, b);
+      if (!mv) {
+        setCash({ w, b });
+        return endGame("Economic checkmate — the Syndicate cannot afford any legal move. You win.");
+      }
+      const tolls = moveTolls(mv, nextClaims, HUMAN);
       const m = chess.move({ from: mv.from, to: mv.to, promotion: mv.promotion || "q" });
       b -= MOVE_COST;
       pushLog(`The Syndicate plays ${m.san} (−${money(MOVE_COST)}).`, "chess");
 
-      const claim = nextClaims[m.to];
-      if (claim && claim.owner === HUMAN) {
-        const toll = tollOf(claim);
-        b -= toll;
-        w += toll;
-        pushLog(`The Syndicate pays you ${money(toll)} toll on ${m.to}.`, "econ");
-      }
-      if (b < 0) {
-        setClaims(nextClaims);
-        setCash({ w, b });
-        return endGame("The Syndicate cannot pay your toll — bankrupt. You win.");
+      if (tolls.length > 0) {
+        const total = tolls.reduce((s, t) => s + t.toll, 0);
+        b -= total;
+        w += total;
+        const parts = tolls.map((t) => `${t.square} ${t.transit ? "transit " : ""}${money(t.toll)}`).join(" + ");
+        pushLog(`The Syndicate pays you ${money(total)} toll (${parts}).`, "econ");
       }
 
       if (!nextClaims[m.to] && aiWantsExplore(nextClaims, b)) {
@@ -267,9 +281,13 @@ export default function Game() {
       const devSq = aiDevelopAI(chess, nextClaims, b, AI);
       if (devSq) {
         const cur = nextClaims[devSq];
+        const price = devCostOf(cur);
         nextClaims = { ...nextClaims, [devSq]: { ...cur, dev: cur.dev + 1 } };
-        b -= DEV_COST;
-        pushLog(`The Syndicate develops ${devSq} to level ${cur.dev + 1}.`, "econ");
+        b -= price;
+        pushLog(
+          `The Syndicate develops ${devSq} to level ${cur.dev + 1} — toll there is now ${money(TOLL_BY_DEV[cur.dev + 1])}.`,
+          "econ"
+        );
       }
 
       setClaims(nextClaims);
@@ -285,7 +303,9 @@ export default function Game() {
         pushLog(`You collect ${money(humanPass)} from your mines.`, "econ");
       }
       setCash({ w, b });
-      if (w < MOVE_COST) return endGame("You cannot afford a move — bankrupt. The Syndicate wins.");
+      if (!hasAffordableMove(chess, nextClaims, w, HUMAN)) {
+        return endGame("Economic checkmate — you cannot afford any legal move. The Syndicate wins.");
+      }
       setPhase("human");
       rerender();
     }, 900);
@@ -363,8 +383,10 @@ export default function Game() {
                   {row.map(({ square, dark }) => {
                     const piece = chess.get(square as Square);
                     const claim = claims[square];
+                    const target = targetCosts.get(square);
                     const isTarget = legalTargets.has(square);
-                    const tollDue = claim && claim.owner === AI && isTarget ? tollOf(claim) : 0;
+                    const tollDue = target ? target.cost - MOVE_COST : 0;
+                    const blocked = target ? target.cost > cash.w : false;
                     return (
                       <button
                         key={square}
@@ -400,7 +422,7 @@ export default function Game() {
                             +{claim.find}/r
                           </span>
                         )}
-                        {isTarget && (
+                        {isTarget && !blocked && (
                           <span className={`absolute inset-0 pointer-events-none ${piece ? "ring-4 ring-inset ring-accent/70" : ""}`}>
                             {!piece && (
                               <span
@@ -409,6 +431,16 @@ export default function Game() {
                                 }`}
                               />
                             )}
+                          </span>
+                        )}
+                        {isTarget && blocked && (
+                          <span
+                            className="absolute inset-0 pointer-events-none flex items-center justify-center bg-red-950/50"
+                            title={`Blocked — this move costs ${money(target!.cost)}`}
+                          >
+                            <span className="text-red-400 font-mono text-sm leading-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">
+                              ✕ ${target!.cost}
+                            </span>
                           </span>
                         )}
                         {piece && (
@@ -432,7 +464,7 @@ export default function Game() {
             </div>
             <p className="mt-2 text-xs text-gray-600">
               {phase === "human"
-                ? "Your move (−$100). Green dots: unexplored ground. Red dots: toll due."
+                ? "Your move (−$100). Green dots: unexplored ground. Red dots: toll due. ✕: too expensive — blocked."
                 : phase === "ai"
                 ? "The Syndicate is thinking…"
                 : phase === "explore"
@@ -449,7 +481,7 @@ export default function Game() {
               <ol className="text-[11px] text-gray-400 list-decimal list-inside space-y-1">
                 <li>Move a piece ({money(MOVE_COST)}).</li>
                 <li>Landed on unexplored ground? You may explore it ({money(EXPLORE_COST)}) — it becomes yours.</li>
-                <li>Develop one of your claims ({money(DEV_COST)}) — or end your turn.</li>
+                <li>Develop one of your claims ({money(DEV_COSTS[0])}–{money(DEV_COSTS[2])}) — or end your turn.</li>
               </ol>
             </div>
 
@@ -463,13 +495,18 @@ export default function Game() {
               </p>
               <p>
                 Develop any of your claims after your move (max {MAX_DEV}):{" "}
-                <span className="text-white">{money(DEV_COST)}</span> / level
+                <span className="text-white">{DEV_COSTS.map((c) => money(c)).join(" / ")}</span> per level
               </p>
               <p>
-                Toll on enemy claims: <span className="text-white">{money(TOLL_BASE)} + {money(TOLL_PER_DEV)}×level</span>
+                Toll on enemy claims by level:{" "}
+                <span className="text-white">{TOLL_BY_DEV.map((t) => money(t)).join(" → ")}</span>
+              </p>
+              <p>
+                Sliding pieces pay the toll of <span className="text-white">every enemy square they cross</span> — developed
+                squares cut lines
               </p>
               <p>Development bonus: <span className="text-white">{money(PASSIVE_PER_DEV)}</span> per level per round</p>
-              <p>Bankruptcy loses. Checkmate wins.</p>
+              <p>Moves you cannot pay for are blocked. No affordable move left = economic checkmate. Checkmate wins.</p>
               <div className="border-t border-white/10 mt-2 pt-2">
                 <p className="text-gray-500 mb-1">Resources still buried (pay per round · EV {money(ev)}/round):</p>
                 <div className="grid grid-cols-4 gap-x-2 gap-y-0.5 font-mono">
@@ -543,7 +580,8 @@ export default function Game() {
           <div className="max-w-md w-full border border-accent/40 rounded-xl bg-black/90 p-6 text-center">
             <h2 className="font-serif text-2xl text-accent mb-2">Develop a claim?</h2>
             <p className="text-gray-400 text-sm mb-4">
-              One development per turn, {money(DEV_COST)} per level — on any of your claims.
+              One development per turn — {DEV_COSTS.map((c) => money(c)).join(" / ")} per level. Higher levels charge
+              much steeper tolls.
             </p>
             <select
               value={devChoice}
@@ -552,8 +590,8 @@ export default function Game() {
             >
               {developableClaims.map(({ square, claim }) => (
                 <option key={square} value={square}>
-                  {square} — level {claim.dev} → {claim.dev + 1}, toll {money(tollOf(claim))} →{" "}
-                  {money(tollOf(claim) + TOLL_PER_DEV)}
+                  {square} — level {claim.dev} → {claim.dev + 1} for {money(devCostOf(claim))}, toll {money(tollOf(claim))} →{" "}
+                  {money(TOLL_BY_DEV[claim.dev + 1])}
                 </option>
               ))}
             </select>
@@ -561,10 +599,10 @@ export default function Game() {
             <div className="flex gap-3 justify-center">
               <button
                 onClick={() => resolveDevelop(true)}
-                disabled={!devChoice || cash.w < DEV_COST}
+                disabled={!devChoice || !claims[devChoice] || cash.w < devCostOf(claims[devChoice])}
                 className="px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-black transition-all text-sm uppercase tracking-widest disabled:opacity-40"
               >
-                Develop ({money(DEV_COST)})
+                Develop{devChoice && claims[devChoice] ? ` (${money(devCostOf(claims[devChoice]))})` : ""}
               </button>
               <button
                 onClick={() => resolveDevelop(false)}

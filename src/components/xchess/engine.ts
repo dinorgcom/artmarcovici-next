@@ -7,10 +7,11 @@ export type Color = "w" | "b";
 export const START_CASH = 2500;
 export const MOVE_COST = 100;
 export const EXPLORE_COST = 300;
-export const DEV_COST = 250;
 export const MAX_DEV = 3;
-export const TOLL_BASE = 100;
-export const TOLL_PER_DEV = 250;
+/** Toll by development level — steep, so developed squares block early. */
+export const TOLL_BY_DEV = [100, 500, 1500, 4000];
+/** Cost of developing FROM level i to i+1. */
+export const DEV_COSTS = [250, 500, 1000];
 export const PASSIVE_PER_DEV = 25;
 
 /**
@@ -52,14 +53,79 @@ export function dealFinds(): Record<string, number> {
 
 export interface Claim {
   owner: Color;
-  find: number; // the revealed one-time treasure
+  find: number; // the revealed recurring resource
   dev: number; // 0..MAX_DEV
 }
 
 export type Claims = Record<string, Claim>; // only explored squares
 
 export function tollOf(claim: Claim): number {
-  return TOLL_BASE + TOLL_PER_DEV * claim.dev;
+  return TOLL_BY_DEV[claim.dev];
+}
+
+/** Cost of the next development level for this claim (Infinity when maxed). */
+export function devCostOf(claim: Claim): number {
+  return DEV_COSTS[claim.dev] ?? Infinity;
+}
+
+/* ---------- transit tolls: enemy squares tax the squares you slide across ---------- */
+
+/** Squares strictly between from and to on a straight or diagonal line (knights jump: empty). */
+export function pathSquares(from: string, to: string): string[] {
+  const f0 = FILES.indexOf(from[0]);
+  const r0 = Number(from[1]);
+  const f1 = FILES.indexOf(to[0]);
+  const r1 = Number(to[1]);
+  const adf = Math.abs(f1 - f0);
+  const adr = Math.abs(r1 - r0);
+  const straight = (f0 === f1 && r0 !== r1) || (r0 === r1 && f0 !== f1);
+  const diagonal = adf === adr && adf > 0;
+  if (!straight && !diagonal) return [];
+  const df = Math.sign(f1 - f0);
+  const dr = Math.sign(r1 - r0);
+  const out: string[] = [];
+  let f = f0 + df;
+  let r = r0 + dr;
+  while (f !== f1 || r !== r1) {
+    out.push(`${FILES[f]}${r}`);
+    f += df;
+    r += dr;
+  }
+  return out;
+}
+
+export interface TollItem {
+  square: string;
+  toll: number;
+  transit: boolean; // true = crossed, false = landed on
+}
+
+/** Every enemy claim this move pays toll to — crossed squares and the landing square. */
+export function moveTolls(mv: { from: string; to: string }, claims: Claims, enemy: Color): TollItem[] {
+  const items: TollItem[] = [];
+  for (const sq of pathSquares(mv.from, mv.to)) {
+    const c = claims[sq];
+    if (c && c.owner === enemy) items.push({ square: sq, toll: tollOf(c), transit: true });
+  }
+  const dst = claims[mv.to];
+  if (dst && dst.owner === enemy) items.push({ square: mv.to, toll: tollOf(dst), transit: false });
+  return items;
+}
+
+export function moveTollTotal(mv: { from: string; to: string }, claims: Claims, enemy: Color): number {
+  return moveTolls(mv, claims, enemy).reduce((sum, t) => sum + t.toll, 0);
+}
+
+/** Full price of a move: move cost plus all tolls due. */
+export function moveCostOf(mv: { from: string; to: string }, claims: Claims, enemy: Color): number {
+  return MOVE_COST + moveTollTotal(mv, claims, enemy);
+}
+
+/** Is there any legal move this player can pay for? (false = economic checkmate) */
+export function hasAffordableMove(chess: Chess, claims: Claims, cash: number, color: Color): boolean {
+  if (chess.turn() !== color) return true;
+  const enemy: Color = color === "w" ? "b" : "w";
+  return chess.moves({ verbose: true }).some((m) => moveCostOf(m, claims, enemy) <= cash);
 }
 
 /** Per-round income: every owned claim pays its find, plus $25 per development level. */
@@ -104,22 +170,22 @@ const PIECE_CASH_VALUE: Record<string, number> = {
   k: 99999,
 };
 
-export function chooseMoveAI(chess: Chess, claims: Claims, cash: number): Move {
+/** Best affordable move, or null when every legal move is too expensive (economic checkmate). */
+export function chooseMoveAI(chess: Chess, claims: Claims, cash: number): Move | null {
   const me = chess.turn();
   const enemy: Color = me === "w" ? "b" : "w";
   const moves = chess.moves({ verbose: true });
-  let best: Move = moves[0];
+  let best: Move | null = null;
   let bestScore = -Infinity;
   for (const m of moves) {
+    const tollTotal = moveTollTotal(m, claims, enemy);
+    if (MOVE_COST + tollTotal > cash) continue; // cannot pay — blocked
     let score = Math.random() * 30;
     if (m.captured) score += PIECE_CASH_VALUE[m.captured] * 1.1;
     if (m.promotion) score += 800;
-    const claim = claims[m.to];
-    if (claim && claim.owner === enemy) {
-      const toll = tollOf(claim);
-      score -= toll * (toll >= cash - MOVE_COST ? 40 : 1.6);
-    }
-    if (!claim && cash > EXPLORE_COST + 500) {
+    // tolls hurt — badly, when they eat a big share of the war chest
+    score -= tollTotal * (tollTotal >= cash * 0.4 ? 4 : 1.6);
+    if (!claims[m.to] && cash > EXPLORE_COST + 500) {
       score += Math.min(explorationEV(claims) * 4, 350); // recurring income is worth chasing
     }
     const probe = new Chess(chess.fen());
@@ -143,7 +209,6 @@ export function aiWantsExplore(claims: Claims, cash: number): boolean {
 
 /** Pick a square the AI should develop, or null. */
 export function aiDevelopAI(chess: Chess, claims: Claims, cash: number, me: Color): string | null {
-  if (cash < DEV_COST + 700) return null;
   // develop own squares that enemy pieces can currently reach
   const fen = chess.fen().split(" ");
   fen[1] = me === "w" ? "b" : "w";
@@ -158,7 +223,8 @@ export function aiDevelopAI(chess: Chess, claims: Claims, cash: number, me: Colo
   let bestScore = 0;
   for (const [sq, c] of Object.entries(claims)) {
     if (c.owner !== me || c.dev >= MAX_DEV) continue;
-    const score = (enemyTargets.has(sq) ? 3 : 1) + c.dev * 0.2;
+    if (cash < devCostOf(c) + 700) continue; // keep a war chest
+    const score = (enemyTargets.has(sq) ? 3 : 1) + c.dev * 0.5;
     if (score > bestScore) {
       bestScore = score;
       best = sq;
