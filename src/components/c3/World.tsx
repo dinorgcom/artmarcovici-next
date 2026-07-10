@@ -4,6 +4,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Billboard, Text } from "@react-three/drei";
+import * as THREE from "three";
+
+// shared edge geometry for the wireframe "flow" cube (world GDP)
+const BOX_EDGES = new THREE.EdgesGeometry(new THREE.BoxGeometry(1, 1, 1));
 
 /**
  * C3 — Money in the World, 1950 to today, as a walkable 3D room.
@@ -24,6 +28,7 @@ interface Item {
   series: number[]; // trillions USD at YEARS
   color: string;
   accent?: boolean;
+  ghost?: boolean; // rendered as wireframe — a flow, not a stock
   note: string;
 }
 
@@ -38,12 +43,12 @@ const ITEMS: Item[] = [
       "Born in 2009 — and still a speck next to the money of the world. C3's answer: credit money on the blockchain, every ccoin fully backed by assets posted as collateral.",
   },
   {
-    key: "gold",
-    label: "Gold",
-    series: [0.08, 0.1, 0.11, 2.2, 1.6, 1.3, 6.5, 7.3, 29],
-    color: "#cfcabc",
+    key: "silver",
+    label: "Silver",
+    series: [0.02, 0.03, 0.06, 0.5, 0.15, 0.2, 1.0, 0.8, 2.5],
+    color: "#d7dade",
     note:
-      "All the gold ever mined, at the gold price of the day. The stock grows slowly — the price does not: $35 an ounce until 1971, around $4,000 today.",
+      "All the silver ever mined, at the silver price of the day — including the spike of 1980, when the Hunt brothers tried to corner the market.",
   },
   {
     key: "cash",
@@ -60,12 +65,53 @@ const ITEMS: Item[] = [
     note: "Narrow or central bank money — the reserves beyond the banknotes (estimate).",
   },
   {
+    key: "gold",
+    label: "Gold",
+    series: [0.08, 0.1, 0.11, 2.2, 1.6, 1.3, 6.5, 7.3, 29],
+    color: "#cfcabc",
+    note:
+      "All the gold ever mined, at the gold price of the day. The stock grows slowly — the price does not: $35 an ounce until 1971, around $4,000 today.",
+  },
+  {
+    key: "gdp",
+    label: "World GDP / year",
+    series: [1.0, 1.4, 3.4, 11, 23, 34, 66, 86, 118],
+    color: "#e8e4da",
+    ghost: true,
+    note:
+      "Everything the world produces in one year. A flow, not a stock — which is why this cube is drawn as an outline. It is the measure the others should be read against.",
+  },
+  {
+    key: "equities",
+    label: "Stock markets",
+    series: [0.15, 0.4, 0.9, 2.5, 9.4, 31, 54, 70, 130],
+    color: "#a9b6be",
+    note:
+      "The market value of all listed companies on the world's stock exchanges — about 130 trillion USD today, under 0.2 trillion in 1950.",
+  },
+  {
+    key: "m2",
+    label: "Broad money",
+    series: [0.5, 0.75, 1.8, 6, 16, 28, 63, 95, 140],
+    color: "#c4c4c4",
+    note:
+      "Cash plus bank deposits (M2/M3). Most of it exists only as entries in bank databases — created when banks lend.",
+  },
+  {
     key: "credit",
     label: "Credit / debt",
     series: [0.5, 1.2, 2.8, 12, 35, 87, 175, 230, 348],
     color: "#c2c2c2",
     note:
       "Money created as credit — most of the money in the world is debt. A record 348 trillion USD at the end of 2025 (IIF).",
+  },
+  {
+    key: "realestate",
+    label: "Real estate",
+    series: [3, 4.5, 10, 33, 70, 105, 220, 280, 400],
+    color: "#b5aa9c",
+    note:
+      "All the world's property — homes, offices, farmland. The largest store of wealth on earth, around 400 trillion USD (Savills).",
   },
   {
     key: "derivatives",
@@ -77,7 +123,7 @@ const ITEMS: Item[] = [
   },
 ];
 
-const SIDE_K = 0.55;
+const SIDE_K = 0.48;
 const YEAR_MIN = YEARS[0];
 const YEAR_MAX = YEARS[YEARS.length - 1];
 
@@ -152,14 +198,14 @@ export default function C3World() {
 
   // sizes and positions for the current year
   const placed = useMemo(() => {
-    let x = -9;
+    let x = -15;
     return ITEMS.map((item) => {
       const amount = amountAt(item.series, year);
       const s = Math.max(0.001, SIDE_K * Math.cbrt(Math.max(0, amount)));
       const visible = amount > 0.0005;
       x += (visible ? s : 0) / 2;
       const cube = { item, amount, s, x, visible };
-      x += (visible ? s / 2 + 1.1 : 0.25);
+      x += (visible ? s / 2 + 0.85 : 0.25);
       return cube;
     });
   }, [year]);
@@ -170,7 +216,7 @@ export default function C3World() {
 
   return (
     <div className="fixed inset-0 bg-[#4a4848]">
-      <Canvas shadows camera={{ position: [-9, 6.5, 13], fov: 42, near: 0.1 }}>
+      <Canvas shadows camera={{ position: [-11, 7.5, 17], fov: 46, near: 0.1 }}>
         <ambientLight intensity={0.85} />
         <directionalLight
           position={[-10, 18, 10]}
@@ -190,8 +236,8 @@ export default function C3World() {
               <mesh
                 position={[0, s / 2, 0]}
                 scale={[s, s, s]}
-                castShadow
-                receiveShadow
+                castShadow={!item.ghost}
+                receiveShadow={!item.ghost}
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelected(item.key);
@@ -207,16 +253,39 @@ export default function C3World() {
                 }}
               >
                 <boxGeometry args={[1, 1, 1]} />
-                <meshStandardMaterial
-                  color={item.color}
-                  roughness={0.75}
-                  metalness={0.02}
-                  emissive={
-                    active === item.key ? (item.accent ? "#29abe2" : "#d4a853") : "#000000"
-                  }
-                  emissiveIntensity={active === item.key ? 0.35 : 0}
-                />
+                {item.ghost ? (
+                  <meshStandardMaterial
+                    color={item.color}
+                    transparent
+                    opacity={active === item.key ? 0.16 : 0.07}
+                    roughness={1}
+                    depthWrite={false}
+                  />
+                ) : (
+                  <meshStandardMaterial
+                    color={item.color}
+                    roughness={0.75}
+                    metalness={0.02}
+                    emissive={
+                      active === item.key ? (item.accent ? "#29abe2" : "#d4a853") : "#000000"
+                    }
+                    emissiveIntensity={active === item.key ? 0.35 : 0}
+                  />
+                )}
               </mesh>
+              {item.ghost && (
+                <lineSegments
+                  geometry={BOX_EDGES}
+                  position={[0, s / 2, 0]}
+                  scale={[s, s, s]}
+                >
+                  <lineBasicMaterial
+                    color={active === item.key ? "#d4a853" : "#e8e4da"}
+                    transparent
+                    opacity={0.85}
+                  />
+                </lineSegments>
+              )}
               {item.accent && (
                 <mesh position={[0, s / 2, 0]} scale={[s * 1.4, s * 1.4, s * 1.4]}>
                   <sphereGeometry args={[1, 20, 16]} />
@@ -256,9 +325,9 @@ export default function C3World() {
           dampingFactor={0.08}
           enablePan={false}
           minDistance={2}
-          maxDistance={26}
+          maxDistance={36}
           maxPolarAngle={Math.PI / 2.05}
-          target={[-2, 1.6, 0]}
+          target={[0, 1.8, 0]}
         />
       </Canvas>
 
