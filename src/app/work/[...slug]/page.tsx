@@ -24,9 +24,16 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string[] 
   return params.then(({ slug }) => {
     const fullSlug = slug.join("/");
     const page = pages[fullSlug];
+    const title = page?.title || "Art Marcovici";
+    const description = page?.description || "Contemporary Art by Michael Marcovici";
     return {
-      title: page?.title || "Art Marcovici",
-      description: page?.description || "Contemporary Art by Michael Marcovici",
+      title,
+      description,
+      openGraph: {
+        title,
+        description,
+        images: [{ url: page?.images?.[0] || "/og/og-default.jpg" }],
+      },
     };
   });
 }

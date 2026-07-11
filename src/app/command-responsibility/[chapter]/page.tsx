@@ -28,9 +28,16 @@ export async function generateMetadata({
 }) {
   const { chapter } = await params;
   const ch = chapters.find((c) => c.slug === chapter);
+  const title = ch ? `${ch.title} — Command Responsibility` : "Command Responsibility";
+  const description = `Command Responsibility by Hermann Wenkart — ${ch?.title ?? ""}. Free to read and listen.`;
   return {
-    title: ch ? `${ch.title} — Command Responsibility` : "Command Responsibility",
-    description: `Command Responsibility by Hermann Wenkart — ${ch?.title ?? ""}. Free to read and listen.`,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: "/og/og-book.jpg", width: 1200, height: 630 }],
+    },
   };
 }
 

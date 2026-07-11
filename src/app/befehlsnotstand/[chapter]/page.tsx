@@ -27,9 +27,18 @@ export async function generateMetadata({
 }) {
   const { chapter } = await params;
   const ch = chapters.find((c) => c.slug === chapter);
+  const title = ch
+    ? `${ch.title} — Befehlsnotstand anders gesehen`
+    : "Befehlsnotstand anders gesehen";
+  const description = `Befehlsnotstand anders gesehen von Hermann Wenkart — ${ch?.title ?? ""}. Kostenlos lesen und anhören.`;
   return {
-    title: ch ? `${ch.title} — Befehlsnotstand anders gesehen` : "Befehlsnotstand anders gesehen",
-    description: `Befehlsnotstand anders gesehen von Hermann Wenkart — ${ch?.title ?? ""}. Kostenlos lesen und anhören.`,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: "/og/og-befehlsnotstand.jpg", width: 1200, height: 630 }],
+    },
   };
 }
 

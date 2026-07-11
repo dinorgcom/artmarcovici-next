@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description:
       "A Holocaust survivor's first-hand report from the Deblin-Irena camp, free to read and listen to online.",
     type: "book",
+    images: [{ url: "/og/og-book.jpg", width: 1200, height: 630 }],
   },
 };
 

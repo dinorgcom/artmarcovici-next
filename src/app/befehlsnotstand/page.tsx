@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description:
       "Der Bericht eines Holocaust-Überlebenden aus dem Lager Deblin-Irena, kostenlos online zu lesen und zu hören.",
     type: "book",
+    images: [{ url: "/og/og-befehlsnotstand.jpg", width: 1200, height: 630 }],
   },
 };
 

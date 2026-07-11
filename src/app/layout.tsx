@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://biest.com"),
   title: {
     default: "Art Marcovici",
     template: "%s | Art Marcovici",
@@ -17,6 +18,11 @@ export const metadata: Metadata = {
     title: "Art Marcovici",
     description: "Contemporary Art by Michael Marcovici",
     type: "website",
+    siteName: "Art Marcovici — biest.com",
+    images: [{ url: "/og/og-default.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 
