@@ -60,6 +60,7 @@ const navCategories = [
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
@@ -129,13 +130,56 @@ export default function Navigation() {
         <div className="md:hidden bg-surface border-t border-white/10 max-h-[80vh] overflow-y-auto">
           {navCategories.map((cat) => (
             <div key={cat.label}>
-              <Link
-                href={cat.href}
-                onClick={() => setMobileOpen(false)}
-                className="block px-6 py-3 text-sm font-medium tracking-wide text-gray-300 hover:text-white hover:bg-white/5"
-              >
-                {cat.label}
-              </Link>
+              <div className="flex items-center">
+                <Link
+                  href={cat.href}
+                  onClick={() => {
+                    setMobileOpen(false);
+                    setMobileExpanded(null);
+                  }}
+                  className="flex-1 block px-6 py-3 text-sm font-medium tracking-wide text-gray-300 hover:text-white hover:bg-white/5"
+                >
+                  {cat.label}
+                </Link>
+                {cat.submenu && (
+                  <button
+                    onClick={() =>
+                      setMobileExpanded((e) => (e === cat.label ? null : cat.label))
+                    }
+                    aria-label={`${cat.label} submenu`}
+                    className="px-5 py-3 text-gray-500 hover:text-white"
+                  >
+                    <svg
+                      className={`w-4 h-4 transition-transform ${
+                        mobileExpanded === cat.label ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+              {cat.submenu && mobileExpanded === cat.label && (
+                <div className="bg-black/40 border-t border-white/5">
+                  {cat.submenu.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setMobileExpanded(null);
+                      }}
+                      className="block pl-10 pr-6 py-2.5 text-sm text-gray-400 hover:text-white hover:bg-white/5"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
