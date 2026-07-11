@@ -67,8 +67,13 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="font-serif text-xl tracking-wider text-accent hover:text-white transition-colors">
-            ART MARCOVICI
+          <Link href="/" className="flex items-baseline gap-3 group">
+            <span className="font-serif text-xl tracking-wider text-accent group-hover:text-white transition-colors">
+              ART MARCOVICI
+            </span>
+            <span className="font-serif text-sm tracking-widest text-red-600">
+              BIEST.COM
+            </span>
           </Link>
 
           {/* Desktop Nav */}
