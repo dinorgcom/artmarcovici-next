@@ -96,6 +96,41 @@ export default function Home() {
         </Link>
       </section>
 
+      {/* Gapminder 3D — tribute to Hans Rosling */}
+      <section className="max-w-7xl mx-auto px-4 pt-20">
+        <a
+          href="/gapminder/"
+          className="art-card group relative block overflow-hidden rounded-lg border border-accent/30 hover:border-accent transition-colors duration-300"
+        >
+          <div className="absolute inset-0">
+            {/* bubble-chart motif, pure CSS */}
+            <div className="absolute -right-10 top-8 h-40 w-40 rounded-full bg-accent/25 blur-2xl" />
+            <div className="absolute right-40 bottom-6 h-24 w-24 rounded-full bg-white/10 blur-xl" />
+            <div className="absolute right-72 top-14 h-14 w-14 rounded-full bg-accent/15 blur-lg" />
+            <div className="absolute right-24 top-32 h-8 w-8 rounded-full bg-white/15 blur-md" />
+            <div className="absolute right-[26rem] bottom-10 h-10 w-10 rounded-full bg-accent/20 blur-lg" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30" />
+          </div>
+          <div className="relative px-8 py-14 md:px-14 md:py-20 max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent mb-3">Interactive data installation</p>
+            <h2 className="font-serif text-3xl md:text-5xl tracking-wide mb-4">
+              GAPMINDER 3D
+            </h2>
+            <p className="text-gray-300 mb-8 leading-relaxed">
+              110 indicators, 273 countries, one animated timeline — income, health, crime,
+              mental health, religion, climate and more, explored in a navigable 3D bubble
+              room. Made in the spirit of{" "}
+              <span className="text-white">Gapminder.org</span> — a tribute to{" "}
+              <span className="text-white">Hans Rosling</span> (1948–2017), who taught the
+              world to see data differently.
+            </p>
+            <span className="inline-block px-8 py-3 border border-accent text-accent group-hover:bg-accent group-hover:text-black transition-all duration-300 tracking-widest text-sm uppercase">
+              Explore the data
+            </span>
+          </div>
+        </a>
+      </section>
+
       {/* Featured Works */}
       <section className="max-w-7xl mx-auto px-4 py-20">
         <h2 className="font-serif text-3xl md:text-4xl text-center mb-4">Featured Works</h2>
