@@ -103,30 +103,47 @@ export default function Home() {
           className="art-card group relative block overflow-hidden rounded-lg border border-accent/30 hover:border-accent transition-colors duration-300"
         >
           <div className="absolute inset-0">
-            {/* bubble-chart motif, pure CSS */}
-            <div className="absolute -right-10 top-8 h-40 w-40 rounded-full bg-accent/25 blur-2xl" />
-            <div className="absolute right-40 bottom-6 h-24 w-24 rounded-full bg-white/10 blur-xl" />
-            <div className="absolute right-72 top-14 h-14 w-14 rounded-full bg-accent/15 blur-lg" />
-            <div className="absolute right-24 top-32 h-8 w-8 rounded-full bg-white/15 blur-md" />
-            <div className="absolute right-[26rem] bottom-10 h-10 w-10 rounded-full bg-accent/20 blur-lg" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30" />
+            <Image
+              src="/images/gapminder-card.png"
+              alt="3D bubble chart of world development data"
+              fill
+              className="object-cover opacity-50 transition-transform duration-700 group-hover:scale-105"
+              unoptimized
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20" />
           </div>
-          <div className="relative px-8 py-14 md:px-14 md:py-20 max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent mb-3">Interactive data installation</p>
-            <h2 className="font-serif text-3xl md:text-5xl tracking-wide mb-4">
-              GAPMINDER 3D
-            </h2>
-            <p className="text-gray-300 mb-8 leading-relaxed">
-              110 indicators, 273 countries, one animated timeline — income, health, crime,
-              mental health, religion, climate and more, explored in a navigable 3D bubble
-              room. Made in the spirit of{" "}
-              <span className="text-white">Gapminder.org</span> — a tribute to{" "}
-              <span className="text-white">Hans Rosling</span> (1948–2017), who taught the
-              world to see data differently.
+          <div className="relative px-8 py-12 md:px-14 md:py-16 max-w-xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4">Interactive data installation</p>
+            <p className="text-gray-300 leading-relaxed">
+              <span className="font-serif text-xl text-white tracking-wide">Gapminder 3D</span>{" "}
+              — 110 indicators, 273 countries, one animated timeline. World development
+              explored in a navigable 3D bubble room. Made in the spirit of{" "}
+              <span className="text-white">Gapminder.org</span>, a tribute to{" "}
+              <span className="text-white">Hans Rosling</span> (1948–2017).
             </p>
-            <span className="inline-block px-8 py-3 border border-accent text-accent group-hover:bg-accent group-hover:text-black transition-all duration-300 tracking-widest text-sm uppercase">
-              Explore the data
-            </span>
+          </div>
+        </a>
+      </section>
+
+      {/* Command Responsibility — the Journey */}
+      <section className="max-w-7xl mx-auto px-4 pt-20">
+        <a
+          href="/command-responsibility/journey"
+          className="art-card group relative block overflow-hidden rounded-lg border border-accent/30 hover:border-accent transition-colors duration-300"
+        >
+          <div className="absolute inset-0">
+            <div className="absolute -right-16 top-0 h-56 w-56 rounded-full bg-accent/20 blur-3xl" />
+            <div className="absolute right-64 bottom-0 h-24 w-24 rounded-full bg-white/10 blur-2xl" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20" />
+          </div>
+          <div className="relative px-8 py-12 md:px-14 md:py-16 max-w-xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4">Book · 3D journey</p>
+            <p className="text-gray-300 leading-relaxed">
+              <span className="font-serif text-xl text-white tracking-wide">Command Responsibility</span>{" "}
+              — Hermann Wenkart&rsquo;s 1963 account as Jewish camp elder of Deblin-Irena,
+              between the German command and a thousand prisoners. Published in full, with
+              historical analysis — told as a <span className="text-white">journey in 3D</span>.
+            </p>
           </div>
         </a>
       </section>
