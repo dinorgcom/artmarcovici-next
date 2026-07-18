@@ -370,26 +370,33 @@ function CameraRig({ view, pieces }: { view: ViewMode; pieces: PieceState[] }) {
     // camera barely moves on phones
     const prevTouchAction = el.style.touchAction;
     el.style.touchAction = "none";
+    const st = look.current;
+    let activeId: number | null = null;
     const down = (e: PointerEvent) => {
-      look.current.dragging = true;
-      look.current.lastX = e.clientX;
-      look.current.lastY = e.clientY;
+      if (activeId !== null) return; // extra fingers must not reset the drag origin
+      activeId = e.pointerId;
+      st.dragging = true;
+      st.lastX = e.clientX;
+      st.lastY = e.clientY;
     };
     const move = (e: PointerEvent) => {
-      if (!look.current.dragging) return;
+      if (!st.dragging || e.pointerId !== activeId) return;
       // fingers travel shorter distances than a mouse — boost sensitivity
-      const k = e.pointerType === "touch" ? 1.8 : 1;
-      look.current.yaw -= (e.clientX - look.current.lastX) * 0.005 * k;
-      look.current.pitch = THREE.MathUtils.clamp(
-        look.current.pitch - (e.clientY - look.current.lastY) * 0.004 * k,
+      const k = e.pointerType === "touch" ? 4 : 1;
+      st.yaw -= (e.clientX - st.lastX) * 0.005 * k;
+      st.pitch = THREE.MathUtils.clamp(
+        st.pitch - (e.clientY - st.lastY) * 0.004 * k,
         -1.2,
         0.6
       );
-      look.current.lastX = e.clientX;
-      look.current.lastY = e.clientY;
+      st.lastX = e.clientX;
+      st.lastY = e.clientY;
     };
-    const up = () => {
-      look.current.dragging = false;
+    const up = (e: PointerEvent) => {
+      if (e.pointerId === activeId) {
+        activeId = null;
+        st.dragging = false;
+      }
     };
     el.addEventListener("pointerdown", down);
     window.addEventListener("pointermove", move);
