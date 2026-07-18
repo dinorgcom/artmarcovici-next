@@ -366,6 +366,10 @@ function CameraRig({ view, pieces }: { view: ViewMode; pieces: PieceState[] }) {
   // pointer-drag look-around for first person
   const el = gl.domElement;
   useEffect(() => {
+    // without this the browser hijacks touch drags for scrolling and the
+    // camera barely moves on phones
+    const prevTouchAction = el.style.touchAction;
+    el.style.touchAction = "none";
     const down = (e: PointerEvent) => {
       look.current.dragging = true;
       look.current.lastX = e.clientX;
@@ -373,9 +377,11 @@ function CameraRig({ view, pieces }: { view: ViewMode; pieces: PieceState[] }) {
     };
     const move = (e: PointerEvent) => {
       if (!look.current.dragging) return;
-      look.current.yaw -= (e.clientX - look.current.lastX) * 0.005;
+      // fingers travel shorter distances than a mouse — boost sensitivity
+      const k = e.pointerType === "touch" ? 1.8 : 1;
+      look.current.yaw -= (e.clientX - look.current.lastX) * 0.005 * k;
       look.current.pitch = THREE.MathUtils.clamp(
-        look.current.pitch - (e.clientY - look.current.lastY) * 0.004,
+        look.current.pitch - (e.clientY - look.current.lastY) * 0.004 * k,
         -1.2,
         0.6
       );
@@ -388,10 +394,13 @@ function CameraRig({ view, pieces }: { view: ViewMode; pieces: PieceState[] }) {
     el.addEventListener("pointerdown", down);
     window.addEventListener("pointermove", move);
     window.addEventListener("pointerup", up);
+    window.addEventListener("pointercancel", up);
     return () => {
+      el.style.touchAction = prevTouchAction;
       el.removeEventListener("pointerdown", down);
       window.removeEventListener("pointermove", move);
       window.removeEventListener("pointerup", up);
+      window.removeEventListener("pointercancel", up);
     };
   }, [el]);
 
