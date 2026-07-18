@@ -4,38 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gapminder 3D — a tribute to Hans Rosling</title>
-    <script>
-      // TEMP diagnostics: surface fatal errors visibly (remove after debugging)
-      (function () {
-        function box() {
-          var d = document.getElementById("fatal");
-          if (!d) {
-            d = document.createElement("div");
-            d.id = "fatal";
-            d.style.cssText =
-              "position:fixed;z-index:99999;top:8px;left:8px;right:8px;padding:12px;" +
-              "background:#7f1d1d;color:#fff;font:13px/1.5 monospace;border-radius:8px;" +
-              "white-space:pre-wrap;max-height:45vh;overflow:auto;";
-            (document.body || document.documentElement).appendChild(d);
-          }
-          return d;
-        }
-        window.addEventListener(
-          "error",
-          function (e) {
-            box().textContent +=
-              (e.message || "Script error") + "\n  @ " + (e.filename || "") + ":" + (e.lineno || "") + "\n";
-          },
-          true
-        );
-        window.addEventListener("unhandledrejection", function (e) {
-          var r = e.reason;
-          box().textContent += "Promise: " + ((r && (r.stack || r.message)) || String(r)) + "\n";
-        });
-      })();
-    </script>
-    <script type="module" crossorigin src="/gapminder/assets/index-BCrCmnRB.js"></script>
-    <link rel="stylesheet" crossorigin href="/gapminder/assets/index-BC_13-Lv.css">
+    <link rel="icon" href="/gapminder/favicon.ico" />
+    <script type="module" crossorigin src="/gapminder/assets/index-BZS31yqV.js"></script>
+    <link rel="stylesheet" crossorigin href="/gapminder/assets/index-DAlx56TR.css">
   </head>
   <body>
     <div id="root"></div>
