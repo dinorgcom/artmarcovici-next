@@ -332,6 +332,14 @@
       "desc": "Price liberalization under Gaidar opens the post-Soviet economy; output collapses before recovery."
     },
     {
+      "year": 1992,
+      "mode": "countries",
+      "id": "chn",
+      "title": "Deng's Southern Tour revives reform",
+      "cat": "reform",
+      "desc": "The retired Deng Xiaoping tours Shenzhen and urges faster market reforms; investment and the coastal boom reignite."
+    },
+    {
       "year": 1993,
       "mode": "billionaires",
       "id": "jensen_huang",
