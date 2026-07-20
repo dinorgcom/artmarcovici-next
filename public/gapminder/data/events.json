@@ -1,0 +1,327 @@
+{
+  "version": 1,
+  "events": [
+    {
+      "year": 1929,
+      "mode": "countries",
+      "id": "usa",
+      "title": "Wall Street crash — Great Depression begins",
+      "cat": "crisis",
+      "desc": "The October 1929 crash triggers a worldwide depression; US GDP per capita falls by roughly a third by 1933."
+    },
+    {
+      "year": 1965,
+      "mode": "countries",
+      "id": "sgp",
+      "title": "Singapore becomes independent",
+      "cat": "milestone",
+      "desc": "Separated from Malaysia, Singapore starts its rise from low-income port to one of the richest economies per capita."
+    },
+    {
+      "year": 1973,
+      "mode": "countries",
+      "id": "sau",
+      "title": "OPEC oil embargo — first oil shock",
+      "cat": "crisis",
+      "desc": "Oil prices quadruple within months; oil-exporter incomes spike while the world economy slides into recession."
+    },
+    {
+      "year": 1976,
+      "mode": "countries",
+      "id": "gbr",
+      "title": "UK goes to the IMF",
+      "cat": "crisis",
+      "desc": "The sterling crisis forces Britain to take a $3.9B IMF loan — then the largest ever — in exchange for deep spending cuts."
+    },
+    {
+      "year": 1978,
+      "mode": "countries",
+      "id": "chn",
+      "title": "China launches Reform and Opening",
+      "cat": "reform",
+      "desc": "Deng Xiaoping's market reforms begin — the start of the fastest sustained growth episode in recorded history."
+    },
+    {
+      "year": 1990,
+      "mode": "countries",
+      "id": "deu",
+      "title": "German reunification",
+      "cat": "milestone",
+      "desc": "FRG and GDR unite; trillion-euro transfers between west and east reshape German income data for years."
+    },
+    {
+      "year": 1991,
+      "mode": "countries",
+      "id": "jpn",
+      "title": "Japan's asset bubble bursts",
+      "cat": "crisis",
+      "desc": "Stock and land prices collapse after the BOJ tightens; the 'Lost Decades' of stagnation begin."
+    },
+    {
+      "year": 1991,
+      "mode": "countries",
+      "id": "ind",
+      "title": "India liberalizes its economy",
+      "cat": "reform",
+      "desc": "A balance-of-payments crisis forces the Rao–Singh reforms: licenses scrapped, trade opened — growth accelerates durably."
+    },
+    {
+      "year": 1994,
+      "mode": "countries",
+      "id": "bra",
+      "title": "Plano Real ends hyperinflation",
+      "cat": "reform",
+      "desc": "Brazil's new currency, the real, breaks inflation running above 2,000% a year and stabilizes the economy."
+    },
+    {
+      "year": 1997,
+      "mode": "countries",
+      "id": "kor",
+      "title": "Asian financial crisis hits Korea",
+      "cat": "crisis",
+      "desc": "Capital flight forces South Korea into a $58B IMF package — then the largest ever — followed by rapid reform and recovery."
+    },
+    {
+      "year": 1998,
+      "mode": "countries",
+      "id": "rus",
+      "title": "Russia defaults on its debt",
+      "cat": "crisis",
+      "desc": "Moscow defaults on domestic bonds and devalues the ruble; LTCM collapses in the global fallout."
+    },
+    {
+      "year": 2001,
+      "mode": "countries",
+      "id": "chn",
+      "title": "China joins the WTO",
+      "cat": "milestone",
+      "desc": "Accession to the World Trade Organization supercharges export-led growth; China becomes the workshop of the world."
+    },
+    {
+      "year": 2008,
+      "mode": "countries",
+      "id": "usa",
+      "title": "Global financial crisis",
+      "cat": "crisis",
+      "desc": "Lehman Brothers fails; the Great Recession ripples through incomes worldwide for years."
+    },
+
+    {
+      "year": 2005,
+      "mode": "companies",
+      "id": "china-construction-bank",
+      "title": "CCB goes public in Hong Kong",
+      "cat": "ipo",
+      "desc": "China Construction Bank raises $9.2B — the first of China's big-four state banks to list."
+    },
+    {
+      "year": 2005,
+      "mode": "companies",
+      "id": "mitsubishi-ufj-financial",
+      "title": "MUFG is formed",
+      "cat": "milestone",
+      "desc": "Mitsubishi Tokyo Financial Group and UFJ Holdings merge, creating one of the world's largest banks."
+    },
+    {
+      "year": 2006,
+      "mode": "companies",
+      "id": "icbc",
+      "title": "ICBC's record-breaking IPO",
+      "cat": "ipo",
+      "desc": "Industrial & Commercial Bank of China raises $21.9B — the largest IPO in history at the time."
+    },
+    {
+      "year": 2008,
+      "mode": "companies",
+      "id": "jpmorganchase",
+      "title": "JPMorgan absorbs Bear Stearns and WaMu",
+      "cat": "crisis",
+      "desc": "In the depths of the crisis JPMorgan takes over Bear Stearns ($2/share, Fed-backed) and Washington Mutual's assets."
+    },
+    {
+      "year": 2008,
+      "mode": "companies",
+      "id": "bank-of-america",
+      "title": "BofA buys Merrill Lynch",
+      "cat": "crisis",
+      "desc": "Bank of America acquires Merrill Lynch for ~$50B at the height of the panic — later needing $45B in TARP aid."
+    },
+    {
+      "year": 2008,
+      "mode": "companies",
+      "id": "citigroup",
+      "title": "Citigroup bailout",
+      "cat": "crisis",
+      "desc": "Citi receives $45B in TARP capital plus guarantees on $306B of assets to avert collapse."
+    },
+    {
+      "year": 2008,
+      "mode": "companies",
+      "id": "fannie-mae",
+      "title": "Fannie Mae in conservatorship",
+      "cat": "crisis",
+      "desc": "The US government places Fannie Mae under conservatorship and backstops it with up to $100B."
+    },
+    {
+      "year": 2008,
+      "mode": "companies",
+      "id": "freddie-mac",
+      "title": "Freddie Mac in conservatorship",
+      "cat": "crisis",
+      "desc": "Freddie Mac joins Fannie Mae under government control — the mortgage giants are nationalized in all but name."
+    },
+    {
+      "year": 2010,
+      "mode": "companies",
+      "id": "agricultural-bank-of-china",
+      "title": "AgBank's world-record IPO",
+      "cat": "ipo",
+      "desc": "Agricultural Bank of China raises $22.1B, overtaking ICBC as the largest IPO ever (a record it held until Alibaba 2014)."
+    },
+    {
+      "year": 2012,
+      "mode": "companies",
+      "id": "hsbc-holdings",
+      "title": "HSBC's $1.9B laundering settlement",
+      "cat": "scandal",
+      "desc": "HSBC pays a record US fine for laundering drug-cartel and sanctioned-country money."
+    },
+    {
+      "year": 2014,
+      "mode": "companies",
+      "id": "bnp-paribas",
+      "title": "BNP Paribas fined $8.9B",
+      "cat": "scandal",
+      "desc": "BNP pleads guilty to US sanctions violations — the largest penalty ever imposed on a bank at that point."
+    },
+    {
+      "year": 2015,
+      "mode": "companies",
+      "id": "japan-post-holdings",
+      "title": "Japan Post privatization IPO",
+      "cat": "ipo",
+      "desc": "Japan Post Holdings lists in a ¥1.4 trillion offering — the world's biggest IPO of 2015."
+    },
+    {
+      "year": 2016,
+      "mode": "companies",
+      "id": "wells-fargo",
+      "title": "Fake-accounts scandal",
+      "cat": "scandal",
+      "desc": "Wells Fargo admits staff opened millions of unauthorized accounts; $185M in fines, the CEO resigns, the brand is damaged for years."
+    },
+
+    {
+      "year": 1962,
+      "mode": "billionaires",
+      "id": "rob_walton",
+      "title": "First Walmart opens",
+      "cat": "founding",
+      "desc": "Sam Walton opens the first Walmart in Rogers, Arkansas — the foundation of the Walton family's retail fortune."
+    },
+    {
+      "year": 1965,
+      "mode": "billionaires",
+      "id": "warren_buffett",
+      "title": "Buffett takes over Berkshire Hathaway",
+      "cat": "milestone",
+      "desc": "Warren Buffett assumes control of a struggling textile mill and turns it into his investment holding company."
+    },
+    {
+      "year": 1975,
+      "mode": "billionaires",
+      "id": "bill_gates",
+      "title": "Microsoft founded",
+      "cat": "founding",
+      "desc": "Bill Gates and Paul Allen start Microsoft in Albuquerque to sell a BASIC interpreter."
+    },
+    {
+      "year": 1975,
+      "mode": "billionaires",
+      "id": "amancio_ortega",
+      "title": "First Zara store",
+      "cat": "founding",
+      "desc": "Amancio Ortega opens the first Zara shop in A Coruña — the seed of the Inditex fast-fashion empire."
+    },
+    {
+      "year": 1977,
+      "mode": "billionaires",
+      "id": "larry_ellison",
+      "title": "Oracle founded",
+      "cat": "founding",
+      "desc": "Larry Ellison co-founds Software Development Laboratories — later renamed Oracle after its database."
+    },
+    {
+      "year": 1981,
+      "mode": "billionaires",
+      "id": "michael_bloomberg",
+      "title": "Bloomberg LP founded",
+      "cat": "founding",
+      "desc": "After leaving Salomon Brothers, Michael Bloomberg builds the terminal business that funds his fortune."
+    },
+    {
+      "year": 1989,
+      "mode": "billionaires",
+      "id": "bernard_arnault",
+      "title": "Arnault wins control of LVMH",
+      "cat": "milestone",
+      "desc": "Bernard Arnault prevails in the battle for LVMH and builds it into the world's largest luxury group."
+    },
+    {
+      "year": 1993,
+      "mode": "billionaires",
+      "id": "jensen_huang",
+      "title": "NVIDIA founded",
+      "cat": "founding",
+      "desc": "Jensen Huang co-founds NVIDIA — three decades later its GPUs power the AI boom and make him one of the richest people alive."
+    },
+    {
+      "year": 1994,
+      "mode": "billionaires",
+      "id": "jeff_bezos",
+      "title": "Amazon founded",
+      "cat": "founding",
+      "desc": "Jeff Bezos quits D.E. Shaw and starts Amazon as an online bookstore from a Seattle garage."
+    },
+    {
+      "year": 1998,
+      "mode": "billionaires",
+      "id": "larry_page",
+      "title": "Google founded",
+      "cat": "founding",
+      "desc": "Larry Page and Sergey Brin incorporate Google in a Menlo Park garage."
+    },
+    {
+      "year": 2002,
+      "mode": "billionaires",
+      "id": "elon_musk",
+      "title": "Musk starts SpaceX",
+      "cat": "founding",
+      "desc": "Elon Musk invests ~$100M of his PayPal proceeds into SpaceX; a year later he joins Tesla as lead investor."
+    },
+    {
+      "year": 2004,
+      "mode": "billionaires",
+      "id": "sergey_brin",
+      "title": "Google IPO",
+      "cat": "ipo",
+      "desc": "Google goes public at $85/share via its unconventional Dutch auction, making Brin and Page billionaires."
+    },
+    {
+      "year": 2004,
+      "mode": "billionaires",
+      "id": "mark_zuckerberg",
+      "title": "Facebook founded in a dorm",
+      "cat": "founding",
+      "desc": "Mark Zuckerberg launches TheFacebook from his Harvard room; within a decade it reaches a billion users."
+    },
+    {
+      "year": 2016,
+      "mode": "billionaires",
+      "id": "mukesh_ambani",
+      "title": "Reliance Jio launches",
+      "cat": "milestone",
+      "desc": "Mukesh Ambani's Jio floods India with free 4G data, upending the telecom market and re-rating Reliance."
+    }
+  ]
+}
