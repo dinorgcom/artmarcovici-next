@@ -1,6 +1,15 @@
 {
-  "version": 1,
+  "version": 2,
   "events": [
+    {
+      "year": 1918,
+      "mode": "countries",
+      "id": "usa",
+      "title": "Spanish flu pandemic",
+      "cat": "crisis",
+      "desc": "The H1N1 pandemic kills ~50M worldwide and cuts life expectancy by ~12 years in the worst-hit countries.",
+      "scope": "health"
+    },
     {
       "year": 1929,
       "mode": "countries",
@@ -8,6 +17,46 @@
       "title": "Wall Street crash — Great Depression begins",
       "cat": "crisis",
       "desc": "The October 1929 crash triggers a worldwide depression; US GDP per capita falls by roughly a third by 1933."
+    },
+    {
+      "year": 1944,
+      "mode": "countries",
+      "id": "usa",
+      "title": "Bretton Woods conference",
+      "cat": "milestone",
+      "desc": "44 nations design the post-war monetary order: dollar pegged to gold, IMF and World Bank founded."
+    },
+    {
+      "year": 1948,
+      "mode": "countries",
+      "id": "deu",
+      "title": "Currency reform — the Wirtschaftswunder begins",
+      "cat": "reform",
+      "desc": "The Deutsche Mark replaces the Reichsmark; price controls lift and West German output takes off."
+    },
+    {
+      "year": 1959,
+      "mode": "countries",
+      "id": "nld",
+      "title": "Groningen gas field discovered",
+      "cat": "milestone",
+      "desc": "One of the world's largest gas fields transforms Dutch exports — and later coins the term 'Dutch disease'."
+    },
+    {
+      "year": 1962,
+      "mode": "billionaires",
+      "id": "rob_walton",
+      "title": "First Walmart opens",
+      "cat": "founding",
+      "desc": "Sam Walton opens the first Walmart in Rogers, Arkansas — the foundation of the Walton family's retail fortune."
+    },
+    {
+      "year": 1964,
+      "mode": "countries",
+      "id": "jpn",
+      "title": "Tokyo Olympics & first Shinkansen",
+      "cat": "milestone",
+      "desc": "The 1964 Games and the bullet train showcase Japan's post-war economic miracle to the world."
     },
     {
       "year": 1965,
@@ -18,12 +67,60 @@
       "desc": "Separated from Malaysia, Singapore starts its rise from low-income port to one of the richest economies per capita."
     },
     {
+      "year": 1965,
+      "mode": "billionaires",
+      "id": "warren_buffett",
+      "title": "Buffett takes over Berkshire Hathaway",
+      "cat": "milestone",
+      "desc": "Warren Buffett assumes control of a struggling textile mill and turns it into his investment holding company."
+    },
+    {
+      "year": 1971,
+      "mode": "countries",
+      "id": "usa",
+      "title": "Nixon shock — end of the gold standard",
+      "cat": "milestone",
+      "desc": "The US suspends dollar convertibility into gold; the Bretton Woods system unravels and currencies float."
+    },
+    {
+      "year": 1971,
+      "mode": "countries",
+      "id": "bgd",
+      "title": "Bangladesh becomes independent",
+      "cat": "milestone",
+      "desc": "Independence from Pakistan after the liberation war; from one of the poorest countries, Bangladesh begins a steady rise."
+    },
+    {
       "year": 1973,
       "mode": "countries",
       "id": "sau",
       "title": "OPEC oil embargo — first oil shock",
       "cat": "crisis",
       "desc": "Oil prices quadruple within months; oil-exporter incomes spike while the world economy slides into recession."
+    },
+    {
+      "year": 1974,
+      "mode": "countries",
+      "id": "egy",
+      "title": "Infitah — Sadat opens the economy",
+      "cat": "reform",
+      "desc": "Egypt's 'open door' policy invites foreign capital and private business after decades of state control."
+    },
+    {
+      "year": 1975,
+      "mode": "billionaires",
+      "id": "bill_gates",
+      "title": "Microsoft founded",
+      "cat": "founding",
+      "desc": "Bill Gates and Paul Allen start Microsoft in Albuquerque to sell a BASIC interpreter."
+    },
+    {
+      "year": 1975,
+      "mode": "billionaires",
+      "id": "amancio_ortega",
+      "title": "First Zara store",
+      "cat": "founding",
+      "desc": "Amancio Ortega opens the first Zara shop in A Coruña — the seed of the Inditex fast-fashion empire."
     },
     {
       "year": 1976,
@@ -34,6 +131,14 @@
       "desc": "The sterling crisis forces Britain to take a $3.9B IMF loan — then the largest ever — in exchange for deep spending cuts."
     },
     {
+      "year": 1977,
+      "mode": "billionaires",
+      "id": "larry_ellison",
+      "title": "Oracle founded",
+      "cat": "founding",
+      "desc": "Larry Ellison co-founds Software Development Laboratories — later renamed Oracle after its database."
+    },
+    {
       "year": 1978,
       "mode": "countries",
       "id": "chn",
@@ -42,12 +147,141 @@
       "desc": "Deng Xiaoping's market reforms begin — the start of the fastest sustained growth episode in recorded history."
     },
     {
+      "year": 1979,
+      "mode": "countries",
+      "id": "irn",
+      "title": "Iranian revolution",
+      "cat": "war",
+      "desc": "The monarchy falls; revolution, sanctions and the ensuing Iran–Iraq war reshape the economy for decades."
+    },
+    {
+      "year": 1979,
+      "mode": "countries",
+      "id": "gbr",
+      "title": "Thatcher era begins",
+      "cat": "reform",
+      "desc": "Margaret Thatcher takes office: monetarism, privatization and union curbs redirect the British economy."
+    },
+    {
+      "year": 1980,
+      "mode": "countries",
+      "id": "som",
+      "title": "WHO declares smallpox eradicated",
+      "cat": "milestone",
+      "desc": "After the last natural case in Somalia (1977), the WHO certifies smallpox eradicated — the first disease ever eliminated by vaccination.",
+      "scope": "health"
+    },
+    {
+      "year": 1981,
+      "mode": "billionaires",
+      "id": "michael_bloomberg",
+      "title": "Bloomberg LP founded",
+      "cat": "founding",
+      "desc": "After leaving Salomon Brothers, Michael Bloomberg builds the terminal business that funds his fortune."
+    },
+    {
+      "year": 1982,
+      "mode": "countries",
+      "id": "mex",
+      "title": "Mexico defaults — Latin American debt crisis",
+      "cat": "crisis",
+      "desc": "Mexico's default on $80B of foreign debt opens Latin America's 'lost decade'."
+    },
+    {
+      "year": 1982,
+      "mode": "countries",
+      "id": "chl",
+      "title": "Chilean banking crisis",
+      "cat": "crisis",
+      "desc": "Chile's economy contracts ~14% and the state rescues the banks — the worst crisis of the Pinochet era."
+    },
+    {
+      "year": 1983,
+      "mode": "countries",
+      "id": "aus",
+      "title": "Australia floats the dollar",
+      "cat": "reform",
+      "desc": "The Hawke–Keating government floats the AUD and deregulates finance — the start of decades of uninterrupted growth."
+    },
+    {
+      "year": 1985,
+      "mode": "countries",
+      "id": "jpn",
+      "title": "Plaza Accord",
+      "cat": "milestone",
+      "desc": "G5 nations agree to weaken the dollar; the surging yen inflates the asset bubble that bursts in 1991."
+    },
+    {
+      "year": 1986,
+      "mode": "countries",
+      "id": "esp",
+      "title": "Spain joins the EEC",
+      "cat": "milestone",
+      "desc": "European Community membership anchors Spanish democracy and powers a two-decade convergence boom."
+    },
+    {
+      "year": 1986,
+      "mode": "countries",
+      "id": "nga",
+      "title": "Nigeria adopts structural adjustment",
+      "cat": "reform",
+      "desc": "The IMF-backed SAP devalues the naira and deregulates trade after the oil-price collapse."
+    },
+    {
+      "year": 1986,
+      "mode": "countries",
+      "id": "vnm",
+      "title": "Đổi Mới reforms begin",
+      "cat": "reform",
+      "desc": "Vietnam's 'renovation' introduces market mechanisms — the launchpad for one of Asia's fastest growth stories."
+    },
+    {
+      "year": 1986,
+      "mode": "billionaires",
+      "id": "bill_gates",
+      "title": "Microsoft IPO",
+      "cat": "ipo",
+      "desc": "Microsoft goes public at $21/share; Gates, 30, becomes the youngest self-made billionaire of his era a year later."
+    },
+    {
+      "year": 1988,
+      "mode": "countries",
+      "id": "can",
+      "title": "Canada–US Free Trade Agreement",
+      "cat": "milestone",
+      "desc": "The FTA (signed 1988, in force 1989) integrates the Canadian and US economies and paves the way to NAFTA."
+    },
+    {
+      "year": 1989,
+      "mode": "billionaires",
+      "id": "bernard_arnault",
+      "title": "Arnault wins control of LVMH",
+      "cat": "milestone",
+      "desc": "Bernard Arnault prevails in the battle for LVMH and builds it into the world's largest luxury group."
+    },
+    {
       "year": 1990,
       "mode": "countries",
       "id": "deu",
       "title": "German reunification",
       "cat": "milestone",
       "desc": "FRG and GDR unite; trillion-euro transfers between west and east reshape German income data for years."
+    },
+    {
+      "year": 1990,
+      "mode": "countries",
+      "id": "pol",
+      "title": "Balcerowicz shock therapy",
+      "cat": "reform",
+      "desc": "Poland's bold stabilization plan ends hyperinflation and becomes the template for post-communist transitions."
+    },
+    {
+      "year": 1990,
+      "mode": "billionaires",
+      "id": "carlos_slim_helu",
+      "title": "Slim acquires Telmex",
+      "cat": "milestone",
+      "desc": "Carlos Slim's consortium wins Mexico's Telmex privatization — the cornerstone of his telecom empire."
     },
     {
       "year": 1991,
@@ -66,12 +300,84 @@
       "desc": "A balance-of-payments crisis forces the Rao–Singh reforms: licenses scrapped, trade opened — growth accelerates durably."
     },
     {
+      "year": 1991,
+      "mode": "countries",
+      "id": "arg",
+      "title": "Convertibility plan pegs the peso",
+      "cat": "reform",
+      "desc": "The peso is pegged 1:1 to the dollar, killing hyperinflation — until the rigid peg snaps in 2001."
+    },
+    {
+      "year": 1992,
+      "mode": "countries",
+      "id": "ita",
+      "title": "Lira crashes out of the ERM",
+      "cat": "crisis",
+      "desc": "Sterling and the lira are forced out of the European exchange-rate mechanism on Black Wednesday."
+    },
+    {
+      "year": 1992,
+      "mode": "countries",
+      "id": "swe",
+      "title": "Swedish banking crisis",
+      "cat": "crisis",
+      "desc": "A credit bubble bursts; Sweden nationalizes banks — later textbooked as a model crisis resolution."
+    },
+    {
+      "year": 1992,
+      "mode": "countries",
+      "id": "rus",
+      "title": "Russia launches shock therapy",
+      "cat": "reform",
+      "desc": "Price liberalization under Gaidar opens the post-Soviet economy; output collapses before recovery."
+    },
+    {
+      "year": 1993,
+      "mode": "billionaires",
+      "id": "jensen_huang",
+      "title": "NVIDIA founded",
+      "cat": "founding",
+      "desc": "Jensen Huang co-founds NVIDIA — three decades later its GPUs power the AI boom and make him one of the richest people alive."
+    },
+    {
       "year": 1994,
       "mode": "countries",
       "id": "bra",
       "title": "Plano Real ends hyperinflation",
       "cat": "reform",
       "desc": "Brazil's new currency, the real, breaks inflation running above 2,000% a year and stabilizes the economy."
+    },
+    {
+      "year": 1994,
+      "mode": "countries",
+      "id": "mex",
+      "title": "NAFTA takes effect",
+      "cat": "milestone",
+      "desc": "The North American Free Trade Agreement binds Mexico, the US and Canada into one trade bloc."
+    },
+    {
+      "year": 1994,
+      "mode": "countries",
+      "id": "zaf",
+      "title": "End of apartheid — rejoining the world",
+      "cat": "milestone",
+      "desc": "Democratic elections end sanctions and isolation; South Africa reintegrates into the world economy."
+    },
+    {
+      "year": 1994,
+      "mode": "billionaires",
+      "id": "jeff_bezos",
+      "title": "Amazon founded",
+      "cat": "founding",
+      "desc": "Jeff Bezos quits D.E. Shaw and starts Amazon as an online bookstore from a Seattle garage."
+    },
+    {
+      "year": 1995,
+      "mode": "countries",
+      "id": "mex",
+      "title": "Tequila crisis",
+      "cat": "crisis",
+      "desc": "A peso devaluation spirals into a confidence crisis; a $50B US-led rescue stops the contagion."
     },
     {
       "year": 1997,
@@ -82,12 +388,70 @@
       "desc": "Capital flight forces South Korea into a $58B IMF package — then the largest ever — followed by rapid reform and recovery."
     },
     {
+      "year": 1997,
+      "mode": "countries",
+      "id": "tha",
+      "title": "Baht devalued — Asian crisis starts here",
+      "cat": "crisis",
+      "desc": "Thailand floats the baht under speculative attack; the collapse ripples across Asia within weeks."
+    },
+    {
+      "year": 1997,
+      "mode": "countries",
+      "id": "idn",
+      "title": "Asian crisis topples the rupiah",
+      "cat": "crisis",
+      "desc": "The rupiah loses ~80% of its value; Indonesia takes an IMF package and Suharto falls within a year."
+    },
+    {
+      "year": 1997,
+      "mode": "countries",
+      "id": "jpn",
+      "title": "Kyoto Protocol adopted",
+      "cat": "milestone",
+      "desc": "Industrialized nations agree the first binding CO2 reduction targets in Kyoto.",
+      "scope": "co2"
+    },
+    {
+      "year": 1997,
+      "mode": "billionaires",
+      "id": "jeff_bezos",
+      "title": "Amazon goes public",
+      "cat": "ipo",
+      "desc": "Amazon lists at $18/share — three years after its founding in a garage."
+    },
+    {
       "year": 1998,
       "mode": "countries",
       "id": "rus",
       "title": "Russia defaults on its debt",
       "cat": "crisis",
       "desc": "Moscow defaults on domestic bonds and devalues the ruble; LTCM collapses in the global fallout."
+    },
+    {
+      "year": 1998,
+      "mode": "billionaires",
+      "id": "larry_page",
+      "title": "Google founded",
+      "cat": "founding",
+      "desc": "Larry Page and Sergey Brin incorporate Google in a Menlo Park garage."
+    },
+    {
+      "year": 1999,
+      "mode": "countries",
+      "id": "col",
+      "title": "Colombia's first recession in 60 years",
+      "cat": "crisis",
+      "desc": "Colombia enters its worst downturn on record and floats the peso under an IMF program."
+    },
+    {
+      "year": 2000,
+      "mode": "countries",
+      "id": "che",
+      "title": "Gavi, the Vaccine Alliance, founded",
+      "cat": "founding",
+      "desc": "Gavi pools donors to fund immunization in poor countries — hundreds of millions of children vaccinated since.",
+      "scope": "vaccine"
     },
     {
       "year": 2001,
@@ -98,14 +462,86 @@
       "desc": "Accession to the World Trade Organization supercharges export-led growth; China becomes the workshop of the world."
     },
     {
-      "year": 2008,
+      "year": 2001,
       "mode": "countries",
-      "id": "usa",
-      "title": "Global financial crisis",
+      "id": "arg",
+      "title": "Argentina defaults and devalues",
       "cat": "crisis",
-      "desc": "Lehman Brothers fails; the Great Recession ripples through incomes worldwide for years."
+      "desc": "The corralito, a $95B default and the end of the dollar peg — the worst crisis in Argentine history."
     },
-
+    {
+      "year": 2001,
+      "mode": "countries",
+      "id": "tur",
+      "title": "Turkey's banking crisis",
+      "cat": "crisis",
+      "desc": "A liquidity panic collapses the lira; an IMF-backed program (\"Strong Economy\") restructures Turkish banking."
+    },
+    {
+      "year": 2001,
+      "mode": "companies",
+      "id": "credit-agricole",
+      "title": "Crédit Agricole lists in Paris",
+      "cat": "ipo",
+      "desc": "The French mutual banking giant goes public, raising capital for its expansion into investment banking."
+    },
+    {
+      "year": 2001,
+      "mode": "billionaires",
+      "id": "amancio_ortega",
+      "title": "Inditex IPO",
+      "cat": "ipo",
+      "desc": "Ortega takes Inditex (Zara) public; it becomes the world's largest fashion retailer."
+    },
+    {
+      "year": 2002,
+      "mode": "companies",
+      "id": "sumitomo-mitsui-financial",
+      "title": "SMFG is formed",
+      "cat": "milestone",
+      "desc": "Sumitomo Mitsui Banking Corporation emerges from the Sumitomo–Sakura merger — Japan's megabank consolidation accelerates."
+    },
+    {
+      "year": 2002,
+      "mode": "billionaires",
+      "id": "elon_musk",
+      "title": "Musk starts SpaceX",
+      "cat": "founding",
+      "desc": "Elon Musk invests ~$100M of his PayPal proceeds into SpaceX; a year later he joins Tesla as lead investor."
+    },
+    {
+      "year": 2004,
+      "mode": "countries",
+      "id": "pol",
+      "title": "Poland joins the European Union",
+      "cat": "milestone",
+      "desc": "EU accession caps fifteen years of transition and unlocks record investment and emigration-driven remittances."
+    },
+    {
+      "year": 2004,
+      "mode": "countries",
+      "id": "zaf",
+      "title": "HIV/AIDS peak & ART scale-up",
+      "cat": "crisis",
+      "desc": "AIDS mortality peaks in southern Africa as the WHO \"3 by 5\" drive and national programs roll out antiretroviral therapy.",
+      "scope": "health"
+    },
+    {
+      "year": 2004,
+      "mode": "billionaires",
+      "id": "sergey_brin",
+      "title": "Google IPO",
+      "cat": "ipo",
+      "desc": "Google goes public at $85/share via its unconventional Dutch auction, making Brin and Page billionaires."
+    },
+    {
+      "year": 2004,
+      "mode": "billionaires",
+      "id": "mark_zuckerberg",
+      "title": "Facebook founded in a dorm",
+      "cat": "founding",
+      "desc": "Mark Zuckerberg launches TheFacebook from his Harvard room; within a decade it reaches a billion users."
+    },
     {
       "year": 2005,
       "mode": "companies",
@@ -123,12 +559,44 @@
       "desc": "Mitsubishi Tokyo Financial Group and UFJ Holdings merge, creating one of the world's largest banks."
     },
     {
+      "year": 2005,
+      "mode": "companies",
+      "id": "bank-of-communications",
+      "title": "BoCom lists in Hong Kong",
+      "cat": "ipo",
+      "desc": "Bank of Communications becomes the first mainland Chinese bank to list abroad."
+    },
+    {
       "year": 2006,
       "mode": "companies",
       "id": "icbc",
       "title": "ICBC's record-breaking IPO",
       "cat": "ipo",
       "desc": "Industrial & Commercial Bank of China raises $21.9B — the largest IPO in history at the time."
+    },
+    {
+      "year": 2006,
+      "mode": "companies",
+      "id": "bank-of-china",
+      "title": "Bank of China IPO",
+      "cat": "ipo",
+      "desc": "Bank of China raises $11.2B in Hong Kong and Shanghai — part of the big-four opening to markets."
+    },
+    {
+      "year": 2008,
+      "mode": "countries",
+      "id": "usa",
+      "title": "Global financial crisis",
+      "cat": "crisis",
+      "desc": "Lehman Brothers fails; the Great Recession ripples through incomes worldwide for years."
+    },
+    {
+      "year": 2008,
+      "mode": "countries",
+      "id": "che",
+      "title": "Switzerland rescues UBS",
+      "cat": "crisis",
+      "desc": "The Swiss state injects CHF 6B into UBS and parks $60B of toxic assets — a rare bailout in Swiss history."
     },
     {
       "year": 2008,
@@ -179,12 +647,36 @@
       "desc": "Agricultural Bank of China raises $22.1B, overtaking ICBC as the largest IPO ever (a record it held until Alibaba 2014)."
     },
     {
+      "year": 2010,
+      "mode": "companies",
+      "id": "berkshire-hathaway",
+      "title": "Berkshire buys BNSF Railway",
+      "cat": "milestone",
+      "desc": "Buffett's largest acquisition ever (~$44B): an all-in bet on the US economy's freight backbone."
+    },
+    {
       "year": 2012,
       "mode": "companies",
       "id": "hsbc-holdings",
       "title": "HSBC's $1.9B laundering settlement",
       "cat": "scandal",
       "desc": "HSBC pays a record US fine for laundering drug-cartel and sanctioned-country money."
+    },
+    {
+      "year": 2012,
+      "mode": "billionaires",
+      "id": "mark_zuckerberg",
+      "title": "Facebook IPO",
+      "cat": "ipo",
+      "desc": "Facebook raises $16B at a $104B valuation — the biggest tech IPO to date, despite a glitchy debut."
+    },
+    {
+      "year": 2013,
+      "mode": "billionaires",
+      "id": "michael_dell",
+      "title": "Dell goes private",
+      "cat": "milestone",
+      "desc": "Michael Dell and Silver Lake take Dell private for $24.9B — the largest tech buyout then."
     },
     {
       "year": 2014,
@@ -196,11 +688,52 @@
     },
     {
       "year": 2015,
+      "mode": "countries",
+      "id": "fra",
+      "title": "Paris Agreement on climate",
+      "cat": "milestone",
+      "desc": "196 parties commit in Paris to keep warming well below 2 °C and pursue 1.5 °C.",
+      "scope": "co2"
+    },
+    {
+      "year": 2015,
       "mode": "companies",
       "id": "japan-post-holdings",
       "title": "Japan Post privatization IPO",
       "cat": "ipo",
       "desc": "Japan Post Holdings lists in a ¥1.4 trillion offering — the world's biggest IPO of 2015."
+    },
+    {
+      "year": 2016,
+      "mode": "countries",
+      "id": "gbr",
+      "title": "Brexit referendum",
+      "cat": "milestone",
+      "desc": "The UK votes to leave the EU; the pound drops to 30-year lows overnight."
+    },
+    {
+      "year": 2016,
+      "mode": "countries",
+      "id": "ind",
+      "title": "Demonetization",
+      "cat": "milestone",
+      "desc": "India voids 86% of its cash overnight to fight black money — a massive, disruptive natural experiment."
+    },
+    {
+      "year": 2016,
+      "mode": "countries",
+      "id": "sau",
+      "title": "Saudi Vision 2030",
+      "cat": "reform",
+      "desc": "Mohammed bin Salman's plan to wean the kingdom off oil: privatization, new sectors, social liberalization."
+    },
+    {
+      "year": 2016,
+      "mode": "countries",
+      "id": "egy",
+      "title": "Egypt floats the pound under IMF deal",
+      "cat": "reform",
+      "desc": "The central bank floats the EGP, which halves in value, as part of a $12B IMF program."
     },
     {
       "year": 2016,
@@ -210,110 +743,13 @@
       "cat": "scandal",
       "desc": "Wells Fargo admits staff opened millions of unauthorized accounts; $185M in fines, the CEO resigns, the brand is damaged for years."
     },
-
     {
-      "year": 1962,
-      "mode": "billionaires",
-      "id": "rob_walton",
-      "title": "First Walmart opens",
-      "cat": "founding",
-      "desc": "Sam Walton opens the first Walmart in Rogers, Arkansas — the foundation of the Walton family's retail fortune."
-    },
-    {
-      "year": 1965,
-      "mode": "billionaires",
-      "id": "warren_buffett",
-      "title": "Buffett takes over Berkshire Hathaway",
-      "cat": "milestone",
-      "desc": "Warren Buffett assumes control of a struggling textile mill and turns it into his investment holding company."
-    },
-    {
-      "year": 1975,
-      "mode": "billionaires",
-      "id": "bill_gates",
-      "title": "Microsoft founded",
-      "cat": "founding",
-      "desc": "Bill Gates and Paul Allen start Microsoft in Albuquerque to sell a BASIC interpreter."
-    },
-    {
-      "year": 1975,
-      "mode": "billionaires",
-      "id": "amancio_ortega",
-      "title": "First Zara store",
-      "cat": "founding",
-      "desc": "Amancio Ortega opens the first Zara shop in A Coruña — the seed of the Inditex fast-fashion empire."
-    },
-    {
-      "year": 1977,
-      "mode": "billionaires",
-      "id": "larry_ellison",
-      "title": "Oracle founded",
-      "cat": "founding",
-      "desc": "Larry Ellison co-founds Software Development Laboratories — later renamed Oracle after its database."
-    },
-    {
-      "year": 1981,
-      "mode": "billionaires",
-      "id": "michael_bloomberg",
-      "title": "Bloomberg LP founded",
-      "cat": "founding",
-      "desc": "After leaving Salomon Brothers, Michael Bloomberg builds the terminal business that funds his fortune."
-    },
-    {
-      "year": 1989,
-      "mode": "billionaires",
-      "id": "bernard_arnault",
-      "title": "Arnault wins control of LVMH",
-      "cat": "milestone",
-      "desc": "Bernard Arnault prevails in the battle for LVMH and builds it into the world's largest luxury group."
-    },
-    {
-      "year": 1993,
-      "mode": "billionaires",
-      "id": "jensen_huang",
-      "title": "NVIDIA founded",
-      "cat": "founding",
-      "desc": "Jensen Huang co-founds NVIDIA — three decades later its GPUs power the AI boom and make him one of the richest people alive."
-    },
-    {
-      "year": 1994,
-      "mode": "billionaires",
-      "id": "jeff_bezos",
-      "title": "Amazon founded",
-      "cat": "founding",
-      "desc": "Jeff Bezos quits D.E. Shaw and starts Amazon as an online bookstore from a Seattle garage."
-    },
-    {
-      "year": 1998,
-      "mode": "billionaires",
-      "id": "larry_page",
-      "title": "Google founded",
-      "cat": "founding",
-      "desc": "Larry Page and Sergey Brin incorporate Google in a Menlo Park garage."
-    },
-    {
-      "year": 2002,
-      "mode": "billionaires",
-      "id": "elon_musk",
-      "title": "Musk starts SpaceX",
-      "cat": "founding",
-      "desc": "Elon Musk invests ~$100M of his PayPal proceeds into SpaceX; a year later he joins Tesla as lead investor."
-    },
-    {
-      "year": 2004,
-      "mode": "billionaires",
-      "id": "sergey_brin",
-      "title": "Google IPO",
+      "year": 2016,
+      "mode": "companies",
+      "id": "postal-savings-bank-of-china-psbc",
+      "title": "PSBC goes public",
       "cat": "ipo",
-      "desc": "Google goes public at $85/share via its unconventional Dutch auction, making Brin and Page billionaires."
-    },
-    {
-      "year": 2004,
-      "mode": "billionaires",
-      "id": "mark_zuckerberg",
-      "title": "Facebook founded in a dorm",
-      "cat": "founding",
-      "desc": "Mark Zuckerberg launches TheFacebook from his Harvard room; within a decade it reaches a billion users."
+      "desc": "Postal Savings Bank of China raises $7.4B in Hong Kong — the world's largest IPO of 2016."
     },
     {
       "year": 2016,
@@ -322,6 +758,56 @@
       "title": "Reliance Jio launches",
       "cat": "milestone",
       "desc": "Mukesh Ambani's Jio floods India with free 4G data, upending the telecom market and re-rating Reliance."
+    },
+    {
+      "year": 2018,
+      "mode": "countries",
+      "id": "tur",
+      "title": "Turkish currency crisis",
+      "cat": "crisis",
+      "desc": "The lira plunges amid unorthodox rate policy and a US dispute; inflation hits 25%."
+    },
+    {
+      "year": 2019,
+      "mode": "countries",
+      "id": "sau",
+      "title": "Aramco IPO — the largest ever",
+      "cat": "ipo",
+      "desc": "Saudi Aramco lists ~1.5% at a $1.7T valuation, raising $25.6B — the biggest IPO in history."
+    },
+    {
+      "year": 2020,
+      "mode": "countries",
+      "id": "chn",
+      "title": "COVID-19 pandemic",
+      "cat": "crisis",
+      "desc": "A novel coronavirus in Wuhan becomes a global pandemic; life expectancy drops in most countries.",
+      "scope": "health"
+    },
+    {
+      "year": 2020,
+      "mode": "countries",
+      "id": "che",
+      "title": "COVAX launches",
+      "cat": "founding",
+      "desc": "WHO, Gavi and CEPI launch COVAX to pool COVID-19 vaccine procurement for equitable access.",
+      "scope": "vaccine"
+    },
+    {
+      "year": 2021,
+      "mode": "billionaires",
+      "id": "bernard_arnault",
+      "title": "LVMH buys Tiffany & Co.",
+      "cat": "milestone",
+      "desc": "LVMH completes the $15.8B Tiffany acquisition — the largest deal in luxury history."
+    },
+    {
+      "year": 2022,
+      "mode": "billionaires",
+      "id": "elon_musk",
+      "title": "Musk buys Twitter",
+      "cat": "milestone",
+      "desc": "After a months-long legal fight, Musk closes the $44B Twitter takeover and rebrands it X."
     }
   ]
 }
