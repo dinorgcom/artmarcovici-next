@@ -1,0 +1,32 @@
+{
+  "story": "oil-and-climate",
+  "voice": "pNInz6obpgDQGcFmaJgB",
+  "model": "eleven_multilingual_v2",
+  "lang": "en",
+  "stops": [
+    {
+      "file": "data/narration/oil-and-climate/stop-1.mp3",
+      "hash": "1b63ecf8c16a2c16b2b11dde9e40b00e2bb8ddbae92cab5f5268d5e9a6ce5861",
+      "chars": 226,
+      "duration": 15.6
+    },
+    {
+      "file": "data/narration/oil-and-climate/stop-2.mp3",
+      "hash": "1877c328f03b5338d19508260ade0a175bd472b31be90d7d56e86266090a0064",
+      "chars": 248,
+      "duration": 19.4
+    },
+    {
+      "file": "data/narration/oil-and-climate/stop-3.mp3",
+      "hash": "02278b700d145880c9738ed7d48e0f9b00f0ef08ff227b4e8c2bdb77af7c52b7",
+      "chars": 217,
+      "duration": 17.3
+    },
+    {
+      "file": "data/narration/oil-and-climate/stop-4.mp3",
+      "hash": "07fa6fe3ba5d0c4879dcb557cb2b996e9fbc344e2189f5588c33ebdbbff97846",
+      "chars": 238,
+      "duration": 19.8
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "story": "china-rise",
+  "voice": "pNInz6obpgDQGcFmaJgB",
+  "model": "eleven_multilingual_v2",
+  "lang": "en",
+  "stops": [
+    {
+      "file": "data/narration/china-rise/stop-1.mp3",
+      "hash": "3149b96b0416a60ddf179ece0f5cd0de3cf4ae452782e005df2ce3f8aad179c8",
+      "chars": 299,
+      "duration": 22.9
+    },
+    {
+      "file": "data/narration/china-rise/stop-2.mp3",
+      "hash": "394cbe0790cac8cc196a4581d82a6e89f4871dbb77fb65a48c7a2f6382c117bd",
+      "chars": 265,
+      "duration": 20.3
+    },
+    {
+      "file": "data/narration/china-rise/stop-3.mp3",
+      "hash": "dc8d4a68729820adb8beae4ada7c66bf9fd77c38bd966fbfcc712770f9dfeec8",
+      "chars": 236,
+      "duration": 17.9
+    },
+    {
+      "file": "data/narration/china-rise/stop-4.mp3",
+      "hash": "4f685fc6e8ad20ee90b6cd6fa8def73acb15ed45a98dd595bd2d12f40c0536ed",
+      "chars": 257,
+      "duration": 19
+    },
+    {
+      "file": "data/narration/china-rise/stop-5.mp3",
+      "hash": "b2c2506e6574651ac749b37bb9125d7f11c84d33eb59dafe4e9c9c685dc1992d",
+      "chars": 226,
+      "duration": 17.3
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "story": "asian-tigers",
+  "voice": "pNInz6obpgDQGcFmaJgB",
+  "model": "eleven_multilingual_v2",
+  "lang": "en",
+  "stops": [
+    {
+      "file": "data/narration/asian-tigers/stop-1.mp3",
+      "hash": "c502e9daaf71011ad1abf78274f0c9bb75db8b75647bd1de6f0b7f279176268a",
+      "chars": 245,
+      "duration": 19
+    },
+    {
+      "file": "data/narration/asian-tigers/stop-2.mp3",
+      "hash": "f5c666e4b263b3565419f21ee6e22b4392d9bbe8efe2f86a41bc3318ae1b651d",
+      "chars": 228,
+      "duration": 16.9
+    },
+    {
+      "file": "data/narration/asian-tigers/stop-3.mp3",
+      "hash": "bca3dfcdad965e71b7545dd48c928bdae6da5d46dad0dfe1ff64bfa7cb51f352",
+      "chars": 273,
+      "duration": 19.7
+    },
+    {
+      "file": "data/narration/asian-tigers/stop-4.mp3",
+      "hash": "b805b4d15206f8d379dece47119e1b0f16b6a28ccec97ea99e12cbe54e15b4ed",
+      "chars": 273,
+      "duration": 22.2
+    }
+  ]
+}

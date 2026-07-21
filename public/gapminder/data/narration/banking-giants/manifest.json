@@ -1,0 +1,38 @@
+{
+  "story": "banking-giants",
+  "voice": "pNInz6obpgDQGcFmaJgB",
+  "model": "eleven_multilingual_v2",
+  "lang": "en",
+  "stops": [
+    {
+      "file": "data/narration/banking-giants/stop-1.mp3",
+      "hash": "d09a953888f4332f93b06c8c6cdda69b5c2a0aa7a06fa9f2bbaeda12c90b3ac3",
+      "chars": 235,
+      "duration": 17.2
+    },
+    {
+      "file": "data/narration/banking-giants/stop-2.mp3",
+      "hash": "481ab3d04c7eba110f3b1affd67d0ebd56b098506c913bf6648bd1dc3e5827b8",
+      "chars": 172,
+      "duration": 15.1
+    },
+    {
+      "file": "data/narration/banking-giants/stop-3.mp3",
+      "hash": "6e8c3c159611b51e7e3dea9bacfd6e2859310580618528596f25ad7c85743250",
+      "chars": 240,
+      "duration": 18.5
+    },
+    {
+      "file": "data/narration/banking-giants/stop-4.mp3",
+      "hash": "15bfe39b08e6ad9d02dbff4b30f9b43e11cbe9d0911483fe21f7eea4bcdd70ab",
+      "chars": 216,
+      "duration": 19.4
+    },
+    {
+      "file": "data/narration/banking-giants/stop-5.mp3",
+      "hash": "a27f5431a7b069d5bfa316e71fc179ad2c711bebeb1905d2e33e6571444bea6b",
+      "chars": 217,
+      "duration": 18.5
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "story": "digital-fortunes",
+  "voice": "pNInz6obpgDQGcFmaJgB",
+  "model": "eleven_multilingual_v2",
+  "lang": "en",
+  "stops": [
+    {
+      "file": "data/narration/digital-fortunes/stop-1.mp3",
+      "hash": "873713044cfe10ea8216d8409a87af1ab0a2522f740f9c216dca40b7a093e13f",
+      "chars": 260,
+      "duration": 22.4
+    },
+    {
+      "file": "data/narration/digital-fortunes/stop-2.mp3",
+      "hash": "167edbbee8ea0ebf73f5402508b6cdb1a87d975255a0760a553eca631096351f",
+      "chars": 232,
+      "duration": 19.3
+    },
+    {
+      "file": "data/narration/digital-fortunes/stop-3.mp3",
+      "hash": "ed20ac89e08b58e9f19a457e2375e9b2d5ab99fec7268f91d91f177c266fbe06",
+      "chars": 228,
+      "duration": 17.3
+    },
+    {
+      "file": "data/narration/digital-fortunes/stop-4.mp3",
+      "hash": "16560555ba1d3d2f8d29522ef19b9519001c404f42b660fa5cc5461aaa69ba6b",
+      "chars": 229,
+      "duration": 17.8
+    },
+    {
+      "file": "data/narration/digital-fortunes/stop-5.mp3",
+      "hash": "4e861cd97074b4b201152b5c18be3ddc57cd1f60b61afc19af17af1b14170cce",
+      "chars": 229,
+      "duration": 17.3
+    }
+  ]
+}

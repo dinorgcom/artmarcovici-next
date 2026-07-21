@@ -1,0 +1,32 @@
+{
+  "story": "reunification-europe",
+  "voice": "pNInz6obpgDQGcFmaJgB",
+  "model": "eleven_multilingual_v2",
+  "lang": "en",
+  "stops": [
+    {
+      "file": "data/narration/reunification-europe/stop-1.mp3",
+      "hash": "2709ec028ca9276f715d9b450c29ca39eb005ba01b00a42b4440815fe004479e",
+      "chars": 209,
+      "duration": 16.7
+    },
+    {
+      "file": "data/narration/reunification-europe/stop-2.mp3",
+      "hash": "5a10916c829a2397aca2afa403f7fc5feb5a141243ba551d26df42fb209d672e",
+      "chars": 200,
+      "duration": 15
+    },
+    {
+      "file": "data/narration/reunification-europe/stop-3.mp3",
+      "hash": "5ecaeda7eb07f0fd1be91def8ead4ea0e859b4bf80c0c40cd173c41471d3ee76",
+      "chars": 191,
+      "duration": 14
+    },
+    {
+      "file": "data/narration/reunification-europe/stop-4.mp3",
+      "hash": "ee88d04dd963dc20b9e94ce455a5eaf8d817c96dd789577688a1b671165f91a8",
+      "chars": 202,
+      "duration": 16.3
+    }
+  ]
+}
