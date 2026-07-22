@@ -1,0 +1,32 @@
+{
+  "story": "retail-luxury-empires",
+  "voice": "pNInz6obpgDQGcFmaJgB",
+  "model": "eleven_multilingual_v2",
+  "lang": "en",
+  "stops": [
+    {
+      "file": "data/narration/retail-luxury-empires/stop-1.mp3",
+      "hash": "ade972915f9a408ae16eadddab53c498ce21e3234014f2c34ca98a0582bc74f0",
+      "chars": 259,
+      "duration": 20.6
+    },
+    {
+      "file": "data/narration/retail-luxury-empires/stop-2.mp3",
+      "hash": "0d1363bd8e88d955779d855032b083421113e83034b3695843c72702495d8ea6",
+      "chars": 279,
+      "duration": 23.7
+    },
+    {
+      "file": "data/narration/retail-luxury-empires/stop-3.mp3",
+      "hash": "d4dc88f1502edeaf974f9b4b9ebde20ac148d8ec0639bf460da47403fcd5ad10",
+      "chars": 218,
+      "duration": 18.3
+    },
+    {
+      "file": "data/narration/retail-luxury-empires/stop-4.mp3",
+      "hash": "bf3cc1303583aeaebac7b04128ef7b2c459a6ddd0161fee1314c9e5c282337f9",
+      "chars": 252,
+      "duration": 19.1
+    }
+  ]
+}
