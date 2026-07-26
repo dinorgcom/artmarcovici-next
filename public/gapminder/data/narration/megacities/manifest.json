@@ -1,0 +1,38 @@
+{
+  "story": "megacities",
+  "voice": "pNInz6obpgDQGcFmaJgB",
+  "model": "eleven_multilingual_v2",
+  "lang": "en",
+  "stops": [
+    {
+      "file": "data/narration/megacities/stop-1.mp3",
+      "hash": "e66005c22a8a751417a6dfcc96a031e01db5c1ce6c22e9fa3ca03c7fd3eff4d1",
+      "chars": 274,
+      "duration": 19.1
+    },
+    {
+      "file": "data/narration/megacities/stop-2.mp3",
+      "hash": "152abc6190a454e3c25bed21c4563a8d542dfd3bc8c614812079ffcaf6882325",
+      "chars": 289,
+      "duration": 19.7
+    },
+    {
+      "file": "data/narration/megacities/stop-3.mp3",
+      "hash": "aab831a03d764dade7c3a78c23433d1cde402dccb42178136814213c3321ea4b",
+      "chars": 283,
+      "duration": 20.5
+    },
+    {
+      "file": "data/narration/megacities/stop-4.mp3",
+      "hash": "4be1ae4510d7ebe442a73e28a7b6fd83f4ff965ebf3f26fc14a310b7a6b6b1fc",
+      "chars": 288,
+      "duration": 21.7
+    },
+    {
+      "file": "data/narration/megacities/stop-5.mp3",
+      "hash": "54ef1328d654aa81a5650657efa991a0f3c85e8bd82fe24176149cfce7195cda",
+      "chars": 282,
+      "duration": 23.7
+    }
+  ]
+}

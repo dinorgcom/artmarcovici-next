@@ -6,27 +6,27 @@
   "stops": [
     {
       "file": "data/narration/reunification-europe/stop-1.mp3",
-      "hash": "2709ec028ca9276f715d9b450c29ca39eb005ba01b00a42b4440815fe004479e",
-      "chars": 209,
-      "duration": 16.7
+      "hash": "4f694f003a24e9703dcee7584a33a316dd09a450f4adf11ff7c84e5a5c57a229",
+      "chars": 221,
+      "duration": 15.5
     },
     {
       "file": "data/narration/reunification-europe/stop-2.mp3",
-      "hash": "5a10916c829a2397aca2afa403f7fc5feb5a141243ba551d26df42fb209d672e",
-      "chars": 200,
-      "duration": 15
+      "hash": "bb12a3f260573ec320144f0111f26284498a1ccc03596c7cd9fd4c316f722405",
+      "chars": 194,
+      "duration": 14.8
     },
     {
       "file": "data/narration/reunification-europe/stop-3.mp3",
-      "hash": "5ecaeda7eb07f0fd1be91def8ead4ea0e859b4bf80c0c40cd173c41471d3ee76",
-      "chars": 191,
-      "duration": 14
+      "hash": "736c07c5d3b820900ad77aa7bbcc24d0ffe3889588ab654909891b92f44f96ce",
+      "chars": 185,
+      "duration": 10.8
     },
     {
       "file": "data/narration/reunification-europe/stop-4.mp3",
-      "hash": "ee88d04dd963dc20b9e94ce455a5eaf8d817c96dd789577688a1b671165f91a8",
-      "chars": 202,
-      "duration": 16.3
+      "hash": "3a39de7056766afe71afbe6ec9b71314a5a997c2717fad094a5248554e6a40e3",
+      "chars": 209,
+      "duration": 15.6
     }
   ]
 }

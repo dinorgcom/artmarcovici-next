@@ -1,0 +1,38 @@
+{
+  "story": "richest-person",
+  "voice": "pNInz6obpgDQGcFmaJgB",
+  "model": "eleven_multilingual_v2",
+  "lang": "en",
+  "stops": [
+    {
+      "file": "data/narration/richest-person/stop-1.mp3",
+      "hash": "3e646bb4ba6d837694363bd8e25fdf5bdc51284266e66afd9d2ffd850e406c6b",
+      "chars": 270,
+      "duration": 18.6
+    },
+    {
+      "file": "data/narration/richest-person/stop-2.mp3",
+      "hash": "b0a3e3df5da9f9f61c8d996b4eeb3997edc42734a32d8033998172028c05dd65",
+      "chars": 274,
+      "duration": 21.1
+    },
+    {
+      "file": "data/narration/richest-person/stop-3.mp3",
+      "hash": "a9231e0033e8796e0c39631b02e740fbcfda400d69a8bd9e023b7b34d106dd37",
+      "chars": 259,
+      "duration": 21
+    },
+    {
+      "file": "data/narration/richest-person/stop-4.mp3",
+      "hash": "5ba2d92239ecbf85874a97bf59e99c15c8e948aa949edd9a09b4325888c03965",
+      "chars": 271,
+      "duration": 20.1
+    },
+    {
+      "file": "data/narration/richest-person/stop-5.mp3",
+      "hash": "6ca9bc13808f4b2df425b78ecf408cca1ee7e6c502e119de17bdeaaf98368292",
+      "chars": 307,
+      "duration": 21.8
+    }
+  ]
+}

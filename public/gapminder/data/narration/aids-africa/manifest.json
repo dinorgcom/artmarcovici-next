@@ -1,0 +1,38 @@
+{
+  "story": "aids-africa",
+  "voice": "pNInz6obpgDQGcFmaJgB",
+  "model": "eleven_multilingual_v2",
+  "lang": "en",
+  "stops": [
+    {
+      "file": "data/narration/aids-africa/stop-1.mp3",
+      "hash": "07f938a5aa94b5d02f4c3c1a3802652d8ffd9290be2ef38f04da535fecad1bff",
+      "chars": 294,
+      "duration": 21.4
+    },
+    {
+      "file": "data/narration/aids-africa/stop-2.mp3",
+      "hash": "df6b93dbd594ba458a046ad5393c4c71a8cbc3c5a7e31af363aa111e625e4d41",
+      "chars": 299,
+      "duration": 22.8
+    },
+    {
+      "file": "data/narration/aids-africa/stop-3.mp3",
+      "hash": "65790c67aa5caaecc73a480da80295a31d2187fc5291a4732a5f13f053ac5672",
+      "chars": 285,
+      "duration": 20.3
+    },
+    {
+      "file": "data/narration/aids-africa/stop-4.mp3",
+      "hash": "ff80d7bf63a4c3a825157cf5250451b2210d729cad196f0e171396bafe82086b",
+      "chars": 282,
+      "duration": 20.6
+    },
+    {
+      "file": "data/narration/aids-africa/stop-5.mp3",
+      "hash": "71605c5a20822a3aeab61a65b9b91c7f011e34d2eb43794324b7f48a1b64c6b8",
+      "chars": 283,
+      "duration": 21
+    }
+  ]
+}

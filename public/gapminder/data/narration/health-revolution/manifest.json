@@ -6,27 +6,27 @@
   "stops": [
     {
       "file": "data/narration/health-revolution/stop-1.mp3",
-      "hash": "f390dfaa0b9c83e442121e5025f8970315d2580d08cb0f411df7ae27ec609d49",
-      "chars": 275,
-      "duration": 19.8
+      "hash": "3917878120b57d73e32db4f2871787a0849671a089af0ee8789f65f83db9aca3",
+      "chars": 287,
+      "duration": 20.8
     },
     {
       "file": "data/narration/health-revolution/stop-2.mp3",
-      "hash": "490eff8d5dd50d63933f6201fa922c9e2e8c82632cc8ea6e6be41df6820a0a10",
-      "chars": 233,
-      "duration": 18.6
+      "hash": "ccb9f5de84f48e68b0a45fcfeb7b71c5cd43551f30d83089d36597598fa88c12",
+      "chars": 257,
+      "duration": 19.8
     },
     {
       "file": "data/narration/health-revolution/stop-3.mp3",
-      "hash": "942ae3e6f6fb3d2d944ac809004851f3d2e4deb13e4558dc209ef929c104ecfa",
-      "chars": 253,
-      "duration": 20.7
+      "hash": "2f87a0740d5c4ec728abb105c8778cb4ca2ed8bbb9cf1f273c2b0f4cf13e346c",
+      "chars": 260,
+      "duration": 21.9
     },
     {
       "file": "data/narration/health-revolution/stop-4.mp3",
-      "hash": "550fd9ab7c130224b1ffd40443811a8e1dae486db9ed8b7b2c881bf4e2d3a7f5",
-      "chars": 227,
-      "duration": 17.8
+      "hash": "a1639b57ef4b07219a185cf48281f024bb44f481c999f6269d67d74c84fea3a3",
+      "chars": 234,
+      "duration": 19.3
     }
   ]
 }

@@ -6,33 +6,33 @@
   "stops": [
     {
       "file": "data/narration/digital-fortunes/stop-1.mp3",
-      "hash": "873713044cfe10ea8216d8409a87af1ab0a2522f740f9c216dca40b7a093e13f",
-      "chars": 260,
-      "duration": 22.4
+      "hash": "c456207e944040fc4d4e018c33372c60df96741604637505b4abd5ed8a4944ae",
+      "chars": 272,
+      "duration": 23.7
     },
     {
       "file": "data/narration/digital-fortunes/stop-2.mp3",
-      "hash": "167edbbee8ea0ebf73f5402508b6cdb1a87d975255a0760a553eca631096351f",
-      "chars": 232,
-      "duration": 19.3
+      "hash": "140325f10e061af8549a61f2dce12a54330c7c8c496d0e2e9c3ff10b7f3e0f6c",
+      "chars": 226,
+      "duration": 15.8
     },
     {
       "file": "data/narration/digital-fortunes/stop-3.mp3",
-      "hash": "ed20ac89e08b58e9f19a457e2375e9b2d5ab99fec7268f91d91f177c266fbe06",
-      "chars": 228,
-      "duration": 17.3
+      "hash": "067468f36a62e51e8594d115e28ce48d1653789653f0d7fb6732f4f6c1a3e84b",
+      "chars": 222,
+      "duration": 16.3
     },
     {
       "file": "data/narration/digital-fortunes/stop-4.mp3",
-      "hash": "16560555ba1d3d2f8d29522ef19b9519001c404f42b660fa5cc5461aaa69ba6b",
-      "chars": 229,
-      "duration": 17.8
+      "hash": "a9a8f880ac2de3e9143f442592876f912f4cb43ff19835cbd2a8b8b4a2f4fa76",
+      "chars": 236,
+      "duration": 17.6
     },
     {
       "file": "data/narration/digital-fortunes/stop-5.mp3",
-      "hash": "4e861cd97074b4b201152b5c18be3ddc57cd1f60b61afc19af17af1b14170cce",
-      "chars": 229,
-      "duration": 17.3
+      "hash": "f348739ddf0f615116d873ef9aecb4434f2d2617670925690aac48c0eb6a6166",
+      "chars": 223,
+      "duration": 15.5
     }
   ]
 }

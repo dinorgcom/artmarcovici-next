@@ -6,27 +6,27 @@
   "stops": [
     {
       "file": "data/narration/retail-luxury-empires/stop-1.mp3",
-      "hash": "ade972915f9a408ae16eadddab53c498ce21e3234014f2c34ca98a0582bc74f0",
-      "chars": 259,
-      "duration": 20.6
+      "hash": "e0c9299be60d099fa20ed0b786f4b2d6e5414db6faf1a40d1c1b6c799c4ab154",
+      "chars": 271,
+      "duration": 19.8
     },
     {
       "file": "data/narration/retail-luxury-empires/stop-2.mp3",
-      "hash": "0d1363bd8e88d955779d855032b083421113e83034b3695843c72702495d8ea6",
-      "chars": 279,
-      "duration": 23.7
+      "hash": "6f89d074b8e7b5cb4f20a72768aae410181114cf98ea903a8fd2a10c9cb5134a",
+      "chars": 273,
+      "duration": 21.6
     },
     {
       "file": "data/narration/retail-luxury-empires/stop-3.mp3",
-      "hash": "d4dc88f1502edeaf974f9b4b9ebde20ac148d8ec0639bf460da47403fcd5ad10",
-      "chars": 218,
-      "duration": 18.3
+      "hash": "c1a0e3ffb0570ea795078864061255e362492d668d116b9411233f90a3960f19",
+      "chars": 225,
+      "duration": 19.3
     },
     {
       "file": "data/narration/retail-luxury-empires/stop-4.mp3",
-      "hash": "bf3cc1303583aeaebac7b04128ef7b2c459a6ddd0161fee1314c9e5c282337f9",
-      "chars": 252,
-      "duration": 19.1
+      "hash": "9a5919957dcb931cfcc54dabf4fb98c177b89352a744e17fb6be94fc638a9721",
+      "chars": 259,
+      "duration": 17
     }
   ]
 }
