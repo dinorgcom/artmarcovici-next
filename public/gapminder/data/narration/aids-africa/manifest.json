@@ -18,21 +18,27 @@
     },
     {
       "file": "data/narration/aids-africa/stop-3.mp3",
-      "hash": "65790c67aa5caaecc73a480da80295a31d2187fc5291a4732a5f13f053ac5672",
-      "chars": 285,
-      "duration": 20.3
+      "hash": "51829f355b1bee5c27c66c85f2137691ea064b804c8f13a0950328a939c0c5ea",
+      "chars": 282,
+      "duration": 21.6
     },
     {
       "file": "data/narration/aids-africa/stop-4.mp3",
-      "hash": "ff80d7bf63a4c3a825157cf5250451b2210d729cad196f0e171396bafe82086b",
-      "chars": 282,
-      "duration": 20.6
+      "hash": "65790c67aa5caaecc73a480da80295a31d2187fc5291a4732a5f13f053ac5672",
+      "chars": 285,
+      "duration": 21.5
     },
     {
       "file": "data/narration/aids-africa/stop-5.mp3",
+      "hash": "ff80d7bf63a4c3a825157cf5250451b2210d729cad196f0e171396bafe82086b",
+      "chars": 282,
+      "duration": 20.1
+    },
+    {
+      "file": "data/narration/aids-africa/stop-6.mp3",
       "hash": "71605c5a20822a3aeab61a65b9b91c7f011e34d2eb43794324b7f48a1b64c6b8",
       "chars": 283,
-      "duration": 21
+      "duration": 19.8
     }
   ]
 }

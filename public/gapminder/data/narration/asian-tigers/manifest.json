@@ -18,15 +18,27 @@
     },
     {
       "file": "data/narration/asian-tigers/stop-3.mp3",
-      "hash": "54c6f79f61b64cdaa6841abce0637ccf28e8c8e4f722a31cea56389337c6e3d3",
-      "chars": 297,
-      "duration": 22.3
+      "hash": "e1f94d2dbd420c1dc9eadf14635f56c90536b1f96e2b36696f0cdf1ccd0011a1",
+      "chars": 267,
+      "duration": 21.7
     },
     {
       "file": "data/narration/asian-tigers/stop-4.mp3",
+      "hash": "3727d4e8a21a5fce3e4c86e79815686bb9e3415805c24925b5f9f25badf44a5c",
+      "chars": 248,
+      "duration": 18.4
+    },
+    {
+      "file": "data/narration/asian-tigers/stop-5.mp3",
+      "hash": "f8873a7254d308763132c8ff73c5d946da39b3af2e92263af69501acbbbfe4a4",
+      "chars": 267,
+      "duration": 18.7
+    },
+    {
+      "file": "data/narration/asian-tigers/stop-6.mp3",
       "hash": "3ad1b5214e46e2ab55898c4006e1e4f54a551812d9734c2e8a5caedc3bc9b61d",
       "chars": 267,
-      "duration": 20.1
+      "duration": 20.5
     }
   ]
 }

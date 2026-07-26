@@ -24,9 +24,21 @@
     },
     {
       "file": "data/narration/reunification-europe/stop-4.mp3",
-      "hash": "3a39de7056766afe71afbe6ec9b71314a5a997c2717fad094a5248554e6a40e3",
-      "chars": 209,
-      "duration": 15.6
+      "hash": "2f44af0c81f637ff02cf302cbbc039b650afd6da4ca222e216b29b5b8ad55d04",
+      "chars": 243,
+      "duration": 19
+    },
+    {
+      "file": "data/narration/reunification-europe/stop-5.mp3",
+      "hash": "b7e2d9b68cb968eb1955f78c1be2442d3aa035888e276c28d99e3581b4b6aeaf",
+      "chars": 196,
+      "duration": 15.1
+    },
+    {
+      "file": "data/narration/reunification-europe/stop-6.mp3",
+      "hash": "793de6e93e70cb7bb7163495cbc190ae18f0235862bcdf0331bf9c573fd52f13",
+      "chars": 259,
+      "duration": 18.7
     }
   ]
 }

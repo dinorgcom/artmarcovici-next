@@ -12,27 +12,39 @@
     },
     {
       "file": "data/narration/richest-person/stop-2.mp3",
-      "hash": "b0a3e3df5da9f9f61c8d996b4eeb3997edc42734a32d8033998172028c05dd65",
-      "chars": 274,
-      "duration": 21.1
+      "hash": "55e69a008531c8145af3b2b9fba285d76ba26f3e2ec6489e0c4f14b65344e0e5",
+      "chars": 250,
+      "duration": 18.3
     },
     {
       "file": "data/narration/richest-person/stop-3.mp3",
-      "hash": "a9231e0033e8796e0c39631b02e740fbcfda400d69a8bd9e023b7b34d106dd37",
-      "chars": 259,
-      "duration": 21
+      "hash": "1571d723f6656a06eeb4e9e5760e9dd7eb032693b30c059b17dcdb5b53c9e712",
+      "chars": 261,
+      "duration": 19.9
     },
     {
       "file": "data/narration/richest-person/stop-4.mp3",
-      "hash": "5ba2d92239ecbf85874a97bf59e99c15c8e948aa949edd9a09b4325888c03965",
-      "chars": 271,
-      "duration": 20.1
+      "hash": "a9231e0033e8796e0c39631b02e740fbcfda400d69a8bd9e023b7b34d106dd37",
+      "chars": 259,
+      "duration": 21.2
     },
     {
       "file": "data/narration/richest-person/stop-5.mp3",
+      "hash": "1111bb7e08d5386783b25e3e25972d3faf0c70dc36d292b8e30d8d90a8cd0433",
+      "chars": 253,
+      "duration": 19.4
+    },
+    {
+      "file": "data/narration/richest-person/stop-6.mp3",
+      "hash": "5ba2d92239ecbf85874a97bf59e99c15c8e948aa949edd9a09b4325888c03965",
+      "chars": 271,
+      "duration": 20.7
+    },
+    {
+      "file": "data/narration/richest-person/stop-7.mp3",
       "hash": "6ca9bc13808f4b2df425b78ecf408cca1ee7e6c502e119de17bdeaaf98368292",
       "chars": 307,
-      "duration": 21.8
+      "duration": 24.3
     }
   ]
 }

@@ -24,15 +24,27 @@
     },
     {
       "file": "data/narration/digital-fortunes/stop-4.mp3",
-      "hash": "a9a8f880ac2de3e9143f442592876f912f4cb43ff19835cbd2a8b8b4a2f4fa76",
-      "chars": 236,
-      "duration": 17.6
+      "hash": "a75960ca7fdc0f06674f2f4a92179c9148def3db6fab046850a8fde5eacb786c",
+      "chars": 291,
+      "duration": 19.2
     },
     {
       "file": "data/narration/digital-fortunes/stop-5.mp3",
+      "hash": "2e09d92105bf0896071dc84c442e7872f3911fe0f31d6dda9cf930e5ede0df2d",
+      "chars": 223,
+      "duration": 17.6
+    },
+    {
+      "file": "data/narration/digital-fortunes/stop-6.mp3",
       "hash": "f348739ddf0f615116d873ef9aecb4434f2d2617670925690aac48c0eb6a6166",
       "chars": 223,
-      "duration": 15.5
+      "duration": 15.4
+    },
+    {
+      "file": "data/narration/digital-fortunes/stop-7.mp3",
+      "hash": "facb025875fd7696875e2d4f9dc6486b5007fbdbc3251fe2b17ff320c1a8530d",
+      "chars": 258,
+      "duration": 18.4
     }
   ]
 }

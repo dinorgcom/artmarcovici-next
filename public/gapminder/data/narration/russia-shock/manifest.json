@@ -30,9 +30,15 @@
     },
     {
       "file": "data/narration/russia-shock/stop-5.mp3",
+      "hash": "e36d2dfed12d27d21b2320d6c98fa05c1dce5fc4168b711a9e3ef6e170ce38e0",
+      "chars": 234,
+      "duration": 19.2
+    },
+    {
+      "file": "data/narration/russia-shock/stop-6.mp3",
       "hash": "a32eb85906f058dbf3590d8ce4d1fbfb0a3d003aae3143e57822fd7f609488ff",
       "chars": 246,
-      "duration": 17.7
+      "duration": 16.6
     }
   ]
 }

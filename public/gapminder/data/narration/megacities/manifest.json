@@ -18,21 +18,33 @@
     },
     {
       "file": "data/narration/megacities/stop-3.mp3",
-      "hash": "aab831a03d764dade7c3a78c23433d1cde402dccb42178136814213c3321ea4b",
-      "chars": 283,
-      "duration": 20.5
+      "hash": "eaf0fda009739311bf23d1ab47425a26da17f73ee52085909014b0088c0a5d37",
+      "chars": 262,
+      "duration": 20
     },
     {
       "file": "data/narration/megacities/stop-4.mp3",
-      "hash": "4be1ae4510d7ebe442a73e28a7b6fd83f4ff965ebf3f26fc14a310b7a6b6b1fc",
-      "chars": 288,
-      "duration": 21.7
+      "hash": "05919503a59c1c8ddbdf6a637f23cc479d91f4e08213dd7e6d216ba0a69b63fe",
+      "chars": 283,
+      "duration": 21.8
     },
     {
       "file": "data/narration/megacities/stop-5.mp3",
+      "hash": "3734525c7d8b1bd21108f0c533b57c0852688e6a25228ebaa3e0250b63a09806",
+      "chars": 282,
+      "duration": 19.3
+    },
+    {
+      "file": "data/narration/megacities/stop-6.mp3",
+      "hash": "b1d66cb978a9024fa33108d36b50a87ab3bcf2274a85bcd334391795be53e4ee",
+      "chars": 271,
+      "duration": 20.2
+    },
+    {
+      "file": "data/narration/megacities/stop-7.mp3",
       "hash": "54ef1328d654aa81a5650657efa991a0f3c85e8bd82fe24176149cfce7195cda",
       "chars": 282,
-      "duration": 23.7
+      "duration": 22.6
     }
   ]
 }

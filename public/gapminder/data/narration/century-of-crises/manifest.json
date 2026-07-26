@@ -12,27 +12,39 @@
     },
     {
       "file": "data/narration/century-of-crises/stop-2.mp3",
-      "hash": "8592c7c6f37de518694f0f8e2c86bc7fe8eea7cc8379bd6bd5c34f0be4464c8e",
-      "chars": 234,
-      "duration": 18
+      "hash": "ac54d12606794a38bad0c15b0f4eab46a60652b22e9c504b145c0ebba558c275",
+      "chars": 300,
+      "duration": 24.1
     },
     {
       "file": "data/narration/century-of-crises/stop-3.mp3",
-      "hash": "b9a4cd44eaf6b408f6e9817f5f270304751725e684a14735f1141b9f6fac2f82",
-      "chars": 248,
-      "duration": 19.8
+      "hash": "8592c7c6f37de518694f0f8e2c86bc7fe8eea7cc8379bd6bd5c34f0be4464c8e",
+      "chars": 234,
+      "duration": 18.2
     },
     {
       "file": "data/narration/century-of-crises/stop-4.mp3",
-      "hash": "b563f39692198eb3f484d4ddab08fd735dff176e3b781e2bdd657936d9026b28",
-      "chars": 217,
-      "duration": 15.6
+      "hash": "d21fb1692c0ca88722e513f2f68c3bf986dbe0c5f077e4e04ebd2b377408da85",
+      "chars": 270,
+      "duration": 22.4
     },
     {
       "file": "data/narration/century-of-crises/stop-5.mp3",
+      "hash": "7e4f341e4113b3c6f15b0c67fd915ee71dea3a76c037b6706d360daecb006b8e",
+      "chars": 248,
+      "duration": 19.4
+    },
+    {
+      "file": "data/narration/century-of-crises/stop-6.mp3",
+      "hash": "b563f39692198eb3f484d4ddab08fd735dff176e3b781e2bdd657936d9026b28",
+      "chars": 217,
+      "duration": 15.1
+    },
+    {
+      "file": "data/narration/century-of-crises/stop-7.mp3",
       "hash": "ffc5cc41dfbf72bffb289152a5882dd222b84a5f774379d545d150e68840b826",
       "chars": 220,
-      "duration": 16.7
+      "duration": 15.1
     }
   ]
 }

@@ -33,6 +33,18 @@
       "hash": "581fc00339f59e3c8d1b4f9b0e368eba11ea5dbd1908dd6ec5c98b745174fb38",
       "chars": 211,
       "duration": 15.5
+    },
+    {
+      "file": "data/narration/banking-giants/stop-6.mp3",
+      "hash": "ee5f477bdf443c95f05fdc24b4b7f84c90309aa07f8bd8db9baca7779cbdac8c",
+      "chars": 246,
+      "duration": 20.4
+    },
+    {
+      "file": "data/narration/banking-giants/stop-7.mp3",
+      "hash": "e3220b306fba2ad1591be5fc682e6b5173c2bfbb7a1447ddf0bb3f6f918fd9ad",
+      "chars": 259,
+      "duration": 18.5
     }
   ]
 }

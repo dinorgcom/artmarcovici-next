@@ -12,27 +12,39 @@
     },
     {
       "file": "data/narration/china-rise/stop-2.mp3",
-      "hash": "4faa0224d5ff91dd061afa45e074ba5cc5ee8a48fd09d2f161fb63d63e6b212c",
-      "chars": 272,
-      "duration": 20.6
+      "hash": "b8efa04b473c9aa511424616a5eb24dde56cfe94fbcb8cdf9c3b3e83f5f81680",
+      "chars": 254,
+      "duration": 17.9
     },
     {
       "file": "data/narration/china-rise/stop-3.mp3",
-      "hash": "07c81485914653da7e88902a6687d0033941b52af8dfe24afd9a006bdcd469df",
-      "chars": 230,
-      "duration": 15.9
+      "hash": "d86d60a83229a85c4cd913536c25e4f9d90892d9eae9af7ea85d27561115d7bb",
+      "chars": 259,
+      "duration": 19.3
     },
     {
       "file": "data/narration/china-rise/stop-4.mp3",
-      "hash": "9f4fc1c54d843b073af448c9629a65af030a6d9ddf9bebf876a6022b21c54963",
-      "chars": 251,
-      "duration": 20.2
+      "hash": "07c81485914653da7e88902a6687d0033941b52af8dfe24afd9a006bdcd469df",
+      "chars": 230,
+      "duration": 16.9
     },
     {
       "file": "data/narration/china-rise/stop-5.mp3",
+      "hash": "9f4fc1c54d843b073af448c9629a65af030a6d9ddf9bebf876a6022b21c54963",
+      "chars": 251,
+      "duration": 19.9
+    },
+    {
+      "file": "data/narration/china-rise/stop-6.mp3",
       "hash": "4c4a5b8db50844d520cff485721f090b46a9e8ee87a69275f677cd09b6058473",
       "chars": 220,
-      "duration": 16.1
+      "duration": 15.8
+    },
+    {
+      "file": "data/narration/china-rise/stop-7.mp3",
+      "hash": "35811ea8e7681fbac3c920f110453d63ca8599234ae06a7963decc13d167d00b",
+      "chars": 247,
+      "duration": 18.8
     }
   ]
 }

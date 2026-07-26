@@ -18,15 +18,27 @@
     },
     {
       "file": "data/narration/oil-and-climate/stop-3.mp3",
-      "hash": "657b04e86a01918b23a5665579f0ab4ca78553ca2a88638e7c4297f754c83b82",
-      "chars": 224,
-      "duration": 17.7
+      "hash": "ee5cc084f901bab2fb99dfe24632afc3bf033865503ca2c3261b62797d616aa8",
+      "chars": 268,
+      "duration": 19.8
     },
     {
       "file": "data/narration/oil-and-climate/stop-4.mp3",
-      "hash": "0ab36ce04b83ebaf2f9079af7fceeaa349c98bb49f3773046801a3817b4199fe",
-      "chars": 245,
-      "duration": 20.2
+      "hash": "7bd1980125da651a76eb21fe07f985d14f1b55f82542083ddc60fa38d43602a0",
+      "chars": 224,
+      "duration": 17.4
+    },
+    {
+      "file": "data/narration/oil-and-climate/stop-5.mp3",
+      "hash": "1f25f15b250f7d62f69e8bf6e87ad8f712ccfd41083634232462804d81ad778f",
+      "chars": 284,
+      "duration": 17.7
+    },
+    {
+      "file": "data/narration/oil-and-climate/stop-6.mp3",
+      "hash": "ecddf2d490ad6b9f00140f98efd1baa247cd61be7e91a54fd958b1474de6b19c",
+      "chars": 232,
+      "duration": 16.6
     }
   ]
 }
