@@ -1,0 +1,62 @@
+{
+  "story": "ancient-cities",
+  "voice": "pNInz6obpgDQGcFmaJgB",
+  "model": "eleven_multilingual_v2",
+  "lang": "en",
+  "stops": [
+    {
+      "file": "data/narration/ancient-cities/stop-1.mp3",
+      "hash": "bef19dea132e59cfdacadc0ae50f12c4a247e26295e9c1a87c92b4108b9273fb",
+      "chars": 271,
+      "duration": 20.8
+    },
+    {
+      "file": "data/narration/ancient-cities/stop-2.mp3",
+      "hash": "f074763085416896ba4c50fd1acc34f23d2bb6b53254f672b59917aebec5b1b6",
+      "chars": 277,
+      "duration": 23.7
+    },
+    {
+      "file": "data/narration/ancient-cities/stop-3.mp3",
+      "hash": "39353bcc272d1983fc227b745f6105aa8710152e113b703c76f5f5a7a0299511",
+      "chars": 298,
+      "duration": 23.9
+    },
+    {
+      "file": "data/narration/ancient-cities/stop-4.mp3",
+      "hash": "3245786f14a49eccad89d4d366d1ab053ec62830bbd1cf3459cd5390c3e4269d",
+      "chars": 247,
+      "duration": 20.3
+    },
+    {
+      "file": "data/narration/ancient-cities/stop-5.mp3",
+      "hash": "a06adc65f702afc0734cdd70c6863134d06202e4dd06793418bacd48893a29cb",
+      "chars": 283,
+      "duration": 20.5
+    },
+    {
+      "file": "data/narration/ancient-cities/stop-6.mp3",
+      "hash": "5d6d7642a631dd5dace07247beb6895670da2732934698caf704aac4e9cfd031",
+      "chars": 277,
+      "duration": 23.7
+    },
+    {
+      "file": "data/narration/ancient-cities/stop-7.mp3",
+      "hash": "09f3c323d8cacab8905534acc130c5d01b442b54ba1f483e04c92512db3e9883",
+      "chars": 269,
+      "duration": 23
+    },
+    {
+      "file": "data/narration/ancient-cities/stop-8.mp3",
+      "hash": "4b1ef5a16069853054349f2bfa1452ed32c9e6cb7c614cf73dc08aa7905f4f3b",
+      "chars": 273,
+      "duration": 23.7
+    },
+    {
+      "file": "data/narration/ancient-cities/stop-9.mp3",
+      "hash": "1eb8a94c314c61951cc79d847cfcf1dc8239c63c40244322d2a9d2a46bf552ff",
+      "chars": 272,
+      "duration": 20.6
+    }
+  ]
+}
