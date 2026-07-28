@@ -1,0 +1,56 @@
+{
+  "story": "berlin-billionaires",
+  "voice": "pNInz6obpgDQGcFmaJgB",
+  "model": "eleven_multilingual_v2",
+  "lang": "en",
+  "stops": [
+    {
+      "file": "data/narration/berlin-billionaires/stop-1.mp3",
+      "hash": "31282f0399d23ba440c5812b242f49c4493ad6772fe156609ad0be7e5e4eec99",
+      "chars": 386,
+      "duration": 27.2
+    },
+    {
+      "file": "data/narration/berlin-billionaires/stop-2.mp3",
+      "hash": "5c1be5790cc212ad0188a8b550456f1eb8cf7bc08e9dd00c85a28a0debf38816",
+      "chars": 342,
+      "duration": 26.5
+    },
+    {
+      "file": "data/narration/berlin-billionaires/stop-3.mp3",
+      "hash": "f47c8255e39f8146308699c7032e9d4edd3362aae7cfbdacc07ddc49817f6e64",
+      "chars": 337,
+      "duration": 24.6
+    },
+    {
+      "file": "data/narration/berlin-billionaires/stop-4.mp3",
+      "hash": "6b6f9874e3a35e7b0f139dd0be75e7a30a3c17f46b7020fa658284b621c8f120",
+      "chars": 352,
+      "duration": 23.9
+    },
+    {
+      "file": "data/narration/berlin-billionaires/stop-5.mp3",
+      "hash": "e709d90250b70b7228b77b2820e30b98b07412a872ad1fd4b210f9e295c3e828",
+      "chars": 334,
+      "duration": 23.3
+    },
+    {
+      "file": "data/narration/berlin-billionaires/stop-6.mp3",
+      "hash": "2a0deb0ef5a9dc16595482477d647deaec176a162f1253792d47c6d4198c7556",
+      "chars": 299,
+      "duration": 19.9
+    },
+    {
+      "file": "data/narration/berlin-billionaires/stop-7.mp3",
+      "hash": "813581ace361b436f900c7b69a39c32bf0cd65533e0887102a90b10fe785ba79",
+      "chars": 373,
+      "duration": 27.1
+    },
+    {
+      "file": "data/narration/berlin-billionaires/stop-8.mp3",
+      "hash": "c6ce8dcea3d5775cce2638056bc09a53808b8bedc53e64a0b66dcfd11c4715d7",
+      "chars": 338,
+      "duration": 23.3
+    }
+  ]
+}
