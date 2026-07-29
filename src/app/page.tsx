@@ -40,37 +40,20 @@ export default function Home() {
 
       {/* Gaza: The Dead, in Numbers — data installation */}
       <section className="max-w-7xl mx-auto px-4 pt-6">
-        <style>{`
-          @keyframes gazaTurn {
-            from { transform: rotateX(58deg) rotateZ(-16deg); }
-            to   { transform: rotateX(58deg) rotateZ(10deg); }
-          }
-          .gaza-stage { perspective: 900px; }
-          .gaza-spin { transform-style: preserve-3d; animation: gazaTurn 16s ease-in-out infinite alternate; }
-          .gaza-spin svg { position: absolute; inset: 0; overflow: visible; }
-          @media (prefers-reduced-motion: reduce) { .gaza-spin { animation: none; transform: rotateX(58deg) rotateZ(-6deg); } }
-        `}</style>
         <a
           href="/gaza/"
           className="art-card group relative block overflow-hidden rounded-lg border border-accent/30 hover:border-accent transition-colors duration-300 bg-black"
         >
-          {/* 3D-staged map of the Gaza Strip (CSS-extruded silhouette) */}
-          <div className="gaza-stage absolute inset-y-0 right-0 w-2/3 md:w-1/2 pointer-events-none" aria-hidden="true">
-            <div className="gaza-spin absolute right-[8%] top-1/2 -mt-28 h-56 w-56 md:-mt-32 md:h-64 md:w-64">
-              {[0, 1, 2, 3, 4, 5, 6].map((i) => (
-                <svg key={i} viewBox="0 0 210 220" style={{ transform: `translateZ(${i * 7}px)` }}>
-                  <path
-                    d="M10,198 L20,180 L35,160 L50,142 L70,125 L95,100 L120,75 L150,50 L175,25 L195,10 L200,22 L190,45 L170,70 L152,95 L132,122 L122,145 L110,170 L97,187 L80,190 L45,202 Z"
-                    fill={i === 6 ? "rgba(122,28,20,0.9)" : `rgba(${40 + i * 10},${12 + i * 3},${10 + i * 2},0.95)`}
-                    stroke={i === 6 ? "#d4a853" : "rgba(212,168,83,0.15)"}
-                    strokeWidth={i === 6 ? 2.5 : 1}
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              ))}
-            </div>
+          <div className="absolute inset-0">
+            <Image
+              src="/images/gaza-card.jpg"
+              alt="Red-tinted Sentinel-2 satellite view of the Gaza Strip coastline"
+              fill
+              className="object-cover object-center opacity-80 transition-transform duration-700 group-hover:scale-105"
+              unoptimized
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
           <div className="relative px-8 py-12 md:px-14 md:py-16 max-w-xl">
             <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4">Data installation · 2023–2026</p>
             <h2 className="font-serif text-3xl md:text-5xl tracking-wide mb-4">
