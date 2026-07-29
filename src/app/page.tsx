@@ -57,7 +57,7 @@ export default function Home() {
           <div className="relative px-8 py-12 md:px-14 md:py-16 max-w-xl">
             <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4">Data installation · 2023–2026</p>
             <h2 className="font-serif text-3xl md:text-5xl tracking-wide mb-4">
-              GAZA — <span className="text-gray-300">THE DEAD, IN NUMBERS</span>
+              GAZA — <span className="text-gray-300">MAKE UP YOUR MIND</span>
             </h2>
             <p className="text-gray-300 mb-8 leading-relaxed">
               The health ministry&apos;s casualty list — 72,835 names — not just shown but
@@ -147,10 +147,10 @@ export default function Home() {
         >
           <div className="absolute inset-0">
             <Image
-              src="/book/images/hermann-wenkart.jpg"
-              alt="Hermann Wenkart — portrait from the book Command Responsibility"
+              src="/images/wenkart-camp.jpg"
+              alt="Barbed-wire fences of a concentration camp in fog — from the book Command Responsibility"
               fill
-              className="object-cover object-right opacity-40 transition-transform duration-700 group-hover:scale-105"
+              className="object-cover object-center opacity-40 transition-transform duration-700 group-hover:scale-105"
               unoptimized
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/30" />
