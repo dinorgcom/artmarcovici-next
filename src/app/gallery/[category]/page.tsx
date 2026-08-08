@@ -8,6 +8,9 @@ type NavItem = {
   slug: string;
   title: string;
   image_count: number;
+  href?: string;
+  image?: string;
+  meta?: string;
 };
 
 type NavCategory = {
@@ -69,12 +72,12 @@ export default async function GalleryPage({ params }: { params: Promise<{ catego
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {nav.items.map((item) => {
           const page = pages[item.slug];
-          const thumbnail = page?.images?.[0];
+          const thumbnail = item.image ?? page?.images?.[0];
 
           return (
             <Link
               key={item.slug}
-              href={`/work/${item.slug}`}
+              href={item.href ?? `/work/${item.slug}`}
               className="art-card group relative aspect-[4/3] bg-surface rounded-lg overflow-hidden"
             >
               {thumbnail ? (
@@ -97,7 +100,7 @@ export default async function GalleryPage({ params }: { params: Promise<{ catego
                   {item.title}
                 </h3>
                 <p className="text-sm text-gray-400 mt-1">
-                  {item.image_count} works
+                  {item.meta ?? `${item.image_count} works`}
                 </p>
               </div>
             </Link>

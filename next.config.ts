@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/mortality",
+        destination: "/mortality/index.html",
+      },
+    ];
+  },
   // The audiobooks (~400 MB) are served statically from public/ — never
   // bundle them into serverless functions (Vercel's 250 MB limit).
   // Chapter pages check for the MP3s with fs at build time (SSG), so the

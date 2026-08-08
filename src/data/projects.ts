@@ -8,8 +8,23 @@ export type ProjectNavItem = {
   slug: string;
   title: string;
   image_count: number;
+  href?: string;
+  image?: string;
+  meta?: string;
 };
 
-export const projectItems: ProjectNavItem[] = siteData.navigation.other.items
-  .filter((item) => !EXCLUDED_SLUGS.has(item.slug))
+const standaloneProjects: ProjectNavItem[] = siteData.navigation.other.items
+  .filter((item) => !EXCLUDED_SLUGS.has(item.slug));
+
+export const projectItems: ProjectNavItem[] = [
+  ...standaloneProjects,
+  {
+    slug: "mortality-austria",
+    title: "WORAN ÖSTERREICH STIRBT",
+    image_count: 1,
+    href: "/mortality/",
+    image: "/images/mortality-austria-card.png",
+    meta: "Interactive data project",
+  },
+]
   .sort((a, b) => a.title.localeCompare(b.title));

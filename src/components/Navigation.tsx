@@ -39,7 +39,7 @@ const navCategories = [
     href: "/gallery/projects",
     submenu: [
       ...projectItems.map((item) => ({
-        href: `/work/${item.slug}`,
+        href: item.href ?? `/work/${item.slug}`,
         label: item.title,
       })),
       { href: "/elements", label: "Elements" },

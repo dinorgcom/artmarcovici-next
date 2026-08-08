@@ -16,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/c3",
     "/democratic-chess",
     "/free-market-chess",
+    "/mortality/",
+    "/mortality/weekly.html",
     "/gallery/artworks",
     "/gallery/mosaic",
     "/gallery/cado",

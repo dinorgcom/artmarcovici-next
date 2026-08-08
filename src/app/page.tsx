@@ -73,6 +73,41 @@ export default function Home() {
         </a>
       </section>
 
+      {/* Mortality in Austria — interactive data project */}
+      <section className="max-w-7xl mx-auto px-4 pt-6">
+        <a
+          href="/mortality/"
+          className="art-card group relative block overflow-hidden rounded-lg border border-accent/30 hover:border-accent transition-colors duration-300 bg-black"
+        >
+          <div className="absolute inset-0">
+            <Image
+              src="/images/mortality-austria-card.png"
+              alt="Interactive analysis of mortality and causes of death in Austria"
+              fill
+              className="object-cover object-top opacity-55 transition-transform duration-700 group-hover:scale-105"
+              unoptimized
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20" />
+          </div>
+          <div className="relative px-8 py-12 md:px-14 md:py-16 max-w-xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4">
+              Interactive data project · Austria 1970–2025
+            </p>
+            <h2 className="font-serif text-3xl md:text-5xl tracking-wide mb-4">
+              WORAN ÖSTERREICH STIRBT
+            </h2>
+            <p className="text-gray-300 mb-8 leading-relaxed">
+              Fifty-six years of official mortality data, made explorable by cause of death,
+              sex and age. Compare trends, standardized rates and estimated years of life
+              lost — plus a separate week-by-week view of mortality and weather.
+            </p>
+            <span className="inline-block px-8 py-3 border border-accent text-accent group-hover:bg-accent group-hover:text-black transition-all duration-300 tracking-widest text-sm uppercase">
+              Explore the data
+            </span>
+          </div>
+        </a>
+      </section>
+
       {/* Play Democratic Chess */}
       <section className="max-w-7xl mx-auto px-4 pt-6">
         <Link
