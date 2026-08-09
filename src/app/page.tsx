@@ -81,10 +81,10 @@ export default function Home() {
         >
           <div className="absolute inset-0">
             <Image
-              src="/images/mortality-austria-card.png"
-              alt="Interactive analysis of mortality and causes of death in Austria"
+              src="/images/sarkophag-leopold.jpg"
+              alt="Sarcophagus of Emperor Leopold I"
               fill
-              className="object-cover object-top opacity-55 transition-transform duration-700 group-hover:scale-105"
+              className="object-cover object-center opacity-65 saturate-50 transition-transform duration-700 group-hover:scale-105"
               unoptimized
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20" />

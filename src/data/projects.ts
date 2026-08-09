@@ -23,7 +23,7 @@ export const projectItems: ProjectNavItem[] = [
     title: "WORAN ÖSTERREICH STIRBT",
     image_count: 1,
     href: "/mortality/",
-    image: "/images/mortality-austria-card.png",
+    image: "/images/sarkophag-leopold.jpg",
     meta: "Interactive data project",
   },
 ]
