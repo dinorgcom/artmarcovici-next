@@ -15,6 +15,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
     <script defer src="/wien-sonne-temperatur/data.js"></script>
     <script defer src="/wien-sonne-temperatur/app.js"></script>
+    <script defer src="/wien-sonne-temperatur/recent-data.js"></script>
+    <script defer src="/wien-sonne-temperatur/recent.js"></script>
   </head>
   <body>
     <div class="ambient" aria-hidden="true"></div>
@@ -29,7 +31,7 @@
 
     <main>
       <section class="hero" aria-labelledby="page-title">
-        <p class="eyebrow">DATENARBEIT · 1880 BIS 2025 · GEOSPHERE AUSTRIA</p>
+        <p class="eyebrow">DATENARBEIT / 1880 BIS 2025 / GEOSPHERE AUSTRIA</p>
         <h1 id="page-title"><span>146 Jahre</span> Wien im Licht.</h1>
         <p class="hero-copy">
           Jährliche Sonnenscheindauer und der heißeste Tag jedes Jahres. Eine Stadt, zwei Klimaspuren.
@@ -133,6 +135,79 @@
         </noscript>
       </section>
 
+      <section class="recent" aria-labelledby="recent-title">
+        <div class="recent-heading">
+          <h2 id="recent-title">2025 bis heute, Tag für Tag.</h2>
+          <p>
+            Die jüngste Klimaspur im Detail. Tageswerte zeigen das Wetter, Wochenwerte machen den Rhythmus lesbar.
+          </p>
+        </div>
+
+        <div class="recent-summary" aria-label="Kennzahlen seit 2025">
+          <div>
+            <span>Höchster Tageswert</span>
+            <strong id="recent-peak-temperature">39,8 °C</strong>
+            <small id="recent-peak-date">4. August 2026</small>
+          </div>
+          <div>
+            <span>Sonnenstunden 2025</span>
+            <strong id="recent-sun-2025">2.032 h</strong>
+            <small>vollständiges Kalenderjahr</small>
+          </div>
+          <div>
+            <span>Datenstand</span>
+            <strong id="recent-latest-date">19. Aug 2026</strong>
+            <small id="recent-live-status">wird automatisch aktualisiert</small>
+          </div>
+        </div>
+
+        <div class="recent-toolbar">
+          <div class="recent-controls" aria-label="Zeitliche Auflösung auswählen">
+            <button type="button" data-recent-mode="week" aria-pressed="true">Wöchentlich</button>
+            <button type="button" data-recent-mode="day" aria-pressed="false">Täglich</button>
+          </div>
+          <p id="recent-freshness">Temperatur bis 19. August, Sonne bis 18. August 2026</p>
+        </div>
+
+        <div class="recent-reader" aria-live="polite">
+          <div>
+            <span id="recent-period-label">Ausgewählte Woche</span>
+            <strong id="recent-period">17. bis 23. August 2026</strong>
+          </div>
+          <div>
+            <span id="recent-temperature-label">Wochenmaximum</span>
+            <strong class="recent-temperature-value" id="recent-temperature">30,3 °C</strong>
+            <small id="recent-temperature-detail">am 19. August</small>
+          </div>
+          <div>
+            <span id="recent-sunshine-label">Sonne in der Woche</span>
+            <strong class="recent-sunshine-value" id="recent-sunshine">4,0 h</strong>
+            <small id="recent-sunshine-detail">2 Messwerte verfügbar</small>
+          </div>
+        </div>
+
+        <div class="recent-chart">
+          <div class="recent-legend" aria-label="Dargestellte Messreihen">
+            <span><i class="temperature-line" aria-hidden="true"></i>Maximaltemperatur</span>
+            <span><i class="sunshine-bar" aria-hidden="true"></i>Sonnenscheindauer</span>
+          </div>
+          <svg role="img" aria-labelledby="recent-chart-title recent-chart-desc">
+            <title id="recent-chart-title">Temperatur und Sonnenscheindauer in Wien seit 2025</title>
+            <desc id="recent-chart-desc">
+              Kombinierte Zeitreihe mit wählbaren Tageswerten oder Wochenwerten. Die Temperatur erscheint als Linie,
+              die Sonnenscheindauer als Balken.
+            </desc>
+          </svg>
+        </div>
+        <p class="recent-note">
+          2026 ist ein laufendes Jahr und bleibt deshalb aus der Jahresgrafik oben ausgeschlossen. Die aktuelle Woche
+          kann unvollständig sein.
+        </p>
+        <div class="recent-error" role="status" hidden>
+          Die aktuelle Detailgrafik konnte nicht geladen werden. Bitte die Seite neu laden.
+        </div>
+      </section>
+
       <section class="finding" aria-labelledby="finding-title">
         <div class="finding-copy">
           <h2 id="finding-title">Mehr Sonne. Heißere Spitzen.</h2>
@@ -170,7 +245,8 @@
           </p>
           <p>
             Die Jahre 1880, 1890, 1904 und 1920 sind unvollständig und deshalb nicht aggregiert. Das gleitende Mittel
-            verwendet jeweils zehn vollständige Jahre. Korrelation bedeutet Zusammenhang, nicht Ursache.
+            verwendet jeweils zehn vollständige Jahre. In der aktuellen Detailansicht wird die Sonne je Woche summiert
+            und der höchste Tageswert als Wochenmaximum verwendet. Korrelation bedeutet Zusammenhang, nicht Ursache.
           </p>
         </div>
         <div class="source-line">

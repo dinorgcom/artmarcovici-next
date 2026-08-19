@@ -461,6 +461,307 @@ main,
   font-size: 13px;
 }
 
+.recent {
+  padding: 118px 0 110px;
+  border-top: 1px solid var(--line);
+}
+
+.recent-heading {
+  max-width: 850px;
+}
+
+.recent-heading h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(42px, 6.2vw, 88px);
+  font-weight: 400;
+  letter-spacing: -0.048em;
+  line-height: 0.96;
+}
+
+.recent-heading p {
+  max-width: 600px;
+  margin: 28px 0 0;
+  color: #aaa79f;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.recent-summary {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  margin-top: 58px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.recent-summary > div {
+  min-height: 155px;
+  padding: 31px 28px 25px;
+  border-left: 1px solid var(--line);
+}
+
+.recent-summary > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.recent-summary span,
+.recent-summary small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.recent-summary strong {
+  display: block;
+  margin: 15px 0 12px;
+  font-family: var(--serif);
+  font-size: clamp(31px, 3.6vw, 51px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.recent-summary > div:first-child strong {
+  color: var(--temperature);
+}
+
+.recent-summary > div:nth-child(2) strong {
+  color: var(--sunshine);
+}
+
+.recent-summary small {
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.recent-toolbar {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 48px;
+}
+
+.recent-toolbar p {
+  margin: 0;
+  color: var(--faint);
+  font-size: 11px;
+}
+
+.recent-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.recent-controls button {
+  min-width: 112px;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, transform 90ms ease;
+}
+
+.recent-controls button:hover,
+.recent-controls button:focus-visible {
+  border-color: var(--accent);
+  color: var(--ink);
+  outline: none;
+}
+
+.recent-controls button:active {
+  transform: translateY(1px);
+}
+
+.recent-controls button[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #15130f;
+}
+
+.recent-reader {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  min-height: 116px;
+  margin-top: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.recent-reader > div {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 22px 24px;
+  border-left: 1px solid var(--line);
+}
+
+.recent-reader > div:first-child {
+  border-left: 0;
+}
+
+.recent-reader span,
+.recent-reader small {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.recent-reader strong {
+  align-self: center;
+  font-family: var(--serif);
+  font-size: clamp(25px, 2.7vw, 39px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.recent-reader small {
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.recent-temperature-value {
+  color: var(--temperature);
+}
+
+.recent-sunshine-value {
+  color: var(--sunshine);
+}
+
+.recent-chart {
+  margin-top: 10px;
+  padding: 24px 28px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.recent-legend {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  min-height: 32px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.recent-legend span {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.recent-legend i {
+  display: inline-block;
+  width: 24px;
+}
+
+.temperature-line {
+  border-top: 2px solid var(--temperature);
+}
+
+.sunshine-bar {
+  height: 8px;
+  background: color-mix(in srgb, var(--sunshine) 60%, transparent);
+}
+
+.recent-chart svg {
+  display: block;
+  width: 100%;
+  min-height: 390px;
+  overflow: visible;
+  touch-action: pan-y;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.recent-chart svg text {
+  font-family: var(--sans);
+}
+
+.recent-chart .grid line {
+  stroke: var(--line-soft);
+  shape-rendering: crispEdges;
+}
+
+.recent-chart .grid path,
+.recent-chart .axis path {
+  display: none;
+}
+
+.recent-chart .axis line {
+  stroke: transparent;
+}
+
+.recent-chart .axis text {
+  fill: var(--faint);
+  font-size: 10px;
+}
+
+.recent-chart .sun-bar {
+  fill: var(--sunshine);
+  opacity: 0.33;
+  transition: opacity 120ms ease;
+}
+
+.recent-chart .sun-bar.is-selected {
+  opacity: 0.82;
+}
+
+.recent-chart .temperature-path {
+  fill: none;
+  stroke: var(--temperature);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.recent-chart .temperature-point {
+  fill: var(--surface);
+  stroke: var(--temperature);
+  stroke-width: 2;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.recent-chart .recent-guide {
+  stroke: rgba(244, 240, 232, 0.58);
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.recent-chart .axis-title {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+}
+
+.recent-note {
+  margin: 15px 0 0;
+  color: var(--faint);
+  font-size: 11px;
+}
+
+.recent-error {
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(240, 109, 79, 0.45);
+  border-radius: var(--radius);
+  color: #d9aaa0;
+  font-size: 13px;
+}
+
 .finding {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(380px, 0.85fr);
@@ -652,6 +953,18 @@ body:not(.is-ready) .visual {
   .finding {
     grid-template-columns: 1fr;
   }
+
+  .recent-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .recent-summary > div:nth-child(3) {
+    grid-column: 1 / -1;
+    min-height: 120px;
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
 }
 
 @media (max-width: 640px) {
@@ -769,6 +1082,88 @@ body:not(.is-ready) .visual {
   .finding {
     gap: 64px;
     padding: 82px 0;
+  }
+
+  .recent {
+    padding: 82px 0 76px;
+  }
+
+  .recent-heading p {
+    font-size: 15px;
+  }
+
+  .recent-summary {
+    grid-template-columns: 1fr;
+    margin-top: 42px;
+  }
+
+  .recent-summary > div,
+  .recent-summary > div:first-child,
+  .recent-summary > div:nth-child(3) {
+    grid-column: auto;
+    min-height: 0;
+    padding: 25px 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .recent-summary > div:first-child {
+    border-top: 0;
+  }
+
+  .recent-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .recent-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .recent-controls button {
+    width: 100%;
+  }
+
+  .recent-reader {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .recent-reader > div:first-child {
+    grid-column: 1 / -1;
+    min-height: 92px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .recent-reader > div:nth-child(2) {
+    border-left: 0;
+  }
+
+  .recent-reader > div {
+    min-height: 104px;
+    padding: 17px 14px;
+  }
+
+  .recent-reader strong {
+    font-size: 24px;
+  }
+
+  .recent-reader small {
+    font-size: 9px;
+  }
+
+  .recent-chart {
+    padding: 18px 8px 8px;
+  }
+
+  .recent-legend {
+    gap: 14px;
+    padding-inline: 6px;
+    font-size: 10px;
+  }
+
+  .recent-chart svg {
+    min-height: 330px;
   }
 
   .finding-copy > p:last-child {
