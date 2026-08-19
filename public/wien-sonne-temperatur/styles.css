@@ -440,6 +440,19 @@ main,
   letter-spacing: 0.09em;
 }
 
+.annual-combined-note {
+  max-width: 760px;
+  margin: 6px 0 0;
+  color: var(--faint);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.annual-combined-note strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
 .chart-panel {
   margin-top: 10px;
   padding: 26px 28px 20px;
@@ -1218,6 +1231,10 @@ body:not(.is-ready) .visual {
 
   .annual-combined-panel svg {
     min-height: 330px;
+  }
+
+  .annual-combined-note {
+    padding-inline: 6px;
   }
 
   .chart-panel {

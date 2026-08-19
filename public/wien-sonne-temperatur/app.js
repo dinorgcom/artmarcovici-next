@@ -8,21 +8,36 @@
     document.body.classList.add("is-ready");
   });
 
-  if (!window.d3 || !Array.isArray(window.VIENNA_CLIMATE_ROWS)) {
+  if (
+    !window.d3 ||
+    !Array.isArray(window.VIENNA_CLIMATE_ROWS) ||
+    !Array.isArray(window.VIENNA_ANNUAL_SUNSHINE_MAX)
+  ) {
     if (errorMessage) errorMessage.hidden = false;
     return;
   }
 
   const d3 = window.d3;
-  const data = window.VIENNA_CLIMATE_ROWS.map((row) => ({
-    year: row[0],
-    days: row[1],
-    expected: row[2],
-    complete: row[3],
-    sunshine: row[4],
-    temperature: row[5],
-    maxDate: row[6],
-  }));
+  const sunshineMaxByYear = new Map(
+    window.VIENNA_ANNUAL_SUNSHINE_MAX.map((row) => [
+      row[0],
+      { value: row[1], date: row[2] },
+    ])
+  );
+  const data = window.VIENNA_CLIMATE_ROWS.map((row) => {
+    const sunshineMaximum = sunshineMaxByYear.get(row[0]);
+    return {
+      year: row[0],
+      days: row[1],
+      expected: row[2],
+      complete: row[3],
+      sunshine: row[4],
+      sunshineMaximum: sunshineMaximum ? sunshineMaximum.value : null,
+      sunshineMaximumDate: sunshineMaximum ? sunshineMaximum.date : null,
+      temperature: row[5],
+      maxDate: row[6],
+    };
+  });
   const complete = data.filter((item) => item.complete);
   const trend = complete.slice(9).map((item, index) => {
     const windowData = complete.slice(index, index + 10);
@@ -55,6 +70,7 @@
     year: document.getElementById("reader-year"),
     temperature: document.getElementById("reader-temperature"),
     date: document.getElementById("reader-date"),
+    sunshineLabel: document.getElementById("reader-sunshine-label"),
     sunshine: document.getElementById("reader-sunshine"),
     status: document.getElementById("reader-status"),
   };
@@ -78,8 +94,10 @@
     return data.find((item) => item.year === year) || data[data.length - 1];
   }
 
-  function updateReader(item) {
+  function updateReader(item, source) {
+    const combined = source === "combined";
     reader.year.textContent = item.year;
+    reader.sunshineLabel.textContent = combined ? "Sonnigster Tag" : "Sonnenscheindauer";
 
     if (!item.complete) {
       reader.temperature.textContent = "keine Angabe";
@@ -91,13 +109,18 @@
 
     reader.temperature.textContent = `${decimalFormat.format(item.temperature)} °C`;
     reader.date.textContent = dateFormat.format(new Date(`${item.maxDate}T12:00:00Z`));
-    reader.sunshine.textContent = `${integerFormat.format(item.sunshine)} h`;
-    reader.status.textContent = "vollständiges Kalenderjahr";
+    if (combined) {
+      reader.sunshine.textContent = `${decimalFormat.format(item.sunshineMaximum)} h`;
+      reader.status.textContent = `am ${dateFormat.format(new Date(`${item.sunshineMaximumDate}T12:00:00Z`))}`;
+    } else {
+      reader.sunshine.textContent = `${integerFormat.format(item.sunshine)} h`;
+      reader.status.textContent = "vollständiges Kalenderjahr";
+    }
   }
 
-  function updateSelection(item) {
+  function updateSelection(item, source = "combined") {
     selectedYear = item.year;
-    updateReader(item);
+    updateReader(item, source);
 
     runtimes.forEach((runtime) => {
       const xPosition = runtime.x(item.year);
@@ -315,7 +338,7 @@
       .on("pointermove pointerdown", function (event) {
         const [pointerX] = d3.pointer(event, svg.node());
         const item = data[bisector(data, x.invert(pointerX))];
-        updateSelection(item);
+        updateSelection(item, series);
       });
   }
 
@@ -335,7 +358,7 @@
     const innerHeight = height - margin.top - margin.bottom;
     const temperatureExtent = d3.extent(complete, (item) => item.temperature);
     const temperatureSpan = temperatureExtent[1] - temperatureExtent[0] || 1;
-    const maximumSunshine = d3.max(complete, (item) => item.sunshine) || 1;
+    const maximumSunshine = d3.max(complete, (item) => item.sunshineMaximum) || 1;
     const x = d3
       .scaleLinear()
       .domain(d3.extent(data, (item) => item.year))
@@ -384,9 +407,9 @@
       .join("rect")
       .attr("class", "annual-sun-bar")
       .attr("x", (item) => x(item.year) - barWidth / 2)
-      .attr("y", (item) => ySunshine(item.sunshine))
+      .attr("y", (item) => ySunshine(item.sunshineMaximum))
       .attr("width", barWidth)
-      .attr("height", (item) => ySunshine(0) - ySunshine(item.sunshine));
+      .attr("height", (item) => ySunshine(0) - ySunshine(item.sunshineMaximum));
 
     const temperaturePath = marks
       .append("path")
@@ -460,7 +483,7 @@
       .attr("x", width - margin.right)
       .attr("y", 12)
       .attr("text-anchor", "end")
-      .text("h pro Jahr");
+      .text("h pro Tag");
 
     const guide = svg
       .append("line")
@@ -496,7 +519,7 @@
       .on("pointermove pointerdown", function (event) {
         const [pointerX] = d3.pointer(event, node);
         const item = data[bisector(data, x.invert(pointerX))];
-        updateSelection(item);
+        updateSelection(item, "combined");
       });
   }
 
@@ -505,7 +528,7 @@
     const combinedPanel = document.querySelector(".annual-combined-panel");
     if (combinedPanel) drawCombinedPanel(combinedPanel);
     document.querySelectorAll(".chart-panel").forEach(drawPanel);
-    updateSelection(getYear(selectedYear));
+    updateSelection(getYear(selectedYear), "combined");
     hasAnimated = true;
   }
 
