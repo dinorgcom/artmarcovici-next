@@ -1,11 +1,28 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        source: "/wien-sonne-temperatur",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow, noarchive",
+          },
+        ],
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
         source: "/mortality",
         destination: "/mortality/index.html",
+      },
+      {
+        source: "/wien-sonne-temperatur",
+        destination: "/wien-sonne-temperatur/index.html",
       },
     ];
   },

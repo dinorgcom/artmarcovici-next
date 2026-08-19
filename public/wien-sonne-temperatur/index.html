@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>146 Jahre Sonne und Temperatur in Wien | biest.com</title>
+    <meta
+      name="description"
+      content="Eine interaktive Datenarbeit über Sonnenscheindauer und jährliche Temperaturspitzen in Wien von 1880 bis 2025."
+    />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="/wien-sonne-temperatur/styles.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script defer src="/wien-sonne-temperatur/data.js"></script>
+    <script defer src="/wien-sonne-temperatur/app.js"></script>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Zur Startseite von biest.com">
+        <span>BIEST.COM</span>
+        <span>DATA WORK</span>
+      </a>
+      <p>Wien, Hohe Warte</p>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">DATENARBEIT · 1880 BIS 2025 · GEOSPHERE AUSTRIA</p>
+        <h1 id="page-title"><span>146 Jahre</span> Wien im Licht.</h1>
+        <p class="hero-copy">
+          Jährliche Sonnenscheindauer und der heißeste Tag jedes Jahres. Eine Stadt, zwei Klimaspuren.
+        </p>
+      </section>
+
+      <section class="facts" aria-label="Kennzahlen der Auswertung">
+        <div class="fact">
+          <strong>142</strong>
+          <span>vollständige Jahre</span>
+        </div>
+        <div class="fact">
+          <strong>0,59</strong>
+          <span>Korrelation</span>
+        </div>
+        <div class="fact">
+          <strong>+259 h</strong>
+          <span>Sonne im 20-Jahres-Vergleich</span>
+        </div>
+        <div class="fact">
+          <strong>+2,6 °C</strong>
+          <span>bei jährlichen Hitzespitzen</span>
+        </div>
+      </section>
+
+      <section class="visual" aria-labelledby="visual-title">
+        <div class="visual-heading">
+          <div>
+            <p class="section-kicker">ZEITREIHE</p>
+            <h2 id="visual-title">Jedes Jahr hinterlässt zwei Linien.</h2>
+          </div>
+          <div class="series-controls" aria-label="Darstellung auswählen">
+            <button type="button" data-mode="raw" aria-pressed="true">
+              <span class="control-line control-line-raw" aria-hidden="true"></span>
+              Jahreswerte
+            </button>
+            <button type="button" data-mode="mean" aria-pressed="true">
+              <span class="control-line control-line-mean" aria-hidden="true"></span>
+              10-Jahres-Mittel
+            </button>
+          </div>
+        </div>
+
+        <div class="year-reader" aria-live="polite">
+          <div class="reader-year">
+            <span>Ausgewähltes Jahr</span>
+            <strong id="reader-year">2025</strong>
+          </div>
+          <div class="reader-value temperature-reader">
+            <span>Höchster Tageswert</span>
+            <strong id="reader-temperature">36,8 °C</strong>
+            <small id="reader-date">3. Juli 2025</small>
+          </div>
+          <div class="reader-value sunshine-reader">
+            <span>Sonnenscheindauer</span>
+            <strong id="reader-sunshine">2.032 h</strong>
+            <small id="reader-status">vollständiges Kalenderjahr</small>
+          </div>
+        </div>
+
+        <article class="chart-panel" data-series="temperature">
+          <div class="panel-title">
+            <span class="series-key series-key-temperature" aria-hidden="true"></span>
+            <div>
+              <h3>Temperaturspitze</h3>
+              <p>Höchste gemessene Tages-Maximaltemperatur pro Jahr</p>
+            </div>
+            <strong>°C</strong>
+          </div>
+          <svg role="img" aria-labelledby="temperature-title temperature-desc">
+            <title id="temperature-title">Jährliche Temperaturspitzen in Wien von 1880 bis 2025</title>
+            <desc id="temperature-desc">
+              Jahreswerte und gleitendes Mittel über zehn vollständige Jahre. Vier unvollständige Jahre sind markiert.
+            </desc>
+          </svg>
+        </article>
+
+        <article class="chart-panel" data-series="sunshine">
+          <div class="panel-title">
+            <span class="series-key series-key-sunshine" aria-hidden="true"></span>
+            <div>
+              <h3>Sonnenscheindauer</h3>
+              <p>Summe der gemessenen Sonnenstunden pro Jahr</p>
+            </div>
+            <strong>h</strong>
+          </div>
+          <svg role="img" aria-labelledby="sunshine-title sunshine-desc">
+            <title id="sunshine-title">Jährliche Sonnenscheindauer in Wien von 1880 bis 2025</title>
+            <desc id="sunshine-desc">
+              Jahreswerte und gleitendes Mittel über zehn vollständige Jahre. Vier unvollständige Jahre sind markiert.
+            </desc>
+          </svg>
+        </article>
+
+        <p class="chart-help">Mit Maus oder Finger über die Linien fahren, um ein Jahr zu lesen.</p>
+        <div class="viz-error" role="status" hidden>
+          Die interaktive Grafik konnte nicht geladen werden. Bitte die Seite neu laden.
+        </div>
+        <noscript>
+          <p class="viz-error">Für die interaktive Grafik muss JavaScript aktiviert sein.</p>
+        </noscript>
+      </section>
+
+      <section class="finding" aria-labelledby="finding-title">
+        <div class="finding-copy">
+          <h2 id="finding-title">Mehr Sonne. Heißere Spitzen.</h2>
+          <p>
+            Sonnige Jahre sind häufig auch Jahre mit höheren Temperaturspitzen. Der statistische Zusammenhang ist mit
+            <strong>r = 0,59</strong> deutlich, erklärt aber nicht alles. Langfristig verschieben sich beide Reihen nach oben.
+          </p>
+        </div>
+        <div class="comparison" aria-label="Vergleich früher und heute">
+          <div class="comparison-row">
+            <span>1881 bis 1900</span>
+            <strong>1.835 h</strong>
+            <strong>33,1 °C</strong>
+          </div>
+          <div class="comparison-rule" aria-hidden="true"><span></span></div>
+          <div class="comparison-row comparison-row-current">
+            <span>2006 bis 2025</span>
+            <strong>2.095 h</strong>
+            <strong>35,7 °C</strong>
+          </div>
+          <div class="comparison-labels" aria-hidden="true">
+            <span></span>
+            <span>Sonne</span>
+            <span>Spitze</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="method" aria-labelledby="method-title">
+        <h2 id="method-title">Was hier gemessen wird</h2>
+        <div class="method-grid">
+          <p>
+            Grundlage sind qualitätsgeprüfte Tagesdaten der Station Wien Hohe Warte. Pro vollständigem Kalenderjahr
+            wurden die Sonnenstunden summiert und der höchste Tageswert der Maximaltemperatur bestimmt.
+          </p>
+          <p>
+            Die Jahre 1880, 1890, 1904 und 1920 sind unvollständig und deshalb nicht aggregiert. Das gleitende Mittel
+            verwendet jeweils zehn vollständige Jahre. Korrelation bedeutet Zusammenhang, nicht Ursache.
+          </p>
+        </div>
+        <div class="source-line">
+          <span>Quelle: GeoSphere Austria, Stationsdaten v2 in täglicher Auflösung, CC BY 4.0</span>
+          <a
+            href="https://dataset.api.hub.geosphere.at/app/frontend/station/historical/klima-v2-1d"
+            target="_blank"
+            rel="noreferrer"
+          >Datensatz öffnen</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <a href="/">BIEST.COM</a>
+      <span>Interaktive Datenarbeit · 2026</span>
+    </footer>
+  </body>
+</html>
