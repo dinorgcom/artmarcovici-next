@@ -106,13 +106,17 @@
         .attr("x1", xPosition)
         .attr("x2", xPosition);
 
-      if (item.complete && activeModes.has("raw")) {
+      if (item.complete && (activeModes.has("raw") || runtime.alwaysRaw)) {
         runtime.marker
           .attr("display", null)
           .attr("cx", xPosition)
           .attr("cy", runtime.y(item[runtime.config.field]));
       } else {
         runtime.marker.attr("display", "none");
+      }
+
+      if (runtime.bars) {
+        runtime.bars.classed("is-selected", (bar) => bar.year === item.year);
       }
     });
   }
@@ -315,8 +319,191 @@
       });
   }
 
+  function drawCombinedPanel(panel) {
+    const svg = d3.select(panel.querySelector("svg"));
+    const node = svg.node();
+    const width = Math.max(300, Math.round(node.getBoundingClientRect().width));
+    const compact = width < 620;
+    const height = compact ? 340 : 410;
+    const margin = {
+      top: 28,
+      right: compact ? 41 : 56,
+      bottom: 43,
+      left: compact ? 42 : 56,
+    };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const temperatureExtent = d3.extent(complete, (item) => item.temperature);
+    const temperatureSpan = temperatureExtent[1] - temperatureExtent[0] || 1;
+    const maximumSunshine = d3.max(complete, (item) => item.sunshine) || 1;
+    const x = d3
+      .scaleLinear()
+      .domain(d3.extent(data, (item) => item.year))
+      .range([margin.left, width - margin.right]);
+    const yTemperature = d3
+      .scaleLinear()
+      .domain([
+        temperatureExtent[0] - temperatureSpan * 0.08,
+        temperatureExtent[1] + temperatureSpan * 0.1,
+      ])
+      .nice()
+      .range([height - margin.bottom, margin.top]);
+    const ySunshine = d3
+      .scaleLinear()
+      .domain([0, maximumSunshine * 1.14])
+      .nice()
+      .range([height - margin.bottom, margin.top]);
+    const barWidth = Math.max(1, Math.min(7, (innerWidth / data.length) * 0.68));
+    const xTickValues = compact
+      ? [1880, 1920, 1960, 2000, 2025]
+      : [1880, 1900, 1920, 1940, 1960, 1980, 2000, 2025];
+    const clipId = "wien-annual-combined-clip";
+
+    svg.selectAll("*").remove();
+    svg.attr("viewBox", `0 0 ${width} ${height}`);
+    svg
+      .append("defs")
+      .append("clipPath")
+      .attr("id", clipId)
+      .append("rect")
+      .attr("x", margin.left)
+      .attr("y", margin.top)
+      .attr("width", innerWidth)
+      .attr("height", innerHeight);
+
+    svg
+      .append("g")
+      .attr("class", "grid")
+      .attr("transform", `translate(${margin.left},0)`)
+      .call(d3.axisLeft(yTemperature).ticks(6).tickSize(-innerWidth).tickFormat(""));
+
+    const marks = svg.append("g").attr("clip-path", `url(#${clipId})`);
+    const bars = marks
+      .selectAll("rect.annual-sun-bar")
+      .data(complete)
+      .join("rect")
+      .attr("class", "annual-sun-bar")
+      .attr("x", (item) => x(item.year) - barWidth / 2)
+      .attr("y", (item) => ySunshine(item.sunshine))
+      .attr("width", barWidth)
+      .attr("height", (item) => ySunshine(0) - ySunshine(item.sunshine));
+
+    const temperaturePath = marks
+      .append("path")
+      .datum(data)
+      .attr("class", "annual-temperature-path")
+      .attr(
+        "d",
+        d3
+          .line()
+          .defined((item) => item.complete)
+          .x((item) => x(item.year))
+          .y((item) => yTemperature(item.temperature))
+      );
+    animatePath(temperaturePath);
+
+    svg
+      .append("g")
+      .selectAll("circle.annual-missing-mark")
+      .data(data.filter((item) => !item.complete))
+      .join("circle")
+      .attr("class", "annual-missing-mark")
+      .attr("cx", (item) => x(item.year))
+      .attr("cy", height - margin.bottom - 4)
+      .attr("r", 3.5);
+
+    svg
+      .append("g")
+      .attr("class", "axis")
+      .attr("transform", `translate(0,${height - margin.bottom})`)
+      .call(d3.axisBottom(x).tickValues(xTickValues).tickFormat(d3.format("d")).tickSize(0).tickPadding(12));
+
+    svg
+      .append("g")
+      .attr("class", "axis")
+      .attr("transform", `translate(${margin.left},0)`)
+      .call(
+        d3
+          .axisLeft(yTemperature)
+          .ticks(6)
+          .tickSize(0)
+          .tickPadding(9)
+          .tickFormat((value) => integerFormat.format(value))
+      );
+
+    svg
+      .append("g")
+      .attr("class", "axis")
+      .attr("transform", `translate(${width - margin.right},0)`)
+      .call(
+        d3
+          .axisRight(ySunshine)
+          .ticks(6)
+          .tickSize(0)
+          .tickPadding(9)
+          .tickFormat((value) => integerFormat.format(value))
+      );
+
+    svg
+      .append("text")
+      .attr("class", "axis-title")
+      .attr("fill", configs.temperature.color)
+      .attr("x", margin.left)
+      .attr("y", 12)
+      .attr("text-anchor", "start")
+      .text("°C");
+
+    svg
+      .append("text")
+      .attr("class", "axis-title")
+      .attr("fill", configs.sunshine.color)
+      .attr("x", width - margin.right)
+      .attr("y", 12)
+      .attr("text-anchor", "end")
+      .text("h pro Jahr");
+
+    const guide = svg
+      .append("line")
+      .attr("class", "annual-combined-guide")
+      .attr("y1", margin.top)
+      .attr("y2", height - margin.bottom)
+      .attr("display", "none");
+    const marker = svg
+      .append("circle")
+      .attr("class", "annual-temperature-point")
+      .attr("r", 4.5)
+      .attr("display", "none");
+
+    runtimes.set("combined", {
+      x,
+      y: yTemperature,
+      guide,
+      marker,
+      config: configs.temperature,
+      bars,
+      alwaysRaw: true,
+    });
+
+    const bisector = d3.bisector((item) => item.year).center;
+    svg
+      .append("rect")
+      .attr("x", margin.left)
+      .attr("y", margin.top)
+      .attr("width", innerWidth)
+      .attr("height", innerHeight)
+      .attr("fill", "transparent")
+      .style("cursor", "crosshair")
+      .on("pointermove pointerdown", function (event) {
+        const [pointerX] = d3.pointer(event, node);
+        const item = data[bisector(data, x.invert(pointerX))];
+        updateSelection(item);
+      });
+  }
+
   function renderAll() {
     runtimes.clear();
+    const combinedPanel = document.querySelector(".annual-combined-panel");
+    if (combinedPanel) drawCombinedPanel(combinedPanel);
     document.querySelectorAll(".chart-panel").forEach(drawPanel);
     updateSelection(getYear(selectedYear));
     hasAnimated = true;
@@ -344,5 +531,7 @@
     cancelAnimationFrame(resizeFrame);
     resizeFrame = requestAnimationFrame(renderAll);
   });
-  document.querySelectorAll(".chart-panel").forEach((panel) => resizeObserver.observe(panel));
+  document
+    .querySelectorAll(".annual-combined-panel, .chart-panel")
+    .forEach((panel) => resizeObserver.observe(panel));
 })();

@@ -308,6 +308,138 @@ main,
   text-transform: none;
 }
 
+.annual-combined-panel {
+  margin-top: 10px;
+  padding: 26px 28px 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.annual-combined-heading {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.annual-combined-heading h3,
+.annual-combined-heading p {
+  margin: 0;
+}
+
+.annual-combined-heading h3 {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.annual-combined-heading p {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.annual-combined-legend {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 22px;
+  align-items: center;
+  min-height: 30px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.annual-combined-legend span {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.annual-combined-legend i {
+  display: inline-block;
+  width: 24px;
+}
+
+.annual-combined-panel svg {
+  display: block;
+  width: 100%;
+  min-height: 390px;
+  overflow: visible;
+  touch-action: pan-y;
+}
+
+.annual-combined-panel svg text {
+  font-family: var(--sans);
+}
+
+.annual-combined-panel .grid line {
+  stroke: var(--line-soft);
+  shape-rendering: crispEdges;
+}
+
+.annual-combined-panel .grid path,
+.annual-combined-panel .axis path {
+  display: none;
+}
+
+.annual-combined-panel .axis line {
+  stroke: transparent;
+}
+
+.annual-combined-panel .axis text {
+  fill: var(--faint);
+  font-size: 10px;
+}
+
+.annual-combined-panel .annual-sun-bar {
+  fill: var(--sunshine);
+  opacity: 0.3;
+  transition: opacity 120ms ease;
+}
+
+.annual-combined-panel .annual-sun-bar.is-selected {
+  opacity: 0.84;
+}
+
+.annual-combined-panel .annual-temperature-path {
+  fill: none;
+  stroke: var(--temperature);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.annual-combined-panel .annual-temperature-point {
+  fill: var(--surface);
+  stroke: var(--temperature);
+  stroke-width: 2;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.annual-combined-panel .annual-combined-guide {
+  stroke: rgba(244, 240, 232, 0.58);
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.annual-combined-panel .annual-missing-mark {
+  fill: var(--surface);
+  stroke: var(--faint);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.annual-combined-panel .axis-title {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+}
+
 .chart-panel {
   margin-top: 10px;
   padding: 26px 28px 20px;
@@ -1061,6 +1193,31 @@ body:not(.is-ready) .visual {
 
   .reader-value small {
     font-size: 9px;
+  }
+
+  .annual-combined-panel {
+    padding: 20px 8px 8px;
+  }
+
+  .annual-combined-heading {
+    gap: 14px;
+    align-items: stretch;
+    flex-direction: column;
+    padding-inline: 6px;
+  }
+
+  .annual-combined-heading p {
+    max-width: 290px;
+  }
+
+  .annual-combined-legend {
+    gap: 14px;
+    min-height: 24px;
+    font-size: 10px;
+  }
+
+  .annual-combined-panel svg {
+    min-height: 330px;
   }
 
   .chart-panel {

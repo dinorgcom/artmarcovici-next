@@ -61,9 +61,9 @@
         <div class="visual-heading">
           <div>
             <p class="section-kicker">ZEITREIHE</p>
-            <h2 id="visual-title">Jedes Jahr hinterlässt zwei Linien.</h2>
+            <h2 id="visual-title">146 Jahre, zwei Messreihen.</h2>
           </div>
-          <div class="series-controls" aria-label="Darstellung auswählen">
+          <div class="series-controls" aria-label="Darstellung der Detailgrafiken auswählen">
             <button type="button" data-mode="raw" aria-pressed="true">
               <span class="control-line control-line-raw" aria-hidden="true"></span>
               Jahreswerte
@@ -91,6 +91,26 @@
             <small id="reader-status">vollständiges Kalenderjahr</small>
           </div>
         </div>
+
+        <article class="annual-combined-panel">
+          <div class="annual-combined-heading">
+            <div>
+              <h3>Kombinierte Jahresansicht</h3>
+              <p>Sonnenstunden als Balken, höchste Tages-Maximaltemperatur als Linie</p>
+            </div>
+            <div class="annual-combined-legend" aria-label="Dargestellte Messreihen">
+              <span><i class="temperature-line" aria-hidden="true"></i>Temperaturspitze</span>
+              <span><i class="sunshine-bar" aria-hidden="true"></i>Sonnenscheindauer</span>
+            </div>
+          </div>
+          <svg role="img" aria-labelledby="annual-combined-title annual-combined-desc">
+            <title id="annual-combined-title">Temperaturspitzen und Sonnenscheindauer in Wien von 1880 bis 2025</title>
+            <desc id="annual-combined-desc">
+              Kombinierte Zeitreihe mit jährlichen Sonnenstunden als Balken und der höchsten Tages-Maximaltemperatur
+              jedes Jahres als Linie. Vier unvollständige Jahre sind markiert.
+            </desc>
+          </svg>
+        </article>
 
         <article class="chart-panel" data-series="temperature">
           <div class="panel-title">
@@ -126,7 +146,7 @@
           </svg>
         </article>
 
-        <p class="chart-help">Mit Maus oder Finger über die Linien fahren, um ein Jahr zu lesen.</p>
+        <p class="chart-help">Mit Maus oder Finger über Balken und Linien fahren, um ein Jahr zu lesen.</p>
         <div class="viz-error" role="status" hidden>
           Die interaktive Grafik konnte nicht geladen werden. Bitte die Seite neu laden.
         </div>
