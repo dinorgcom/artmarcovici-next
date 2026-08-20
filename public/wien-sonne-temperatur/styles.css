@@ -10,6 +10,7 @@
   --accent: #d4a853;
   --temperature: #f06d4f;
   --sunshine: #d4a853;
+  --ratio: #bdc5cf;
   --radius: 3px;
   --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
   --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -363,10 +364,14 @@ main,
   width: 24px;
 }
 
+.ratio-line {
+  border-top: 2px dashed var(--ratio);
+}
+
 .annual-combined-panel svg {
   display: block;
   width: 100%;
-  min-height: 390px;
+  min-height: 450px;
   overflow: visible;
   touch-action: pan-y;
 }
@@ -411,12 +416,33 @@ main,
   vector-effect: non-scaling-stroke;
 }
 
-.annual-combined-panel .annual-temperature-point {
+.annual-combined-panel .annual-ratio-path {
+  fill: none;
+  stroke: var(--ratio);
+  stroke-width: 1.7;
+  stroke-dasharray: 5 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.annual-combined-panel .annual-temperature-point,
+.annual-combined-panel .annual-ratio-point {
   fill: var(--surface);
-  stroke: var(--temperature);
   stroke-width: 2;
   pointer-events: none;
   vector-effect: non-scaling-stroke;
+}
+
+.annual-combined-panel .annual-temperature-point {
+  stroke: var(--temperature);
+}
+
+.annual-combined-panel .annual-ratio-point {
+  stroke: var(--ratio);
+}
+
+.annual-combined-panel .ratio-grid line {
+  stroke: rgba(189, 197, 207, 0.1);
+  shape-rendering: crispEdges;
 }
 
 .annual-combined-panel .annual-combined-guide {
@@ -449,7 +475,7 @@ main,
 }
 
 .annual-combined-note strong {
-  color: var(--text);
+  color: var(--ink);
   font-weight: 600;
 }
 
@@ -1095,6 +1121,17 @@ body:not(.is-ready) .visual {
     justify-content: flex-start;
   }
 
+  .annual-combined-heading {
+    gap: 14px;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .annual-combined-legend {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
   .finding {
     grid-template-columns: 1fr;
   }
@@ -1224,13 +1261,14 @@ body:not(.is-ready) .visual {
   }
 
   .annual-combined-legend {
-    gap: 14px;
+    gap: 10px 14px;
+    flex-wrap: wrap;
     min-height: 24px;
     font-size: 10px;
   }
 
   .annual-combined-panel svg {
-    min-height: 330px;
+    min-height: 390px;
   }
 
   .annual-combined-note {

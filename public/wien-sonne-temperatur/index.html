@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/wien-sonne-temperatur/styles.css" />
     <script defer src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
     <script defer src="/wien-sonne-temperatur/data.js"></script>
-    <script defer src="/wien-sonne-temperatur/sunshine-max-data.js"></script>
+    <script defer src="/wien-sonne-temperatur/annual-index-data.js"></script>
     <script defer src="/wien-sonne-temperatur/app.js"></script>
     <script defer src="/wien-sonne-temperatur/recent-data.js"></script>
     <script defer src="/wien-sonne-temperatur/recent.js"></script>
@@ -62,7 +62,7 @@
         <div class="visual-heading">
           <div>
             <p class="section-kicker">ZEITREIHE</p>
-            <h2 id="visual-title">146 Jahre, zwei Messreihen.</h2>
+            <h2 id="visual-title">146 Jahre, drei Perspektiven.</h2>
           </div>
           <div class="series-controls" aria-label="Darstellung der Detailgrafiken auswählen">
             <button type="button" data-mode="raw" aria-pressed="true">
@@ -82,14 +82,14 @@
             <strong id="reader-year">2025</strong>
           </div>
           <div class="reader-value temperature-reader">
-            <span>Höchster Tageswert</span>
-            <strong id="reader-temperature">36,8 °C</strong>
-            <small id="reader-date">3. Juli 2025</small>
+            <span id="reader-temperature-label">Summe Tagesmaxima</span>
+            <strong id="reader-temperature">6.015 °C-Tage</strong>
+            <small id="reader-date">Quotient 2,96 °C-Tage/h</small>
           </div>
           <div class="reader-value sunshine-reader">
-            <span id="reader-sunshine-label">Sonnigster Tag</span>
-            <strong id="reader-sunshine">15,1 h</strong>
-            <small id="reader-status">am 2. Juli 2025</small>
+            <span id="reader-sunshine-label">Sonnenscheindauer</span>
+            <strong id="reader-sunshine">2.032 h</strong>
+            <small id="reader-status">vollständiges Kalenderjahr</small>
           </div>
         </div>
 
@@ -97,23 +97,25 @@
           <div class="annual-combined-heading">
             <div>
               <h3>Kombinierte Jahresansicht</h3>
-              <p>Sonnigster Tag als Balken, höchste Tages-Maximaltemperatur als Linie</p>
+              <p>Jahressummen als Balken und Linie, ergänzt um ihren Quotienten</p>
             </div>
             <div class="annual-combined-legend" aria-label="Dargestellte Messreihen">
-              <span><i class="temperature-line" aria-hidden="true"></i>Temperaturspitze</span>
-              <span><i class="sunshine-bar" aria-hidden="true"></i>Sonnigster Tag</span>
+              <span><i class="temperature-line" aria-hidden="true"></i>Summe Tagesmaxima</span>
+              <span><i class="sunshine-bar" aria-hidden="true"></i>Sonnenstunden</span>
+              <span><i class="ratio-line" aria-hidden="true"></i>Quotient</span>
             </div>
           </div>
           <svg role="img" aria-labelledby="annual-combined-title annual-combined-desc">
-            <title id="annual-combined-title">Temperaturspitzen und Sonnenscheindauer in Wien von 1880 bis 2025</title>
+            <title id="annual-combined-title">Temperatursumme, Sonnenscheindauer und Quotient in Wien von 1880 bis 2025</title>
             <desc id="annual-combined-desc">
-              Kombinierte Zeitreihe mit der maximalen täglichen Sonnenscheindauer jedes Jahres als Balken und der
-              höchsten Tages-Maximaltemperatur als Linie. Vier unvollständige Jahre sind markiert.
+              Kombinierte Zeitreihe mit der jährlichen Sonnenscheindauer als Balken, der Summe aller täglichen
+              Maximaltemperaturen als Linie und dem Quotienten aus Temperatursumme und Sonnenstunden als zweiter Linie.
+              Vier unvollständige Jahre sind markiert.
             </desc>
           </svg>
           <p class="annual-combined-note">
-            Die mögliche Tageslänge begrenzt die Sonnenstunden-Spitze, deshalb streuen die Balken wenig. Die
-            Korrelation der beiden Jahresmaxima ist schwach: <strong>r = 0,26</strong>.
+            Die Temperatursumme addiert alle Tagesmaxima eines Jahres. Der Quotient in <strong>°C-Tage/h</strong> ist
+            ein Vergleichsindex, keine physikalische Effizienzgröße.
           </p>
         </article>
 
@@ -268,7 +270,8 @@
           <p>
             Grundlage sind qualitätsgeprüfte Tagesdaten der Station Wien Hohe Warte. Pro vollständigem Kalenderjahr
             wurden die Sonnenstunden summiert und der höchste Tageswert der Maximaltemperatur bestimmt.
-            Die kombinierte Jahresansicht vergleicht abweichend davon den sonnigsten Tag mit der Temperaturspitze.
+            Die kombinierte Jahresansicht summiert zusätzlich alle täglichen Maximaltemperaturen und teilt diese
+            Temperatursumme durch die jährlichen Sonnenstunden.
           </p>
           <p>
             Die Jahre 1880, 1890, 1904 und 1920 sind unvollständig und deshalb nicht aggregiert. Das gleitende Mittel

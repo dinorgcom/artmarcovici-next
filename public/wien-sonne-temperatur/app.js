@@ -11,29 +11,24 @@
   if (
     !window.d3 ||
     !Array.isArray(window.VIENNA_CLIMATE_ROWS) ||
-    !Array.isArray(window.VIENNA_ANNUAL_SUNSHINE_MAX)
+    !Array.isArray(window.VIENNA_ANNUAL_TEMPERATURE_SUMS)
   ) {
     if (errorMessage) errorMessage.hidden = false;
     return;
   }
 
   const d3 = window.d3;
-  const sunshineMaxByYear = new Map(
-    window.VIENNA_ANNUAL_SUNSHINE_MAX.map((row) => [
-      row[0],
-      { value: row[1], date: row[2] },
-    ])
-  );
+  const temperatureSumByYear = new Map(window.VIENNA_ANNUAL_TEMPERATURE_SUMS);
   const data = window.VIENNA_CLIMATE_ROWS.map((row) => {
-    const sunshineMaximum = sunshineMaxByYear.get(row[0]);
+    const temperatureSum = temperatureSumByYear.get(row[0]);
     return {
       year: row[0],
       days: row[1],
       expected: row[2],
       complete: row[3],
       sunshine: row[4],
-      sunshineMaximum: sunshineMaximum ? sunshineMaximum.value : null,
-      sunshineMaximumDate: sunshineMaximum ? sunshineMaximum.date : null,
+      temperatureSum,
+      temperatureSunshineRatio: row[3] ? temperatureSum / row[4] : null,
       temperature: row[5],
       maxDate: row[6],
     };
@@ -56,6 +51,10 @@
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
   });
+  const ratioFormat = new Intl.NumberFormat("de-AT", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
   const dateFormat = new Intl.DateTimeFormat("de-AT", {
     day: "numeric",
     month: "long",
@@ -68,6 +67,7 @@
 
   const reader = {
     year: document.getElementById("reader-year"),
+    temperatureLabel: document.getElementById("reader-temperature-label"),
     temperature: document.getElementById("reader-temperature"),
     date: document.getElementById("reader-date"),
     sunshineLabel: document.getElementById("reader-sunshine-label"),
@@ -97,7 +97,8 @@
   function updateReader(item, source) {
     const combined = source === "combined";
     reader.year.textContent = item.year;
-    reader.sunshineLabel.textContent = combined ? "Sonnigster Tag" : "Sonnenscheindauer";
+    reader.temperatureLabel.textContent = combined ? "Summe Tagesmaxima" : "Höchster Tageswert";
+    reader.sunshineLabel.textContent = "Sonnenscheindauer";
 
     if (!item.complete) {
       reader.temperature.textContent = "keine Angabe";
@@ -107,15 +108,15 @@
       return;
     }
 
-    reader.temperature.textContent = `${decimalFormat.format(item.temperature)} °C`;
-    reader.date.textContent = dateFormat.format(new Date(`${item.maxDate}T12:00:00Z`));
     if (combined) {
-      reader.sunshine.textContent = `${decimalFormat.format(item.sunshineMaximum)} h`;
-      reader.status.textContent = `am ${dateFormat.format(new Date(`${item.sunshineMaximumDate}T12:00:00Z`))}`;
+      reader.temperature.textContent = `${integerFormat.format(item.temperatureSum)} °C-Tage`;
+      reader.date.textContent = `Quotient ${ratioFormat.format(item.temperatureSunshineRatio)} °C-Tage/h`;
     } else {
-      reader.sunshine.textContent = `${integerFormat.format(item.sunshine)} h`;
-      reader.status.textContent = "vollständiges Kalenderjahr";
+      reader.temperature.textContent = `${decimalFormat.format(item.temperature)} °C`;
+      reader.date.textContent = dateFormat.format(new Date(`${item.maxDate}T12:00:00Z`));
     }
+    reader.sunshine.textContent = `${integerFormat.format(item.sunshine)} h`;
+    reader.status.textContent = "vollständiges Kalenderjahr";
   }
 
   function updateSelection(item, source = "combined") {
@@ -140,6 +141,17 @@
 
       if (runtime.bars) {
         runtime.bars.classed("is-selected", (bar) => bar.year === item.year);
+      }
+
+      if (runtime.ratioMarker) {
+        if (item.complete) {
+          runtime.ratioMarker
+            .attr("display", null)
+            .attr("cx", xPosition)
+            .attr("cy", runtime.yRatio(item.temperatureSunshineRatio));
+        } else {
+          runtime.ratioMarker.attr("display", "none");
+        }
       }
     });
   }
@@ -347,18 +359,26 @@
     const node = svg.node();
     const width = Math.max(300, Math.round(node.getBoundingClientRect().width));
     const compact = width < 620;
-    const height = compact ? 340 : 410;
+    const height = compact ? 390 : 460;
     const margin = {
       top: 28,
-      right: compact ? 41 : 56,
-      bottom: 43,
-      left: compact ? 42 : 56,
+      right: compact ? 43 : 58,
+      bottom: 42,
+      left: compact ? 48 : 60,
     };
     const innerWidth = width - margin.left - margin.right;
-    const innerHeight = height - margin.top - margin.bottom;
-    const temperatureExtent = d3.extent(complete, (item) => item.temperature);
+    const ratioHeight = compact ? 62 : 72;
+    const ratioGap = compact ? 28 : 32;
+    const ratioBottom = height - margin.bottom;
+    const ratioTop = ratioBottom - ratioHeight;
+    const mainBottom = ratioTop - ratioGap;
+    const mainHeight = mainBottom - margin.top;
+    const hoverHeight = ratioBottom - margin.top;
+    const temperatureExtent = d3.extent(complete, (item) => item.temperatureSum);
     const temperatureSpan = temperatureExtent[1] - temperatureExtent[0] || 1;
-    const maximumSunshine = d3.max(complete, (item) => item.sunshineMaximum) || 1;
+    const ratioExtent = d3.extent(complete, (item) => item.temperatureSunshineRatio);
+    const ratioSpan = ratioExtent[1] - ratioExtent[0] || 1;
+    const maximumSunshine = d3.max(complete, (item) => item.sunshine) || 1;
     const x = d3
       .scaleLinear()
       .domain(d3.extent(data, (item) => item.year))
@@ -370,48 +390,71 @@
         temperatureExtent[1] + temperatureSpan * 0.1,
       ])
       .nice()
-      .range([height - margin.bottom, margin.top]);
+      .range([mainBottom, margin.top]);
     const ySunshine = d3
       .scaleLinear()
       .domain([0, maximumSunshine * 1.14])
       .nice()
-      .range([height - margin.bottom, margin.top]);
+      .range([mainBottom, margin.top]);
+    const yRatio = d3
+      .scaleLinear()
+      .domain([
+        ratioExtent[0] - ratioSpan * 0.08,
+        ratioExtent[1] + ratioSpan * 0.1,
+      ])
+      .nice()
+      .range([ratioBottom, ratioTop]);
     const barWidth = Math.max(1, Math.min(7, (innerWidth / data.length) * 0.68));
     const xTickValues = compact
       ? [1880, 1920, 1960, 2000, 2025]
       : [1880, 1900, 1920, 1940, 1960, 1980, 2000, 2025];
-    const clipId = "wien-annual-combined-clip";
+    const mainClipId = "wien-annual-combined-main-clip";
+    const ratioClipId = "wien-annual-combined-ratio-clip";
 
     svg.selectAll("*").remove();
     svg.attr("viewBox", `0 0 ${width} ${height}`);
-    svg
-      .append("defs")
+    const defs = svg.append("defs");
+    defs
       .append("clipPath")
-      .attr("id", clipId)
+      .attr("id", mainClipId)
       .append("rect")
       .attr("x", margin.left)
       .attr("y", margin.top)
       .attr("width", innerWidth)
-      .attr("height", innerHeight);
+      .attr("height", mainHeight);
+    defs
+      .append("clipPath")
+      .attr("id", ratioClipId)
+      .append("rect")
+      .attr("x", margin.left)
+      .attr("y", ratioTop)
+      .attr("width", innerWidth)
+      .attr("height", ratioHeight);
 
     svg
       .append("g")
       .attr("class", "grid")
       .attr("transform", `translate(${margin.left},0)`)
-      .call(d3.axisLeft(yTemperature).ticks(6).tickSize(-innerWidth).tickFormat(""));
+      .call(d3.axisLeft(yTemperature).ticks(5).tickSize(-innerWidth).tickFormat(""));
 
-    const marks = svg.append("g").attr("clip-path", `url(#${clipId})`);
-    const bars = marks
+    svg
+      .append("g")
+      .attr("class", "grid ratio-grid")
+      .attr("transform", `translate(${margin.left},0)`)
+      .call(d3.axisLeft(yRatio).ticks(compact ? 2 : 3).tickSize(-innerWidth).tickFormat(""));
+
+    const mainMarks = svg.append("g").attr("clip-path", `url(#${mainClipId})`);
+    const bars = mainMarks
       .selectAll("rect.annual-sun-bar")
       .data(complete)
       .join("rect")
       .attr("class", "annual-sun-bar")
       .attr("x", (item) => x(item.year) - barWidth / 2)
-      .attr("y", (item) => ySunshine(item.sunshineMaximum))
+      .attr("y", (item) => ySunshine(item.sunshine))
       .attr("width", barWidth)
-      .attr("height", (item) => ySunshine(0) - ySunshine(item.sunshineMaximum));
+      .attr("height", (item) => ySunshine(0) - ySunshine(item.sunshine));
 
-    const temperaturePath = marks
+    const temperaturePath = mainMarks
       .append("path")
       .datum(data)
       .attr("class", "annual-temperature-path")
@@ -421,9 +464,26 @@
           .line()
           .defined((item) => item.complete)
           .x((item) => x(item.year))
-          .y((item) => yTemperature(item.temperature))
+          .y((item) => yTemperature(item.temperatureSum))
       );
+
+    const ratioPath = svg
+      .append("g")
+      .attr("clip-path", `url(#${ratioClipId})`)
+      .append("path")
+      .datum(data)
+      .attr("class", "annual-ratio-path")
+      .attr(
+        "d",
+        d3
+          .line()
+          .defined((item) => item.complete)
+          .x((item) => x(item.year))
+          .y((item) => yRatio(item.temperatureSunshineRatio))
+      );
+
     animatePath(temperaturePath);
+    animatePath(ratioPath);
 
     svg
       .append("g")
@@ -432,13 +492,13 @@
       .join("circle")
       .attr("class", "annual-missing-mark")
       .attr("cx", (item) => x(item.year))
-      .attr("cy", height - margin.bottom - 4)
+      .attr("cy", ratioBottom - 3)
       .attr("r", 3.5);
 
     svg
       .append("g")
       .attr("class", "axis")
-      .attr("transform", `translate(0,${height - margin.bottom})`)
+      .attr("transform", `translate(0,${ratioBottom})`)
       .call(d3.axisBottom(x).tickValues(xTickValues).tickFormat(d3.format("d")).tickSize(0).tickPadding(12));
 
     svg
@@ -448,7 +508,7 @@
       .call(
         d3
           .axisLeft(yTemperature)
-          .ticks(6)
+          .ticks(5)
           .tickSize(0)
           .tickPadding(9)
           .tickFormat((value) => integerFormat.format(value))
@@ -461,10 +521,23 @@
       .call(
         d3
           .axisRight(ySunshine)
-          .ticks(6)
+          .ticks(5)
           .tickSize(0)
           .tickPadding(9)
           .tickFormat((value) => integerFormat.format(value))
+      );
+
+    svg
+      .append("g")
+      .attr("class", "axis ratio-axis")
+      .attr("transform", `translate(${margin.left},0)`)
+      .call(
+        d3
+          .axisLeft(yRatio)
+          .ticks(compact ? 2 : 3)
+          .tickSize(0)
+          .tickPadding(9)
+          .tickFormat((value) => ratioFormat.format(value))
       );
 
     svg
@@ -474,7 +547,7 @@
       .attr("x", margin.left)
       .attr("y", 12)
       .attr("text-anchor", "start")
-      .text("°C");
+      .text("Σ Tagesmaxima / °C-Tage");
 
     svg
       .append("text")
@@ -483,18 +556,32 @@
       .attr("x", width - margin.right)
       .attr("y", 12)
       .attr("text-anchor", "end")
-      .text("h pro Tag");
+      .text("Σ Sonne / h");
+
+    svg
+      .append("text")
+      .attr("class", "axis-title ratio-title")
+      .attr("fill", "#bdc5cf")
+      .attr("x", margin.left)
+      .attr("y", ratioTop - 8)
+      .attr("text-anchor", "start")
+      .text("Quotient / °C-Tage je h");
 
     const guide = svg
       .append("line")
       .attr("class", "annual-combined-guide")
       .attr("y1", margin.top)
-      .attr("y2", height - margin.bottom)
+      .attr("y2", ratioBottom)
       .attr("display", "none");
     const marker = svg
       .append("circle")
       .attr("class", "annual-temperature-point")
       .attr("r", 4.5)
+      .attr("display", "none");
+    const ratioMarker = svg
+      .append("circle")
+      .attr("class", "annual-ratio-point")
+      .attr("r", 4)
       .attr("display", "none");
 
     runtimes.set("combined", {
@@ -502,8 +589,10 @@
       y: yTemperature,
       guide,
       marker,
-      config: configs.temperature,
+      config: { field: "temperatureSum" },
       bars,
+      ratioMarker,
+      yRatio,
       alwaysRaw: true,
     });
 
@@ -513,7 +602,7 @@
       .attr("x", margin.left)
       .attr("y", margin.top)
       .attr("width", innerWidth)
-      .attr("height", innerHeight)
+      .attr("height", hoverHeight)
       .attr("fill", "transparent")
       .style("cursor", "crosshair")
       .on("pointermove pointerdown", function (event) {
