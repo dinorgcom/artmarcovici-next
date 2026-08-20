@@ -57,7 +57,7 @@ window.FAMNOTES_I18N = {
   notable: [{ en: "head of the Hamas politburo; killed July 31, 2024 by a planted bomb in Tehran. Three of his sons and four grandchildren had already been killed in a Gaza airstrike on April 10, 2024", ar: "رئيس المكتب السياسي؛ اغتيل في 31.7.2024 بعبوة في طهران. ثلاثة من أبنائه وأربعة أحفاد قُتلوا قبلها بغارة في 10.4.2024", he: "ראש הלשכה המדינית; חוסל ב-31.7.2024 במטען בטהרן. שלושה מבניו וארבעה נכדים נהרגו עוד קודם בתקיפה ב-10.4.2024" }] },
 "al-biari": { notable: [{ en: "commander of the Jabaliya battalion and one of the Oct 7 planners; killed Oct 31, 2023 in the massive Jabaliya strike", ar: "قائد كتيبة جباليا وأحد مخططي 7 أكتوبر؛ قُتل في 31.10.2023 بالضربة الكبرى على جباليا", he: "מפקד גדוד ג'באליה וממתכנני ה-7.10; חוסל ב-31.10.2023 בתקיפה הגדולה על ג'באליה" }] },
 "aziz": { notable: [{ en: "commander of the al-Furqan battalion; killed Aug 4, 2024 in a strike on a Gaza City school", ar: "قائد كتيبة الفرقان؛ قُتل في 4.8.2024 بضربة على مدرسة بغزة", he: "מפקד גדוד אל-פורקאן; נהרג ב-4.8.2024 בתקיפת בית ספר בעיר עזה" }] },
-"abu daqqa": { notable: [{ en: "commander of the Qassam drone/air unit; killed Sept 9, 2024 in Khan Younis", ar: "قائد وحدة الطيران/المسيّرات في القسام؛ قُتل في 9.9.2024 بخان يونس", he: "מפקד יחידת הרחפנים/אוויר של קסאם; חוסל ב-9.9.2024 בחאן יונס" }] },
+"abu daqqa": { notable: [{ en: "according to the IDF, head of Hamas's drone/air unit and involved in the Oct 7 drone and paraglider attacks; killed in the al-Mawasi strike on Sept 10, 2024", ar: "وفق الجيش الإسرائيلي رئيس وحدة الطيران والمسيّرات في حماس وشارك في هجمات المسيّرات والطائرات الشراعية في 7 أكتوبر؛ قُتل في ضربة المواصي في 10.9.2024", he: "לפי צה״ל, ראש יחידת האוויר והכטב״מים של חמאס ומעורב במתקפת הכטב״מים והמצנחים ב-7 באוקטובר; נהרג בתקיפה באל-מוואסי ב-10.9.2024" }] },
 "al-haddad": { notable: [{ en: "current chief of the Qassam Brigades (“the ghost of Gaza”) — the only surviving brigade commander from the war's start, survived 6+ assassination attempts; alive", ar: "القائد الحالي لكتائب القسام («شبح غزة») — قائد اللواء الوحيد الناجي منذ بداية الحرب، نجا من 6+ محاولات اغتيال؛ حي", he: "המפקד הנוכחי של גדודי קסאם («הרוח של עזה») — מפקד החטיבה היחיד ששרד מתחילת המלחמה, שרד 6+ ניסיונות חיסול; חי" }] },
 "al-hayya": { notable: [{ en: "Hamas chief negotiator and politburo head for Gaza; lives in exile (Doha)", ar: "كبير مفاوضي حماس ورئيس مكتب غزة السياسي؛ يقيم في الدوحة", he: "המשא-ומתן הראשי של חמאס וראש הלשכה לעניני עזה; חי בגלות (דוחה)" }] },
 "baroud": { notable: [{ en: "senior Qassam military commander; believed alive", ar: "قائد عسكري رفيع في القسام؛ يُعتقد أنه حي", he: "מפקד צבאי בכיר בקסאם; ככל הידוע חי" }] },
@@ -137,6 +137,162 @@ Object.assign(window.FAMNOTES_I18N, {
     ar: "وفق الجيش الإسرائيلي قائد سرية في كتيبة الزيتون ومسؤول عن هجمات على جنود إسرائيليين؛ قُتل في كانون الأول 2024 في الغارة نفسها مع عمار دلول",
     he: "לפי צה״ל, מפקד פלוגה בגדוד זייתון שהיה אחראי לתקיפות נגד חיילים ישראלים; חוסל בדצמבר 2024 באותה תקיפה עם עמאר דלול"
   }] }
+});
+
+/* Zweite Vollauswertung der Mail; Reihenfolge bleibt zu FAM_NOTES index-parallel. */
+[
+  ["arouri", {
+    en: "deputy head of the Hamas politburo and liaison to Iran and Hezbollah; killed in Beirut on Jan 2, 2024 in a strike attributed to Israel",
+    ar: "نائب رئيس المكتب السياسي لحماس وحلقة وصل مع إيران وحزب الله؛ قُتل في بيروت في 2.1.2024 بضربة نُسبت إلى إسرائيل",
+    he: "סגן ראש הלשכה המדינית של חמאס ואיש הקשר לאיראן ולחזבאללה; נהרג בביירות ב-2.1.2024 בתקיפה שיוחסה לישראל"
+  }],
+  ["ouda", {
+    en: "according to the IDF and Shin Bet, head of Hamas's general security apparatus; killed with Rawhi Mushtaha and Sameh al-Siraj in northern Gaza in July 2024, later confirmed by Hamas",
+    ar: "وفق الجيش الإسرائيلي والشاباك رئيس جهاز الأمن العام لحماس؛ قُتل مع روحي مشتهى وسامح السراج شمال غزة في تموز 2024، وأكدت حماس مقتله لاحقاً",
+    he: "לפי צה״ל ושב״כ, ראש מנגנון הביטחון הכללי של חמאס; נהרג עם רוחי מושתהא וסאמח א-סיראג' בצפון עזה ביולי 2024, וחמאס אישר זאת בהמשך"
+  }],
+  ["abu askar", {
+    en: "Hamas official and chairman of its summer-camp committee; reportedly killed in a Gaza City airstrike on Dec 22, 2024",
+    ar: "مسؤول في حماس ورئيس لجنة المخيمات الصيفية؛ أفادت تقارير بأنه قُتل بغارة في مدينة غزة في 22.12.2024",
+    he: "בכיר חמאס ויו״ר ועדת מחנות הקיץ; לפי דיווחים נהרג בתקיפה בעיר עזה ב-22.12.2024"
+  }],
+  ["ibrahim", {
+    en: "dean of the Islamic University's faculty of Sharia and Law; described in reports as head of Hamas's judicial branch, killed in Gaza on Oct 13, 2023",
+    ar: "عميد كلية الشريعة والقانون في الجامعة الإسلامية؛ وصفته تقارير بأنه رئيس الجهاز القضائي لحماس، وقُتل في غزة في 13.10.2023",
+    he: "דיקן הפקולטה לשריעה ומשפט באוניברסיטה האסלאמית; תואר בדיווחים כראש הזרוע המשפטית של חמאס, ונהרג בעזה ב-13.10.2023"
+  }],
+
+  ["mushtaha", {
+    en: "according to the IDF and Shin Bet, responsible for military specialization for Palestinian Islamic Jihad in northern Gaza; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك مسؤول التخصص العسكري في الجهاد الإسلامي شمال غزة؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, אחראי ההתמחות הצבאית של הג'יהאד האסלאמי בצפון עזה; נהרג בעזה ב-2025"
+  }],
+  ["wadi", {
+    en: "according to the IDF and Shin Bet, oversaw the sniper array of Islamic Jihad's Khan Younis Brigade; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك مسؤول منظومة القنص في لواء خان يونس للجهاد الإسلامي؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, אחראי מערך הצליפה בחטיבת חאן יונס של הג'יהאד האסלאמי; נהרג בעזה ב-2025"
+  }],
+  ["muammar", {
+    en: "according to the IDF and Shin Bet, responsible for Islamic Jihad rocket artillery in Rafah; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك مسؤول المدفعية الصاروخية للجهاد الإسلامي في رفح؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, אחראי הארטילריה הרקטית של הג'יהאד האסלאמי ברפיח; נהרג בעזה ב-2025"
+  }],
+  ["abu al-ata", {
+    en: "according to the IDF and Shin Bet, a sector commander in Islamic Jihad's Gaza City Brigade; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك قائد قطاع في لواء مدينة غزة للجهاد الإسلامي؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, מפקד גזרה בחטיבת העיר עזה של הג'יהאד האסלאמי; נהרג בעזה ב-2025"
+  }],
+  ["abu shawish", {
+    en: "according to the IDF and Shin Bet, commander of Islamic Jihad's Yabna sector in Rafah; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك قائد قطاع يبنا للجهاد الإسلامي في رفح؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, מפקד גזרת יבנא של הג'יהאד האסלאמי ברפיח; נהרג בעזה ב-2025"
+  }],
+  ["salah", {
+    en: "according to the IDF and Shin Bet, an Islamic Jihad weapons-production expert; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك خبير في إنتاج الأسلحة لدى الجهاد الإسلامي؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, מומחה לייצור נשק בג'יהאד האסלאמי; נהרג בעזה ב-2025"
+  }],
+  ["al-qadi", {
+    en: "according to the IDF and Shin Bet, an Islamic Jihad weapons-production expert; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك خبير في إنتاج الأسلحة لدى الجهاد الإسلامي؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, מומחה לייצור נשק בג'יהאד האסלאמי; נהרג בעזה ב-2025"
+  }],
+  ["ghannam", {
+    en: "according to the IDF and Shin Bet, an Islamic Jihad weapons-production expert; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك خبير في إنتاج الأسلحة لدى الجهاد الإسلامي؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, מומחה לייצור נשק בג'יהאד האסלאמי; נהרג בעזה ב-2025"
+  }],
+  ["al-banna", {
+    en: "according to the IDF and Shin Bet, an Islamic Jihad weapons-production expert; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك خبير في إنتاج الأسلحة لدى الجهاد الإسلامي؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, מומחה לייצור נשק בג'יהאד האסלאמי; נהרג בעזה ב-2025"
+  }],
+  ["al-mashrawi", {
+    en: "according to the IDF and Shin Bet, an Islamic Jihad weapons-production expert; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك خبير في إنتاج الأسلحة لدى الجهاد الإسلامي؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, מומחה לייצור נשק בג'יהאד האסלאמי; נהרג בעזה ב-2025"
+  }],
+  ["kassab", {
+    en: "according to the IDF and Shin Bet, deputy commander of Islamic Jihad's eastern Rafah sector; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك نائب قائد القطاع الشرقي للجهاد الإسلامي في رفح؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, סגן מפקד הגזרה המזרחית של הג'יהאד האסלאמי ברפיח; נהרג בעזה ב-2025"
+  }],
+  ["abu jarad", {
+    en: "according to the IDF and Shin Bet, deputy commander of Islamic Jihad's Beit Hanoun sector; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك نائب قائد قطاع بيت حانون للجهاد الإسلامي؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, סגן מפקד גזרת בית חאנון של הג'יהאד האסלאמי; נהרג בעזה ב-2025"
+  }],
+
+  ["qawasma", {
+    en: "senior Hamas member imprisoned for involvement in several deadly attacks; listed by Israel for release in the October 2025 hostage exchange",
+    ar: "عضو بارز في حماس سُجن لدوره في عدة هجمات قاتلة؛ ورد في قائمة إسرائيل للإفراج ضمن صفقة الرهائن في تشرين الأول 2025",
+    he: "בכיר חמאס שנכלא בשל מעורבות בכמה פיגועים קטלניים; נכלל ברשימת ישראל לשחרור בעסקת החטופים באוקטובר 2025"
+  }],
+  ["al-sheikh", {
+    en: "imprisoned for involvement in the 2000 Ramallah lynching; listed by Israel for release in the October 2025 hostage exchange",
+    ar: "سُجن لدوره في عملية القتل في رام الله عام 2000؛ ورد في قائمة إسرائيل للإفراج ضمن صفقة الرهائن في تشرين الأول 2025",
+    he: "נכלא בשל מעורבות בלינץ' ברמאללה בשנת 2000; נכלל ברשימת ישראל לשחרור בעסקת החטופים באוקטובר 2025"
+  }],
+  ["badr", {
+    en: "sentenced to eleven life terms for the 2003 Tzrifin suicide bombing; listed by Israel for release in the October 2025 hostage exchange",
+    ar: "حُكم عليه بأحد عشر مؤبداً بسبب تفجير تسريفين عام 2003؛ ورد في قائمة إسرائيل للإفراج ضمن صفقة الرهائن في تشرين الأول 2025",
+    he: "נידון ל-11 מאסרי עולם בשל פיגוע ההתאבדות בצריפין ב-2003; נכלל ברשימת ישראל לשחרור בעסקת החטופים באוקטובר 2025"
+  }],
+  ["al-amour", {
+    en: "member of a Bethlehem cell held responsible for attacks that killed nine people; sentenced to eleven life terms and listed for release in October 2025",
+    ar: "عضو في خلية من بيت لحم حُمّلت مسؤولية هجمات قتلت تسعة أشخاص؛ حُكم عليه بأحد عشر مؤبداً وأُدرج للإفراج في تشرين الأول 2025",
+    he: "חבר בחוליה מבית לחם שיוחסו לה פיגועים שבהם נהרגו תשעה; נידון ל-11 מאסרי עולם ונכלל ברשימת השחרור באוקטובר 2025"
+  }],
+  ["barghouth", {
+    en: "sentenced to thirteen life terms for direct involvement in attacks that killed twelve people; released in the Feb 15, 2025 hostage exchange",
+    ar: "حُكم عليه بثلاثة عشر مؤبداً لمشاركة مباشرة في هجمات قتلت اثني عشر شخصاً؛ أُفرج عنه في صفقة 15.2.2025",
+    he: "נידון ל-13 מאסרי עולם בשל מעורבות ישירה בפיגועים שבהם נהרגו 12; שוחרר בעסקת החטופים ב-15.2.2025"
+  }],
+  ["al-qadi", {
+    en: "sentenced to three life terms for aiding the 2002 Tel Aviv restaurant attack; released in the Feb 15, 2025 hostage exchange",
+    ar: "حُكم عليه بثلاثة مؤبدات لمساعدة منفذ هجوم مطعم تل أبيب عام 2002؛ أُفرج عنه في صفقة 15.2.2025",
+    he: "נידון לשלושה מאסרי עולם בשל סיוע לפיגוע במסעדה בתל אביב ב-2002; שוחרר בעסקת החטופים ב-15.2.2025"
+  }],
+  ["obeid", {
+    en: "Hamas member imprisoned for involvement in the 2003 Café Hillel bombing; released in the Feb 15, 2025 hostage exchange",
+    ar: "عضو في حماس سُجن لدوره في تفجير مقهى هليل عام 2003؛ أُفرج عنه في صفقة 15.2.2025",
+    he: "חבר חמאס שנכלא בשל מעורבות בפיגוע בקפה הלל ב-2003; שוחרר בעסקת החטופים ב-15.2.2025"
+  }],
+  ["qasim", {
+    en: "Hamas member convicted of planning the 2002 Hebrew University cafeteria bombing; released in a hostage exchange in early 2025",
+    ar: "عضو في حماس أُدين بتخطيط تفجير كافتيريا الجامعة العبرية عام 2002؛ أُفرج عنه في صفقة رهائن مطلع 2025",
+    he: "חבר חמאס שהורשע בתכנון הפיגוע בקפטריית האוניברסיטה העברית ב-2002; שוחרר בעסקת חטופים בתחילת 2025"
+  }],
+  ["ouda", {
+    en: "convicted of involvement in the 2002 Hebrew University cafeteria bombing; released in a hostage exchange in early 2025",
+    ar: "أُدين بالمشاركة في تفجير كافتيريا الجامعة العبرية عام 2002؛ أُفرج عنه في صفقة رهائن مطلع 2025",
+    he: "הורשע במעורבות בפיגוע בקפטריית האוניברסיטה העברית ב-2002; שוחרר בעסקת חטופים בתחילת 2025"
+  }],
+  ["al-abbasi", {
+    en: "convicted of involvement in the 2002 Hebrew University cafeteria bombing; released in a hostage exchange in early 2025",
+    ar: "أُدين بالمشاركة في تفجير كافتيريا الجامعة العبرية عام 2002؛ أُفرج عنه في صفقة رهائن مطلع 2025",
+    he: "הורשע במעורבות בפיגוע בקפטריית האוניברסיטה העברית ב-2002; שוחרר בעסקת חטופים בתחילת 2025"
+  }],
+
+  ["al-kharraz", {
+    en: "deputy Qassam commander in Lebanon and, according to investigation files, head of a Hamas foreign network; killed in southern Lebanon in November 2023",
+    ar: "نائب قائد في القسام بلبنان، ووفق ملفات التحقيق رئيس شبكة خارجية لحماس؛ قُتل في جنوب لبنان في تشرين الثاني 2023",
+    he: "סגן מפקד קסאם בלבנון ולפי תיקי החקירה ראש רשת חוץ של חמאס; נהרג בדרום לבנון בנובמבר 2023"
+  }],
+  ["al-haj", {
+    en: "Hamas commander at Ain al-Hilweh camp in Lebanon; according to the IDF responsible for recruitment and attack planning, killed near Sidon on Aug 9, 2024; Hamas confirmed his death",
+    ar: "قائد في حماس بمخيم عين الحلوة في لبنان؛ وفق الجيش الإسرائيلي مسؤول عن التجنيد والتخطيط للهجمات، قُتل قرب صيدا في 9.8.2024 وأكدت حماس مقتله",
+    he: "מפקד חמאס במחנה עין אל-חילווה בלבנון; לפי צה״ל היה אחראי לגיוס ולתכנון פיגועים, נהרג ליד צידון ב-9.8.2024 וחמאס אישר את מותו"
+  }],
+  ["dawas", {
+    en: "confirmed by Hamas as a commander in its local armed wing in Jenin; killed in an Israeli drone strike in the West Bank on Aug 17, 2024",
+    ar: "أكدت حماس أنه قائد في جناحها المسلح المحلي في جنين؛ قُتل بغارة مسيّرة إسرائيلية في الضفة الغربية في 17.8.2024",
+    he: "חמאס אישר שהיה מפקד בזרוע הצבאית המקומית בג'נין; נהרג בתקיפת כטב״ם ישראלית בגדה המערבית ב-17.8.2024"
+  }]
+].forEach(([family, translation]) => {
+  if (!window.FAMNOTES_I18N[family]) window.FAMNOTES_I18N[family] = {};
+  if (!window.FAMNOTES_I18N[family].notable) window.FAMNOTES_I18N[family].notable = [];
+  window.FAMNOTES_I18N[family].notable.push(translation);
 });
 
 /* Kurz-Herkuenfte (FAM_ORIGINS) — kompakt uebersetzt */

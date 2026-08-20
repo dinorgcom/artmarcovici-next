@@ -212,8 +212,8 @@ Object.assign(window.FAM_NOTES, {
   },
   "abu daqqa": {
     notable: [
-      { badge: "fighter", name: "Samer Abu Daqqa", info: "Kommandeur der Drohnen-/Lufteinheit der Qassam-Brigaden; getötet am 9.9.2024 in Khan Younis",
-        url: "https://www.wilsoncenter.org/article/israeli-assassinations-top-hamas-and-hezbollah-officials" }
+      { badge: "fighter", name: "Samer Ismail Khadr Abu Daqqa", info: "laut IDF Leiter der Hamas-Drohnen-/Lufteinheit und an den Drohnen- und Gleitschirmangriffen des 7. Oktober beteiligt; beim Angriff auf al-Mawasi am 10.9.2024 getötet",
+        url: "https://www.idf.il/en/mini-sites/israel-hamas-war-gaza/articles-israel-hamas-war-gaza/distributions-swords-of-iron-war-gaza/southern-gaza/100924-senior-hamas-terrorists-who-were-operating-within-a-command-and-control-center-embedded-inside-the-humanitarian-area-in-khan-yunis/" }
     ]
   },
   "al-haddad": {
@@ -328,6 +328,77 @@ Object.assign(window.FAM_NOTES, {
         url: "https://www.idf.il/en/mini-sites/israel-hamas-war-gaza/articles-israel-hamas-war-gaza/distributions-swords-of-iron-war-gaza/northern-gaza-24/121224-eliminated-a-department-head-in-hamas-manufacturing-headquarters-and-a-company-commander-in-the-zeitoun-battalion/" }
     ]
   }
+});
+
+// Zweite, vollstaendige Auswertung derselben Mail: weitere eindeutige Personen,
+// deren Familienname in der Gaza-Familienliste tatsaechlich vorkommt. Personen
+// ausserhalb Gazas und Austausch-Haeftlinge werden im Infotext klar bezeichnet.
+[
+  ["arouri", { badge: "official", name: "Saleh al-Arouri", info: "stellvertretender Leiter des Hamas-Politbüros und Verbindungsmann zu Iran und Hisbollah; am 2.1.2024 bei einem Israel zugeschriebenen Angriff in Beirut getötet",
+    url: "https://apnews.com/article/4ea42d6459496468ae39258e31832011" }],
+  ["ouda", { badge: "official", name: "Sami Odeh", info: "laut IDF und Shin Bet Leiter des allgemeinen Hamas-Sicherheitsapparats; im Juli 2024 zusammen mit Rawhi Mushtaha und Sameh al-Siraj in Nord-Gaza getötet, später von Hamas bestätigt",
+    url: "https://www.timesofisrael.com/idf-says-it-killed-hamas-de-facto-pm-sinwars-right-hand-man-in-strike-3-months-ago/" }],
+  ["abu askar", { badge: "official", name: "Muhammad Abu Askar (Abu Khaled)", info: "Hamas-Funktionär und Vorsitzender des Sommerlager-Komitees; laut Berichten am 22.12.2024 bei einem Luftangriff in Gaza-Stadt getötet",
+    url: "https://www.terrorism-info.org.il/app/uploads/2025/01/E_010_25.pdf" }],
+  ["ibrahim", { badge: "official", name: "Taysir Kamel Ismail Ibrahim", info: "Dekan der Scharia- und Rechtsfakultät der Islamischen Universität; in Berichten als Leiter des Hamas-Justizzweigs bezeichnet, am 13.10.2023 in Gaza getötet",
+    url: "https://airwars.org/civilian-casualties/ispt0181-october-13-2023/" }],
+
+  ["mushtaha", { badge: "fighter", name: "Muhammad Mashtaha", info: "laut IDF und Shin Bet beim Palästinensischen Islamischen Dschihad für militärische Spezialisierung in Nord-Gaza zuständig; 2025 in Gaza getötet",
+    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+  ["wadi", { badge: "fighter", name: "Amir Hisham Fayez Wadi", info: "laut IDF und Shin Bet verantwortlich für das Scharfschützenwesen der Khan-Younis-Brigade des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+  ["muammar", { badge: "fighter", name: "Jamal Maamar (auch Muammar)", info: "laut IDF und Shin Bet verantwortlich für die Raketenartillerie des Islamischen Dschihad in Rafah; 2025 in Gaza getötet",
+    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+  ["abu al-ata", { badge: "fighter", name: "Fadl Zakariya Ahmed Abu al-Ata", info: "laut IDF und Shin Bet Sektorenkommandeur der Gaza-Stadt-Brigade des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+  ["abu shawish", { badge: "fighter", name: "Samir Suleiman Ali Abu Shawish", info: "laut IDF und Shin Bet Kommandeur des Yabna-Sektors des Islamischen Dschihad in Rafah; 2025 in Gaza getötet",
+    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+  ["salah", { badge: "fighter", name: "Muntasir Mahmoud Mohammed Salah", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+  ["al-qadi", { badge: "fighter", name: "Ahmad Qadi", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+  ["ghannam", { badge: "fighter", name: "Fuad Shaker Diab Ghannam", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+  ["al-banna", { badge: "fighter", name: "Khaled Bana (al-Banna)", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+  ["al-mashrawi", { badge: "fighter", name: "Saeed Mashraoui (al-Mashrawi)", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+  ["kassab", { badge: "fighter", name: "Youssef Kassab", info: "laut IDF und Shin Bet stellvertretender Kommandeur des östlichen Sektors des Islamischen Dschihad in Rafah; 2025 in Gaza getötet",
+    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+  ["abu jarad", { badge: "fighter", name: "Murad Naser Mousa Abu Jarad", info: "laut IDF und Shin Bet stellvertretender Kommandeur des Beit-Hanoun-Sektors des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+
+  ["qawasma", { badge: "prisoner", name: "Imad Salah Abd al-Fattah Qawasmeh", info: "ranghohes Hamas-Mitglied, wegen Beteiligung an mehreren tödlichen Anschlägen inhaftiert; im Oktober 2025 auf der israelischen Freilassungsliste des Geiselaustauschs",
+    url: "https://www.jpost.com/israel-news/defense-news/article-870030" }],
+  ["al-sheikh", { badge: "prisoner", name: "Ra'ad Sheikh", info: "wegen Beteiligung am Ramallah-Lynching von 2000 inhaftiert; im Oktober 2025 auf der israelischen Freilassungsliste des Geiselaustauschs",
+    url: "https://www.jpost.com/israel-news/defense-news/article-870030" }],
+  ["badr", { badge: "prisoner", name: "Baher Badr", info: "wegen des Selbstmordanschlags von Tzrifin 2003 zu elf lebenslangen Strafen verurteilt; im Oktober 2025 auf der israelischen Freilassungsliste des Geiselaustauschs",
+    url: "https://www.jpost.com/israel-news/defense-news/article-870030" }],
+  ["al-amour", { badge: "prisoner", name: "Riad al-Amor", info: "Mitglied einer Zelle aus Bethlehem, die für Anschläge mit neun Todesopfern verantwortlich gemacht wurde; zu elf lebenslangen Strafen verurteilt und im Oktober 2025 auf der Freilassungsliste",
+    url: "https://www.jpost.com/israel-news/defense-news/article-870030" }],
+  ["barghouth", { badge: "prisoner", name: "Ahmed Barghouti", info: "wegen direkter Beteiligung an Anschlägen mit zwölf Todesopfern zu 13 lebenslangen Strafen verurteilt; am 15.2.2025 im Geiselaustausch freigelassen",
+    url: "https://www.jpost.com/israel-news/article-842222" }],
+  ["al-qadi", { badge: "prisoner", name: "Mazen al-Qadi", info: "wegen Beihilfe zum Anschlag auf ein Restaurant in Tel Aviv 2002 zu drei lebenslangen Strafen verurteilt; am 15.2.2025 im Geiselaustausch freigelassen",
+    url: "https://www.jpost.com/israel-news/article-842222" }],
+  ["obeid", { badge: "prisoner", name: "Nael Obeid", info: "Hamas-Mitglied, wegen Beteiligung am Anschlag auf das Café Hillel 2003 inhaftiert; am 15.2.2025 im Geiselaustausch freigelassen",
+    url: "https://www.jpost.com/israel-news/article-842222" }],
+  ["qasim", { badge: "prisoner", name: "Wael Qassem (Qassam)", info: "Hamas-Mitglied, wegen Planung des Anschlags auf die Cafeteria der Hebräischen Universität 2002 verurteilt; Anfang 2025 im Geiselaustausch freigelassen",
+    url: "https://www.jpost.com/diaspora/article-840886" }],
+  ["ouda", { badge: "prisoner", name: "Mohammed Odeh", info: "wegen Beteiligung am Anschlag auf die Cafeteria der Hebräischen Universität 2002 verurteilt; Anfang 2025 im Geiselaustausch freigelassen",
+    url: "https://www.jpost.com/diaspora/article-840886" }],
+  ["al-abbasi", { badge: "prisoner", name: "Wissam Abassi", info: "wegen Beteiligung am Anschlag auf die Cafeteria der Hebräischen Universität 2002 verurteilt; Anfang 2025 im Geiselaustausch freigelassen",
+    url: "https://www.jpost.com/diaspora/article-840886" }],
+
+  ["al-kharraz", { badge: "fighter", name: "Khalil Hamed al-Kharraz", info: "stellvertretender Qassam-Kommandeur im Libanon und laut Ermittlungsakten Leiter einer Hamas-Auslandsstruktur; im November 2023 im Südlibanon getötet",
+    url: "https://www.terrorism-info.org.il/en/arrest-of-hamas-terrorist-cells-in-europe-hamas-may-carry-out-attacks-abroad/" }],
+  ["al-haj", { badge: "fighter", name: "Samer Mahmoud al-Haj", info: "Hamas-Kommandeur im Flüchtlingslager Ain al-Hilweh im Libanon; laut IDF für Rekrutierung und Angriffsplanung zuständig, am 9.8.2024 bei Sidon getötet; Hamas bestätigte den Tod",
+    url: "https://www.jpost.com/breaking-news/article-814069" }],
+  ["dawas", { badge: "fighter", name: "Raafat Dawasi", info: "von Hamas als Kommandeur ihres lokalen bewaffneten Flügels in Jenin bestätigt; am 17.8.2024 bei einem israelischen Drohnenangriff im Westjordanland getötet",
+    url: "https://www.timesofisrael.com/liveblog_entry/hamas-confirms-2-senior-operatives-were-killed-in-jenin-drone-strike/" }]
+].forEach(([family, person]) => {
+  if (!window.FAM_NOTES[family]) window.FAM_NOTES[family] = {};
+  if (!window.FAM_NOTES[family].notable) window.FAM_NOTES[family].notable = [];
+  window.FAM_NOTES[family].notable.push(person);
 });
 
 // --- Namens-Herkuenfte der Top-100-Familien (arabische Onomastik; unsichere ausgelassen) ---
