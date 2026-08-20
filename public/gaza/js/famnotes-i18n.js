@@ -295,6 +295,259 @@ Object.assign(window.FAMNOTES_I18N, {
   window.FAMNOTES_I18N[family].notable.push(translation);
 });
 
+/* Automatischer Abgleich der zentralen IDF/ISA-Liste und Gaza-Pressemitteilungen. */
+[
+  ["dababesh", {
+    en: "listed by the IDF and Shin Bet as a senior Hamas operative and former head of military intelligence",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقيادي بارز في حماس ورئيس سابق للاستخبارات العسكرية",
+    he: "צה״ל ושב״כ הציגו אותו כבכיר חמאס וכראש המודיעין הצבאי לשעבר"
+  }],
+  ["ashour", {
+    en: "listed by the IDF and Shin Bet as head of the Khan Younis Brigade's anti-tank array",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس منظومة مضادة للدروع في لواء خان يونس",
+    he: "צה״ל ושב״כ הציגו אותו כראש מערך הנ״ט בחטיבת חאן יונס"
+  }],
+  ["siyam", {
+    en: "listed by the IDF and Shin Bet as a company commander in the Naser-Radwan Battalion",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقائد سرية في كتيبة ناصر رضوان",
+    he: "צה״ל ושב״כ הציגו אותו כמפקד פלוגה בגדוד נאסר-רדואן"
+  }],
+  ["abu mughaisib", {
+    en: "listed by the IDF and Shin Bet as head of a Hamas anti-tank unit in the Central Camps",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس وحدة مضادة للدروع لحماس في مخيمات الوسط",
+    he: "צה״ל ושב״כ הציגו אותו כראש יחידת נ״ט של חמאס במחנות המרכז"
+  }],
+  ["abu zina", {
+    en: "listed by the IDF and Shin Bet as a Hamas weapons and industries-production chief",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كمسؤول عن إنتاج الأسلحة والصناعات في حماس",
+    he: "צה״ל ושב״כ הציגו אותו כאחראי ייצור הנשק והתעשיות בחמאס"
+  }],
+  ["dalloul", {
+    en: "listed by the IDF and Shin Bet as commander of the Sabra-Tel al-Hawa Battalion",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقائد كتيبة الصبرة-تل الهوى",
+    he: "צה״ל ושב״כ הציגו אותו כמפקד גדוד סברה-תל אל-הווא"
+  }],
+  ["al-assar", {
+    en: "listed by the IDF and Shin Bet as head of Hamas's anti-tank units across Gaza",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس وحدات حماس المضادة للدروع في غزة",
+    he: "צה״ל ושב״כ הציגו אותו כראש יחידות הנ״ט של חמאס ברצועה"
+  }],
+  ["abu rukba", {
+    en: "listed by the IDF and Shin Bet as head of Hamas's aerial array and an Oct 7 planner",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس المنظومة الجوية لحماس وأحد مخططي 7 أكتوبر",
+    he: "צה״ל ושב״כ הציגו אותו כראש המערך האווירי של חמאס וכמתכנן 7 באוקטובר"
+  }],
+  ["baroud", {
+    en: "listed by the IDF and Shin Bet as head of Hamas military intelligence and an Oct 7 planner",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس الاستخبارات العسكرية لحماس وأحد مخططي 7 أكتوبر",
+    he: "צה״ל ושב״כ הציגו אותו כראש המודיעין הצבאי של חמאס וכמתכנן 7 באוקטובר"
+  }],
+  ["abu shamla", {
+    en: "listed by the IDF and Shin Bet as a senior Hamas naval operative in the Rafah Brigade",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقيادي في القوة البحرية لحماس في لواء رفح",
+    he: "צה״ל ושב״כ הציגו אותו כבכיר בכוח הימי של חמאס בחטיבת רפיח"
+  }],
+  ["al-qadi", {
+    en: "listed by the IDF and Shin Bet as commander of the Nukhba Jabalya assault company; released in the 2011 Shalit exchange",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقائد سرية نخبة هجومية في جباليا؛ أُفرج عنه في صفقة شاليط عام 2011",
+    he: "צה״ל ושב״כ הציגו אותו כמפקד פלוגת הפשיטה של הנוח׳בה בג׳באליה; שוחרר בעסקת שליט ב-2011"
+  }],
+  ["mousa", {
+    en: "listed by the IDF and Shin Bet as responsible for Hamas special security operations",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كمسؤول عن عمليات أمنية خاصة لحماس",
+    he: "צה״ל ושב״כ הציגו אותו כאחראי למבצעי ביטחון מיוחדים של חמאס"
+  }],
+  ["mousa", {
+    en: "listed by the IDF and Shin Bet as a Nukhba company commander who led the attack on Zikim",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقائد سرية نخبة قاد الهجوم على زيكيم",
+    he: "צה״ל ושב״כ הציגו אותו כמפקד פלוגת נוח׳בה שהוביל את המתקפה על זיקים"
+  }],
+  ["al-hindi", {
+    en: "listed by the IDF and Shin Bet as a Nukhba platoon commander and Oct 7 participant",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقائد فصيل نخبة ومشارك في 7 أكتوبر",
+    he: "צה״ל ושב״כ הציגו אותו כמפקד מחלקת נוח׳בה וכמשתתף ב-7 באוקטובר"
+  }],
+  ["abu jalala", {
+    en: "listed by the IDF and Shin Bet as a senior Hamas naval operative",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقيادي في القوة البحرية لحماس",
+    he: "צה״ל ושב״כ הציגו אותו כבכיר בכוח הימי של חמאס"
+  }],
+  ["siyam", {
+    en: "listed by the IDF and Shin Bet as head of Hamas's rocket array",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس منظومة الصواريخ لحماس",
+    he: "צה״ל ושב״כ הציגו אותו כראש המערך הרקטי של חמאס"
+  }],
+  ["rajab", {
+    en: "listed by the IDF and Shin Bet as deputy commander of the Northern Gaza Brigade",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كنائب قائد لواء شمال غزة",
+    he: "צה״ל ושב״כ הציגו אותו כסגן מפקד חטיבת צפון עזה"
+  }],
+  ["khalifa", {
+    en: "listed by the IDF and Shin Bet as a Hamas West Bank-headquarters operative responsible for Tulkarm",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كعضو في مقر حماس للضفة ومسؤول عن طولكرم",
+    he: "צה״ל ושב״כ הציגו אותו כאיש מטה הגדה של חמאס וכאחראי לטולכרם"
+  }],
+  ["salman", {
+    en: "listed by the IDF and Shin Bet as head of combat support in northern Gaza and the Gaza City Brigade",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس دعم قتالي في شمال غزة ولواء مدينة غزة",
+    he: "צה״ל ושב״כ הציגו אותו כראש הסיוע הקרבי בצפון עזה ובחטיבת העיר עזה"
+  }],
+  ["farhat", {
+    en: "listed by the IDF and Shin Bet as commander of the Shejaiya Battalion",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقائد كتيبة الشجاعية",
+    he: "צה״ל ושב״כ הציגו אותו כמפקד גדוד שג׳אעיה"
+  }],
+  ["al-rantisi", {
+    en: "listed by the IDF and Shin Bet as head of field intelligence in Hamas military intelligence and an Oct 7 participant",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس الاستخبارات الميدانية في استخبارات حماس العسكرية ومشارك في 7 أكتوبر",
+    he: "צה״ל ושב״כ הציגו אותו כראש מודיעין השטח במודיעין הצבאי של חמאס וכמשתתף ב-7 באוקטובר"
+  }],
+  ["farwana", {
+    en: "listed by the IDF and Shin Bet as a financier of Hamas military activity",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كممول للنشاط العسكري لحماس",
+    he: "צה״ל ושב״כ הציגו אותו כמממן הפעילות הצבאית של חמאס"
+  }],
+  ["ayesh", {
+    en: "listed by the IDF and Shin Bet as an observation operative in the Carrara Battalion",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كعنصر رصد في كتيبة القرارة",
+    he: "צה״ל ושב״כ הציגו אותו כפעיל תצפית בגדוד קרארה"
+  }],
+  ["hamdan", {
+    en: "listed by the IDF and Shin Bet as a Hamas battalion commander for combat and administrative support",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقائد في حماس للدعم القتالي والإداري",
+    he: "צה״ל ושב״כ הציגו אותו כמפקד חמאס לסיוע קרבי ומנהלי"
+  }],
+  ["al-shalfouh", {
+    en: "listed by the IDF and Shin Bet as head of Hamas air-defense training in northern Gaza",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس تدريب الدفاع الجوي لحماس شمال غزة",
+    he: "צה״ל ושב״כ הציגו אותו כראש אימוני ההגנה האווירית של חמאס בצפון עזה"
+  }],
+  ["al-rifi", {
+    en: "listed by the IDF and Shin Bet as responsible for military supplies in Gaza City",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كمسؤول عن الإمداد العسكري في مدينة غزة",
+    he: "צה״ל ושב״כ הציגו אותו כאחראי לאספקה צבאית בעיר עזה"
+  }],
+  ["salah", {
+    en: "listed by the IDF and Shin Bet as commander of the Central Jabalya Battalion and an anti-tank unit",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقائد كتيبة جباليا المركزية ووحدة مضادة للدروع",
+    he: "צה״ל ושב״כ הציגו אותו כמפקד גדוד ג׳באליה המרכזי ויחידת נ״ט"
+  }],
+  ["abbas", {
+    en: "listed by the IDF and Shin Bet as commander of the Darj-Tufah Battalion",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقائد كتيبة الدرج-التفاح",
+    he: "צה״ל ושב״כ הציגו אותו כמפקד גדוד דרג׳-תופאח"
+  }],
+  ["al-sahhar", {
+    en: "listed by the IDF and Shin Bet as head of a Hamas anti-tank brigade",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس لواء مضاد للدروع في حماس",
+    he: "צה״ל ושב״כ הציגו אותו כראש חטיבת נ״ט של חמאס"
+  }],
+  ["abed", {
+    en: "listed by the IDF and Shin Bet as a Qassam Brigades battalion commander",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقائد كتيبة في كتائب القسام",
+    he: "צה״ל ושב״כ הציגו אותו כמפקד גדוד בגדודי קסאם"
+  }],
+  ["qatamish", {
+    en: "listed by the IDF and Shin Bet as head of a Hamas rocket-fire brigade",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس لواء إطلاق صواريخ لحماس",
+    he: "צה״ל ושב״כ הציגו אותו כראש חטיבת ירי רקטי של חמאס"
+  }],
+  ["shehab", {
+    en: "listed by the IDF and Shin Bet as a senior Palestinian Islamic Jihad operative",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقيادي في الجهاد الإسلامي الفلسطيني",
+    he: "צה״ל ושב״כ הציגו אותו כבכיר בג׳יהאד האסלאמי הפלסטיני"
+  }],
+  ["alyan", {
+    en: "listed by the IDF and Shin Bet as an operative in Hamas's Nukhba unit",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كعنصر في وحدة النخبة التابعة لحماس",
+    he: "צה״ל ושב״כ הציגו אותו כפעיל ביחידת הנוח׳בה של חמאס"
+  }],
+  ["al-mubasher", {
+    en: "listed by the IDF and Shin Bet as head of the North Khan Younis Battalion",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس كتيبة شمال خان يونس",
+    he: "צה״ל ושב״כ הציגו אותו כראש גדוד צפון חאן יונס"
+  }],
+  ["ward", {
+    en: "listed by the IDF and Shin Bet as a Hamas operative",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كعنصر في حماس",
+    he: "צה״ל ושב״כ הציגו אותו כפעיל חמאס"
+  }],
+  ["abu rahma", {
+    en: "listed by the IDF and Shin Bet as a Nukhba assault-company commander",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقائد سرية هجومية في النخبة",
+    he: "צה״ל ושב״כ הציגו אותו כמפקד פלוגת פשיטה בנוח׳בה"
+  }],
+  ["shalbia", {
+    en: "listed by the IDF and Shin Bet as a Hamas naval special-forces operative; the full name also appears in the MoH list",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كعنصر في القوات البحرية الخاصة لحماس؛ والاسم الكامل وارد أيضاً في قائمة وزارة الصحة",
+    he: "צה״ל ושב״כ הציגו אותו כפעיל בכוחות הימיים המיוחדים של חמאס; שמו המלא מופיע גם ברשימת משרד הבריאות"
+  }],
+  ["al-bardawil", {
+    en: "listed by the IDF and Shin Bet as a Hamas anti-tank operative",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كعنصر مضاد للدروع في حماس",
+    he: "צה״ל ושב״כ הציגו אותו כפעיל נ״ט של חמאס"
+  }],
+  ["al-wadia", {
+    en: "listed by the IDF and Shin Bet as a Hamas anti-tank operative",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كعنصر مضاد للدروع في حماس",
+    he: "צה״ל ושב״כ הציגו אותו כפעיל נ״ט של חמאס"
+  }],
+  ["aqel", {
+    en: "listed by the IDF and Shin Bet as an Al-Aqsa Martyrs Brigades operative",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كعنصر في كتائب شهداء الأقصى",
+    he: "צה״ל ושב״כ הציגו אותו כפעיל בגדודי חללי אל-אקצא"
+  }],
+  ["baba", {
+    en: "listed by the IDF and Shin Bet as commander of the naval forces in the Central Camps",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقائد للقوات البحرية في مخيمات الوسط",
+    he: "צה״ל ושב״כ הציגו אותו כמפקד הכוח הימי במחנות המרכז"
+  }],
+  ["hijazi", {
+    en: "listed by the IDF and Shin Bet as a prominent anti-tank operative",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كعنصر بارز مضاد للدروع",
+    he: "צה״ל ושב״כ הציגו אותו כפעיל נ״ט בולט"
+  }],
+  ["awadallah", {
+    en: "listed by the IDF and Shin Bet as a senior Hamas weapons-production operative",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كقيادي في إنتاج الأسلحة لحماس",
+    he: "צה״ל ושב״כ הציגו אותו כבכיר במערך ייצור הנשק של חמאס"
+  }],
+  ["al-kahlout", {
+    en: "listed by the IDF and Shin Bet as head of the Northern Gaza Brigade's sniper array",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس منظومة القنص في لواء شمال غزة",
+    he: "צה״ל ושב״כ הציגו אותו כראש מערך הצליפה בחטיבת צפון עזה"
+  }],
+  ["muslim", {
+    en: "listed by the IDF and Shin Bet as responsible for combat support and special forces in Beit Lahia",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كمسؤول عن الدعم القتالي والقوات الخاصة في بيت لاهيا",
+    he: "צה״ל ושב״כ הציגו אותו כאחראי לסיוע קרבי ולכוחות מיוחדים בבית לאהיה"
+  }],
+  ["harb", {
+    en: "listed by the IDF and Shin Bet as head of public affairs for Hamas's Rafah Brigade",
+    ar: "أدرجه الجيش الإسرائيلي والشاباك كرئيس الشؤون العامة للواء رفح في حماس",
+    he: "צה״ל ושב״כ הציגו אותו כראש ענייני הציבור בחטיבת רפיח של חמאס"
+  }],
+  ["abu al-khair", {
+    en: "according to the IDF and Shin Bet, head of Palestinian Islamic Jihad sniper squads; killed in Gaza in 2025",
+    ar: "وفق الجيش الإسرائيلي والشاباك رئيس مجموعات القنص في الجهاد الإسلامي الفلسطيني؛ قُتل في غزة عام 2025",
+    he: "לפי צה״ל ושב״כ, ראש חוליות הצלפים בג׳יהאד האסלאמי הפלסטיני; נהרג בעזה ב-2025"
+  }],
+  ["al-salmi", {
+    en: "according to the IDF and Shin Bet, a Nukhba company commander in the Zeitoun Battalion who led the Oct 7 attack on the Paga outpost; killed in 2024",
+    ar: "وفق الجيش الإسرائيلي والشاباك قائد سرية نخبة في كتيبة الزيتون قاد هجوم 7 أكتوبر على موقع باغا؛ قُتل عام 2024",
+    he: "לפי צה״ל ושב״כ, מפקד פלוגת נוח׳בה בגדוד זייתון שהוביל את מתקפת 7 באוקטובר על מוצב פגה; נהרג ב-2024"
+  }],
+  ["al-jabari", {
+    en: "according to the IDF and Shin Bet, a senior operative in the Hamas Gaza City Brigade's sniper unit; reported as the target of an airstrike on Nov 27, 2024",
+    ar: "وفق الجيش الإسرائيلي والشاباك عنصر بارز في وحدة القنص بلواء مدينة غزة التابع لحماس؛ أُعلن استهدافه بغارة في 27.11.2024",
+    he: "לפי צה״ל ושב״כ, פעיל בכיר ביחידת הצלפים של חטיבת העיר עזה בחמאס; דווח כמטרת תקיפה ב-27.11.2024"
+  }]
+].forEach(([family, translation]) => {
+  if (!window.FAMNOTES_I18N[family]) window.FAMNOTES_I18N[family] = {};
+  if (!window.FAMNOTES_I18N[family].notable) window.FAMNOTES_I18N[family].notable = [];
+  window.FAMNOTES_I18N[family].notable.push(translation);
+});
+
 /* Kurz-Herkuenfte (FAM_ORIGINS) — kompakt uebersetzt */
 window.FAM_ORIGINS_I18N = {
 "ahmed": { en: "Patronymic of Ahmad (“the praised”).", ar: "نسبة إلى الاسم أحمد.", he: "פטרונים של אחמד («המהולל»)." },

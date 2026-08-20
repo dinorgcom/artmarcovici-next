@@ -343,30 +343,30 @@ Object.assign(window.FAM_NOTES, {
   ["ibrahim", { badge: "official", name: "Taysir Kamel Ismail Ibrahim", info: "Dekan der Scharia- und Rechtsfakultät der Islamischen Universität; in Berichten als Leiter des Hamas-Justizzweigs bezeichnet, am 13.10.2023 in Gaza getötet",
     url: "https://airwars.org/civilian-casualties/ispt0181-october-13-2023/" }],
 
-  ["mushtaha", { badge: "fighter", name: "Muhammad Mashtaha", info: "laut IDF und Shin Bet beim Palästinensischen Islamischen Dschihad für militärische Spezialisierung in Nord-Gaza zuständig; 2025 in Gaza getötet",
-    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
-  ["wadi", { badge: "fighter", name: "Amir Hisham Fayez Wadi", info: "laut IDF und Shin Bet verantwortlich für das Scharfschützenwesen der Khan-Younis-Brigade des Islamischen Dschihad; 2025 in Gaza getötet",
-    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
-  ["muammar", { badge: "fighter", name: "Jamal Maamar (auch Muammar)", info: "laut IDF und Shin Bet verantwortlich für die Raketenartillerie des Islamischen Dschihad in Rafah; 2025 in Gaza getötet",
-    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
-  ["abu al-ata", { badge: "fighter", name: "Fadl Zakariya Ahmed Abu al-Ata", info: "laut IDF und Shin Bet Sektorenkommandeur der Gaza-Stadt-Brigade des Islamischen Dschihad; 2025 in Gaza getötet",
-    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
-  ["abu shawish", { badge: "fighter", name: "Samir Suleiman Ali Abu Shawish", info: "laut IDF und Shin Bet Kommandeur des Yabna-Sektors des Islamischen Dschihad in Rafah; 2025 in Gaza getötet",
-    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
-  ["salah", { badge: "fighter", name: "Muntasir Mahmoud Mohammed Salah", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
-    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
-  ["al-qadi", { badge: "fighter", name: "Ahmad Qadi", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
-    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
-  ["ghannam", { badge: "fighter", name: "Fuad Shaker Diab Ghannam", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
-    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
-  ["al-banna", { badge: "fighter", name: "Khaled Bana (al-Banna)", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
-    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
-  ["al-mashrawi", { badge: "fighter", name: "Saeed Mashraoui (al-Mashrawi)", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
-    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
-  ["kassab", { badge: "fighter", name: "Youssef Kassab", info: "laut IDF und Shin Bet stellvertretender Kommandeur des östlichen Sektors des Islamischen Dschihad in Rafah; 2025 in Gaza getötet",
-    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
-  ["abu jarad", { badge: "fighter", name: "Murad Naser Mousa Abu Jarad", info: "laut IDF und Shin Bet stellvertretender Kommandeur des Beit-Hanoun-Sektors des Islamischen Dschihad; 2025 in Gaza getötet",
-    url: "https://vinnews.com/2025/09/15/idf-shin-bet-name-21-senior-islamic-jihad-operatives-killed-in-gaza/" }],
+  ["mushtaha", { badge: "fighter", name: "Mohammad Radwan Ramadan Mushtaha", info: "laut IDF und Shin Bet beim Palästinensischen Islamischen Dschihad für militärische Spezialisierung in Nord-Gaza zuständig; 2025 in Gaza getötet",
+    url: "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/" }],
+  ["wadi", { badge: "fighter", name: "Amir al-Shaam Faiz Wadi (MoH: Amir Hisham Fayez Wadi)", info: "laut IDF und Shin Bet verantwortlich für das Scharfschützenwesen der Khan-Younis-Brigade des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/" }],
+  ["muammar", { badge: "fighter", name: "Jamal Mahmoud Salem Ma'amar (auch Muammar)", info: "laut IDF und Shin Bet verantwortlich für die Raketenartillerie des Islamischen Dschihad in Rafah; 2025 in Gaza getötet",
+    url: "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/" }],
+  ["abu al-ata", { badge: "fighter", name: "Fazel Zakariya Ahmad Abu al-Ata", info: "laut IDF und Shin Bet Sektorenkommandeur der Gaza-Stadt-Brigade des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/" }],
+  ["abu shawish", { badge: "fighter", name: "Samir Suleiman Ali Abu-Shaweesh", info: "laut IDF und Shin Bet Kommandeur des Yabna-Sektors des Islamischen Dschihad in Rafah; 2025 in Gaza getötet",
+    url: "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/" }],
+  ["salah", { badge: "fighter", name: "Mansour Mahmoud Mohammad Salah (MoH: Muntasir)", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/" }],
+  ["al-qadi", { badge: "fighter", name: "Ahmad Ziyad Qasem Qadi", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/" }],
+  ["ghannam", { badge: "fighter", name: "Fuad Shaker Diab Ghanam", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/" }],
+  ["al-banna", { badge: "fighter", name: "Khaled Mousa Ramadan Bana (al-Banna)", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/" }],
+  ["al-mashrawi", { badge: "fighter", name: "Saeed Samir Nimer Masharawi", info: "laut IDF und Shin Bet Waffenproduktions-Experte des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/" }],
+  ["kassab", { badge: "fighter", name: "Yousef Saleh Younes Kassab", info: "laut IDF und Shin Bet stellvertretender Kommandeur des östlichen Sektors des Islamischen Dschihad in Rafah; 2025 in Gaza getötet",
+    url: "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/" }],
+  ["abu jarad", { badge: "fighter", name: "Murad Nasser Mousa Abu Jarad", info: "laut IDF und Shin Bet stellvertretender Kommandeur des Beit-Hanoun-Sektors des Islamischen Dschihad; 2025 in Gaza getötet",
+    url: "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/" }],
 
   ["qawasma", { badge: "prisoner", name: "Imad Salah Abd al-Fattah Qawasmeh", info: "ranghohes Hamas-Mitglied, wegen Beteiligung an mehreren tödlichen Anschlägen inhaftiert; im Oktober 2025 auf der israelischen Freilassungsliste des Geiselaustauschs",
     url: "https://www.jpost.com/israel-news/defense-news/article-870030" }],
@@ -400,6 +400,70 @@ Object.assign(window.FAM_NOTES, {
   if (!window.FAM_NOTES[family].notable) window.FAM_NOTES[family].notable = [];
   window.FAM_NOTES[family].notable.push(person);
 });
+
+// --- Automatischer Abgleich: zentrale IDF/ISA-Liste + Gaza-Pressemitteilungen ---
+// Stand 20.8.2026. Aufgenommen werden nur eindeutige Nachnamens-Treffer gegen
+// die 3.127 Familien der TfP/MoH-Liste. Die Einstufungen sind Behauptungen der
+// jeweiligen israelischen Primärquelle und werden deshalb immer attribuiert.
+(() => {
+  const overview = "https://www.idf.il/en/mini-sites/israel-at-war/all-articles/eliminated-key-terrorist-operatives-eliminated-by-the-idf-and-isa/";
+  const pijList = "https://m.www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/september-25-pr/the-idf-and-the-isa-reveal-21-eliminated-islamic-jihad-senior-terrorists/";
+  [
+    ["dababesh", { badge: "fighter", name: "Mohammed Khamis Dababash", info: "von IDF und Shin Bet als ranghoher Hamas-Angehöriger und früherer Leiter des militärischen Geheimdienstes geführt", url: overview }],
+    ["ashour", { badge: "fighter", name: "Yaakub A'ashur", info: "von IDF und Shin Bet als Leiter der Panzerabwehr der Khan-Younis-Brigade geführt", url: overview }],
+    ["siyam", { badge: "fighter", name: "Ahmed Siam", info: "von IDF und Shin Bet als Kompaniekommandeur im Naser-Radwan-Bataillon geführt", url: overview }],
+    ["abu mughaisib", { badge: "fighter", name: "Ibrahim Abu-Maghsib", info: "von IDF und Shin Bet als Leiter einer Hamas-Panzerabwehreinheit in den Zentrallagern geführt", url: overview }],
+    ["abu zina", { badge: "fighter", name: "Mohsen Abu Zina", info: "von IDF und Shin Bet als Leiter für Waffen- und Industrieproduktion bei Hamas geführt", url: overview }],
+    ["dalloul", { badge: "fighter", name: "Mustafa Dalul", info: "von IDF und Shin Bet als Kommandeur des Sabra-Tel-al-Hawa-Bataillons geführt", url: overview }],
+    ["al-assar", { badge: "fighter", name: "Muhammad A'sar", info: "von IDF und Shin Bet als Leiter der Hamas-Panzerabwehreinheiten im Gazastreifen geführt", url: overview }],
+    ["abu rukba", { badge: "fighter", name: "Asem Abu Rakba", info: "von IDF und Shin Bet als Leiter des Hamas-Luftbereichs und Mitplaner des 7. Oktober geführt", url: overview }],
+    ["baroud", { badge: "fighter", name: "Shadi Barud", info: "von IDF und Shin Bet als Leiter des militärischen Hamas-Geheimdienstes und Mitplaner des 7. Oktober geführt", url: overview }],
+    ["abu shamla", { badge: "fighter", name: "Muhammad Abu Shamla", info: "von IDF und Shin Bet als ranghoher Angehöriger der Hamas-Seestreitkräfte der Rafah-Brigade geführt", url: overview }],
+    ["al-qadi", { badge: "fighter", name: "Ali Qadi", info: "von IDF und Shin Bet als Nukhba-Kommandeur der Jabalya-Sturmkompanie geführt; 2011 im Shalit-Austausch freigelassen", url: overview }],
+    ["mousa", { badge: "fighter", name: "Jamal Mussa", info: "von IDF und Shin Bet als Verantwortlicher für besondere Sicherheitsoperationen der Hamas geführt", url: overview }],
+    ["mousa", { badge: "fighter", name: "Ahmed Musa", info: "von IDF und Shin Bet als Nukhba-Kompaniekommandeur und Leiter des Angriffs auf Zikim geführt", url: overview }],
+    ["al-hindi", { badge: "fighter", name: "Omar Al-Hindi", info: "von IDF und Shin Bet als Nukhba-Zugführer und Teilnehmer des 7. Oktober geführt", url: overview }],
+    ["abu jalala", { badge: "fighter", name: "Amar Abu Jalalah", info: "von IDF und Shin Bet als ranghoher Angehöriger der Hamas-Seestreitkräfte geführt", url: overview }],
+    ["siyam", { badge: "fighter", name: "Aiman Siam", info: "von IDF und Shin Bet als Leiter des Hamas-Raketenbereichs geführt", url: overview }],
+    ["rajab", { badge: "fighter", name: "Wael Rajeb", info: "von IDF und Shin Bet als stellvertretender Kommandeur der Nord-Gaza-Brigade geführt", url: overview }],
+    ["khalifa", { badge: "fighter", name: "Farsan Halifa", info: "von IDF und Shin Bet als Angehöriger des Hamas-Hauptquartiers für das Westjordanland und Verantwortlicher für Tulkarm geführt", url: overview }],
+    ["salman", { badge: "fighter", name: "Rafet Salman", info: "von IDF und Shin Bet als Leiter der Kampfunterstützung in Nord-Gaza und der Gaza-Stadt-Brigade geführt", url: overview }],
+    ["farhat", { badge: "fighter", name: "Wessam Farhat", info: "von IDF und Shin Bet als Kommandeur des Shejaiya-Bataillons geführt", url: overview }],
+    ["al-rantisi", { badge: "fighter", name: "Abdel Aziz Rantisi", info: "von IDF und Shin Bet als Leiter der Feldaufklärung im militärischen Hamas-Geheimdienst und Beteiligter des 7. Oktober geführt", url: overview }],
+    ["farwana", { badge: "official", name: "Subhi Ferwana", info: "von IDF und Shin Bet als Finanzier der militärischen Hamas-Aktivitäten geführt", url: overview }],
+    ["ayesh", { badge: "fighter", name: "Ahmed Aiush", info: "von IDF und Shin Bet als Beobachtungsfunktionär des Carrara-Bataillons geführt", url: overview }],
+    ["hamdan", { badge: "fighter", name: "Othman Hamdan", info: "von IDF und Shin Bet als Kommandeur für Kampf- und Verwaltungsunterstützung eines Hamas-Bataillons geführt", url: overview }],
+    ["al-shalfouh", { badge: "fighter", name: "Ghassan Shalfuah", info: "von IDF und Shin Bet als Ausbildungsleiter der Hamas-Luftabwehr in Nord-Gaza geführt", url: overview }],
+    ["al-rifi", { badge: "fighter", name: "Mahmoud Al-Rifi", info: "von IDF und Shin Bet als Verantwortlicher für militärischen Nachschub in Gaza-Stadt geführt", url: overview }],
+    ["salah", { badge: "fighter", name: "Suleiman Selah", info: "von IDF und Shin Bet als Kommandeur des Zentral-Jabalya-Bataillons und einer Panzerabwehreinheit geführt", url: overview }],
+    ["abbas", { badge: "fighter", name: "Ref'at Abbas", info: "von IDF und Shin Bet als Kommandeur des Darj-Tufah-Bataillons geführt", url: overview }],
+    ["al-sahhar", { badge: "fighter", name: "Ibrahim Al-Sahar", info: "von IDF und Shin Bet als Leiter einer Hamas-Panzerabwehrbrigade geführt", url: overview }],
+    ["abed", { badge: "fighter", name: "Mazen Abed", info: "von IDF und Shin Bet als Bataillonskommandeur der Qassam-Brigaden geführt", url: overview }],
+    ["qatamish", { badge: "fighter", name: "Muhammad Qatamesh", info: "von IDF und Shin Bet als Leiter einer Hamas-Brigade für Raketenbeschuss geführt", url: overview }],
+    ["shehab", { badge: "fighter", name: "Abd El-Rahman Shehab", info: "von IDF und Shin Bet als ranghoher Angehöriger des Palästinensischen Islamischen Dschihad geführt", url: overview }],
+    ["alyan", { badge: "fighter", name: "Afif A'lian", info: "von IDF und Shin Bet als Angehöriger der Hamas-Nukhba-Einheit geführt", url: overview }],
+    ["al-mubasher", { badge: "fighter", name: "Taisir Mubasher", info: "von IDF und Shin Bet als Leiter des Nord-Khan-Younis-Bataillons geführt", url: overview }],
+    ["ward", { badge: "fighter", name: "Wael Al-Ward", info: "von IDF und Shin Bet als Hamas-Angehöriger geführt", url: overview }],
+    ["abu rahma", { badge: "fighter", name: "Ahmed Abu Rahma", info: "von IDF und Shin Bet als Kommandeur einer Nukhba-Sturmkompanie geführt", url: overview }],
+    ["shalbia", { badge: "fighter", name: "Mamdouh Mohammed Ibrahim Shalbia (IDF: Mamaduh Sha'alabia)", info: "von IDF und Shin Bet als Angehöriger der Hamas-Spezialkräfte zur See geführt; der Vollname steht auch in der MoH-Liste", url: overview }],
+    ["al-bardawil", { badge: "fighter", name: "Hassan Al-Bardawill", info: "von IDF und Shin Bet als Angehöriger einer Hamas-Panzerabwehreinheit geführt", url: overview }],
+    ["al-wadia", { badge: "fighter", name: "Muhammad Al-Wadea", info: "von IDF und Shin Bet als Angehöriger einer Hamas-Panzerabwehreinheit geführt", url: overview }],
+    ["aqel", { badge: "fighter", name: "Loai Hussam Muhammad Aqel", info: "von IDF und Shin Bet als Angehöriger der Al-Aqsa-Märtyrerbrigaden geführt", url: overview }],
+    ["baba", { badge: "fighter", name: "Jamil Baba", info: "von IDF und Shin Bet als Kommandeur der Seestreitkräfte in den Zentrallagern geführt", url: overview }],
+    ["hijazi", { badge: "fighter", name: "Muwaman Hijazi", info: "von IDF und Shin Bet als bedeutender Angehöriger einer Panzerabwehreinheit geführt", url: overview }],
+    ["awadallah", { badge: "fighter", name: "Muhammad Awdallah", info: "von IDF und Shin Bet als ranghoher Angehöriger der Hamas-Waffenproduktion geführt", url: overview }],
+    ["al-kahlout", { badge: "fighter", name: "Mohammed Kahlout", info: "von IDF und Shin Bet als Leiter des Scharfschützenbereichs der Nord-Gaza-Brigade geführt", url: overview }],
+    ["muslim", { badge: "fighter", name: "Tahsin Muslem", info: "von IDF und Shin Bet als Verantwortlicher für Kampfunterstützung und Spezialkräfte in Beit Lahia geführt", url: overview }],
+    ["harb", { badge: "official", name: "Munir Hareb", info: "von IDF und Shin Bet als Leiter der Öffentlichkeitsarbeit der Hamas-Rafah-Brigade geführt", url: overview }],
+    ["abu al-khair", { badge: "fighter", name: "Ihab Bassam Yousef Abu al-Kheir", info: "laut IDF und Shin Bet Leiter von Scharfschützengruppen des Palästinensischen Islamischen Dschihad; 2025 in Gaza getötet", url: pijList }],
+    ["al-salmi", { badge: "fighter", name: "Fehmi Salmi", info: "laut IDF und Shin Bet Nukhba-Kompaniekommandeur im Zeitoun-Bataillon; führte am 7. Oktober den Angriff auf den IDF-Posten Paga und wurde 2024 getötet", url: "https://www.idf.il/en/mini-sites/israel-hamas-war-gaza/articles-israel-hamas-war-gaza/distributions-swords-of-iron-war-gaza/northern-gaza-24/111224-the-head-of-hamas-paragliding-unit-who-led-the-october-7th-aerial-infiltration-into-israel-was-eliminated/" }],
+    ["al-jabari", { badge: "fighter", name: "Mumin Al-Jabari", info: "laut IDF und Shin Bet ranghoher Angehöriger der Scharfschützeneinheit der Hamas-Gaza-Stadt-Brigade; am 27.11.2024 als Ziel eines Luftangriffs gemeldet", url: "https://www.idf.il/en/mini-sites/israel-hamas-war-gaza/articles-israel-hamas-war-gaza/distributions-swords-of-iron-war-gaza/northern-gaza-24/271124-mumin-al-jabari-a-senior-terrorist-in-hamas-gaza-city-brigade-s-sniper-unit-who-operated-in-a-room-within-a-structure-that-previously-served-as-the-al-tabaeen-school/" }]
+  ].forEach(([family, person]) => {
+    if (!window.FAM_NOTES[family]) window.FAM_NOTES[family] = {};
+    if (!window.FAM_NOTES[family].notable) window.FAM_NOTES[family].notable = [];
+    window.FAM_NOTES[family].notable.push(person);
+  });
+})();
 
 // --- Namens-Herkuenfte der Top-100-Familien (arabische Onomastik; unsichere ausgelassen) ---
 // Drei Klassen: Beruf/Titel · Ort/Ethnie · Vor-/Ahnenname (Patronym). Kuratierte Eintraege oben haben Vorrang.
