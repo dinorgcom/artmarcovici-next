@@ -369,10 +369,14 @@ main,
   border-top: 2px dashed var(--ratio);
 }
 
+.ratio-trend-line {
+  border-top: 3px solid var(--ink);
+}
+
 .annual-combined-panel svg {
   display: block;
   width: 100%;
-  min-height: 450px;
+  min-height: 520px;
   overflow: visible;
   touch-action: pan-y;
 }
@@ -422,6 +426,14 @@ main,
   stroke: var(--ratio);
   stroke-width: 1.7;
   stroke-dasharray: 5 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.annual-combined-panel .annual-ratio-trend-path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.6;
+  pointer-events: none;
   vector-effect: non-scaling-stroke;
 }
 
@@ -1512,7 +1524,7 @@ body:not(.is-ready) .visual {
   }
 
   .annual-combined-panel svg {
-    min-height: 390px;
+    min-height: 460px;
   }
 
   .annual-combined-note {

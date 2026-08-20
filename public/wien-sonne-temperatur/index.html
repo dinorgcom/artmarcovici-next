@@ -104,6 +104,7 @@
               <span><i class="temperature-line" aria-hidden="true"></i>Summe Tagesmaxima</span>
               <span><i class="sunshine-bar" aria-hidden="true"></i>Sonnenstunden</span>
               <span><i class="ratio-line" aria-hidden="true"></i>Quotient</span>
+              <span><i class="ratio-trend-line" aria-hidden="true"></i>10-Jahres-Mittel</span>
             </div>
           </div>
           <svg role="img" aria-labelledby="annual-combined-title annual-combined-desc">
@@ -111,12 +112,14 @@
             <desc id="annual-combined-desc">
               Kombinierte Zeitreihe mit der jährlichen Sonnenscheindauer als Balken, der Summe aller täglichen
               Maximaltemperaturen als Linie und dem Quotienten aus Temperatursumme und Sonnenstunden als zweiter Linie.
-              Vier unvollständige Jahre sind markiert.
+              Ein gleitendes Mittel über zehn vollständige Jahre zeigt den langfristigen Quotiententrend. Vier
+              unvollständige Jahre sind markiert.
             </desc>
           </svg>
           <p class="annual-combined-note">
             Die Temperatursumme addiert alle Tagesmaxima eines Jahres. Der Quotient in <strong>°C-Tage/h</strong> ist
-            ein Vergleichsindex, keine physikalische Effizienzgröße.
+            ein Vergleichsindex, keine physikalische Effizienzgröße. Die helle Linie zeigt das gleitende
+            <strong>10-Jahres-Mittel</strong>.
           </p>
         </article>
 

@@ -72,6 +72,13 @@
       temperature: d3.mean(windowData, (value) => value.temperature),
     };
   });
+  const ratioTrend = complete.slice(9).map((item, index) => ({
+    year: item.year,
+    ratio: d3.mean(
+      complete.slice(index, index + 10),
+      (value) => value.temperatureSunshineRatio
+    ),
+  }));
 
   const activeModes = new Set(["raw", "mean"]);
   const runtimes = new Map();
@@ -446,7 +453,7 @@
     const node = svg.node();
     const width = Math.max(300, Math.round(node.getBoundingClientRect().width));
     const compact = width < 620;
-    const height = compact ? 390 : 460;
+    const height = compact ? 460 : 520;
     const margin = {
       top: 28,
       right: compact ? 43 : 58,
@@ -454,7 +461,7 @@
       left: compact ? 48 : 60,
     };
     const innerWidth = width - margin.left - margin.right;
-    const ratioHeight = compact ? 62 : 72;
+    const ratioHeight = compact ? 96 : 120;
     const ratioGap = compact ? 28 : 32;
     const ratioBottom = height - margin.bottom;
     const ratioTop = ratioBottom - ratioHeight;
@@ -528,7 +535,7 @@
       .append("g")
       .attr("class", "grid ratio-grid")
       .attr("transform", `translate(${margin.left},0)`)
-      .call(d3.axisLeft(yRatio).ticks(compact ? 2 : 3).tickSize(-innerWidth).tickFormat(""));
+      .call(d3.axisLeft(yRatio).ticks(compact ? 3 : 4).tickSize(-innerWidth).tickFormat(""));
 
     const mainMarks = svg.append("g").attr("clip-path", `url(#${mainClipId})`);
     const bars = mainMarks
@@ -554,9 +561,8 @@
           .y((item) => yTemperature(item.temperatureSum))
       );
 
-    const ratioPath = svg
-      .append("g")
-      .attr("clip-path", `url(#${ratioClipId})`)
+    const ratioMarks = svg.append("g").attr("clip-path", `url(#${ratioClipId})`);
+    const ratioPath = ratioMarks
       .append("path")
       .datum(data)
       .attr("class", "annual-ratio-path")
@@ -568,9 +574,21 @@
           .x((item) => x(item.year))
           .y((item) => yRatio(item.temperatureSunshineRatio))
       );
+    const ratioTrendPath = ratioMarks
+      .append("path")
+      .datum(ratioTrend)
+      .attr("class", "annual-ratio-trend-path")
+      .attr(
+        "d",
+        d3
+          .line()
+          .x((item) => x(item.year))
+          .y((item) => yRatio(item.ratio))
+      );
 
     animatePath(temperaturePath);
     animatePath(ratioPath);
+    animatePath(ratioTrendPath);
 
     svg
       .append("g")
@@ -621,7 +639,7 @@
       .call(
         d3
           .axisLeft(yRatio)
-          .ticks(compact ? 2 : 3)
+          .ticks(compact ? 3 : 4)
           .tickSize(0)
           .tickPadding(9)
           .tickFormat((value) => ratioFormat.format(value))
