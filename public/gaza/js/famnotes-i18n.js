@@ -64,6 +64,81 @@ window.FAMNOTES_I18N = {
 "abu naim": { notable: [{ en: "head of the internal security apparatus in Gaza (ex-prisoner, freed in the 2011 Shalit deal); believed alive", ar: "رئيس جهاز الأمن الداخلي (أسير سابق حرر بصفقة شاليط 2011)؛ يُعتقد أنه حي", he: "ראש מנגנון ביטחון הפנים (אסיר לשעבר, שוחרר בעסקת שליט 2011); ככל הידוע חי" }] },
 };
 
+/* Ergaenzungen vom 20.8.2026; bei bestehenden Familien index-parallel angehaengt. */
+window.FAMNOTES_I18N["al-masri"].notable.push({
+  en: "according to the IDF, a Nukhba company commander in the Beit Lahia Battalion; killed in an airstrike in the al-Shati area on Aug 18, 2026",
+  ar: "وفق الجيش الإسرائيلي قائد سرية نخبة في كتيبة بيت لاهيا؛ قُتل بغارة في منطقة الشاطئ في 18.8.2026",
+  he: "לפי צה״ל, מפקד פלוגת נוח׳בה בגדוד בית לאהיה; חוסל בתקיפה באזור שאטי ב-18.8.2026"
+});
+window.FAMNOTES_I18N["mushtaha"].notable.push({
+  en: "according to the IDF, a company commander in the Shati Battalion, involved in Oct 7 and in guarding several hostages; died after a July 30, 2026 airstrike",
+  ar: "وفق الجيش الإسرائيلي قائد سرية في كتيبة الشاطئ، شارك في 7 أكتوبر وحراسة عدة رهائن؛ توفي بعد غارة 30.7.2026",
+  he: "לפי צה״ל, מפקד פלוגה בגדוד שאטי, השתתף ב-7 באוקטובר ובשמירת כמה חטופים; מת לאחר תקיפה ב-30.7.2026"
+});
+
+Object.assign(window.FAMNOTES_I18N, {
+  "abu kmeil": { notable: [{
+    en: "according to the IDF, a Hamas commander and Oct 7 participant; killed in Gaza City on Aug 13, 2026. Hamas-run police called him the police chief and denied any other affiliation",
+    ar: "وفق الجيش الإسرائيلي قائد في حماس ومشارك في 7 أكتوبر؛ قُتل في مدينة غزة في 13.8.2026. وصفته شرطة حماس بقائد الشرطة ونفت أي انتماء آخر",
+    he: "לפי צה״ל, מפקד חמאס ומשתתף ב-7 באוקטובר; חוסל בעיר עזה ב-13.8.2026. משטרת חמאס הגדירה אותו כמפקד המשטרה והכחישה שיוך נוסף"
+  }] },
+  "al-attar": { notable: [{
+    en: "according to the IDF, a Nukhba platoon commander involved in attacks on Israeli troops; killed in an airstrike in the al-Shati area on Aug 18, 2026",
+    ar: "وفق الجيش الإسرائيلي قائد فصيل نخبة شارك في هجمات على جنود إسرائيليين؛ قُتل بغارة في الشاطئ في 18.8.2026",
+    he: "לפי צה״ל, מפקד מחלקת נוח׳בה שהיה מעורב בתקיפות נגד חיילים ישראלים; חוסל בתקיפה באזור שאטי ב-18.8.2026"
+  }] },
+  "al-shambari": { notable: [{
+    en: "according to the IDF and Shin Bet, head of operations in Hamas military intelligence and involved in planning Oct 7; killed in northern Gaza on Apr 28, 2026",
+    ar: "وفق الجيش والشاباك رئيس العمليات في استخبارات حماس العسكرية وشارك في تخطيط 7 أكتوبر؛ قُتل شمال غزة في 28.4.2026",
+    he: "לפי צה״ל ושב״כ, ראש מחלקת המבצעים במודיעין הצבאי של חמאס ומעורב בתכנון 7 באוקטובר; חוסל בצפון הרצועה ב-28.4.2026"
+  }] },
+  "washh": { notable: [{
+    en: "according to the IDF, an operative in Hamas's rocket and weapons production headquarters; also worked for Al Jazeera, which condemned his killing; killed Apr 8, 2026",
+    ar: "وفق الجيش الإسرائيلي عنصر في مقر إنتاج الصواريخ والأسلحة لحماس؛ عمل أيضاً للجزيرة التي أدانت مقتله؛ قُتل في 8.4.2026",
+    he: "לפי צה״ל, פעיל במטה ייצור הרקטות והנשק של חמאס; עבד גם באל-ג׳זירה, שגינתה את הריגתו; חוסל ב-8.4.2026"
+  }] },
+  "abu rukba": { notable: [{
+    en: "according to the IDF, a Hamas member and Oct 7 participant; killed west of Beit Lahia on Feb 5, 2026. His full name also appears in the MoH casualty list",
+    ar: "وفق الجيش الإسرائيلي عضو في حماس ومشارك في 7 أكتوبر؛ قُتل غرب بيت لاهيا في 5.2.2026. اسمه الكامل وارد أيضاً في قائمة ضحايا وزارة الصحة",
+    he: "לפי צה״ל, פעיל חמאס ומשתתף ב-7 באוקטובר; חוסל ממערב לבית לאהיה ב-5.2.2026. שמו המלא מופיע גם ברשימת ההרוגים של משרד הבריאות"
+  }] },
+  "al-abed": { notable: [{
+    en: "according to the IDF, a Hamas supply officer responsible for weapons smuggling and smuggling tunnels; killed in August 2026",
+    ar: "وفق الجيش الإسرائيلي ضابط إمداد في حماس مسؤول عن تهريب السلاح وأنفاق التهريب؛ قُتل في آب 2026",
+    he: "לפי צה״ל, קצין אספקה בחמאס שהיה אחראי להברחת נשק ומנהרות הברחה; חוסל באוגוסט 2026"
+  }] },
+  "al-anqar": { notable: [{
+    en: "according to the IDF, a Hamas commander; killed in August 2026",
+    ar: "وفق الجيش الإسرائيلي قائد في حماس؛ قُتل في آب 2026",
+    he: "לפי צה״ל, מפקד בחמאס; חוסל באוגוסט 2026"
+  }] },
+  "tabsh": { notable: [{
+    en: "according to the IDF, head of surveillance and targets in Hamas military intelligence; struck in the al-Mawasi attack on Sept 10, 2024",
+    ar: "وفق الجيش الإسرائيلي رئيس قسم الرصد والأهداف في استخبارات حماس العسكرية؛ استُهدف في هجوم المواصي في 10.9.2024",
+    he: "לפי צה״ל, ראש מחלקת התצפית והמטרות במודיעין הצבאי של חמאס; הותקף באל-מוואסי ב-10.9.2024"
+  }] },
+  "al-mabhouh": { notable: [{
+    en: "described by the IDF as a senior Hamas operative; struck in the al-Mawasi attack on Sept 10, 2024",
+    ar: "وصفه الجيش الإسرائيلي بأنه قيادي بارز في حماس؛ استُهدف في هجوم المواصي في 10.9.2024",
+    he: "הוגדר בידי צה״ל כפעיל בכיר בחמאס; הותקף באל-מוואסי ב-10.9.2024"
+  }] },
+  "thabet": { notable: [{
+    en: "according to the IDF, one of Hamas's ten most senior military commanders and head of recruitment and procurement; killed at al-Shifa Hospital on Mar 28, 2024",
+    ar: "وفق الجيش الإسرائيلي من بين أكبر عشرة قادة عسكريين في حماس ومسؤول التجنيد والمشتريات؛ قُتل في مستشفى الشفاء في 28.3.2024",
+    he: "לפי צה״ל, מעשרת המפקדים הצבאיים הבכירים בחמאס וראש הגיוס והרכש; חוסל בבית החולים שיפא ב-28.3.2024"
+  }] },
+  "dalloul": { notable: [{
+    en: "according to the IDF, a department head in Hamas's weapons-production headquarters; killed in December 2024 in an airstrike on a school building allegedly used as a command center",
+    ar: "وفق الجيش الإسرائيلي رئيس قسم في مقر تصنيع الأسلحة لحماس؛ قُتل في كانون الأول 2024 بغارة على مبنى مدرسة قيل إنه استُخدم مركز قيادة",
+    he: "לפי צה״ל, ראש מחלקה במטה ייצור הנשק של חמאס; חוסל בדצמבר 2024 בתקיפה על מבנה בית ספר שלפי הטענה שימש מרכז פיקוד"
+  }] },
+  "yassin": { notable: [{
+    en: "according to the IDF, a company commander in the Zeitoun Battalion responsible for attacks on Israeli troops; killed in December 2024 in the same strike as Ammar Daloul",
+    ar: "وفق الجيش الإسرائيلي قائد سرية في كتيبة الزيتون ومسؤول عن هجمات على جنود إسرائيليين؛ قُتل في كانون الأول 2024 في الغارة نفسها مع عمار دلول",
+    he: "לפי צה״ל, מפקד פלוגה בגדוד זייתון שהיה אחראי לתקיפות נגד חיילים ישראלים; חוסל בדצמבר 2024 באותה תקיפה עם עמאר דלול"
+  }] }
+});
+
 /* Kurz-Herkuenfte (FAM_ORIGINS) — kompakt uebersetzt */
 window.FAM_ORIGINS_I18N = {
 "ahmed": { en: "Patronymic of Ahmad (“the praised”).", ar: "نسبة إلى الاسم أحمد.", he: "פטרונים של אחמד («המהולל»)." },

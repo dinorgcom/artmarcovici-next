@@ -245,6 +245,91 @@ window.FAM_NOTES["al-kahlout"].notable.push(
   { badge: "official", name: "Youssef al-Kahlout", info: "Mitglied der zentralen Hamas-Führung; getötet am 10.8.2024 beim Schlag auf eine Schule in Gaza-Stadt",
     url: "https://www.wilsoncenter.org/article/israeli-assassinations-top-hamas-and-hezbollah-officials" });
 
+// --- Ergaenzungen aus der Mail „Hamas“ (geprueft 20.8.2026) ---
+// Nur Namen mit belastbarer Familienzuordnung zur TfP-Liste. Wo die Einstufung
+// ausschliesslich auf israelischen Angaben beruht, wird das im Text kenntlich gemacht.
+window.FAM_NOTES["al-masri"].notable.push(
+  { badge: "fighter", name: "Muhammad Hamdi Ahmad al-Masri", info: "laut IDF Nukhba-Kompaniekommandeur im Beit-Lahia-Bataillon; am 18.8.2026 bei einem Luftangriff im Gebiet al-Shati getötet",
+    url: "https://www.israelnationalnews.com/news/431947" });
+window.FAM_NOTES["mushtaha"].notable.push(
+  { badge: "fighter", name: "Muhammad Bassam Muhammad Mushtaha", info: "laut IDF Kompaniekommandeur im Schati-Bataillon, am 7. Oktober 2023 beteiligt und an der Bewachung mehrerer Geiseln; nach einem Luftangriff vom 30.7.2026 gestorben",
+    url: "https://vinnews.com/2026/08/14/idf-eliminates-hamas-company-commander-who-held-multiple-hostages/" });
+
+Object.assign(window.FAM_NOTES, {
+  "abu kmeil": {
+    notable: [
+      { badge: "fighter", name: "Jamal Mahmoud Abu Kamil (auch Abu Kmeil)", info: "laut IDF Hamas-Kommandeur und Teilnehmer des 7. Oktober; am 13.8.2026 in Gaza-Stadt getötet. Die Hamas-geführte Polizei bezeichnete ihn als Polizeichef und bestritt eine weitere Zugehörigkeit",
+        url: "https://www.corriere.it/esteri/diretta-live/26_agosto_14/guerra-usa-iran-le-notizie-in-diretta-emirati-arabi-attaccate-due-nostri-navi-nello-stretto-di-hormuz.shtml" }
+    ]
+  },
+  "al-attar": {
+    notable: [
+      { badge: "fighter", name: "Muhammad Attar", info: "laut IDF Nukhba-Zugführer, beteiligt an Angriffen auf israelische Soldaten; am 18.8.2026 bei einem Luftangriff im Gebiet al-Shati getötet",
+        url: "https://www.israelnationalnews.com/news/431947" }
+    ]
+  },
+  "al-shambari": {
+    notable: [
+      { badge: "fighter", name: "Iyad Ahmed Abd al-Rahman Shambari", info: "laut IDF und Shin Bet Leiter der Operationsabteilung im militärischen Hamas-Geheimdienst und an der Planung des 7. Oktober beteiligt; am 28.4.2026 in Nord-Gaza getötet",
+        url: "https://www.timesofisrael.com/idf-says-senior-hamas-intel-operative-who-helped-plan-oct-7-killed-in-gaza-strike/" }
+    ]
+  },
+  "washh": {
+    notable: [
+      { badge: "fighter", name: "Muhammad Samir Muhammad Washah", info: "laut IDF Funktionär im Hamas-Hauptquartier für Raketen- und Waffenproduktion; arbeitete zugleich für Al Jazeera, das seine Tötung verurteilte; am 8.4.2026 getötet",
+        url: "https://www.terrorism-info.org.il/en/spotlight-on-terrorism-april-2026/" }
+    ]
+  },
+  "abu rukba": {
+    notable: [
+      { badge: "fighter", name: "Muhammad Salah al-Din Khaled Abu Rukba", info: "laut IDF Hamas-Mitglied und Teilnehmer des 7. Oktober; am 5.2.2026 westlich von Beit Lahia getötet. Der vollständige Name steht auch in der MoH-Opferliste",
+        url: "https://www.terrorism-info.org.il/en/spotlight-on-terrorism-february-2026/" }
+    ]
+  },
+  "al-abed": {
+    notable: [
+      { badge: "fighter", name: "Muhammad al-Abed", info: "laut IDF Hamas-Versorgungsoffizier, zuständig für Waffenschmuggel und Schmuggeltunnel; im August 2026 getötet",
+        url: "https://www.israelnationalnews.com/flashes/690943" }
+    ]
+  },
+  "al-anqar": {
+    notable: [
+      { badge: "fighter", name: "Ahmad Ma'in Muhammad Anqar", info: "laut IDF Hamas-Kommandeur; im August 2026 getötet",
+        url: "https://www.israelnationalnews.com/flashes/690943" }
+    ]
+  },
+  "tabsh": {
+    notable: [
+      { badge: "fighter", name: "Osama Tabesh", info: "laut IDF Leiter der Beobachtungs- und Zielabteilung des militärischen Hamas-Geheimdienstes; beim Angriff auf al-Mawasi am 10.9.2024 getroffen",
+        url: "https://www.timesofisrael.com/liveblog_entry/idf-says-gaza-strike-targeted-3-senior-hamas-officials-disputes-claimed-death-toll/" }
+    ]
+  },
+  "al-mabhouh": {
+    notable: [
+      { badge: "fighter", name: "Ayman Mabhouh", info: "von der IDF als ranghoher Hamas-Angehöriger bezeichnet; beim Angriff auf al-Mawasi am 10.9.2024 getroffen",
+        url: "https://www.timesofisrael.com/liveblog_entry/idf-says-gaza-strike-targeted-3-senior-hamas-officials-disputes-claimed-death-toll/" }
+    ]
+  },
+  "thabet": {
+    notable: [
+      { badge: "fighter", name: "Raad Thabet", info: "laut IDF einer der zehn ranghöchsten Hamas-Militärs und Leiter für Rekrutierung und Beschaffung; am 28.3.2024 im al-Schifa-Krankenhaus getötet",
+        url: "https://www.timesofisrael.com/troops-raiding-gazas-shifa-hospital-kill-senior-hamas-commander-idf-says/" }
+    ]
+  },
+  "dalloul": {
+    notable: [
+      { badge: "fighter", name: "Ammar Daloul", info: "laut IDF Abteilungsleiter im Hamas-Hauptquartier für Waffenproduktion; im Dezember 2024 bei einem Luftangriff auf ein als Kommandozentrum genutztes Schulgebäude getötet",
+        url: "https://www.idf.il/en/mini-sites/israel-hamas-war-gaza/articles-israel-hamas-war-gaza/distributions-swords-of-iron-war-gaza/northern-gaza-24/121224-eliminated-a-department-head-in-hamas-manufacturing-headquarters-and-a-company-commander-in-the-zeitoun-battalion/" }
+    ]
+  },
+  "yassin": {
+    notable: [
+      { badge: "fighter", name: "Jihad Yassin", info: "laut IDF Kompaniekommandeur im Zeitoun-Bataillon und verantwortlich für Angriffe auf israelische Soldaten; im Dezember 2024 beim selben Luftangriff wie Ammar Daloul getötet",
+        url: "https://www.idf.il/en/mini-sites/israel-hamas-war-gaza/articles-israel-hamas-war-gaza/distributions-swords-of-iron-war-gaza/northern-gaza-24/121224-eliminated-a-department-head-in-hamas-manufacturing-headquarters-and-a-company-commander-in-the-zeitoun-battalion/" }
+    ]
+  }
+});
+
 // --- Namens-Herkuenfte der Top-100-Familien (arabische Onomastik; unsichere ausgelassen) ---
 // Drei Klassen: Beruf/Titel · Ort/Ethnie · Vor-/Ahnenname (Patronym). Kuratierte Eintraege oben haben Vorrang.
 window.FAM_ORIGINS = {
