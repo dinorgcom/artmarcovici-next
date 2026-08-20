@@ -548,6 +548,162 @@ Object.assign(window.FAMNOTES_I18N, {
   window.FAMNOTES_I18N[family].notable.push(translation);
 });
 
+/* Pilot: reverse search for public figures sharing top-100 family names. */
+(() => {
+  const noKin = {
+    en: "; matching or correspondingly transliterated surname only; no kinship with the recorded Gaza families is established",
+    ar: "؛ تشابه اسم العائلة أو نقله لا يثبت صلة قرابة بالعائلات الغزية المسجلة",
+    he: "; שם משפחה זהה או תעתיק תואם אינו מוכיח קרבה למשפחות עזה המתועדות"
+  };
+  const tr = (en, ar, he) => ({ en: en + noKin.en, ar: ar + noKin.ar, he: he + noKin.he });
+  const museumArtist = tr(
+    "listed by the Palestinian Museum as a participating artist in the Gaza exhibition “This Is Not an Exhibition”",
+    "أدرجه المتحف الفلسطيني كفنان مشارك في معرض غزة «هذا ليس معرضاً»",
+    "המוזיאון הפלסטיני מציג אותו/אותה כאמן/ית משתתף/ת בתערוכת עזה ״זו אינה תערוכה״"
+  );
+  [
+    ["salem", tr(
+      "Palestinian Reuters photographer; won the 2024 World Press Photo of the Year with an image taken in Khan Younis",
+      "مصور فلسطيني لرويترز؛ فاز بصورة التقطها في خان يونس بجائزة صورة العام العالمية 2024",
+      "צלם רויטרס פלסטיני; זכה בתמונת השנה העולמית 2024 בצילום שצולם בחאן יונס"
+    )],
+    ["abu taha", tr(
+      "Palestinian poet, essayist and founder of the Edward Said Library; from Gaza",
+      "شاعر وكاتب مقالات فلسطيني ومؤسس مكتبة إدوارد سعيد؛ من غزة",
+      "משורר ומסאי פלסטיני ומייסד ספריית אדוארד סעיד; מעזה"
+    )],
+    ["al-khatib", tr(
+      "Palestinian political scientist, former labor and planning minister and former director of the PA Government Media Center",
+      "أكاديمي سياسي فلسطيني ووزير عمل وتخطيط سابق ومدير سابق للمركز الإعلامي الحكومي للسلطة الفلسطينية",
+      "חוקר מדע המדינה פלסטיני, לשעבר שר העבודה והתכנון ומנהל מרכז התקשורת הממשלתי של הרשות"
+    )],
+    ["ouda", tr(
+      "journalist, activist and filmmaker from Gaza; received a Peabody Award for “It's Bisan from Gaza and I'm Still Alive”",
+      "صحفية وناشطة وصانعة أفلام من غزة؛ حصلت على جائزة بيبودي عن «أنا بيسان من غزة وما زلت على قيد الحياة»",
+      "עיתונאית, פעילה ויוצרת קולנוע מעזה; זכתה בפרס פיבודי על ״אני ביסאן מעזה ואני עדיין בחיים״"
+    )],
+    ["al-aqqad", tr(
+      "Palestinian journalist and author from Gaza, internationally known for her war reporting and author of “The Eyes of Gaza”",
+      "صحفية وكاتبة فلسطينية من غزة عُرفت عالمياً بتغطيتها للحرب ومؤلفة «عيون غزة»",
+      "עיתונאית וסופרת פלסטינית מעזה, מוכרת בעולם בזכות דיווחיה על המלחמה ומחברת ״עיני עזה״"
+    )],
+    ["abu mustafa", tr(
+      "Reuters photographer from Gaza who has documented protests, wars and everyday life in the Strip for many years",
+      "مصور لرويترز من غزة وثّق لسنوات الاحتجاجات والحروب والحياة اليومية في القطاع",
+      "צלם רויטרס מעזה שתיעד במשך שנים מחאות, מלחמות וחיי יום-יום ברצועה"
+    )],
+    ["abed", tr(
+      "Palestinian photojournalist trained in Gaza; worked for Reuters and has been associated with AFP since 2003",
+      "مصور صحفي فلسطيني درس في غزة؛ عمل مع رويترز وارتبط بوكالة فرانس برس منذ 2003",
+      "צלם עיתונות פלסטיני שלמד בעזה; עבד ברויטרס ומ-2003 קשור לסוכנות AFP"
+    )],
+    ["al-madhoun", tr(
+      "co-founder of Gaza Soup Kitchen and UNRWA USA staff member; not to be confused with the same-named entry in the press-casualty list",
+      "مؤسس مشارك لمطبخ غزة الخيري وموظف في أونروا الولايات المتحدة؛ ليس الشخص الذي يحمل الاسم نفسه في قائمة ضحايا الصحافة",
+      "מייסד-שותף של מטבח המרק של עזה ועובד UNRWA USA; אינו האדם בעל אותו השם ברשימת חללי העיתונות"
+    )],
+    ["al-madhoun", tr(
+      "co-founder and local organizer of Gaza Soup Kitchen; killed in an Israeli strike in November 2024",
+      "مؤسس مشارك ومنظم محلي لمطبخ غزة الخيري؛ قُتل بضربة إسرائيلية في تشرين الثاني 2024",
+      "מייסד-שותף ומארגן מקומי של מטבח המרק של עזה; נהרג בתקיפה ישראלית בנובמבר 2024"
+    )],
+    ["darwish", tr(
+      "internationally renowned Palestinian poet and author of more than 30 poetry collections; from al-Birwa in Galilee, not Gaza",
+      "شاعر فلسطيني عالمي ومؤلف أكثر من ثلاثين ديواناً؛ من البروة في الجليل وليس من غزة",
+      "משורר פלסטיני בעל שם עולמי ומחבר יותר משלושים ספרי שירה; מאל-בירווה שבגליל, לא מעזה"
+    )],
+    ["al-kurd", tr(
+      "Palestinian activist from Sheikh Jarrah in East Jerusalem; named to the 2021 TIME100 with her twin brother",
+      "ناشطة فلسطينية من الشيخ جراح في القدس الشرقية؛ اختيرت مع شقيقها التوأم لقائمة تايم 100 لعام 2021",
+      "פעילה פלסטינית משייח׳ ג׳ראח במזרח ירושלים; נבחרה עם אחיה התאום לרשימת TIME100 של 2021"
+    )],
+    ["al-kurd", tr(
+      "Palestinian writer and activist from Sheikh Jarrah in East Jerusalem; named to the 2021 TIME100 with his twin sister",
+      "كاتب وناشط فلسطيني من الشيخ جراح في القدس الشرقية؛ اختير مع شقيقته التوأم لقائمة تايم 100 لعام 2021",
+      "סופר ופעיל פלסטיני משייח׳ ג׳ראח במזרח ירושלים; נבחר עם אחותו התאומה לרשימת TIME100 של 2021"
+    )],
+    ["mansour", tr(
+      "Palestinian diplomat and Permanent Observer of Palestine to the United Nations since 2005; from Ramallah, not Gaza",
+      "دبلوماسي فلسطيني والمراقب الدائم لفلسطين لدى الأمم المتحدة منذ 2005؛ من رام الله وليس غزة",
+      "דיפלומט פלסטיני והמשקיף הקבוע של פלסטין באו״ם מאז 2005; מרמאללה, לא מעזה"
+    )],
+    ["al-shaer", tr(
+      "Palestinian academic and Hamas politician from the West Bank; PA deputy prime minister and education minister in 2006–2007",
+      "أكاديمي وسياسي فلسطيني في حماس من الضفة؛ نائب رئيس الوزراء ووزير التربية في السلطة عامي 2006–2007",
+      "אקדמאי ופוליטיקאי חמאס פלסטיני מהגדה; סגן ראש ממשלת הרשות ושר החינוך בשנים 2006–2007"
+    )],
+    ["yassin", tr(
+      "founder and spiritual leader of Hamas; lived in Gaza and was killed there in an Israeli airstrike in 2004",
+      "مؤسس حماس وزعيمها الروحي؛ عاش في غزة وقُتل فيها بضربة إسرائيلية عام 2004",
+      "מייסד חמאס ומנהיגו הרוחני; חי בעזה ונהרג שם בתקיפה ישראלית ב-2004"
+    )],
+    ["hamad", tr(
+      "member of Hamas's politburo and interior and national-security minister in Gaza's Hamas government from 2009 to 2014",
+      "عضو المكتب السياسي لحماس ووزير الداخلية والأمن في حكومتها بغزة بين 2009 و2014",
+      "חבר הלשכה המדינית של חמאס ושר הפנים והביטחון בממשלת חמאס בעזה בשנים 2009–2014"
+    )],
+    ["hamad", tr(
+      "member of Hamas's leadership in Gaza and former spokesman for the Hamas-led 2006 PA government",
+      "عضو قيادة حماس في غزة ومتحدث سابق باسم حكومة السلطة التي قادتها حماس عام 2006",
+      "חבר הנהגת חמאס בעזה ודובר לשעבר של ממשלת הרשות בהובלת חמאס ב-2006"
+    )],
+    ["hamdan", tr(
+      "senior Hamas official in Lebanon and frequent public spokesman for the organization",
+      "مسؤول بارز في حماس بلبنان ومتحدث علني متكرر باسم الحركة",
+      "בכיר חמאס בלבנון ודובר ציבורי תדיר של הארגון"
+    )],
+    ["marouf", tr(
+      "head of the government media office and deputy information minister in Gaza's Hamas-led administration",
+      "رئيس المكتب الإعلامي الحكومي ونائب وزير الإعلام في الإدارة التي تقودها حماس بغزة",
+      "ראש לשכת התקשורת הממשלתית וסגן שר ההסברה בממשל עזה בהובלת חמאס"
+    )],
+    ["al-attar", tr(
+      "commander of the Rafah Brigade and member of the Qassam Brigades military council; killed in an Israeli strike in August 2014",
+      "قائد لواء رفح وعضو المجلس العسكري لكتائب القسام؛ قُتل بضربة إسرائيلية في آب 2014",
+      "מפקד חטיבת רפיח וחבר המועצה הצבאית של גדודי קסאם; נהרג בתקיפה ישראלית באוגוסט 2014"
+    )],
+    ["shahada", tr(
+      "Hamas military leader; killed by a one-ton bomb in Gaza in July 2002, together with 13 civilians according to Human Rights Watch",
+      "قائد عسكري في حماس؛ قُتل بقنبلة زنة طن في غزة في تموز 2002 ومعه 13 مدنياً وفق هيومن رايتس ووتش",
+      "מנהיג צבאי בחמאס; נהרג מפצצה במשקל טון בעזה ביולי 2002, יחד עם 13 אזרחים לפי Human Rights Watch"
+    )],
+    ["aqel", tr(
+      "former Qassam Brigades commander, listed by ECFR's Palestinian-politics map as one of its leading figures",
+      "قائد سابق في كتائب القسام يدرجه دليل السياسة الفلسطينية للمجلس الأوروبي للعلاقات الخارجية ضمن قياداتها",
+      "מפקד לשעבר בגדודי קסאם, המופיע במפת הפוליטיקה הפלסטינית של ECFR כאחד מבכיריהם"
+    )],
+    ["zaqqut", tr(
+      "artist, graphic designer and teacher from Gaza whose paintings addressed Palestinian identity and urban architecture",
+      "فنانة ومصممة غرافيك ومعلمة من غزة تناولت لوحاتها الهوية الفلسطينية والعمارة الحضرية",
+      "אמנית, מעצבת גרפית ומורה מעזה שציוריה עסקו בזהות פלסטינית ובאדריכלות עירונית"
+    )],
+    ["ghaben", tr(
+      "prominent Palestinian painter and art educator from Gaza whose work addressed culture, displacement and return",
+      "رسام ومربٍ فني فلسطيني بارز من غزة تناولت أعماله الثقافة والتهجير والعودة",
+      "צייר ומחנך לאמנות פלסטיני בולט מעזה, שעבודתו עסקה בתרבות, עקירה ושיבה"
+    )],
+    ["al-madhoun", museumArtist],
+    ["al-shaer", museumArtist],
+    ["hassouna", museumArtist],
+    ["awad", museumArtist],
+    ["al-farra", museumArtist],
+    ["matar", museumArtist],
+    ["matar", museumArtist],
+    ["nassar", museumArtist],
+    ["abu ouda", museumArtist],
+    ["radwan", museumArtist],
+    ["salem", museumArtist],
+    ["salah", museumArtist],
+    ["juha", museumArtist],
+    ["deeb", museumArtist],
+    ["abu nasr", museumArtist]
+  ].forEach(([family, translation]) => {
+    if (!window.FAMNOTES_I18N[family]) window.FAMNOTES_I18N[family] = {};
+    if (!window.FAMNOTES_I18N[family].notable) window.FAMNOTES_I18N[family].notable = [];
+    window.FAMNOTES_I18N[family].notable.push(translation);
+  });
+})();
+
 /* Kurz-Herkuenfte (FAM_ORIGINS) — kompakt uebersetzt */
 window.FAM_ORIGINS_I18N = {
 "ahmed": { en: "Patronymic of Ahmad (“the praised”).", ar: "نسبة إلى الاسم أحمد.", he: "פטרונים של אחמד («המהולל»)." },

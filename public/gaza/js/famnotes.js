@@ -465,6 +465,101 @@ Object.assign(window.FAM_NOTES, {
   });
 })();
 
+// --- Rueckwaertssuche: oeffentliche Personen zu den 100 groessten Familien ---
+// Pilotlauf vom 20.8.2026. Ein gleicher Nachname ist kein Verwandtschaftsnachweis;
+// deshalb wird das bei jedem Treffer ausdruecklich gesagt. Private Profile und
+// Treffer ohne belastbare institutionelle oder journalistische Quelle sind verworfen.
+(() => {
+  const noKin = "; gleicher bzw. entsprechend transliterierter Familienname, eine Verwandtschaft mit den erfassten Gaza-Familien ist nicht belegt";
+  const museum = "https://www.palmuseum.org/en/exhibitions-and-events/exhibitions/not-exhibition";
+  const ecfr = "https://ecfr.eu/special/mapping_palestinian_politics/";
+  [
+    ["salem", { name: "Mohammed Salem", info: "palästinensischer Reuters-Fotograf; gewann mit einer in Khan Younis aufgenommenen Fotografie den World Press Photo of the Year 2024" + noKin,
+      url: "https://www.worldpressphoto.org/news/2024/global-winners-announced" }],
+    ["abu taha", { name: "Mosab Abu Toha", info: "palästinensischer Dichter, Essayist und Gründer der Edward Said Library; stammt aus Gaza" + noKin,
+      url: "https://www.poetryfoundation.org/people/mosab-toha" }],
+    ["al-khatib", { name: "Ghassan Khatib", info: "palästinensischer Politikwissenschaftler, ehemaliger Arbeits- und Planungsminister sowie früherer Leiter des PA-Regierungsmedienzentrums" + noKin,
+      url: "https://www.birzeit.edu/en/biography/ghassan-khatib" }],
+    ["ouda", { name: "Bisan Owda", info: "Journalistin, Aktivistin und Filmemacherin aus Gaza; erhielt für „It's Bisan from Gaza and I'm Still Alive“ einen Peabody Award" + noKin,
+      url: "https://peabodyawards.com/award-profile/its-bisan-from-gaza/" }],
+    ["al-aqqad", { name: "Plestia Alaqad", info: "palästinensische Journalistin und Autorin aus Gaza; international bekannt durch ihre Berichte über den Krieg und Autorin von „The Eyes of Gaza“" + noKin,
+      url: "https://www.hachettebookgroup.com/contributor/plestia-alaqad/" }],
+    ["abu mustafa", { name: "Ibraheem Abu Mustafa", info: "Reuters-Fotograf aus Gaza, der seit vielen Jahren Proteste, Kriege und den Alltag im Gazastreifen dokumentiert" + noKin,
+      url: "https://www.yahoo.com/news/gaza-photographer-place-death-202444243.html" }],
+    ["abed", { name: "Mohammed Abed", info: "in Gaza ausgebildeter palästinensischer Fotojournalist; arbeitete für Reuters und seit 2003 für AFP" + noKin,
+      url: "https://www.worldpressphoto.org/mohammed-abed" }],
+    ["al-madhoun", { name: "Hani Almadhoun (Gaza Soup Kitchen)", info: "Mitgründer der Gaza Soup Kitchen und Mitarbeiter von UNRWA USA; nicht mit einem gleichnamigen Eintrag der Presse-Opferliste gleichzusetzen" + noKin,
+      url: "https://www.palestine-studies.org/en/node/1656555" }],
+    ["al-madhoun", { name: "Mahmoud Almadhoun", info: "Mitgründer und örtlicher Organisator der Gaza Soup Kitchen; im November 2024 bei einem israelischen Angriff getötet" + noKin,
+      url: "https://www.eater.com/24318675/gaza-soup-kitchen-mahmoud-almadhoun-death-community-future" }],
+    ["darwish", { name: "Mahmoud Darwish (1941–2008)", info: "international bekannter palästinensischer Dichter und Autor von mehr als 30 Gedichtbänden; stammte aus al-Birwa in Galiläa, nicht aus Gaza" + noKin,
+      url: "https://www.poetryfoundation.org/poets/mahmoud-darwish" }],
+    ["al-kurd", { name: "Muna El-Kurd", info: "palästinensische Aktivistin aus Sheikh Jarrah in Ost-Jerusalem; 2021 gemeinsam mit ihrem Zwillingsbruder in die TIME100 aufgenommen" + noKin,
+      url: "https://time.com/collection_hub_item/muna-mohammed-el-kurd/" }],
+    ["al-kurd", { name: "Mohammed El-Kurd", info: "palästinensischer Schriftsteller und Aktivist aus Sheikh Jarrah in Ost-Jerusalem; 2021 gemeinsam mit seiner Zwillingsschwester in die TIME100 aufgenommen" + noKin,
+      url: "https://time.com/collection_hub_item/muna-mohammed-el-kurd/" }],
+    ["mansour", { name: "Riyad Mansour", info: "palästinensischer Diplomat und seit 2005 Ständiger Beobachter Palästinas bei den Vereinten Nationen; stammt aus Ramallah, nicht aus Gaza" + noKin,
+      url: "https://www.un.org/pga/80/2026/02/09/letter-from-the-president-of-the-general-assembly-on-the-pga81-candidate-submission-of-vision-statement-and-biography/" }],
+    ["al-shaer", { badge: "official", name: "Nasser al-Din al-Shaer", info: "palästinensischer Akademiker und Hamas-Politiker aus dem Westjordanland; 2006–2007 stellvertretender Ministerpräsident und Bildungsminister der PA" + noKin,
+      url: "https://www.aljazeera.net/encyclopedia/2023/12/1/%D8%A7%D9%84%D8%A3%D8%B3%D9%8A%D8%B1-%D9%86%D8%A7%D8%B5%D8%B1-%D8%A7%D9%84%D8%B4%D8%A7%D8%B9%D8%B1-%D8%A3%D8%A8%D9%88-%D8%A7%D9%84%D9%82%D8%A7%D8%B3%D9%85-%D8%A7%D9%84%D8%AF%D8%A7%D8%B9%D9%8A" }],
+    ["yassin", { badge: "official", name: "Scheich Ahmed Yassin", info: "Gründer und geistlicher Führer der Hamas; lebte in Gaza und wurde dort 2004 bei einem israelischen Luftangriff getötet" + noKin,
+      url: "https://www.cfr.org/backgrounders/what-hamas" }],
+    ["hamad", { badge: "official", name: "Fathi Hamad", info: "Mitglied des Hamas-Politbüros und von 2009 bis 2014 Innen- und Sicherheitsminister der Hamas-Regierung in Gaza" + noKin,
+      url: "https://ecfr.eu/special/mapping_palestinian_politics/fathi_hamad/" }],
+    ["hamad", { badge: "official", name: "Ghazi Hamad", info: "Mitglied der Hamas-Führung in Gaza und früherer Sprecher der 2006 von Hamas geführten PA-Regierung" + noKin,
+      url: "https://ecfr.eu/special/mapping_palestinian_politics/ghazi-hamad/" }],
+    ["hamdan", { badge: "official", name: "Osama Hamdan", info: "ranghoher Hamas-Funktionär im Libanon und häufig öffentlich auftretender Sprecher der Organisation" + noKin,
+      url: "https://apnews.com/article/625d22d49f84f2442d8d9de285a183d1" }],
+    ["marouf", { badge: "official", name: "Salama Maarouf", info: "Leiter des Regierungsmedienbüros und stellvertretender Informationsminister der Hamas-geführten Verwaltung in Gaza" + noKin,
+      url: "https://ecfr.eu/special/mapping_palestinian_politics/government-follow-up-committee-gaza/" }],
+    ["al-attar", { badge: "fighter", name: "Raed al-Attar", info: "Kommandeur der Rafah-Brigade und Mitglied des Militärrats der Qassam-Brigaden; im August 2014 bei einem israelischen Angriff getötet" + noKin,
+      url: "https://www.theguardian.com/world/2014/aug/21/israel-kills-three-hamas-commanders-air-strike" }],
+    ["shahada", { badge: "fighter", name: "Salah al-Shahada (auch Shehadeh)", info: "militärischer Hamas-Führer; im Juli 2002 durch eine Ein-Tonnen-Bombe in Gaza getötet, wobei laut Human Rights Watch auch 13 Zivilisten starben" + noKin,
+      url: "https://www.hrw.org/news/2002/07/22/israeli-airstrike-crowded-civilian-area-condemned" }],
+    ["aqel", { badge: "fighter", name: "Imad Aqel", info: "früher Kommandeur der Qassam-Brigaden und in der ECFR-Übersicht der palästinensischen Politik als deren Führungsperson geführt" + noKin,
+      url: ecfr }],
+
+    ["zaqqut", { name: "Heba Zaqout (1984–2023)", info: "Künstlerin, Grafikdesignerin und Lehrerin aus Gaza; ihre Bilder thematisierten palästinensische Identität und städtische Architektur" + noKin,
+      url: "https://mpp-dc.org/gaza-remains-the-story/" }],
+    ["ghaben", { name: "Fathi Ghaben (1947–2024)", info: "bedeutender palästinensischer Maler und Kunstpädagoge aus Gaza; seine Werke behandelten Kultur, Vertreibung und Rückkehr" + noKin,
+      url: "https://mpp-dc.org/gaza-remains-the-story/" }],
+    ["al-madhoun", { name: "Mohammed Almadhoun (Künstler)", info: "vom Palestinian Museum als beteiligter Künstler der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["al-shaer", { name: "Mai Alshaer", info: "vom Palestinian Museum als beteiligte Künstlerin der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["hassouna", { name: "Moeen Hassouna", info: "vom Palestinian Museum als beteiligter Künstler der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["awad", { name: "Salem Awad", info: "vom Palestinian Museum als beteiligter Künstler der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["al-farra", { name: "Mohamad Elfarra", info: "vom Palestinian Museum als beteiligter Künstler der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["matar", { name: "Dina Mattar", info: "vom Palestinian Museum als beteiligte Künstlerin der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["matar", { name: "Malak Mattar", info: "vom Palestinian Museum als beteiligte Künstlerin der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["nassar", { name: "Marwan Nassar", info: "vom Palestinian Museum als beteiligter Künstler der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["abu ouda", { name: "Fatma Abu Owda", info: "vom Palestinian Museum als beteiligte Künstlerin der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["radwan", { name: "Shafik Radwan", info: "vom Palestinian Museum als beteiligter Künstler der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["salem", { name: "Sohail Salem", info: "vom Palestinian Museum als beteiligter Künstler der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["salah", { name: "Mariam Salah", info: "vom Palestinian Museum als beteiligte Künstlerin der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["juha", { name: "Mohammed Joha", info: "vom Palestinian Museum als beteiligter Künstler der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["deeb", { name: "Tamer Al-Deeb", info: "vom Palestinian Museum als beteiligter Künstler der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }],
+    ["abu nasr", { name: "Mohammad Abu Nasser", info: "vom Palestinian Museum als beteiligter Künstler der Gaza-Ausstellung „This Is Not an Exhibition“ geführt" + noKin,
+      url: museum }]
+  ].forEach(([family, person]) => {
+    if (!window.FAM_NOTES[family]) window.FAM_NOTES[family] = {};
+    if (!window.FAM_NOTES[family].notable) window.FAM_NOTES[family].notable = [];
+    window.FAM_NOTES[family].notable.push(person);
+  });
+})();
+
 // --- Namens-Herkuenfte der Top-100-Familien (arabische Onomastik; unsichere ausgelassen) ---
 // Drei Klassen: Beruf/Titel · Ort/Ethnie · Vor-/Ahnenname (Patronym). Kuratierte Eintraege oben haben Vorrang.
 window.FAM_ORIGINS = {
