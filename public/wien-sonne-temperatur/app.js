@@ -11,7 +11,8 @@
   if (
     !window.d3 ||
     !Array.isArray(window.VIENNA_CLIMATE_ROWS) ||
-    !Array.isArray(window.VIENNA_ANNUAL_TEMPERATURE_SUMS)
+    !Array.isArray(window.VIENNA_ANNUAL_TEMPERATURE_SUMS) ||
+    !Array.isArray(window.VIENNA_CO2_ROWS)
   ) {
     if (errorMessage) errorMessage.hidden = false;
     return;
@@ -19,8 +20,12 @@
 
   const d3 = window.d3;
   const temperatureSumByYear = new Map(window.VIENNA_ANNUAL_TEMPERATURE_SUMS);
+  const co2ByYear = new Map(
+    window.VIENNA_CO2_ROWS.map((row) => [row[0], { ppm: row[1], uncertainty: row[2] }])
+  );
   const data = window.VIENNA_CLIMATE_ROWS.map((row) => {
     const temperatureSum = temperatureSumByYear.get(row[0]);
+    const co2 = co2ByYear.get(row[0]);
     return {
       year: row[0],
       days: row[1],
@@ -31,9 +36,34 @@
       temperatureSunshineRatio: row[3] ? temperatureSum / row[4] : null,
       temperature: row[5],
       maxDate: row[6],
+      co2: co2 ? co2.ppm : null,
+      co2Uncertainty: co2 ? co2.uncertainty : null,
     };
   });
   const complete = data.filter((item) => item.complete);
+  const co2Data = complete.filter((item) => item.co2 !== null);
+  const co2Stats = (() => {
+    const meanCo2 = d3.mean(co2Data, (item) => item.co2);
+    const meanRatio = d3.mean(co2Data, (item) => item.temperatureSunshineRatio);
+    let covariance = 0;
+    let co2Variance = 0;
+    let ratioVariance = 0;
+
+    co2Data.forEach((item) => {
+      const co2Delta = item.co2 - meanCo2;
+      const ratioDelta = item.temperatureSunshineRatio - meanRatio;
+      covariance += co2Delta * ratioDelta;
+      co2Variance += co2Delta * co2Delta;
+      ratioVariance += ratioDelta * ratioDelta;
+    });
+
+    const slope = covariance / co2Variance;
+    return {
+      correlation: covariance / Math.sqrt(co2Variance * ratioVariance),
+      slope,
+      intercept: meanRatio - slope * meanCo2,
+    };
+  })();
   const trend = complete.slice(9).map((item, index) => {
     const windowData = complete.slice(index, index + 10);
     return {
@@ -45,6 +75,8 @@
 
   const activeModes = new Set(["raw", "mean"]);
   const runtimes = new Map();
+  let co2TimelineRuntime = null;
+  let correlationRuntime = null;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const integerFormat = new Intl.NumberFormat("de-AT", { maximumFractionDigits: 0 });
   const decimalFormat = new Intl.NumberFormat("de-AT", {
@@ -52,6 +84,10 @@
     maximumFractionDigits: 1,
   });
   const ratioFormat = new Intl.NumberFormat("de-AT", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  const ppmFormat = new Intl.NumberFormat("de-AT", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
@@ -74,6 +110,15 @@
     sunshine: document.getElementById("reader-sunshine"),
     status: document.getElementById("reader-status"),
   };
+  const co2Reader = {
+    year: document.getElementById("co2-reader-year"),
+    value: document.getElementById("co2-reader-value"),
+    ratio: document.getElementById("co2-reader-ratio"),
+  };
+  const correlationValue = document.getElementById("co2-correlation-value");
+  if (correlationValue) {
+    correlationValue.textContent = `r = ${ratioFormat.format(co2Stats.correlation)}`;
+  }
 
   const configs = {
     temperature: {
@@ -119,6 +164,47 @@
     reader.status.textContent = "vollständiges Kalenderjahr";
   }
 
+  function updateCo2Selection(item) {
+    if (co2Reader.year) co2Reader.year.textContent = item.year;
+    if (co2Reader.value) {
+      co2Reader.value.textContent = item.co2 === null ? "keine direkte Messung" : `${ppmFormat.format(item.co2)} ppm`;
+    }
+    if (co2Reader.ratio) {
+      co2Reader.ratio.textContent = item.complete
+        ? ratioFormat.format(item.temperatureSunshineRatio)
+        : "keine Angabe";
+    }
+
+    if (co2TimelineRuntime) {
+      if (item.co2 === null) {
+        co2TimelineRuntime.guide.attr("display", "none");
+        co2TimelineRuntime.marker.attr("display", "none");
+      } else {
+        const xPosition = co2TimelineRuntime.x(item.year);
+        co2TimelineRuntime.guide
+          .attr("display", null)
+          .attr("x1", xPosition)
+          .attr("x2", xPosition);
+        co2TimelineRuntime.marker
+          .attr("display", null)
+          .attr("cx", xPosition)
+          .attr("cy", co2TimelineRuntime.y(item.co2));
+      }
+    }
+
+    if (correlationRuntime) {
+      correlationRuntime.points.classed("is-selected", (point) => point.year === item.year);
+      if (item.co2 === null || !item.complete) {
+        correlationRuntime.marker.attr("display", "none");
+      } else {
+        correlationRuntime.marker
+          .attr("display", null)
+          .attr("cx", correlationRuntime.x(item.co2))
+          .attr("cy", correlationRuntime.y(item.temperatureSunshineRatio));
+      }
+    }
+  }
+
   function updateSelection(item, source = "combined") {
     selectedYear = item.year;
     updateReader(item, source);
@@ -154,6 +240,7 @@
         }
       }
     });
+    updateCo2Selection(item);
   }
 
   function paddedDomain(field) {
@@ -612,10 +699,275 @@
       });
   }
 
+  function drawCo2Timeline(panel) {
+    const svg = d3.select(panel.querySelector("svg"));
+    const node = svg.node();
+    const width = Math.max(300, Math.round(node.getBoundingClientRect().width));
+    const compact = width < 620;
+    const height = compact ? 260 : 300;
+    const margin = {
+      top: 26,
+      right: compact ? 14 : 24,
+      bottom: 42,
+      left: compact ? 46 : 58,
+    };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const co2Extent = d3.extent(co2Data, (item) => item.co2);
+    const co2Span = co2Extent[1] - co2Extent[0] || 1;
+    const x = d3
+      .scaleLinear()
+      .domain(d3.extent(co2Data, (item) => item.year))
+      .range([margin.left, width - margin.right]);
+    const y = d3
+      .scaleLinear()
+      .domain([co2Extent[0] - co2Span * 0.06, co2Extent[1] + co2Span * 0.07])
+      .nice()
+      .range([height - margin.bottom, margin.top]);
+    const xTickValues = compact
+      ? [1959, 1980, 2000, 2025]
+      : [1959, 1970, 1980, 1990, 2000, 2010, 2025];
+
+    svg.selectAll("*").remove();
+    svg.attr("viewBox", `0 0 ${width} ${height}`);
+
+    svg
+      .append("g")
+      .attr("class", "grid")
+      .attr("transform", `translate(${margin.left},0)`)
+      .call(d3.axisLeft(y).ticks(5).tickSize(-innerWidth).tickFormat(""));
+
+    svg
+      .append("path")
+      .datum(co2Data)
+      .attr("class", "co2-area")
+      .attr(
+        "d",
+        d3
+          .area()
+          .x((item) => x(item.year))
+          .y0(height - margin.bottom)
+          .y1((item) => y(item.co2))
+      );
+
+    const path = svg
+      .append("path")
+      .datum(co2Data)
+      .attr("class", "co2-path")
+      .attr(
+        "d",
+        d3
+          .line()
+          .x((item) => x(item.year))
+          .y((item) => y(item.co2))
+      );
+    animatePath(path);
+
+    svg
+      .append("g")
+      .attr("class", "axis")
+      .attr("transform", `translate(0,${height - margin.bottom})`)
+      .call(d3.axisBottom(x).tickValues(xTickValues).tickFormat(d3.format("d")).tickSize(0).tickPadding(12));
+
+    svg
+      .append("g")
+      .attr("class", "axis")
+      .attr("transform", `translate(${margin.left},0)`)
+      .call(
+        d3
+          .axisLeft(y)
+          .ticks(5)
+          .tickSize(0)
+          .tickPadding(9)
+          .tickFormat((value) => integerFormat.format(value))
+      );
+
+    svg
+      .append("text")
+      .attr("class", "axis-title")
+      .attr("fill", "#78a98f")
+      .attr("x", margin.left)
+      .attr("y", 11)
+      .attr("text-anchor", "start")
+      .text("CO₂ / ppm");
+
+    const guide = svg
+      .append("line")
+      .attr("class", "co2-guide")
+      .attr("y1", margin.top)
+      .attr("y2", height - margin.bottom)
+      .attr("display", "none");
+    const marker = svg
+      .append("circle")
+      .attr("class", "co2-marker")
+      .attr("r", 4.5)
+      .attr("display", "none");
+
+    co2TimelineRuntime = { x, y, guide, marker };
+    const bisector = d3.bisector((item) => item.year).center;
+    svg
+      .append("rect")
+      .attr("x", margin.left)
+      .attr("y", margin.top)
+      .attr("width", innerWidth)
+      .attr("height", innerHeight)
+      .attr("fill", "transparent")
+      .style("cursor", "crosshair")
+      .on("pointermove pointerdown", function (event) {
+        const [pointerX] = d3.pointer(event, node);
+        const item = co2Data[bisector(co2Data, x.invert(pointerX))];
+        updateSelection(item, "combined");
+      });
+  }
+
+  function drawCo2Correlation(panel) {
+    const svg = d3.select(panel.querySelector("svg"));
+    const node = svg.node();
+    const width = Math.max(300, Math.round(node.getBoundingClientRect().width));
+    const compact = width < 620;
+    const height = compact ? 330 : 380;
+    const margin = {
+      top: 32,
+      right: compact ? 14 : 26,
+      bottom: 52,
+      left: compact ? 50 : 62,
+    };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const co2Extent = d3.extent(co2Data, (item) => item.co2);
+    const ratioExtent = d3.extent(co2Data, (item) => item.temperatureSunshineRatio);
+    const co2Span = co2Extent[1] - co2Extent[0] || 1;
+    const ratioSpan = ratioExtent[1] - ratioExtent[0] || 1;
+    const x = d3
+      .scaleLinear()
+      .domain([co2Extent[0] - co2Span * 0.05, co2Extent[1] + co2Span * 0.05])
+      .nice()
+      .range([margin.left, width - margin.right]);
+    const y = d3
+      .scaleLinear()
+      .domain([ratioExtent[0] - ratioSpan * 0.09, ratioExtent[1] + ratioSpan * 0.1])
+      .nice()
+      .range([height - margin.bottom, margin.top]);
+
+    svg.selectAll("*").remove();
+    svg.attr("viewBox", `0 0 ${width} ${height}`);
+
+    svg
+      .append("g")
+      .attr("class", "grid")
+      .attr("transform", `translate(${margin.left},0)`)
+      .call(d3.axisLeft(y).ticks(5).tickSize(-innerWidth).tickFormat(""));
+
+    const points = svg
+      .append("g")
+      .selectAll("circle.co2-scatter-point")
+      .data(co2Data)
+      .join("circle")
+      .attr("class", "co2-scatter-point")
+      .attr("cx", (item) => x(item.co2))
+      .attr("cy", (item) => y(item.temperatureSunshineRatio))
+      .attr("r", compact ? 2.5 : 3);
+
+    const regressionStart = co2Extent[0];
+    const regressionEnd = co2Extent[1];
+    svg
+      .append("line")
+      .attr("class", "co2-regression-line")
+      .attr("x1", x(regressionStart))
+      .attr("y1", y(co2Stats.intercept + co2Stats.slope * regressionStart))
+      .attr("x2", x(regressionEnd))
+      .attr("y2", y(co2Stats.intercept + co2Stats.slope * regressionEnd));
+
+    svg
+      .append("g")
+      .attr("class", "axis")
+      .attr("transform", `translate(0,${height - margin.bottom})`)
+      .call(
+        d3
+          .axisBottom(x)
+          .ticks(compact ? 4 : 6)
+          .tickSize(0)
+          .tickPadding(12)
+          .tickFormat((value) => integerFormat.format(value))
+      );
+
+    svg
+      .append("g")
+      .attr("class", "axis")
+      .attr("transform", `translate(${margin.left},0)`)
+      .call(
+        d3
+          .axisLeft(y)
+          .ticks(5)
+          .tickSize(0)
+          .tickPadding(9)
+          .tickFormat((value) => ratioFormat.format(value))
+      );
+
+    svg
+      .append("text")
+      .attr("class", "axis-title")
+      .attr("fill", "#bdc5cf")
+      .attr("x", margin.left)
+      .attr("y", 12)
+      .attr("text-anchor", "start")
+      .text("Quotient / °C-Tage je h");
+
+    svg
+      .append("text")
+      .attr("class", "axis-title")
+      .attr("fill", "#78a98f")
+      .attr("x", width - margin.right)
+      .attr("y", height - 7)
+      .attr("text-anchor", "end")
+      .text("CO₂ / ppm");
+
+    svg
+      .append("text")
+      .attr("class", "co2-correlation-stat")
+      .attr("fill", "#f06d4f")
+      .attr("x", width - margin.right)
+      .attr("y", 12)
+      .attr("text-anchor", "end")
+      .text(`r = ${ratioFormat.format(co2Stats.correlation)}`);
+
+    const marker = svg
+      .append("circle")
+      .attr("class", "co2-correlation-marker")
+      .attr("r", 5)
+      .attr("display", "none");
+
+    correlationRuntime = { x, y, points, marker };
+    const delaunay = d3.Delaunay.from(
+      co2Data,
+      (item) => x(item.co2),
+      (item) => y(item.temperatureSunshineRatio)
+    );
+    svg
+      .append("rect")
+      .attr("x", margin.left)
+      .attr("y", margin.top)
+      .attr("width", innerWidth)
+      .attr("height", innerHeight)
+      .attr("fill", "transparent")
+      .style("cursor", "crosshair")
+      .on("pointermove pointerdown", function (event) {
+        const [pointerX, pointerY] = d3.pointer(event, node);
+        const item = co2Data[delaunay.find(pointerX, pointerY)];
+        updateSelection(item, "combined");
+      });
+  }
+
   function renderAll() {
     runtimes.clear();
+    co2TimelineRuntime = null;
+    correlationRuntime = null;
     const combinedPanel = document.querySelector(".annual-combined-panel");
     if (combinedPanel) drawCombinedPanel(combinedPanel);
+    const co2TimelinePanel = document.querySelector(".co2-timeline-panel");
+    if (co2TimelinePanel) drawCo2Timeline(co2TimelinePanel);
+    const co2CorrelationPanel = document.querySelector(".co2-correlation-panel");
+    if (co2CorrelationPanel) drawCo2Correlation(co2CorrelationPanel);
     document.querySelectorAll(".chart-panel").forEach(drawPanel);
     updateSelection(getYear(selectedYear), "combined");
     hasAnimated = true;
@@ -644,6 +996,6 @@
     resizeFrame = requestAnimationFrame(renderAll);
   });
   document
-    .querySelectorAll(".annual-combined-panel, .chart-panel")
+    .querySelectorAll(".annual-combined-panel, .co2-panel, .chart-panel")
     .forEach((panel) => resizeObserver.observe(panel));
 })();

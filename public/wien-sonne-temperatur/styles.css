@@ -11,6 +11,7 @@
   --temperature: #f06d4f;
   --sunshine: #d4a853;
   --ratio: #bdc5cf;
+  --co2: #78a98f;
   --radius: 3px;
   --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
   --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -475,6 +476,232 @@ main,
 }
 
 .annual-combined-note strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.co2-panel {
+  margin-top: 10px;
+  padding: 26px 28px 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.co2-panel-heading {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.co2-panel-heading h3,
+.co2-panel-heading p {
+  margin: 0;
+}
+
+.co2-panel-heading h3 {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.co2-panel-heading p {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.co2-panel-heading > span {
+  flex: 0 0 auto;
+  color: var(--faint);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.co2-reader {
+  display: grid;
+  grid-template-columns: 0.65fr 1fr 1.35fr;
+  margin-bottom: 12px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.co2-reader > div {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 92px;
+  padding: 15px 18px;
+  border-left: 1px solid var(--line);
+}
+
+.co2-reader > div:first-child {
+  border-left: 0;
+}
+
+.co2-reader span,
+.co2-reader small {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.co2-reader strong {
+  align-self: center;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.6vw, 34px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+#co2-reader-value {
+  color: var(--co2);
+}
+
+#co2-reader-ratio {
+  color: var(--ratio);
+}
+
+.co2-reader small {
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
+.co2-correlation-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.co2-correlation-legend span {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.co2-correlation-legend i {
+  display: inline-block;
+  width: 22px;
+}
+
+.co2-dot {
+  width: 7px !important;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--co2);
+}
+
+.co2-trend-key {
+  border-top: 2px solid var(--temperature);
+}
+
+.co2-panel svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  touch-action: pan-y;
+}
+
+.co2-timeline-panel svg {
+  min-height: 300px;
+}
+
+.co2-correlation-panel svg {
+  min-height: 380px;
+}
+
+.co2-panel svg text {
+  font-family: var(--sans);
+}
+
+.co2-panel .grid line {
+  stroke: var(--line-soft);
+  shape-rendering: crispEdges;
+}
+
+.co2-panel .grid path,
+.co2-panel .axis path {
+  display: none;
+}
+
+.co2-panel .axis line {
+  stroke: transparent;
+}
+
+.co2-panel .axis text {
+  fill: var(--faint);
+  font-size: 10px;
+}
+
+.co2-area {
+  fill: var(--co2);
+  opacity: 0.07;
+}
+
+.co2-path {
+  fill: none;
+  stroke: var(--co2);
+  stroke-width: 2.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.co2-guide {
+  stroke: rgba(244, 240, 232, 0.55);
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.co2-marker,
+.co2-correlation-marker {
+  fill: var(--surface);
+  stroke: var(--co2);
+  stroke-width: 2;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.co2-scatter-point {
+  fill: var(--co2);
+  opacity: 0.44;
+  transition: opacity 120ms ease;
+}
+
+.co2-scatter-point.is-selected {
+  opacity: 1;
+}
+
+.co2-regression-line {
+  stroke: var(--temperature);
+  stroke-width: 1.7;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.co2-panel .axis-title,
+.co2-correlation-stat {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.co2-note {
+  max-width: 780px;
+  margin: 8px 0 0;
+  color: var(--faint);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.co2-note strong {
   color: var(--ink);
   font-weight: 600;
 }
@@ -1038,6 +1265,11 @@ main,
   line-height: 1.7;
 }
 
+.method-grid p:last-child {
+  grid-column: 1 / -1;
+  max-width: 820px;
+}
+
 .source-line {
   display: flex;
   gap: 24px;
@@ -1054,6 +1286,12 @@ main,
   flex: 0 0 auto;
   color: var(--accent);
   text-underline-offset: 4px;
+}
+
+.source-links {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 18px;
 }
 
 .page-footer {
@@ -1130,6 +1368,12 @@ body:not(.is-ready) .visual {
   .annual-combined-legend {
     flex-wrap: wrap;
     justify-content: flex-start;
+  }
+
+  .co2-panel-heading {
+    gap: 14px;
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .finding {
@@ -1275,6 +1519,46 @@ body:not(.is-ready) .visual {
     padding-inline: 6px;
   }
 
+  .co2-panel {
+    padding: 20px 8px 10px;
+  }
+
+  .co2-panel-heading,
+  .co2-note {
+    padding-inline: 6px;
+  }
+
+  .co2-reader {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .co2-reader > div {
+    min-height: 96px;
+    padding: 15px 12px;
+  }
+
+  .co2-reader > div:first-child {
+    grid-column: 1 / -1;
+    min-height: 74px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .co2-reader > div:nth-child(2) {
+    border-left: 0;
+  }
+
+  .co2-reader strong {
+    font-size: 23px;
+  }
+
+  .co2-timeline-panel svg {
+    min-height: 260px;
+  }
+
+  .co2-correlation-panel svg {
+    min-height: 330px;
+  }
+
   .chart-panel {
     padding: 20px 10px 10px;
   }
@@ -1401,9 +1685,17 @@ body:not(.is-ready) .visual {
     gap: 22px;
   }
 
+  .method-grid p:last-child {
+    grid-column: auto;
+  }
+
   .source-line {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .source-links {
+    flex-wrap: wrap;
   }
 
   .page-footer span {

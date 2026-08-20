@@ -15,6 +15,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
     <script defer src="/wien-sonne-temperatur/data.js"></script>
     <script defer src="/wien-sonne-temperatur/annual-index-data.js"></script>
+    <script defer src="/wien-sonne-temperatur/co2-data.js"></script>
     <script defer src="/wien-sonne-temperatur/app.js"></script>
     <script defer src="/wien-sonne-temperatur/recent-data.js"></script>
     <script defer src="/wien-sonne-temperatur/recent.js"></script>
@@ -116,6 +117,65 @@
           <p class="annual-combined-note">
             Die Temperatursumme addiert alle Tagesmaxima eines Jahres. Der Quotient in <strong>°C-Tage/h</strong> ist
             ein Vergleichsindex, keine physikalische Effizienzgröße.
+          </p>
+        </article>
+
+        <article class="co2-panel co2-timeline-panel">
+          <div class="co2-panel-heading">
+            <div>
+              <h3>Atmosphärisches CO₂</h3>
+              <p>Direkt gemessenes Jahresmittel am Mauna Loa Observatorium</p>
+            </div>
+            <span>1959 bis 2025</span>
+          </div>
+          <div class="co2-reader" aria-live="polite">
+            <div>
+              <span>Ausgewähltes Jahr</span>
+              <strong id="co2-reader-year">2025</strong>
+            </div>
+            <div>
+              <span>CO₂-Jahresmittel</span>
+              <strong id="co2-reader-value">427,35 ppm</strong>
+            </div>
+            <div>
+              <span>Temperatur-Sonne-Quotient</span>
+              <strong id="co2-reader-ratio">2,96</strong>
+              <small>°C-Tage/h</small>
+            </div>
+          </div>
+          <svg role="img" aria-labelledby="co2-timeline-title co2-timeline-desc">
+            <title id="co2-timeline-title">Jährliches CO₂-Mittel am Mauna Loa von 1959 bis 2025</title>
+            <desc id="co2-timeline-desc">
+              Instrumentell gemessene jährliche CO₂-Konzentration in trockener Luft, angegeben in ppm.
+            </desc>
+          </svg>
+          <p class="co2-note">
+            Die direkte Messreihe beginnt 1959. Frühere Werte aus Eisbohrkernen werden hier bewusst nicht mit
+            instrumentellen Messungen vermischt.
+          </p>
+        </article>
+
+        <article class="co2-panel co2-correlation-panel">
+          <div class="co2-panel-heading">
+            <div>
+              <h3>CO₂ und Quotient</h3>
+              <p>Jedes Jahr als Punkt, mit linearer Trendlinie</p>
+            </div>
+            <div class="co2-correlation-legend" aria-label="Dargestellte Elemente">
+              <span><i class="co2-dot" aria-hidden="true"></i>Jahreswert</span>
+              <span><i class="co2-trend-key" aria-hidden="true"></i>Trendlinie</span>
+            </div>
+          </div>
+          <svg role="img" aria-labelledby="co2-correlation-title co2-correlation-desc">
+            <title id="co2-correlation-title">Korrelation zwischen CO₂ und dem Temperatur-Sonne-Quotienten</title>
+            <desc id="co2-correlation-desc">
+              Streudiagramm der 67 gemeinsamen Jahre von 1959 bis 2025 mit CO₂ in ppm auf der horizontalen Achse und
+              dem Quotienten aus Temperatursumme und Sonnenstunden auf der vertikalen Achse.
+            </desc>
+          </svg>
+          <p class="co2-note">
+            Über die 67 gemeinsamen Jahre besteht praktisch kein linearer Zusammenhang:
+            <strong id="co2-correlation-value">r = -0,08</strong>. Korrelation bedeutet nicht Ursache.
           </p>
         </article>
 
@@ -278,14 +338,25 @@
             verwendet jeweils zehn vollständige Jahre. In der aktuellen Detailansicht wird die Sonne je Woche summiert
             und der höchste Tageswert als Wochenmaximum verwendet. Korrelation bedeutet Zusammenhang, nicht Ursache.
           </p>
+          <p>
+            Die CO₂-Ergänzung verwendet instrumentell gemessene Jahresmittel vom Mauna Loa Observatorium. Sie beginnt
+            1959; die Korrelation mit dem Temperatur-Sonne-Quotienten umfasst deshalb 67 gemeinsame Jahre bis 2025.
+          </p>
         </div>
         <div class="source-line">
-          <span>Quelle: GeoSphere Austria, Stationsdaten v2 in täglicher Auflösung, CC BY 4.0</span>
-          <a
-            href="https://dataset.api.hub.geosphere.at/app/frontend/station/historical/klima-v2-1d"
-            target="_blank"
-            rel="noreferrer"
-          >Datensatz öffnen</a>
+          <span>Quellen: GeoSphere Austria, Stationsdaten v2, CC BY 4.0; NOAA Global Monitoring Laboratory</span>
+          <div class="source-links">
+            <a
+              href="https://dataset.api.hub.geosphere.at/app/frontend/station/historical/klima-v2-1d"
+              target="_blank"
+              rel="noreferrer"
+            >GeoSphere öffnen</a>
+            <a
+              href="https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"
+              target="_blank"
+              rel="noreferrer"
+            >NOAA öffnen</a>
+          </div>
         </div>
       </section>
     </main>
