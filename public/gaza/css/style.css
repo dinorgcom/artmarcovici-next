@@ -137,6 +137,7 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 20px 90px; }
 .b-pr { color: #9085e9; } .b-o { color: var(--muted); } .b-v { color: var(--ink-2); }
 .b-me { color: #45b8c7; } .b-c { color: #c68ae8; } .b-a { color: #e0924f; }
 .b-d { color: #6fa6ee; } .b-h { color: #6fbd7a; }
+.b-ac { color: #9fb8ce; } .b-s { color: #efc04f; }
 
 .statrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 0 0 24px; }
 .stat { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 14px 16px; }

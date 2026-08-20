@@ -416,6 +416,7 @@
   // ---------- Familien & Suche ----------
   (async function families() {
     const FAMS = await get("families.json");
+    const FAM_INDEX = new Map(FAMS.map((family, index) => [family.k, index]));
     const info = document.getElementById("searchInfo"), results = document.getElementById("famResults"),
           detail = document.getElementById("famDetail"), input = document.getElementById("famSearch");
     let LIST = null, listLoading = false;
@@ -429,6 +430,7 @@
     }
     const cap = s => s.replace(/(^|[\s-])\p{L}/gu, c => c.toUpperCase());
     const esc = s => String(s).replace(/[<>&"]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
+    const searchNorm = s => String(s).normalize("NFKD").replace(/\p{M}/gu, "").toLowerCase();
 
     // --- Abzeichen -----------------------------------------------------------
     // Ein Abzeichen haengt an einer PERSON, nicht an der Familie: kuratierte
@@ -447,12 +449,17 @@
       activist: { sym: "⚑", cls: "b-a",  label: t("b.activist") },
       diplomat: { sym: "◇", cls: "b-d",  label: t("b.diplomat") },
       aid:      { sym: "♥", cls: "b-h",  label: t("b.aid") },
+      academic: { sym: "▦", cls: "b-ac", label: t("b.academic") },
+      sport:    { sym: "🏅", cls: "b-s",  label: t("b.sport") },
     };
     const BADGE_ORDER = ["fighter", "press", "medic", "prisoner", "official", "victims",
-      "media", "culture", "activist", "diplomat", "aid"];
+      "media", "culture", "activist", "diplomat", "aid", "academic", "sport"];
+    const PUBLIC_BADGES = new Set(["media", "culture", "activist", "diplomat", "aid", "academic", "sport"]);
 
     // Uebersetzte Detailtexte: Overlay ist index-parallel zu famnotes.notable
-    const noteInfo = p => (p._k && ((window.FAMNOTES_I18N || {})[p._k]?.notable?.[p._i] || {})[LANG]) || p.info;
+    const noteInfo = p => (p._k && ((window.FAMNOTES_I18N || {})[p._k]?.notable?.[p._i] || {})[LANG])
+      || (p.infoI18n || {})[LANG] || p.info;
+    const personName = person => (person.nameI18n || {})[LANG] || person.name;
     function famBadges(f) {
       const out = {}, FN = (window.FAM_NOTES || {})[f.k] || {};
       (FN.notable || []).forEach((p, _i) => {
@@ -469,10 +476,24 @@
     }
 
     const badgeHtml = f => famBadges(f).map(b => {
-      const B = BADGE[b.key], names = b.people.map(p => p.name).join(", ");
-      const cnt = b.key === "press" && f.p > 1 ? f.p : b.key === "medic" && f.hw > 1 ? f.hw : "";
+      const B = BADGE[b.key], names = b.people.map(personName).join(", ");
+      const cnt = b.key === "press" && f.p > 1 ? f.p
+        : b.key === "medic" && f.hw > 1 ? f.hw
+        : PUBLIC_BADGES.has(b.key) && b.people.length > 1 ? b.people.length : "";
       return `<span class="bdg ${B.cls}" title="${esc(B.label)}${names ? ": " + esc(names) : ""}">${B.sym}${cnt}</span>`;
     }).join("");
+
+    const personBadgeHtml = person => (Array.isArray(person.badge) ? person.badge : [person.badge])
+      .filter(key => BADGE[key]).map(key => {
+        const B = BADGE[key];
+        return `<span class="bdg ${B.cls}" title="${esc(B.label)}">${B.sym}</span>`;
+      }).join("");
+
+    const BIO_PEOPLE = Object.entries(window.FAM_NOTES || {}).flatMap(([family, note]) => {
+      const index = FAM_INDEX.get(family);
+      if (index == null) return [];
+      return (note.notable || []).filter(person => person.name).map(person => ({ family, index, person }));
+    });
 
     function badgeBlock(f) {
       const bs = famBadges(f);
@@ -480,7 +501,7 @@
       return `<div class="badgebox"><h4>${t("fam.badgebox")}</h4>` + bs.map(b => {
         const B = BADGE[b.key];
         const who = b.people.length ? b.people.map(p =>
-            (p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${esc(p.name)}</a>` : `<b>${esc(p.name)}</b>`)
+            (p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${esc(personName(p))}</a>` : `<b>${esc(personName(p))}</b>`)
             + (noteInfo(p) ? ` <span class="fine">— ${esc(noteInfo(p))}</span>` : "")).join("<br>")
           : `<span class="fine">${t("fam.badge.undoc")}</span>`;
         return `<div class="badgeline"><span class="bdg ${B.cls}">${B.sym}</span>
@@ -496,7 +517,11 @@
     // Menge = die 100 groessten Familien PLUS alle recherchierten (auch kleinere),
     // damit kein dokumentierter Einzelfall aus der Sortierung faellt.
     const TOPN = 100;
-    const curated = new Set(Object.keys(window.FAM_NOTES || {}));
+    // Generated biography matches stay searchable for every family but must not
+    // turn the compact top-family table into a 500-row directory.
+    const curated = new Set(Object.entries(window.FAM_NOTES || {})
+      .filter(([_key, note]) => note.origin || (note.notable || []).some(person => !person.generated))
+      .map(([key]) => key));
     const TOPSET = FAMS.map((f, i) => ({ f, i })).filter(({ f }, r) => r < TOPN || curated.has(f.k));
     const badgeWeight = f => {
       const bs = famBadges(f);
@@ -564,7 +589,7 @@
       notes += badgeBlock(f);
       const rest = ((FN || {}).notable || []).map((p, _i) => ({ ...p, _i, _k: f.k })).filter(p => !p.badge);
       if (rest.length) notes += `<div class="origin">` + rest.map(p =>
-        `<div><span class="lbl">${t("fam.also")}</span> <a href="${p.url}" target="_blank" rel="noopener">${esc(p.name)}</a>
+        `<div><span class="lbl">${t("fam.also")}</span> <a href="${p.url}" target="_blank" rel="noopener">${esc(personName(p))}</a>
           — ${noteInfo(p)}</div>`).join("") + `</div>`;
       detail.hidden = false;
       detail.innerHTML = `<h3>${t("fam.family", cap(f.k))}${badgeHtml(f)}</h3>
@@ -572,14 +597,21 @@
       detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
     function run() {
-      const q = input.value.trim().toLowerCase();
+      const raw = input.value.trim();
+      const q = searchNorm(raw);
       if (q.length < 2) { results.innerHTML = ""; return; }
-      const fams = FAMS.map((f, i) => [f, i]).filter(([f]) => f.k.includes(q)).slice(0, 10);
+      const fams = FAMS.map((f, i) => [f, i]).filter(([f]) => searchNorm(f.k).includes(q)).slice(0, 10);
       let html = fams.map(([f, i]) => famRow(f, i)).join("");
+      const bios = BIO_PEOPLE.filter(({ person }) =>
+        [person.name, ...Object.values(person.nameI18n || {})]
+          .some(name => searchNorm(name).includes(q))).slice(0, 40);
+      if (bios.length) html += `<h4 style="margin:12px 0 4px;color:var(--muted);font-size:13px">${t("fam.bio.head")}</h4>` +
+        bios.map(({ family, index, person }) => `<div class="famrow" data-i="${index}"><b>${esc(personName(person))}</b>${personBadgeHtml(person)}
+          <span class="meta">${t("fam.bio.family", cap(family))}</span></div>`).join("");
       if (LIST) {
         const people = [];
         for (let i = 0; i < LIST.length && people.length < 40; i++)
-          if (LIST[i][0].toLowerCase().includes(q) || LIST[i][1].includes(input.value.trim())) people.push(LIST[i]);
+          if (searchNorm(LIST[i][0]).includes(q) || LIST[i][1].includes(raw)) people.push(LIST[i]);
         if (people.length) html += `<h4 style="margin:12px 0 4px;color:var(--muted);font-size:13px">${t("fam.person.head")}</h4>` +
           people.map(r => `<div class="member"><span class="who">${r[0]}</span><span class="ar">${r[1]}</span>
             <span class="agesex">${r[2]} ${t("unit.yrs")} · ${r[3] === "f" ? "♀" : "♂"}</span></div>`).join("");

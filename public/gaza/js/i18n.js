@@ -72,6 +72,8 @@
     "b.activist": { de: "Zivilgesellschaft / Aktivismus", en: "civil society / activism", ar: "مجتمع مدني / نشاط", he: "חברה אזרחית / אקטיביזם" },
     "b.diplomat": { de: "Politik / Diplomatie", en: "politics / diplomacy", ar: "سياسة / دبلوماسية", he: "פוליטיקה / דיפלומטיה" },
     "b.aid":      { de: "humanitäre Hilfe", en: "humanitarian aid", ar: "مساعدات إنسانية", he: "סיוע הומניטרי" },
+    "b.academic": { de: "Wissenschaft / Bildung", en: "academia / education", ar: "بحث / تعليم", he: "מחקר / חינוך" },
+    "b.sport":    { de: "Sport", en: "sport", ar: "رياضة", he: "ספורט" },
     // Kombattanten-Szenarien
     "sc.none":      { de: "Ohne Abzug", en: "No deduction", ar: "بدون خصم", he: "ללא ניכוי" },
     "sc.none.s":    { de: "Liste, wie veröffentlicht", en: "list as published", ar: "القائمة كما نُشرت", he: "הרשימה כפי שפורסמה" },
