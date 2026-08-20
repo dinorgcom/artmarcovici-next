@@ -108,6 +108,43 @@ export default function Home() {
         </a>
       </section>
 
+      {/* Vienna climate — long-term weather data */}
+      <section className="max-w-7xl mx-auto px-4 pt-6">
+        <a
+          href="/wien-sonne-temperatur"
+          className="art-card group relative block overflow-hidden rounded-lg border border-accent/30 hover:border-accent transition-colors duration-300 bg-black"
+        >
+          <div className="absolute inset-0">
+            <Image
+              src="/images/vienna-weather-tornado.jpg"
+              alt="Wasserhose über dem Bodensee unter dunklen Gewitterwolken"
+              fill
+              className="object-cover object-[58%_48%] opacity-75 saturate-75 transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              unoptimized
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
+          </div>
+          <div className="relative px-8 py-12 md:px-14 md:py-16 max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4">
+              Interactive data project · Vienna 1880–2025
+            </p>
+            <h2 className="font-serif text-3xl md:text-5xl tracking-wide mb-4">
+              146 YEARS OF SUN &amp; TEMPERATURE
+            </h2>
+            <p className="text-gray-300 mb-8 leading-relaxed max-w-xl">
+              Daily observations from Vienna&apos;s Hohe Warte, transformed into a long view of
+              sunshine, maximum temperatures and their changing ratio — with weekly detail for
+              2025 and atmospheric CO₂ measurements from 1959 onward.
+            </p>
+            <span className="inline-block px-8 py-3 border border-accent text-accent group-hover:bg-accent group-hover:text-black transition-all duration-300 tracking-widest text-sm uppercase">
+              Explore the climate data
+            </span>
+          </div>
+        </a>
+      </section>
+
       {/* Play Democratic Chess */}
       <section className="max-w-7xl mx-auto px-4 pt-6">
         <Link
