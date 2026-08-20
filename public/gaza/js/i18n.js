@@ -67,6 +67,11 @@
     "b.prisoner": { de: "Austausch-Häftling", en: "prisoner freed in exchange", ar: "أسير محرّر في صفقة", he: "אסיר ששוחרר בעסקה" },
     "b.official": { de: "Hamas-Funktionär", en: "Hamas official", ar: "مسؤول في حماس", he: "בכיר חמאס" },
     "b.victims":  { de: "bekannter Zivilopfer-Fall", en: "known civilian-victim case", ar: "حالة ضحايا مدنيين معروفة", he: "מקרה ידוע של קורבנות אזרחיים" },
+    "b.media":    { de: "Medien / Fotojournalismus", en: "media / photojournalism", ar: "إعلام / صحافة مصورة", he: "תקשורת / צילום עיתונאי" },
+    "b.culture":  { de: "Kunst / Literatur", en: "arts / literature", ar: "فن / أدب", he: "אמנות / ספרות" },
+    "b.activist": { de: "Zivilgesellschaft / Aktivismus", en: "civil society / activism", ar: "مجتمع مدني / نشاط", he: "חברה אזרחית / אקטיביזם" },
+    "b.diplomat": { de: "Politik / Diplomatie", en: "politics / diplomacy", ar: "سياسة / دبلوماسية", he: "פוליטיקה / דיפלומטיה" },
+    "b.aid":      { de: "humanitäre Hilfe", en: "humanitarian aid", ar: "مساعدات إنسانية", he: "סיוע הומניטרי" },
     // Kombattanten-Szenarien
     "sc.none":      { de: "Ohne Abzug", en: "No deduction", ar: "بدون خصم", he: "ללא ניכוי" },
     "sc.none.s":    { de: "Liste, wie veröffentlicht", en: "list as published", ar: "القائمة كما نُشرت", he: "הרשימה כפי שפורסמה" },

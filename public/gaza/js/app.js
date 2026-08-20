@@ -442,8 +442,14 @@
       prisoner: { sym: "⛓", cls: "b-pr", label: t("b.prisoner") },
       official: { sym: "◆", cls: "b-o",  label: t("b.official") },
       victims:  { sym: "●", cls: "b-v",  label: t("b.victims") },
+      media:    { sym: "◎", cls: "b-me", label: t("b.media") },
+      culture:  { sym: "✦", cls: "b-c",  label: t("b.culture") },
+      activist: { sym: "⚑", cls: "b-a",  label: t("b.activist") },
+      diplomat: { sym: "◇", cls: "b-d",  label: t("b.diplomat") },
+      aid:      { sym: "♥", cls: "b-h",  label: t("b.aid") },
     };
-    const BADGE_ORDER = ["fighter", "press", "medic", "prisoner", "official", "victims"];
+    const BADGE_ORDER = ["fighter", "press", "medic", "prisoner", "official", "victims",
+      "media", "culture", "activist", "diplomat", "aid"];
 
     // Uebersetzte Detailtexte: Overlay ist index-parallel zu famnotes.notable
     const noteInfo = p => (p._k && ((window.FAMNOTES_I18N || {})[p._k]?.notable?.[p._i] || {})[LANG]) || p.info;
