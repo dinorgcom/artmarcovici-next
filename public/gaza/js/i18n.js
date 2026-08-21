@@ -80,6 +80,7 @@
     "b.activist": { de: "Zivilgesellschaft / Aktivismus", en: "civil society / activism", ar: "مجتمع مدني / نشاط", he: "חברה אזרחית / אקטיביזם" },
     "b.diplomat": { de: "Politik / Diplomatie", en: "politics / diplomacy", ar: "سياسة / دبلوماسية", he: "פוליטיקה / דיפלומטיה" },
     "b.aid":      { de: "humanitäre Hilfe", en: "humanitarian aid", ar: "مساعدات إنسانية", he: "סיוע הומניטרי" },
+    "b.unrwa":    { de: "namentlich bestätigte UNRWA-Beschäftigte", en: "named, verified UNRWA personnel", ar: "موظفو أونروا مؤكّدون بالاسم", he: "עובדי אונר״א שאומתו בשמם" },
     "b.academic": { de: "Wissenschaft / Bildung", en: "academia / education", ar: "بحث / تعليم", he: "מחקר / חינוך" },
     "b.sport":    { de: "Sport", en: "sport", ar: "رياضة", he: "ספורט" },
     // Kombattanten-Szenarien
@@ -99,6 +100,8 @@
     // Tabellen
     "col.family": { de: "Familie", en: "Family", ar: "العائلة", he: "משפחה" },
     "col.badges": { de: "Abzeichen", en: "Badges", ar: "الشارات", he: "תגים" },
+    "col.unrwa": { de: "UNRWA", en: "UNRWA", ar: "أونروا", he: "אונר״א" },
+    "col.unrwa.tip": { de: "Namentlich oder biografisch bestätigte UNRWA-Beschäftigte in der Opferliste", en: "UNRWA personnel in the casualty list verified by name or biography", ar: "موظفو أونروا في قائمة القتلى المؤكدون بالاسم أو السيرة", he: "עובדי אונר״א ברשימת ההרוגים שאומתו לפי שם או ביוגרפיה" },
     "col.dead":   { de: "Tote", en: "Dead", ar: "القتلى", he: "הרוגים" },
     "col.avgdiff": { de: "± zum Ø", en: "± vs avg.", ar: "± عن المتوسط", he: "± מהממוצע" },
     "col.avgdiff.tip": { de: "Abweichung vom Durchschnitt: {0} Tote je Familienname", en: "Difference from the average: {0} deaths per family name", ar: "الفرق عن المتوسط: {0} قتيلاً لكل اسم عائلة", he: "הפרש מהממוצע: {0} הרוגים לכל שם משפחה" },
@@ -111,6 +114,9 @@
     "col.sib":    { de: "Geschwister-Gruppen", en: "Sibling groups", ar: "مجموعات الأشقاء", he: "קבוצות אחים" },
     "fam.avg.note": { de: "Ø aller {0} Familiennamen in der Liste: {1} Tote. „± zum Ø“ zeigt die absolute Abweichung.", en: "Average across all {0} family names in the list: {1} deaths. “± vs avg.” shows the absolute difference.", ar: "متوسط جميع أسماء العائلات البالغ عددها {0} في القائمة: {1} قتيلاً. يعرض عمود «± عن المتوسط» الفرق المطلق.", he: "הממוצע בכל {0} שמות המשפחה ברשימה: {1} הרוגים. העמודה „± מהממוצע” מציגה את ההפרש המוחלט." },
     "fam.ratio.note": { de: "„M : F“ zeigt Männer je Frau.", en: "“M : F” shows men per woman.", ar: "يعرض «ذ : أ» عدد الرجال لكل امرأة.", he: "„ג : נ” מציג גברים לכל אישה." },
+    "fam.unrwa.summary": { de: "UNRWA-Abgleich: {0} bestätigte Personen in {1} Familien · {2} davon auch mit dokumentiertem Kämpfer-Abzeichen · {3} ohne dokumentiertes Kämpfer-Abzeichen.", en: "UNRWA cross-check: {0} verified people in {1} families · {2} also have a documented-fighter badge · {3} have no documented-fighter badge.", ar: "مطابقة الأونروا: {0} أشخاص مؤكّدون في {1} عائلات · {2} منها تحمل أيضاً شارة مقاتل موثّق · {3} بلا شارة مقاتل موثّق.", he: "הצלבת אונר״א: {0} אנשים מאומתים ב-{1} משפחות · ל-{2} גם תג לוחם מתועד · ל-{3} אין תג לוחם מתועד." },
+    "fam.unrwa.scope": { de: "▣ markiert derzeit {0} namentlich oder biografisch bestätigte UNRWA-Beschäftigte in der Opferliste. Familiennamen allein werden nicht als Nachweis verwendet. Das ist eine belegte Untergrenze, keine Schätzung: Eine vollständige öffentliche Namensliste existiert nicht. UNRWA meldete zum 7.5.2026 insgesamt 391 Tote im eigenen Umfeld (310 Beschäftigte und 81 Personen, die UNRWA-Aktivitäten unterstützten). Quelle:", en: "▣ currently marks {0} UNRWA personnel in the casualty list verified by name or biography. A surname alone is not used as evidence. This is a documented lower bound, not an estimate: no complete public name list exists. As of 7 May 2026, UNRWA reported 391 deaths associated with its work (310 personnel and 81 people supporting UNRWA activities). Source:", ar: "تشير ▣ حالياً إلى {0} من موظفي الأونروا في قائمة القتلى، تم تأكيدهم بالاسم أو السيرة. لا يُستخدم اسم العائلة وحده دليلاً. وهذا حد أدنى موثّق وليس تقديراً، إذ لا توجد قائمة أسماء عامة كاملة. وحتى 7 أيار/مايو 2026 أفادت الأونروا بمقتل 391 شخصاً مرتبطين بعملها (310 موظفين و81 شخصاً كانوا يدعمون أنشطتها). المصدر:", he: "▣ מסמן כעת {0} עובדי אונר״א ברשימת ההרוגים שאומתו בשם או בביוגרפיה. שם משפחה לבדו אינו משמש ראיה. זהו סף תחתון מתועד, לא אומדן: אין רשימת שמות ציבורית מלאה. נכון ל-7 במאי 2026 דיווחה אונר״א על 391 הרוגים הקשורים לעבודתה (310 עובדים ו-81 אנשים שתמכו בפעילותה). מקור:" },
+    "fam.unrwa.report": { de: "UNRWA-Lagebericht Nr. 220", en: "UNRWA Situation Report No. 220", ar: "تقرير الأونروا رقم 220", he: "דו״ח מצב אונר״א מס׳ 220" },
     // Familien-Zeile
     "fam.meta": { de: "{0} Tote · {1} Männer · {2} Frauen · {3} Minderjährige", en: "{0} dead · {1} men · {2} women · {3} minors",
                   ar: "{0} قتلى · {1} رجال · {2} نساء · {3} قاصرون", he: "{0} הרוגים · {1} גברים · {2} נשים · {3} קטינים" },

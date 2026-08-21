@@ -41,11 +41,12 @@
     activist: { sym: "⚑", cls: "b-a",  label: t("b.activist") },
     diplomat: { sym: "◇", cls: "b-d",  label: t("b.diplomat") },
     aid:      { sym: "♥", cls: "b-h",  label: t("b.aid") },
+    unrwa:    { sym: "▣", cls: "b-u",  label: t("b.unrwa") },
     academic: { sym: "▦", cls: "b-ac", label: t("b.academic") },
     sport:    { sym: "🏅", cls: "b-s",  label: t("b.sport") },
   };
   const BADGE_ORDER = ["fighter", "press", "medic", "prisoner", "official", "victims",
-    "media", "culture", "activist", "diplomat", "aid", "academic", "sport"];
+    "media", "culture", "activist", "diplomat", "aid", "unrwa", "academic", "sport"];
   const PUBLIC_BADGES = new Set(["media", "culture", "activist", "diplomat", "aid", "academic", "sport"]);
 
   const noteInfo = p => (p._k && ((window.FAMNOTES_I18N || {})[p._k]?.notable?.[p._i] || {})[LANG])
@@ -70,6 +71,7 @@
     const B = BADGE[b.key], names = b.people.map(personName).join(", ");
     const cnt = b.key === "press" && f.p > 1 ? f.p
       : b.key === "medic" && f.hw > 1 ? f.hw
+      : b.key === "unrwa" && b.people.length > 1 ? b.people.length
       : PUBLIC_BADGES.has(b.key) && b.people.length > 1 ? b.people.length : "";
     return `<span class="bdg ${B.cls}" title="${esc(B.label)}${names ? ": " + esc(names) : ""}">${B.sym}${cnt}</span>`;
   }).join("");
@@ -113,9 +115,16 @@
     const bs = famBadges(f);
     return bs.length * 1000 + bs.reduce((sum, b) => sum + b.people.length, 0);
   };
+  const badgePeople = (f, key) => famBadges(f).find(badge => badge.key === key)?.people.length || 0;
+  const hasBadge = (f, key) => famBadges(f).some(badge => badge.key === key);
+  const unrwaFamilies = FAMS.filter(f => badgePeople(f, "unrwa") > 0);
+  const unrwaNamed = unrwaFamilies.reduce((sum, f) => sum + badgePeople(f, "unrwa"), 0);
+  const unrwaWithFighter = unrwaFamilies.filter(f => hasBadge(f, "fighter")).length;
+  const unrwaWithoutFighter = unrwaFamilies.length - unrwaWithFighter;
   const COLS = [
     { k: "k",     t: t("col.family"), v: o => o.f.k, txt: true },
     { k: "bdg",   t: t("col.badges"), v: o => badgeWeight(o.f) },
+    { k: "unrwa", t: t("col.unrwa"), title: t("col.unrwa.tip"), v: o => badgePeople(o.f, "unrwa") },
     { k: "n",     t: t("col.dead"), v: o => o.f.n },
     { k: "avg",   t: t("col.avgdiff"), title: t("col.avgdiff.tip", avgNf.format(AVG_FAMILY_LOSSES)),
       v: o => o.f.n - AVG_FAMILY_LOSSES },
@@ -135,18 +144,24 @@
       return d !== 0 ? d * sortDir : b.f.n - a.f.n;
     });
     document.getElementById("famTop").innerHTML =
+      `<div class="criterion-summary">${t("fam.unrwa.summary", nf.format(unrwaNamed), nf.format(unrwaFamilies.length), nf.format(unrwaWithFighter), nf.format(unrwaWithoutFighter))}</div>` +
       `<div class="avg-note">${t("fam.avg.note", nf.format(FAMS.length), avgNf.format(AVG_FAMILY_LOSSES))} ${t("fam.ratio.note")}</div>` +
       `<table><thead><tr>` + COLS.map(c =>
         `<th data-k="${c.k}"${c.title ? ` title="${esc(c.title)}"` : ""}${sortK === c.k ? ' class="sorted"' : ""}>${c.t}` +
         `${sortK === c.k ? (sortDir < 0 ? " ▾" : " ▴") : ""}</th>`).join("") +
       `</tr></thead><tbody>` + rows.map(({ f, i }) =>
         `<tr data-i="${i}"><td>${cap(f.k)}${i >= TOPN ? ` <span class="fine">${t("fam.rank", i + 1)}</span>` : ""}</td>` +
-        `<td class="bdgcell">${badgeHtml(f)}</td><td>${nf.format(f.n)}</td>` +
+        `<td class="bdgcell">${badgeHtml(f)}</td><td class="unrwacount">${nf.format(badgePeople(f, "unrwa"))}</td><td>${nf.format(f.n)}</td>` +
         `<td class="avgdiff" title="${esc(t("col.avgdiff.cell", nf.format(f.n), avgNf.format(AVG_FAMILY_LOSSES), signedAvgNf.format(f.n - AVG_FAMILY_LOSSES), avgNf.format(f.n / AVG_FAMILY_LOSSES)))}">${signedAvgNf.format(f.n - AVG_FAMILY_LOSSES)}</td>` +
         `<td>${nf.format(f.m)}</td><td>${nf.format(f.f)}</td>` +
         `<td class="sexratio" title="${esc(t("col.sexratio.cell", nf.format(f.m), nf.format(f.f)))}">${ratioText(f)}</td>` +
         `<td>${nf.format(f.kids)}</td><td>${f.sib}</td></tr>`).join("") +
       `</tbody></table>`;
+  }
+  const unrwaScope = document.getElementById("unrwaScope");
+  if (unrwaScope) {
+    unrwaScope.innerHTML = t("fam.unrwa.scope", nf.format(unrwaNamed)) +
+      ` <a href="https://www.unrwa.org/resources/reports/unrwa-situation-report-220-humanitarian-crisis-gaza-strip-and-occupied-west-bank" target="_blank" rel="noopener">${t("fam.unrwa.report")}</a>.`;
   }
   renderTop();
 
