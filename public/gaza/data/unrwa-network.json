@@ -2,12 +2,12 @@
   "meta": {
     "reviewedAt": "2026-08-22",
     "mapUniqueNames": 268,
-    "networkNames": 201,
-    "networkFamilies": 172,
+    "networkNames": 203,
+    "networkFamilies": 173,
     "organizationNames": 141,
     "organizationFamilies": 123,
-    "socialNames": 49,
-    "socialFamilies": 44,
+    "socialNames": 51,
+    "socialFamilies": 46,
     "employmentOnlyNames": 19,
     "officialCasualtyMatches": 4,
     "institutionalContextNames": 3,
@@ -1477,6 +1477,15 @@
       "url": "https://www.facebook.com/soma.kh.71"
     },
     {
+      "family": "kuhail",
+      "name": "Asmaa Rafiq Kuheil",
+      "position": "English Teacher",
+      "group": "",
+      "org": false,
+      "social": true,
+      "url": "https://unwatch.org/asmaa-rafiq-kuheil-unrwa-english-teacher-celebrates-hamas-massacre/"
+    },
+    {
       "family": "kullab",
       "name": "Weam Majdi Kalloub",
       "position": "School Teacher",
@@ -1538,6 +1547,15 @@
       "org": true,
       "social": false,
       "url": "https://govextra.gov.il/media/qbep4ejj/the-connection-between-unrwa-and-hamas-280425.pdf"
+    },
+    {
+      "family": "mansour",
+      "name": "Mona Elhaj Mansour",
+      "position": "English Teacher",
+      "group": "",
+      "org": false,
+      "social": true,
+      "url": "https://unwatch.org/mona-elhaj-mansour-unrwa-english-teacher-posts-antisemitism-and-legitimizes-violence/"
     },
     {
       "family": "matar",
