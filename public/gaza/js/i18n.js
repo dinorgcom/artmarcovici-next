@@ -19,6 +19,12 @@
     "hero.banner":  { de: "", en: "Fully translated — only press headlines stay in their original language (quotes are not translated).",
                       ar: "الصفحة مترجمة بالكامل — عناوين الصحف فقط تبقى بلغتها الأصلية (الاقتباسات لا تُترجم).",
                       he: "העמוד מתורגם במלואו — רק כותרות העיתונות נותרות בשפת המקור (ציטוטים אינם מתורגמים)." },
+    "fam.page.kicker": { de: "biest.com · Gaza-Daten", en: "biest.com · Gaza data", ar: "biest.com · بيانات غزة", he: "biest.com · נתוני עזה" },
+    "fam.page.title": { de: "Gaza: Familien & Namenssuche", en: "Gaza: Families & Name Search", ar: "غزة: العائلات والبحث بالأسماء", he: "עזה: משפחות וחיפוש שמות" },
+    "fam.page.sub": { de: "Familiennamen in der namentlichen Opferliste — durchsuchbar und vergleichbar nach Todesfällen, Männern, Frauen, Minderjährigen, Geschwistergruppen und dokumentierten Personen.", en: "Family names in the named casualty list — searchable and comparable by deaths, men, women, minors, sibling groups, and documented people.", ar: "أسماء العائلات في قائمة القتلى بالأسماء — قابلة للبحث والمقارنة حسب القتلى والرجال والنساء والقاصرين ومجموعات الأشقاء والشخصيات الموثقة.", he: "שמות המשפחה ברשימת ההרוגים השמית — ניתנים לחיפוש ולהשוואה לפי הרוגים, גברים, נשים, קטינים, קבוצות אחים ואנשים מתועדים." },
+    "fam.page.teaser": { de: "Die ausführliche Familienanalyse mit Namenssuche, Biografien, Geschlechterverhältnis und sortierbarer Tabelle hat jetzt eine eigene Seite.", en: "The detailed family analysis — name search, biographies, sex ratio, and sortable table — now has its own page.", ar: "أصبح لتحليل العائلات المفصل — البحث بالأسماء والسير ونسبة الرجال إلى النساء والجدول القابل للترتيب — صفحة مستقلة.", he: "לניתוח המשפחות המפורט — חיפוש שמות, ביוגרפיות, יחס גברים לנשים וטבלה ניתנת למיון — יש כעת עמוד נפרד." },
+    "fam.page.open": { de: "Familienanalyse öffnen →", en: "Open family analysis →", ar: "فتح تحليل العائلات ←", he: "פתיחת ניתוח המשפחות ←" },
+    "fam.page.back": { de: "← Zur Gaza-Hauptanalyse", en: "← Back to the main Gaza analysis", ar: "العودة إلى تحليل غزة الرئيسي →", he: "חזרה לניתוח הראשי של עזה →" },
     // Navigation
     "nav.pyr":      { de: "Pyramide", en: "Pyramid", ar: "الهرم العمري", he: "פירמידה" },
     "nav.komb":     { de: "Kombattanten-Abzug", en: "Combatant deduction", ar: "خصم المقاتلين", he: "ניכוי לוחמים" },
@@ -97,8 +103,12 @@
     "col.avgdiff.cell": { de: "{0} Tote − Ø {1} = {2}; {3}× des Durchschnitts", en: "{0} deaths − avg. {1} = {2}; {3}× the average", ar: "{0} قتيلاً − المتوسط {1} = {2}؛ {3}× المتوسط", he: "{0} הרוגים − ממוצע {1} = {2}; פי {3} מהממוצע" },
     "col.men":    { de: "Männer", en: "Men", ar: "رجال", he: "גברים" },
     "col.women":  { de: "Frauen", en: "Women", ar: "نساء", he: "נשים" },
+    "col.sexratio": { de: "M : F", en: "M : F", ar: "ذ : أ", he: "ג : נ" },
+    "col.sexratio.tip": { de: "Verhältnis Männer zu Frauen", en: "Ratio of men to women", ar: "نسبة الرجال إلى النساء", he: "יחס גברים לנשים" },
+    "col.sexratio.cell": { de: "{0} Männer zu {1} Frauen", en: "{0} men to {1} women", ar: "{0} رجال مقابل {1} نساء", he: "{0} גברים לעומת {1} נשים" },
     "col.sib":    { de: "Geschwister-Gruppen", en: "Sibling groups", ar: "مجموعات الأشقاء", he: "קבוצות אחים" },
     "fam.avg.note": { de: "Ø aller {0} Familiennamen in der Liste: {1} Tote. „± zum Ø“ zeigt die absolute Abweichung.", en: "Average across all {0} family names in the list: {1} deaths. “± vs avg.” shows the absolute difference.", ar: "متوسط جميع أسماء العائلات البالغ عددها {0} في القائمة: {1} قتيلاً. يعرض عمود «± عن المتوسط» الفرق المطلق.", he: "הממוצע בכל {0} שמות המשפחה ברשימה: {1} הרוגים. העמודה „± מהממוצע” מציגה את ההפרש המוחלט." },
+    "fam.ratio.note": { de: "„M : F“ zeigt Männer je Frau.", en: "“M : F” shows men per woman.", ar: "يعرض «ذ : أ» عدد الرجال لكل امرأة.", he: "„ג : נ” מציג גברים לכל אישה." },
     // Familien-Zeile
     "fam.meta": { de: "{0} Tote · {1} Männer · {2} Frauen · {3} Minderjährige", en: "{0} dead · {1} men · {2} women · {3} minors",
                   ar: "{0} قتلى · {1} رجال · {2} نساء · {3} قاصرون", he: "{0} הרוגים · {1} גברים · {2} נשים · {3} קטינים" },
@@ -152,8 +162,11 @@
         if (a) a.textContent = window.t(NAV[k]);
       }
       const q = (s, k) => { const el = document.querySelector(s); if (el) el.textContent = window.t(k); };
-      q(".hero .kicker", "hero.kicker"); q(".hero h1", "hero.title"); q(".hero .sub", "hero.sub");
-      document.title = window.t("hero.title") + " — biest.com";
+      const familyPage = document.body.dataset.page === "families";
+      q(".hero .kicker", familyPage ? "fam.page.kicker" : "hero.kicker");
+      q(".hero h1", familyPage ? "fam.page.title" : "hero.title");
+      q(".hero .sub", familyPage ? "fam.page.sub" : "hero.sub");
+      document.title = window.t(familyPage ? "fam.page.title" : "hero.title") + " — biest.com";
       // Fliesstext-Uebersetzungen (content.js): Selektor mit @Index-Unterstuetzung, ">" = direktes Kind
       const q1 = sel => {
         let ctx = [document], direct = false;

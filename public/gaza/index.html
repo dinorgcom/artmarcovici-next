@@ -51,7 +51,7 @@ if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">'
   <a href="#check3">Natürliche&nbsp;Tote</a>
   <a href="#eigen">Eigene&nbsp;Seite</a>
   <a href="#rechner">Rechner</a>
-  <a href="#familien">Familien&nbsp;&amp;&nbsp;Suche</a>
+  <a href="familien.html" data-i18n="nav.fam">Familien&nbsp;&amp;&nbsp;Suche</a>
   <a href="#methodik">Methodik</a>
 </nav>
 
@@ -274,58 +274,12 @@ if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">'
      <a href="https://press.un.org/en/2022/sc14904.doc.htm">UN-„90 %“-Formel</a> (<a href="https://www.tandfonline.com/doi/abs/10.1080/00396338.2010.494880">methodisch umstritten</a>).</p>
 </section>
 
-<section id="familien" class="mod">
-  <h2>Familien &amp; Suche</h2>
-  <p class="lede">Palästinensische Namen sind Ketten: Eigenname – Vater – Großvater – Familienname.
-     Der Familienname ist zugleich der Clan (Hamula) — so lässt sich fragen: Wie viele Tote trägt eine Familie?
-     Wie viele davon Frauen, Kinder? Und wo starben mutmaßlich ganze Geschwistergruppen
-     (gleicher Vater <em>und</em> Großvater)?</p>
-  <input type="search" id="famSearch" placeholder="Familie oder Person suchen — z.&nbsp;B. „al-najjar“, „doghmush“, „Mohammed…“" autocomplete="off">
-  <div id="searchInfo" class="note"></div>
-  <div id="famResults"></div>
-  <div id="famDetail" class="event-panel" hidden></div>
-  <h3>Die 100 Familien mit den meisten Toten</h3>
-  <p class="note">Ein Klick auf eine Spaltenüberschrift sortiert um — auch nach Abzeichen, dann stehen die
-     Familien mit dokumentierten Einzelpersonen oben. Zeile anklicken öffnet das Detail-Panel.</p>
-  <div class="legend" style="flex-wrap:wrap;font-size:13px">
-    <span><span class="bdg b-f">★</span> dokumentierte Kämpfer/Kommandeure</span>
-    <span><span class="bdg b-p">✎</span> getötete Journalisten (mit Anzahl)</span>
-    <span><span class="bdg b-m">✚</span> getötete Gesundheitsarbeiter (Anzahl; HWW-Liste Stand 5/2024)</span>
-    <span><span class="bdg b-pr">⛓</span> Austausch-Häftling</span>
-    <span><span class="bdg b-o">◆</span> Hamas-Funktionär</span>
-    <span><span class="bdg b-v">●</span> bekannter Zivilopfer-Fall</span>
-    <span><span class="bdg b-me">◎</span> Medien / Fotojournalismus</span>
-    <span><span class="bdg b-c">✦</span> Kunst / Literatur</span>
-    <span><span class="bdg b-a">⚑</span> Zivilgesellschaft / Aktivismus</span>
-    <span><span class="bdg b-d">◇</span> Politik / Diplomatie</span>
-    <span><span class="bdg b-h">♥</span> humanitäre Hilfe</span>
-    <span><span class="bdg b-ac">▦</span> Wissenschaft / Bildung</span>
-    <span><span class="bdg b-s">🏅</span> Sport</span>
-  </div>
-  <div class="note publicbio">Die 1.000 neuen Biografie-Abzeichen kennzeichnen öffentlich dokumentierte
-    Personen mit eigenständigem <a href="https://www.wikidata.org/" target="_blank" rel="noopener">Wikipedia/Wikidata-Eintrag</a>.
-    Die Aufnahme bedeutet weder Unterstützung für Hamas oder eine andere Organisation noch eine belegte
-    Verwandtschaft; zugeordnet wird ausschließlich der gleiche oder entsprechend transliterierte Familienname.</div>
-  <div id="famTop" class="famtop"></div>
-  <h3>Woher die Namen kommen</h3>
-  <div class="prose">
-    <p>Drei Muster dominieren: <strong>Herkunftsnamen</strong> — deine Vermutung stimmt hier —
-    (al-Masri = „der Ägypter“, Hijazi = „aus dem Hedschas“, al-Kurd = „der Kurde“, Halabi = „aus Aleppo“;
-    dazu tragen viele 48er-Flüchtlingsfamilien Namen ihrer Herkunftsdörfer),
-    <strong>Berufsnamen</strong> (al-Najjar = „Zimmermann“, Haddad = „Schmied“) und
-    <strong>Stammes-/Ahnennamen</strong> (Doghmush, al-Astal, Bakr, Awad). Die Bakr sind das Gegenbeispiel zur
-    Flüchtlingsregel: seit Jahrhunderten Fischer am Strand von Gaza-Stadt. Bei den größten Familien der Liste
-    zeigt das Detail-Panel jetzt Herkunft und bekannte Mitglieder — von Mohammed Deif (bürgerlich al-Masri)
-    über die Sinwar-Brüder bis zu den vier Bakr-Jungen von 2014 und Mumtaz Dughmush („Army of Islam“).</p>
-  </div>
-  <p class="note">Zuordnung kleinerer Familiennamen zu Groß-Clans (z.&nbsp;B. eingeheiratete Zweige) ist aus der Liste
-     nicht ableitbar — der Familienname ist die feinste belastbare Ebene. Geschwister-Cluster sind eine Heuristik
-     über die Namenskette und können Cousins gleichen Namens einschließen.</p>
-  <p class="fine">Warum so wenige ★/◆? Eine vollständige öffentliche Kämpferliste existiert nicht — die israelische
-     Intel-Datenbank (8.900 Namen) ist geheim, Hamas publiziert nur selektiv. Gezeigt wird ausschließlich namentlich
-     Belegtes aus Sekundärquellen (Wilson Center, ynet, IDF-Meldungen). Zum ✎-Abzeichen gehört die Gegenposition:
-     Das israelische <a href="https://www.timesofisrael.com/finally-naming-their-war-dead-gazan-terror-groups-admit-slain-journalists-were-fighters/">ITIC bestreitet den Zivilstatus</a>
-     eines erheblichen Teils der als Journalisten Gezählten — die Presse-Liste ist eine palästinensische Quelle.</p>
+<section id="familien-link" class="mod family-cta">
+  <p class="kicker" data-i18n="fam.page.kicker">Gaza-Daten · eigene Seite</p>
+  <h2 data-i18n="fam.page.title">Gaza: Familien &amp; Namenssuche</h2>
+  <p class="lede" data-i18n="fam.page.teaser">Die ausführliche Familienanalyse mit Namenssuche, Biografien,
+     Geschlechterverhältnis und sortierbarer Tabelle hat jetzt eine eigene Seite.</p>
+  <a class="family-page-link" href="familien.html" data-i18n="fam.page.open">Familienanalyse öffnen →</a>
 </section>
 
 <section id="methodik" class="mod">
@@ -360,9 +314,6 @@ if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">'
 
 <div id="tooltip" class="tooltip" hidden></div>
 <script src="js/events.js"></script>
-<script src="js/famnotes.js"></script>
-<script src="js/famnotes-i18n.js"></script>
-<script src="js/public-figures.js"></script>
 <script src="js/content.js"></script>
 <script src="js/app.js"></script>
 <script src="js/pyramid.js"></script>
