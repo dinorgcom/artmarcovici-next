@@ -28,9 +28,25 @@ if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">'
 <body>
 
 <div class="topbar">
+  <nav class="site-nav" aria-label="Gaza-Bereiche">
+    <a class="active" href="index.html" aria-current="page" data-i18n="nav.page.deaths">Tote in Gaza</a>
+    <a href="familien.html" data-i18n="nav.page.families">Familien</a>
+  </nav>
   <div class="sharebar" id="topShare"></div>
   <div id="langSlot"></div>
 </div>
+
+<nav class="toc" aria-label="Kapitel dieser Seite">
+  <a href="#pyramide">Pyramide</a>
+  <a href="#kombattanten">Kombattanten-Abzug</a>
+  <a href="#zeit">Zeitverlauf&nbsp;&amp;&nbsp;Presse</a>
+  <a href="#check1">Säuglinge</a>
+  <a href="#check2">Jungen&nbsp;ab&nbsp;12</a>
+  <a href="#check3">Natürliche&nbsp;Tote</a>
+  <a href="#eigen">Eigene&nbsp;Seite</a>
+  <a href="#rechner">Rechner</a>
+  <a href="#methodik">Methodik</a>
+</nav>
 
 <header class="hero">
   <p class="kicker">biest.com · Statistikprojekt</p>
@@ -41,19 +57,6 @@ if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">'
   <div class="kpis" id="kpis"></div>
   <p class="asof" id="asof"></p>
 </header>
-
-<nav class="toc">
-  <a href="#pyramide">Pyramide</a>
-  <a href="#kombattanten">Kombattanten-Abzug</a>
-  <a href="#zeit">Zeitverlauf&nbsp;&amp;&nbsp;Presse</a>
-  <a href="#check1">Säuglinge</a>
-  <a href="#check2">Jungen&nbsp;ab&nbsp;12</a>
-  <a href="#check3">Natürliche&nbsp;Tote</a>
-  <a href="#eigen">Eigene&nbsp;Seite</a>
-  <a href="#rechner">Rechner</a>
-  <a href="familien.html" data-i18n="nav.fam">Familien&nbsp;&amp;&nbsp;Suche</a>
-  <a href="#methodik">Methodik</a>
-</nav>
 
 <main>
 

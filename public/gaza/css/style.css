@@ -37,7 +37,7 @@ a:hover { color: var(--ink); }
 
 .toc { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--page) 88%, transparent);
   backdrop-filter: blur(8px); border-bottom: 1px solid var(--grid);
-  display: flex; gap: 4px; overflow-x: auto; padding: 8px 16px; margin-top: 28px; }
+  display: flex; gap: 4px; overflow-x: auto; padding: 8px 16px; margin: 0; }
 .toc a { color: var(--muted); text-decoration: none; font-size: 13.5px; padding: 6px 10px; border-radius: 7px; white-space: nowrap; }
 .toc a:hover { color: var(--ink); background: var(--surface); }
 
@@ -113,14 +113,24 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 20px 90px; }
 
 .bdg { font-size: 13px; margin-inline-start: 5px; cursor: help; }
 
-/* Sprachumschalter + RTL */
-/* Oberste Leiste: Teilen links, Sprachen rechts (spiegelt sich in RTL automatisch) */
-.topbar { display: flex; align-items: center; gap: 10px; padding: 7px 20px;
+/* Hauptnavigation, Sprachumschalter + RTL */
+.topbar { display: flex; align-items: center; gap: 12px; padding: 7px 20px;
   border-bottom: 1px solid var(--grid); background: var(--page); }
 .topbar #topShare { margin-inline-end: auto; margin-top: 0; }
 .topbar .sharemain { padding: 5px 13px; font-size: 13px; }
 .topbar .sharemini { min-width: 32px; height: 28px; font-size: 12px; }
-@media (max-width: 700px) { .topbar .sharemini { display: none; } }
+.site-nav { display: flex; align-items: center; gap: 4px; flex: 0 0 auto; }
+.site-nav a { color: var(--muted); text-decoration: none; font-size: 13.5px; font-weight: 650;
+  padding: 5px 11px; border: 1px solid transparent; border-radius: 7px; white-space: nowrap; }
+.site-nav a:hover { color: var(--ink); background: var(--surface); }
+.site-nav a.active { color: var(--ink); background: var(--surface); border-color: var(--ring); }
+.family-topbar .site-nav { margin-inline-end: auto; }
+@media (max-width: 700px) {
+  .topbar { flex-wrap: wrap; }
+  .topbar .sharemini { display: none; }
+  .topbar #langSlot { margin-inline-start: auto; }
+  .topbar #topShare { order: 3; flex: 1 0 100%; margin-inline-end: 0; }
+}
 
 .langswitch { display: flex; gap: 4px; }
 .langswitch button { background: none; border: 1px solid transparent; border-radius: 7px; color: var(--muted);
@@ -208,7 +218,6 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 20px 90px; }
 .family-page-link, .backlink { display: inline-flex; align-items: center; color: var(--ink); text-decoration: none; font-weight: 650; }
 .family-page-link { border: 1px solid var(--ring); border-radius: 9px; padding: 9px 14px; background: var(--page); }
 .family-page-link:hover, .backlink:hover { color: var(--m); border-color: var(--axis); }
-.family-topbar .backlink { margin-inline-end: auto; font-size: 13px; }
 .family-hero { padding-bottom: 34px; }
 .family-hero .sub { max-width: 76ch; }
 .family-module { padding-top: 36px; }

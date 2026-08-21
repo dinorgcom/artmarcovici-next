@@ -20,7 +20,10 @@ if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">'
 <body data-page="families">
 
 <div class="topbar family-topbar">
-  <a class="backlink" href="index.html" data-i18n="fam.page.back">← Zur Gaza-Hauptanalyse</a>
+  <nav class="site-nav" aria-label="Gaza-Bereiche">
+    <a href="index.html" data-i18n="nav.page.deaths">Tote in Gaza</a>
+    <a class="active" href="familien.html" aria-current="page" data-i18n="nav.page.families">Familien</a>
+  </nav>
   <div id="langSlot"></div>
 </div>
 

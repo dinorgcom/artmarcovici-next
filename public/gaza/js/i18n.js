@@ -26,6 +26,8 @@
     "fam.page.open": { de: "Familienanalyse öffnen →", en: "Open family analysis →", ar: "فتح تحليل العائلات ←", he: "פתיחת ניתוח המשפחות ←" },
     "fam.page.back": { de: "← Zur Gaza-Hauptanalyse", en: "← Back to the main Gaza analysis", ar: "العودة إلى تحليل غزة الرئيسي →", he: "חזרה לניתוח הראשי של עזה →" },
     // Navigation
+    "nav.page.deaths":   { de: "Tote in Gaza", en: "Deaths in Gaza", ar: "القتلى في غزة", he: "הרוגים בעזה" },
+    "nav.page.families": { de: "Familien", en: "Families", ar: "العائلات", he: "משפחות" },
     "nav.pyr":      { de: "Pyramide", en: "Pyramid", ar: "الهرم العمري", he: "פירמידה" },
     "nav.komb":     { de: "Kombattanten-Abzug", en: "Combatant deduction", ar: "خصم المقاتلين", he: "ניכוי לוחמים" },
     "nav.zeit":     { de: "Zeitverlauf & Presse", en: "Timeline & press", ar: "الزمن والصحافة", he: "ציר זמן ועיתונות" },
