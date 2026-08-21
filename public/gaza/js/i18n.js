@@ -92,9 +92,13 @@
     "col.family": { de: "Familie", en: "Family", ar: "العائلة", he: "משפחה" },
     "col.badges": { de: "Abzeichen", en: "Badges", ar: "الشارات", he: "תגים" },
     "col.dead":   { de: "Tote", en: "Dead", ar: "القتلى", he: "הרוגים" },
+    "col.avgdiff": { de: "± zum Ø", en: "± vs avg.", ar: "± عن المتوسط", he: "± מהממוצע" },
+    "col.avgdiff.tip": { de: "Abweichung vom Durchschnitt: {0} Tote je Familienname", en: "Difference from the average: {0} deaths per family name", ar: "الفرق عن المتوسط: {0} قتيلاً لكل اسم عائلة", he: "הפרש מהממוצע: {0} הרוגים לכל שם משפחה" },
+    "col.avgdiff.cell": { de: "{0} Tote − Ø {1} = {2}; {3}× des Durchschnitts", en: "{0} deaths − avg. {1} = {2}; {3}× the average", ar: "{0} قتيلاً − المتوسط {1} = {2}؛ {3}× المتوسط", he: "{0} הרוגים − ממוצע {1} = {2}; פי {3} מהממוצע" },
     "col.men":    { de: "Männer", en: "Men", ar: "رجال", he: "גברים" },
     "col.women":  { de: "Frauen", en: "Women", ar: "نساء", he: "נשים" },
     "col.sib":    { de: "Geschwister-Gruppen", en: "Sibling groups", ar: "مجموعات الأشقاء", he: "קבוצות אחים" },
+    "fam.avg.note": { de: "Ø aller {0} Familiennamen in der Liste: {1} Tote. „± zum Ø“ zeigt die absolute Abweichung.", en: "Average across all {0} family names in the list: {1} deaths. “± vs avg.” shows the absolute difference.", ar: "متوسط جميع أسماء العائلات البالغ عددها {0} في القائمة: {1} قتيلاً. يعرض عمود «± عن المتوسط» الفرق المطلق.", he: "הממוצע בכל {0} שמות המשפחה ברשימה: {1} הרוגים. העמודה „± מהממוצע” מציגה את ההפרש המוחלט." },
     // Familien-Zeile
     "fam.meta": { de: "{0} Tote · {1} Männer · {2} Frauen · {3} Minderjährige", en: "{0} dead · {1} men · {2} women · {3} minors",
                   ar: "{0} قتلى · {1} رجال · {2} نساء · {3} قاصرون", he: "{0} הרוגים · {1} גברים · {2} נשים · {3} קטינים" },

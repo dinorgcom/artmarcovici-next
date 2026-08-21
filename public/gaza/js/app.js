@@ -417,6 +417,11 @@
   (async function families() {
     const FAMS = await get("families.json");
     const FAM_INDEX = new Map(FAMS.map((family, index) => [family.k, index]));
+    const AVG_FAMILY_LOSSES = FAMS.reduce((sum, family) => sum + family.n, 0) / FAMS.length;
+    const avgNf = new Intl.NumberFormat(window.NUMLOC || "de-DE", { maximumFractionDigits: 1 });
+    const signedAvgNf = new Intl.NumberFormat(window.NUMLOC || "de-DE", {
+      signDisplay: "always", maximumFractionDigits: 1,
+    });
     const info = document.getElementById("searchInfo"), results = document.getElementById("famResults"),
           detail = document.getElementById("famDetail"), input = document.getElementById("famSearch");
     let LIST = null, listLoading = false;
@@ -531,6 +536,8 @@
       { k: "k",    t: t("col.family"), v: o => o.f.k, txt: true },
       { k: "bdg",  t: t("col.badges"), v: o => badgeWeight(o.f) },
       { k: "n",    t: t("col.dead"),   v: o => o.f.n },
+      { k: "avg",  t: t("col.avgdiff"), title: t("col.avgdiff.tip", avgNf.format(AVG_FAMILY_LOSSES)),
+        v: o => o.f.n - AVG_FAMILY_LOSSES },
       { k: "m",    t: t("col.men"),    v: o => o.f.m },
       { k: "f",    t: t("col.women"),  v: o => o.f.f },
       { k: "kids", t: "&lt;18",        v: o => o.f.kids },
@@ -545,12 +552,15 @@
         return d !== 0 ? d * sortDir : b.f.n - a.f.n;   // Zweitschluessel: Tote
       });
       document.getElementById("famTop").innerHTML =
+        `<div class="avg-note">${t("fam.avg.note", nf.format(FAMS.length), avgNf.format(AVG_FAMILY_LOSSES))}</div>` +
         `<table><thead><tr>` + COLS.map(c =>
-          `<th data-k="${c.k}"${sortK === c.k ? ' class="sorted"' : ""}>${c.t}` +
+          `<th data-k="${c.k}"${c.title ? ` title="${esc(c.title)}"` : ""}${sortK === c.k ? ' class="sorted"' : ""}>${c.t}` +
           `${sortK === c.k ? (sortDir < 0 ? " ▾" : " ▴") : ""}</th>`).join("") +
         `</tr></thead><tbody>` + rows.map(({ f, i }) =>
           `<tr data-i="${i}"><td>${cap(f.k)}${i >= TOPN ? ` <span class="fine">${t("fam.rank", i + 1)}</span>` : ""}</td>` +
-          `<td class="bdgcell">${badgeHtml(f)}</td><td>${nf.format(f.n)}</td><td>${nf.format(f.m)}</td>` +
+          `<td class="bdgcell">${badgeHtml(f)}</td><td>${nf.format(f.n)}</td>` +
+          `<td class="avgdiff" title="${esc(t("col.avgdiff.cell", nf.format(f.n), avgNf.format(AVG_FAMILY_LOSSES), signedAvgNf.format(f.n - AVG_FAMILY_LOSSES), avgNf.format(f.n / AVG_FAMILY_LOSSES)))}">${signedAvgNf.format(f.n - AVG_FAMILY_LOSSES)}</td>` +
+          `<td>${nf.format(f.m)}</td>` +
           `<td>${nf.format(f.f)}</td><td>${nf.format(f.kids)}</td><td>${f.sib}</td></tr>`).join("") +
         `</tbody></table>`;
     }

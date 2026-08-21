@@ -191,11 +191,13 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 20px 90px; }
 .famtop tbody tr:hover td { background: var(--surface); }
 .famtop .bdgcell { white-space: nowrap; }
 .famtop .bdgcell .bdg { margin: 0 3px 0 0; }
+.famtop .avgdiff { color: var(--ink); font-weight: 650; white-space: nowrap; }
+.famtop .avg-note { color: var(--muted); font-size: 12.5px; margin: 9px 0 2px; }
 /* Schmale Schirme: die Tabelle scrollt in SICH, nie die Seite. Der klebende
    Kopf muss dafuer weichen — Sticky funktioniert nicht in einem Scroll-Container. */
 @media (max-width: 780px) {
   .famtop { overflow-x: auto; }
-  .famtop table { min-width: 560px; }
+  .famtop table { min-width: 650px; }
   .famtop th { position: static; }
 }
 
