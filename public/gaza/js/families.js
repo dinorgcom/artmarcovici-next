@@ -56,24 +56,12 @@
   const PUBLIC_BADGES = new Set(["media", "culture", "activist", "diplomat", "aid", "academic", "sport"]);
 
   function networkInfo(person) {
-    const role = person.position ? ` (${person.position})` : "";
-    const orgDe = person.org ? ` Die Quelle behauptet eine Zugehörigkeit zu ${person.group || "einer palästinensischen Organisation"}.` : "";
-    const orgEn = person.org ? ` The source alleges an affiliation with ${person.group || "a Palestinian organization"}.` : "";
-    const orgAr = person.org ? ` ويزعم المصدر وجود صلة بـ${person.group || "تنظيم فلسطيني"}.` : "";
-    const orgHe = person.org ? ` המקור טוען להשתייכות ל${person.group || "ארגון פלסטיני"}.` : "";
-    const socialDe = person.social ? " UN Watch erhebt außerdem einen Vorwurf wegen Social-Media-/Telegram-Inhalten (je nach Eintrag Gewaltaufruf, Terrorverherrlichung oder Antisemitismus)." : "";
-    const socialEn = person.social ? " UN Watch also alleges problematic social-media or Telegram content (depending on the entry: incitement to violence, glorification of terrorism, or antisemitism)." : "";
-    const socialAr = person.social ? " كما تورد UN Watch ادعاءً يتعلق بمحتوى على وسائل التواصل أو تيليغرام (بحسب السجل: تحريض على العنف أو تمجيد للإرهاب أو معاداة للسامية)." : "";
-    const socialHe = person.social ? " UN Watch מעלה גם טענה בנוגע לתוכן ברשתות חברתיות או בטלגרם (לפי הרשומה: הסתה לאלימות, האדרת טרור או אנטישמיות)." : "";
-    const onlyDe = !person.org && !person.social ? " In der ausgewerteten Karte steht bei diesem Eintrag weder ein Organisations- noch ein Social-Media-/Hetzvorwurf." : "";
-    const onlyEn = !person.org && !person.social ? " The reviewed map assigns this entry neither an organizational-affiliation allegation nor a social-media/incitement allegation." : "";
-    const onlyAr = !person.org && !person.social ? " ولا تُسند الخريطة التي جرت مراجعتها إلى هذا السجل ادعاء ارتباط تنظيمي أو ادعاء تحريض عبر وسائل التواصل." : "";
-    const onlyHe = !person.org && !person.social ? " במפה שנבדקה אין לרשומה זו טענה להשתייכות ארגונית או טענת הסתה ברשתות חברתיות." : "";
+    const role = person.position || "UNRWA personnel";
     return {
-      de: `Von UN Watch oder der verlinkten Quelle namentlich als UNRWA-Beschäftigte/r geführt${role}.${orgDe}${socialDe}${onlyDe} Familienzuordnung ausschließlich über denselben bzw. transliterierten Nachnamen; keine Verwandtschaft belegt.`,
-      en: `Listed by UN Watch or the linked source as named UNRWA personnel${role}.${orgEn}${socialEn}${onlyEn} Assigned to this table family solely through the same or transliterated surname; no kinship is established.`,
-      ar: `تورد UN Watch أو المصدر المرتبط الاسم ضمن موظفي الأونروا${role}.${orgAr}${socialAr}${onlyAr} أُسند الاسم إلى عائلة الجدول فقط عبر اسم العائلة نفسه أو تهجئته المنقحرة؛ ولا تثبت أي قرابة.`,
-      he: `UN Watch או המקור המקושר מציגים את השם כעובד/ת אונר״א${role}.${orgHe}${socialHe}${onlyHe} השיוך למשפחה בטבלה מבוסס רק על אותו שם משפחה או תעתיק שלו; לא הוכחה קרבה משפחתית.`,
+      de: `UNRWA · ${role}`,
+      en: `UNRWA · ${role}`,
+      ar: `الأونروا · ${role}`,
+      he: `אונר״א · ${role}`,
     };
   }
 
