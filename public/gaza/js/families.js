@@ -2,11 +2,21 @@
 (async function families() {
   const get = async name => (await fetch("data/" + name)).json();
   const nf = new Intl.NumberFormat(window.NUMLOC || "de-DE");
-  const [FAMS, UNRWA_NETWORK] = await Promise.all([
-    get("families.json"),
-    get("unrwa-network.json"),
-  ]);
+  const FAMS = await get("families.json");
   const FAM_INDEX = new Map(FAMS.map((family, index) => [family.k, index]));
+
+  // J&S-/Exil-Familien: kommen in der Gaza-Opferliste nicht vor, werden aber in
+  // FAM_NOTES mit dokumentierten Personen aus Judaea & Samaria bzw. dem Exil gefuehrt.
+  // Sie werden als n=0-Eintraege (Flag js:1) eingemischt — Suchfeld, Tabelle und
+  // Detail-Panel funktionieren damit ohne weitere Sonderlogik.
+  Object.entries(window.FAM_NOTES || {}).forEach(([key, note]) => {
+    if (FAM_INDEX.has(key)) return;
+    const isJS = (note.notable || []).some(p =>
+      (Array.isArray(p.badge) ? p.badge : [p.badge]).some(b => b === "westbank" || b === "abroad"));
+    if (!isJS) return;
+    FAMS.push({ k: key, n: 0, m: 0, f: 0, kids: 0, sib: 0, big: 0, js: 1 });
+    FAM_INDEX.set(key, FAMS.length - 1);
+  });
   const AVG_FAMILY_LOSSES = FAMS.reduce((sum, family) => sum + family.n, 0) / FAMS.length;
   const avgNf = new Intl.NumberFormat(window.NUMLOC || "de-DE", { maximumFractionDigits: 1 });
   const signedAvgNf = new Intl.NumberFormat(window.NUMLOC || "de-DE", {
@@ -33,6 +43,8 @@
 
   // Ein Abzeichen haengt an einer Person, nicht an der Familie.
   const BADGE = {
+    westbank: { sym: "J&S", cls: "b-js", label: t("b.westbank") },
+    abroad:   { sym: "✈", cls: "b-ab", label: t("b.abroad") },
     fighter:  { sym: "★", cls: "b-f",  label: t("b.fighter") },
     press:    { sym: "✎", cls: "b-p",  label: t("b.press") },
     medic:    { sym: "✚", cls: "b-m",  label: t("b.medic") },
@@ -44,59 +56,12 @@
     activist: { sym: "⚑", cls: "b-a",  label: t("b.activist") },
     diplomat: { sym: "◇", cls: "b-d",  label: t("b.diplomat") },
     aid:      { sym: "♥", cls: "b-h",  label: t("b.aid") },
-    unrwa:    { sym: "▣", cls: "b-u",  label: t("b.unrwa") },
-    unrwa_org:{ sym: "▲", cls: "b-uo", label: t("b.unrwa_org") },
-    unrwa_social:{ sym: "!", cls: "b-us", label: t("b.unrwa_social") },
     academic: { sym: "▦", cls: "b-ac", label: t("b.academic") },
     sport:    { sym: "🏅", cls: "b-s",  label: t("b.sport") },
   };
-  const BADGE_ORDER = ["fighter", "press", "medic", "prisoner", "official", "victims",
-    "media", "culture", "activist", "diplomat", "aid", "unrwa", "unrwa_org", "unrwa_social",
-    "academic", "sport"];
+  const BADGE_ORDER = ["westbank", "abroad", "fighter", "press", "medic", "prisoner", "official", "victims",
+    "media", "culture", "activist", "diplomat", "aid", "academic", "sport"];
   const PUBLIC_BADGES = new Set(["media", "culture", "activist", "diplomat", "aid", "academic", "sport"]);
-
-  function networkInfo(person) {
-    const role = person.position || "UNRWA personnel";
-    return {
-      de: `UNRWA · ${role}`,
-      en: `UNRWA · ${role}`,
-      ar: `الأونروا · ${role}`,
-      he: `אונר״א · ${role}`,
-    };
-  }
-
-  function contextInfo(person) {
-    const role = person.position ? ` (${person.position})` : "";
-    return {
-      de: `Im verlinkten IMPACT-se-Bericht als UNRWA-Schulleitung genannt${role}. Der Bericht behandelt problematische Inhalte der Schule, erhebt gegen diese Person aber keinen individuellen Hamas- oder Hetzvorwurf. Familienzuordnung ausschließlich über den Nachnamen; keine Verwandtschaft belegt.`,
-      en: `Named as UNRWA school leadership in the linked IMPACT-se report${role}. The report discusses problematic school content but makes no individual Hamas-affiliation or incitement allegation against this person. Family assignment is based solely on the surname; no kinship is established.`,
-      ar: `يَرِد الاسم ضمن إدارة مدرسة تابعة للأونروا في تقرير IMPACT-se المرتبط${role}. يناقش التقرير محتوى إشكالياً في المدرسة، لكنه لا يوجه إلى هذا الشخص ادعاءً فردياً بالانتماء إلى حماس أو بالتحريض. الإسناد العائلي قائم على اسم العائلة فقط ولا يثبت القرابة.`,
-      he: `השם מופיע כחלק מהנהלת בית ספר של אונר״א בדוח IMPACT-se המקושר${role}. הדוח עוסק בתוכן בעייתי בבית הספר, אך אינו מעלה נגד אדם זה טענה אישית להשתייכות לחמאס או להסתה. השיוך המשפחתי מבוסס על שם המשפחה בלבד ואינו מוכיח קרבה.`,
-    };
-  }
-
-  function addUnrwaNetworkPerson(record, evidence) {
-    const note = window.FAM_NOTES[record.family] = window.FAM_NOTES[record.family] || {};
-    note.notable = note.notable || [];
-    if (note.notable.some(person => person.unrwaEvidence === evidence && person.name === record.name)) return;
-    const infoI18n = evidence === "institutional-context" ? contextInfo(record) : networkInfo(record);
-    const badge = ["unrwa"];
-    if (record.org) badge.push("unrwa_org");
-    if (record.social) badge.push("unrwa_social");
-    note.notable.push({
-      badge,
-      name: record.name,
-      info: infoI18n.de,
-      infoI18n,
-      url: record.url,
-      match: "surname-only",
-      unrwaEvidence: evidence,
-      generated: true,
-    });
-  }
-
-  (UNRWA_NETWORK.records || []).forEach(record => addUnrwaNetworkPerson(record, "unwatch-network"));
-  (UNRWA_NETWORK.context || []).forEach(record => addUnrwaNetworkPerson(record, "institutional-context"));
 
   const noteInfo = p => (p._k && ((window.FAMNOTES_I18N || {})[p._k]?.notable?.[p._i] || {})[LANG])
     || (p.infoI18n || {})[LANG] || p.info;
@@ -120,8 +85,6 @@
     const B = BADGE[b.key], names = b.people.map(personName).join(", ");
     const cnt = b.key === "press" && f.p > 1 ? f.p
       : b.key === "medic" && f.hw > 1 ? f.hw
-      : b.key === "unrwa" && b.people.length > 1 ? b.people.length
-      : (b.key === "unrwa_org" || b.key === "unrwa_social") && b.people.length > 1 ? b.people.length
       : PUBLIC_BADGES.has(b.key) && b.people.length > 1 ? b.people.length : "";
     return `<span class="bdg ${B.cls}" title="${esc(B.label)}${names ? ": " + esc(names) : ""}">${B.sym}${cnt}</span>`;
   }).join("");
@@ -158,27 +121,16 @@
 
   const TOPN = 100;
   const curated = new Set(Object.entries(window.FAM_NOTES || {})
-    .filter(([_key, note]) => note.origin || (note.notable || []).some(person => !person.generated || person.unrwaEvidence))
+    .filter(([_key, note]) => note.origin || (note.notable || []).some(person => !person.generated))
     .map(([key]) => key));
   const TOPSET = FAMS.map((f, i) => ({ f, i })).filter(({ f }, rank) => rank < TOPN || curated.has(f.k));
   const badgeWeight = f => {
     const bs = famBadges(f);
     return bs.length * 1000 + bs.reduce((sum, b) => sum + b.people.length, 0);
   };
-  const badgePeople = (f, key) => famBadges(f).find(badge => badge.key === key)?.people.length || 0;
-  const unrwaFamilies = FAMS.filter(f => badgePeople(f, "unrwa") > 0);
-  const unrwaNamed = unrwaFamilies.reduce((sum, f) => sum + badgePeople(f, "unrwa"), 0);
-  const unrwaOrgFamilies = FAMS.filter(f => badgePeople(f, "unrwa_org") > 0);
-  const unrwaOrgNamed = unrwaOrgFamilies.reduce((sum, f) => sum + badgePeople(f, "unrwa_org"), 0);
-  const unrwaSocialFamilies = FAMS.filter(f => badgePeople(f, "unrwa_social") > 0);
-  const unrwaSocialNamed = unrwaSocialFamilies.reduce((sum, f) => sum + badgePeople(f, "unrwa_social"), 0);
-  const unrwaMeta = UNRWA_NETWORK.meta || {};
   const COLS = [
     { k: "k",     t: t("col.family"), v: o => o.f.k, txt: true },
     { k: "bdg",   t: t("col.badges"), v: o => badgeWeight(o.f) },
-    { k: "unrwa", t: t("col.unrwa"), title: t("col.unrwa.tip"), v: o => badgePeople(o.f, "unrwa") },
-    { k: "unrwa_org", t: t("col.unrwa_org"), title: t("col.unrwa_org.tip"), v: o => badgePeople(o.f, "unrwa_org") },
-    { k: "unrwa_social", t: t("col.unrwa_social"), title: t("col.unrwa_social.tip"), v: o => badgePeople(o.f, "unrwa_social") },
     { k: "n",     t: t("col.dead"), v: o => o.f.n },
     { k: "avg",   t: t("col.avgdiff"), title: t("col.avgdiff.tip", avgNf.format(AVG_FAMILY_LOSSES)),
       v: o => o.f.n - AVG_FAMILY_LOSSES },
@@ -198,36 +150,27 @@
       return d !== 0 ? d * sortDir : b.f.n - a.f.n;
     });
     document.getElementById("famTop").innerHTML =
-      `<div class="criterion-summary">${t("fam.unrwa.summary", nf.format(unrwaNamed), nf.format(unrwaFamilies.length), nf.format(unrwaMeta.officialCasualtyMatches || 0), nf.format(unrwaMeta.networkNames || 0), nf.format(unrwaMeta.institutionalContextNames || 0), nf.format(unrwaOrgNamed), nf.format(unrwaOrgFamilies.length), nf.format(unrwaSocialNamed), nf.format(unrwaSocialFamilies.length))}</div>` +
       `<div class="avg-note">${t("fam.avg.note", nf.format(FAMS.length), avgNf.format(AVG_FAMILY_LOSSES))} ${t("fam.ratio.note")}</div>` +
       `<table><thead><tr>` + COLS.map(c =>
         `<th data-k="${c.k}"${c.title ? ` title="${esc(c.title)}"` : ""}${sortK === c.k ? ' class="sorted"' : ""}>${c.t}` +
         `${sortK === c.k ? (sortDir < 0 ? " ▾" : " ▴") : ""}</th>`).join("") +
       `</tr></thead><tbody>` + rows.map(({ f, i }) =>
         `<tr data-i="${i}"><td>${cap(f.k)}${i >= TOPN ? ` <span class="fine">${t("fam.rank", i + 1)}</span>` : ""}</td>` +
-        `<td class="bdgcell">${badgeHtml(f)}</td><td class="unrwacount">${nf.format(badgePeople(f, "unrwa"))}</td>` +
-        `<td class="unrwaorgcount">${nf.format(badgePeople(f, "unrwa_org"))}</td>` +
-        `<td class="unrwasocialcount">${nf.format(badgePeople(f, "unrwa_social"))}</td><td>${nf.format(f.n)}</td>` +
+        `<td class="bdgcell">${badgeHtml(f)}</td><td>${nf.format(f.n)}</td>` +
         `<td class="avgdiff" title="${esc(t("col.avgdiff.cell", nf.format(f.n), avgNf.format(AVG_FAMILY_LOSSES), signedAvgNf.format(f.n - AVG_FAMILY_LOSSES), avgNf.format(f.n / AVG_FAMILY_LOSSES)))}">${signedAvgNf.format(f.n - AVG_FAMILY_LOSSES)}</td>` +
         `<td>${nf.format(f.m)}</td><td>${nf.format(f.f)}</td>` +
         `<td class="sexratio" title="${esc(t("col.sexratio.cell", nf.format(f.m), nf.format(f.f)))}">${ratioText(f)}</td>` +
         `<td>${nf.format(f.kids)}</td><td>${f.sib}</td></tr>`).join("") +
       `</tbody></table>`;
   }
-  const unrwaScope = document.getElementById("unrwaScope");
-  if (unrwaScope) {
-    const excludedNamed = (unrwaMeta.excludedUnmappedNames || 0) + (unrwaMeta.excludedInconsistentNames || 0);
-    unrwaScope.innerHTML = t("fam.unrwa.scope", nf.format(unrwaMeta.mapUniqueNames || 0), nf.format(unrwaMeta.networkNames || 0), nf.format(excludedNamed), nf.format(unrwaMeta.excludedNicknameOrPseudonymEntries || 0), nf.format(unrwaMeta.officialCasualtyMatches || 0)) +
-      ` <a href="https://unwatch.org/unrwa-terror-network/" target="_blank" rel="noopener">${t("fam.unrwa.map")}</a> ·` +
-      ` <a href="https://govextra.gov.il/media/qbep4ejj/the-connection-between-unrwa-and-hamas-280425.pdf" target="_blank" rel="noopener">${t("fam.unrwa.dossier")}</a> ·` +
-      ` <a href="https://www.unrwa.org/resources/reports/unrwa-situation-report-220-humanitarian-crisis-gaza-strip-and-occupied-west-bank" target="_blank" rel="noopener">${t("fam.unrwa.report")}</a>.`;
-  }
   renderTop();
 
   function openFam(i) {
     const f = FAMS[i];
     let members = "", clusters = "";
-    if (LIST) {
+    if (f.js) {
+      members = `<div class="loadhint">${t("fam.js.note")}</div>`;
+    } else if (LIST) {
       const mem = LIST.filter(row => row[4] === i);
       const groups = {};
       mem.forEach(row => {
@@ -260,9 +203,11 @@
     if (rest.length) notes += `<div class="origin">` + rest.map(p =>
       `<div><span class="lbl">${t("fam.also")}</span> <a href="${p.url}" target="_blank" rel="noopener">${esc(personName(p))}</a>
         — ${noteInfo(p)}</div>`).join("") + `</div>`;
+    const metaLine = f.js ? ""
+      : `<p class="desc">${t("fam.meta", nf.format(f.n), f.m, f.f, f.kids)} · ${t("col.sexratio")}: ${ratioText(f)} ${f.sib ? t("fam.sib", f.sib, f.big) : ""}</p>`;
     detail.hidden = false;
     detail.innerHTML = `<h3>${t("fam.family", cap(f.k))}${badgeHtml(f)}</h3>
-      <p class="desc">${t("fam.meta", nf.format(f.n), f.m, f.f, f.kids)} · ${t("col.sexratio")}: ${ratioText(f)} ${f.sib ? t("fam.sib", f.sib, f.big) : ""}</p>${notes}${clusters}${members}`;
+      ${metaLine}${notes}${clusters}${members}`;
     detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 

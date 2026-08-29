@@ -727,7 +727,7 @@ window.FAM_ORIGINS = {
   },
 
   "abu musameh": {
-    origin: "Kunya: Abu (Vater von) + Musameh (von musāmaḥa: „Nachsicht“, „Toleranz“).",
+    origin: "Kunya: Abu (Vater von) + Musameh (von musāmaḥa: „Nachsicht", „Toleranz“).",
     notable: []
   },
 
@@ -759,7 +759,7 @@ window.FAM_ORIGINS = {
   },
 
   "abu watfa": {
-    origin: "Kunya: Abu (Vater von) + Watfa (möglicherweise von watafa: „aufsteigen“).",
+    origin: "Kunya: Abu (Vater von) + Watfa (möglicherweise von watafa: „aufsteigen").",
     notable: [
       { badge: "official", name: "Mahmoud Abu Watfa", info: "Generaldirektor des Hamas-Innenministeriums. Wurde 2025 zusammen mit seiner Familie bei einem Angriff auf sein Haus in Gaza-Stadt getötet.", url: "https://www.ynetnews.com/article/skd8m11p2ke" }
     ]
@@ -771,24 +771,24 @@ window.FAM_ORIGINS = {
   },
 
   "afana": {
-    origin: "Von ʿAfanā (عفانة): „der Verzeihende“, „der Strahlende“. Indirekter Quranischer Name.",
+    origin: "Von ʿAfanā (عفانة): „der Verzeihende", „der Strahlende". Indirekter Quranischer Name.",
     notable: [
       { badge: "academic", name: "Hussam al-Din Musa Afana", info: "Palästinensischer Jurist, Mufti und Reformator; Professor für Rechtswissenschaft an der Al-Quds-Universität.", url: "https://www.all4palestine.org/ModelDetails.aspx?gid=10&mid=118839" }
     ]
   },
 
   "afifi": {
-    origin: "Von ʿafīf (عفيف): „rein, keusch“. Deskriptiver Name.",
+    origin: "Von ʿafīf (عفيف): „rein, keusch". Deskriptiver Name.",
     notable: []
   },
 
   "agha": {
-    origin: "Von al-Āghā (الآغا): osmanischer Adelstitel, türkisch „Agha“ (Herr).",
+    origin: "Von al-Āghā (الآغا): osmanischer Adelstitel, türkisch „Agha" (Herr).",
     notable: []
   },
 
   "ahel": {
-    origin: "Von ahl (أهل): „Familie“, „Leute“. Gruppenbezeichnung als Name.",
+    origin: "Von ahl (أهل): „Familie", „Leute". Gruppenbezeichnung als Name.",
     notable: []
   },
 
@@ -798,23 +798,23 @@ window.FAM_ORIGINS = {
   },
 
   "akkad": {
-    origin: "Von ʿAqqād (العقاد): „der Nagler“. Berufsname.",
+    origin: "Von ʿAqqād (العقاد): „der Nagler". Berufsname.",
     notable: []
   },
 
   "al-areer": {
     origin: "Familie aus Al-Shujaiya, Gaza-Stadt.",
     notable: [
-      { badge: ["culture","academic"], name: "Dr. Refaat Alareer", info: "Dichter, Geschichtenerzähler und Professor an der Islamischen Universität Gaza. Herausgeber von „Gaza Writes Back“. Wurde am 6.12.2023 gezielt bombardiert. Verfasste das berühmte Gedicht „If I Must Die“.", url: "https://en.wikipedia.org/wiki/Refaat_Alareer" },
+      { badge: ["culture","academic"], name: "Dr. Refaat Alareer", info: "Dichter, Geschichtenerzähler und Professor an der Islamischen Universität Gaza. Herausgeber von „Gaza Writes Back“. Wurde am 6.12.2023 gezielt bombardiert. Verfasste das berühmte Gedicht „If I Must Die".", url: "https://en.wikipedia.org/wiki/Refaat_Alareer" },
       { badge: "victims", name: "Familie Alareer (6.12.2023)", info: "Refaat wurde mit Bruder Salah, Neffe Muhammad, Schwester Asmaa und drei ihrer Kinder (Alaa, Yahya, Muhammad) getötet. Die Wohnung wurde chirurgisch bombardiert.", url: "https://electronicintifada.net/blogs/tamara-nassar/refaat-alareer-was-assassinated-israel" },
       { badge: "victims", name: "Shaymaa Alareer", info: "Tochter von Refaat Alareer. Wurde am 16.4.2024 zusammen mit Ehemann und Neugeborenem getötet — sechs Monate nach dem Tod ihres Vaters.", url: "https://www.euppublishing.com/doi/full/10.3366/hlps.2025.0362" },
-      { badge: "victims", name: "Brüder Mohammed und Hamada Alareer", info: "Beide 2014 getötet. Refaat schrieb: „Mein Bruder wird Märtyrer Nummer 26 in meiner erweiterten Familie.“", url: "https://electronicintifada.net/blogs/tamara-nassar/refaat-alareer-was-assassinated-israel" },
+      { badge: "victims", name: "Brüder Mohammed und Hamada Alareer", info: "Beide 2014 getötet. Refaat schrieb: „Mein Bruder wird Märtyrer Nummer 26 in meiner erweiterten Familie."", url: "https://electronicintifada.net/blogs/tamara-nassar/refaat-alareer-was-assassinated-israel" },
       { badge: "victims", name: "Onkel Tayseer Alareer", info: "2001 von israelischen Streitkräften erschossen, während er auf seinem Land arbeitete.", url: "https://themarkaz.org/a-students-tribute-to-refaat-alareer-gazas-beloved-storyteller/" }
     ]
   },
 
   "al-ashqar": {
-    origin: "Von ašqar (أشقر): „hellhäutig“, „rothaarig“. Laqab.",
+    origin: "Von ašqar (أشقر): „hellhäutig", „rothaarig". Laqab.",
     notable: [
       { badge: "sport", name: "Saleem Al-Ashqar (32)", info: "Torwart von Khadamat Khan Younis. Juli 2026 durch Panzerbeschuss bei al-Qarara getötet — einer von über 1.000 getöteten palästinensischen Sportlern seit Oktober 2023.", url: "https://www.newarab.com/news/israeli-forces-kill-palestinian-goalkeeper-al-ashqar-gaza" },
       { badge: "fighter", name: "Abdel-Latif Al-Ashqar", info: "Hochrangiger Hamas-Militäroffizier, zuständig für Waffenbeschaffung. Wurde April 2011 in Port Sudan getötet.", url: "https://ict.org.il/summary-of-terrorist-incidents-and-ct-operations-march-to-may-2011/" }
@@ -822,10 +822,10 @@ window.FAM_ORIGINS = {
   },
 
   "al-banna": {
-    origin: "Von bannāʾ (البناء): „der Baumeister“. Berufsname.",
+    origin: "Von bannāʾ (البناء): „der Baumeister". Berufsname.",
     notable: [
       { badge: "activism", name: "Hasan al-Banna (1906–1949)", info: "Gründer der Muslimbruderschaft 1928. Sein Bruder gründete 1935 die palästinensische Zweigstelle — ideologische Wiege der späteren Hamas.", url: "https://ctc.westpoint.edu/inside-hamas-how-it-thinks-fights-and-governs/" },
-      { badge: "fighter", name: "Sabri Khalil al-Banna („Abu Nidal“, 1937–2002)", info: "In Jaffa geboren, 1948 mit Familie nach Gaza geflohen. Gründete die Abu-Nidal-Organisation (ANO).", url: "https://www.wrmea.org/1990-february/abu-nidal-portrait-of-a-renegade.html" }
+      { badge: "fighter", name: "Sabri Khalil al-Banna („Abu Nidal", 1937–2002)", info: "In Jaffa geboren, 1948 mit Familie nach Gaza geflohen. Gründete die Abu-Nidal-Organisation (ANO).", url: "https://www.wrmea.org/1990-february/abu-nidal-portrait-of-a-renegade.html" }
     ]
   },
 
@@ -853,7 +853,7 @@ window.FAM_ORIGINS = {
   },
 
   "al-dahshan": {
-    origin: "Von dahisha (دهش): „staunen“. Al-Dahshan = „der Verwunderte“.",
+    origin: "Von dahisha (دهش): „staunen“. Al-Dahshan = „der Verwunderte".",
     notable: [
       { badge: "academic", name: "Saeed Talal al-Dahshan (1972–2023)", info: "Professor für Völkerrecht an der Islamischen Universität Gaza. Getötet 11. Oktober 2023 in al-Sabra mit Ehefrau, Sohn, Mutter und etwa zehn weiteren Familienmitgliedern.", url: "https://gazaeducationsector.palestine-studies.org/en/node/3634" },
       { badge: "victims", name: "Al-Dahshan (Apothekerin)", info: "Apothekerin, getötet mit Eltern Haiel Al-Dahshan und Hiba Al-Dahshan (al-Khodari) bei israelischem Luftangriff.", url: "https://gazahcsector.palestine-studies.org/en/node/2267" }
@@ -861,16 +861,16 @@ window.FAM_ORIGINS = {
   },
 
   "al-fayoumi": {
-    origin: "Herkunftsname: al-Fayyūmī = „aus al-Fayyum“ (Ägypten).",
+    origin: "Herkunftsname: al-Fayyūmī = „aus al-Fayyum" (Ägypten).",
     notable: [
       { badge: "victims", name: "Wadee Al-Fayoumi (6)", info: "Palästinensisch-amerikanischer Junge, 14. Oktober 2023 in Plainfield, Illinois, in einem Hassverbrechen ermordet.", url: "https://apnews.com/article/palestinian-family-attacked-illinois-hate-crime-trial-muslim-1c94621e19bd5cece7d323fc188f0611" }
     ]
   },
 
   "al-ghafri": {
-    origin: "Von al-Ghafir (الغافر), „der Vergebende“ — einer der Namen Allahs.",
+    origin: "Von al-Ghafir (الغافر), „der Vergebende" — einer der Namen Allahs.",
     notable: [
-      { badge: "victims", name: "Al-Ghafri Tower", info: "20-stöckiges Wohnhochhaus in West-Gaza, lokal als „Gesicht des alten Gaza“ bekannt. 15. September 2025 von israelischen Streitkräften zerstört.", url: "https://www.aa.com.tr/en/middle-east/israeli-army-destroys-gaza-s-tallest-tower-after-evacuation-order/3687991" }
+      { badge: "victims", name: "Al-Ghafri Tower", info: "20-stöckiges Wohnhochhaus in West-Gaza, lokal als „Gesicht des alten Gaza" bekannt. 15. September 2025 von israelischen Streitkräften zerstört.", url: "https://www.aa.com.tr/en/middle-east/israeli-army-destroys-gaza-s-tallest-tower-after-evacuation-order/3687991" }
     ]
   },
 
@@ -883,7 +883,7 @@ window.FAM_ORIGINS = {
   },
 
   "al-halabi": {
-    origin: "Herkunftsname: al-Ḥalabī = „aus Aleppo“ (Syrien).",
+    origin: "Herkunftsname: al-Ḥalabī = „aus Aleppo" (Syrien).",
     notable: []
   },
 
@@ -908,7 +908,7 @@ window.FAM_ORIGINS = {
   },
 
   "al-khayyat": {
-    origin: "Berufsname: al-Khayyāṭ = „der Schneider“.",
+    origin: "Berufsname: al-Khayyāṭ = „der Schneider".",
     notable: [
       { badge: "medic", name: "Dr. Tamer al-Khayyat", info: "Arzt aus Rafah. Getötet 13. Oktober 2023 zusammen mit Ehefrau Dr. Razan al-Khayyat und Tochter.", url: "https://gazahcsector.palestine-studies.org/en/medical_teams" },
       { badge: "medic", name: "Dr. Razan al-Khayyat", info: "Ärztin, arbeitete im Emirates Crescent Hospital und al-Shifa. Getötet mit Ehemann und Tochter.", url: "https://gazahcsector.palestine-studies.org/en/medical_teams" }
@@ -932,14 +932,14 @@ window.FAM_ORIGINS = {
   },
 
   "al-qassas": {
-    origin: "Berufsname: al-Qaṣṣāṣ = „der Geschichtenerzähler“, „der Chronist“.",
+    origin: "Berufsname: al-Qaṣṣāṣ = „der Geschichtenerzähler", „der Chronist".",
     notable: [
       { badge: "victims", name: "Rashad Qasas", info: "Getötet in Rafah auf dem Weg zu einer Hilfsgüterverteilung; Beerdigung von AP im Juni 2025 fotografiert.", url: "https://apnews.com/photo-gallery/mideast-wars-gaza-journalists-killed-photos-a19cdcbab5d0f043c7f80a3f7cffc50f" }
     ]
   },
 
   "al-qrinawi": {
-    origin: "Herkunftsname: al-Qarārawī = „aus al-Qarāra“ (nördlich von Khan Younis).",
+    origin: "Herkunftsname: al-Qarārawī = „aus al-Qarāra" (nördlich von Khan Younis).",
     notable: [
       { badge: "victims", name: "Muneer al-Qrinawi", info: "Ziviler Todesfall, dokumentiert in Gazakriegsaufzeichnungen.", url: "https://www.bloodlinesbook.com/salt-water-a-living-count" },
       { badge: "prisoner", name: "Karam Jaber Odah al-Qrinawi (22)", info: "Festgenommen Dezember 2014 nahe dem Grenzzaun östlich von al-Bureij.", url: "https://pchrgaza.org/weekly-report-on-israeli-human-rights-violations-in-the-occupied-palestinian-territory-18-23-dec-2014/" }
@@ -947,7 +947,7 @@ window.FAM_ORIGINS = {
   },
 
   "al-qudra": {
-    origin: "Von qudra (قدرة): „Kraft“, „Fähigkeit“, „Macht“.",
+    origin: "Von qudra (قدرة): „Kraft", „Fähigkeit", „Macht".",
     notable: [
       { badge: "medic", name: "Dr. Ashraf al-Qudra", info: "Langjähriger Sprecher des Hamas-geführten Gesundheitsministeriums in Gaza. Wurde zum international bekannten Gesicht der Gesundheitskrise während des Krieges.", url: "https://apnews.com/article/israel-hamas-war-live-updates-11-20-2023-9913a29b48afc4a75e724674fe51bd82" }
     ]
@@ -963,7 +963,7 @@ window.FAM_ORIGINS = {
   },
 
   "al-sharif": {
-    origin: "Von sharīf (شريف): „edel“, „ehrenhaft“, „von vornehmer Abstammung“.",
+    origin: "Von sharīf (شريف): „edel", „ehrenhaft", „von vornehmer Abstammung".",
     notable: [
       { badge: "media", name: "Anas al-Sharif (1996–2025)", info: "Al Jazeera Arabisch-Journalist aus Jabalia. Pulitzer-Preis 2024 (Reuters-Team). Getötet 10. August 2025 bei Angriff auf Medienzelt vor Al-Shifa.", url: "https://en.wikipedia.org/wiki/Anas_Al-Sharif" },
       { badge: "victims", name: "Karam al-Sharif", info: "UNRWA-Mitarbeiter, verlor eineiige Söhne Kenan und Neman (18 Monate) sowie Töchter Joud (5) und Tasnim (10) bei Angriff auf Nuseirat, November 2023.", url: "https://apnews.com/article/israel-hamas-11-1-2023-children-killed-4a352398b32887e60a658e0270f0a021" }
@@ -990,14 +990,14 @@ window.FAM_ORIGINS = {
   },
 
   "al-sultan": {
-    origin: "Von sultān (سلطان): „Herrscher“, „Macht“.",
+    origin: "Von sultān (سلطان): „Herrscher", „Macht".",
     notable: [
       { badge: "medic", name: "Dr. Marwan al-Sultan", info: "Direktor des Indonesischen Hospitals und Kardiologe. Getötet 2. Juli 2025 mit acht Familienmitgliedern in West-Gaza.", url: "https://www.aa.com.tr/en/features/1-000-days-of-israeli-genocide-gaza-doctors-medics-pay-heavy-price-in-line-of-duty/3984520" }
     ]
   },
 
   "al-taweel": {
-    origin: "Von al-ṭawīl (الطويل): „der Lange“. Laqab.",
+    origin: "Von al-ṭawīl (الطويل): „der Lange". Laqab.",
     notable: [
       { badge: "culture", name: "Tha'er Al-Taweel", info: "43-jähriger Bildender Künstler aus Gaza. Getötet während des Krieges; dokumentiert im Gaza Cultural Sector Martyrs Project.", url: "https://gazacultrualsector.palestine-studies.org/en/Martyrs_Culture" },
       { badge: "culture", name: "Adel Al Taweel", info: "1995 in Nuseirat geboren. Bildender Künstler, Absolvent der Al-Aqsa-Universität. Siedelte 2024 nach Frankreich über.", url: "https://aa-e.org/en/artiste/adel-al-taweel-2/" }
@@ -1005,7 +1005,7 @@ window.FAM_ORIGINS = {
   },
 
   "al-zahar": {
-    origin: "Von zahr (زهر): „Blüte“ oder zāhir (ظاهر): „sichtbar“, „offensichtlich“.",
+    origin: "Von zahr (زهر): „Blüte" oder zāhir (ظاهر): „sichtbar", „offensichtlich".",
     notable: [
       { badge: "official", name: "Mahmoud al-Zahar (1945–)", info: "Mitbegründer von Hamas, Chirurg, Außenminister 2006. Überlebte mehrere Attentatsversuche. Gilt als radikalster Hamas-Führer.", url: "https://en.wikipedia.org/wiki/Mahmoud_al-Zahar" },
       { badge: "fighter", name: "Hussam al-Zahar", info: "Sohn von Mahmoud al-Zahar, Feldkommandeur. Getötet Januar 2008 bei Kämpfen an Gazas Rand.", url: "https://www.ynetnews.com/articles/0,7340,L-3494565,00.html" },
@@ -1014,12 +1014,12 @@ window.FAM_ORIGINS = {
   },
 
   "anas": {
-    origin: "Vom Vornamen Anas (أنس): „freundlicher Umgang“, „Geselligkeit“. Gefährte des Propheten.",
+    origin: "Vom Vornamen Anas (أنس): „freundlicher Umgang", „Geselligkeit". Gefährte des Propheten.",
     notable: []
   },
 
   "ayyad": {
-    origin: "Von ʿAyyād (عياد): „geboren am Festtag“ oder „Helfer“.",
+    origin: "Von ʿAyyād (عياد): „geboren am Festtag" oder „Helfer".",
     notable: [
       { badge: "culture", name: "Hassan Ayyad", info: "14-jähriger Sänger aus Gaza, bekannt für Lieder über das Leben unter Belagerung. Getötet Mai 2025 in Nuseirat.", url: "https://www.commondreams.org/news/hassan-ayyad" },
       { badge: "victims", name: "Rami Khader Ayyad (29)", info: "Leiter des einzigen christlichen Buchladens in Gaza. Entführt und Oktober 2007 ermordet.", url: "https://banneroftruth.org/us/resources/articles/2008/christians-in-gaza/" }
@@ -1032,7 +1032,7 @@ window.FAM_ORIGINS = {
   },
 
   "barhoum": {
-    origin: "Von barhūm (برحوم): „Bärenkraut“.",
+    origin: "Von barhūm (برحوم): „Bärenkraut".",
     notable: [
       { badge: "fighter", name: "Khamis Barhoum", info: "Stellvertretender Kommandeur Rafah-Brigade. Verantwortlich für Massaker von Kerem Shalom am 7. Oktober. Getötet März 2025.", url: "https://www.ynetnews.com/article/skd8m11p2ke" }
     ]
@@ -1054,7 +1054,7 @@ window.FAM_ORIGINS = {
   },
 
   "daher": {
-    origin: "Von ẓāhir (ظاهر): „sichtbar“, „offensichtlich“.",
+    origin: "Von ẓāhir (ظاهر): „sichtbar", „offensichtlich".",
     notable: []
   },
 
@@ -1074,7 +1074,7 @@ window.FAM_ORIGINS = {
   },
 
   "fayyad": {
-    origin: "Von fayyāḍ (فياض): „der Großzügige“.",
+    origin: "Von fayyāḍ (فياض): „der Großzügige".",
     notable: []
   },
 
@@ -1089,7 +1089,7 @@ window.FAM_ORIGINS = {
   },
 
   "hassanein": {
-    origin: "Von Ḥasanayn (حسنين): „die beiden Hasan“ (Hasan und Hussein).",
+    origin: "Von Ḥasanayn (حسنين): „die beiden Hasan" (Hasan und Hussein).",
     notable: [
       { badge: "media", name: "Saeed Abu Hassanein", info: "Journalist; starb April 2025 in Khan Younis. 212. getöteter Journalist in Gaza seit Oktober 2023.", url: "https://www.aa.com.tr/en/middle-east/israeli-army-killed-212-palestinian-journalists-in-gaza-since-oct-2023/3548708" },
       { badge: "media", name: "Rula Hassanein", info: "Journalistin für Wattan Media Network. Festgenommen und inhaftiert; Januar 2025 freigelassen.", url: "https://samidoun.net/2024/11/prisoner-rula-hassanein-between-motherhood-and-the-walls-of-damon-prison/" }
@@ -1097,7 +1097,7 @@ window.FAM_ORIGINS = {
   },
 
   "hilu": {
-    origin: "Von ḥilū (حلو): „süß“. Kosename.",
+    origin: "Von ḥilū (حلو): „süß". Kosename.",
     notable: []
   },
 
@@ -1112,7 +1112,7 @@ window.FAM_ORIGINS = {
   },
 
   "jumaa": {
-    origin: "Von jumʿa (جمعة): „Freitag“.",
+    origin: "Von jumʿa (جمعة): „Freitag".",
     notable: []
   },
 
@@ -1122,7 +1122,7 @@ window.FAM_ORIGINS = {
   },
 
   "karam": {
-    origin: "Von karam (كرم): „Großzügigkeit“.",
+    origin: "Von karam (كرم): „Großzügigkeit".",
     notable: []
   },
 
@@ -1144,7 +1144,7 @@ window.FAM_ORIGINS = {
   },
 
   "madi": {
-    origin: "Von mādiy (ماضي): „Vergangenheit“ oder Kurzform von Majd (Ruhm).",
+    origin: "Von mādiy (ماضي): „Vergangenheit" oder Kurzform von Majd (Ruhm).",
     notable: [
       { badge: "victims", name: "Musa Ghaleb Ibrahim Madi (25)", info: "Getötet Mai 2021 in Gaza bei Angriff auf sein Motorrad.", url: "https://imemc.org/article/pchr-weekly-report-on-israeli-human-rights-violations-in-the-occupied-palestinian-territory-24/" }
     ]
@@ -1161,7 +1161,7 @@ window.FAM_ORIGINS = {
   },
 
   "qashta": {
-    origin: "Möglicherweise von qaṣhta (قشطة): „Sahne“. Berufsname.",
+    origin: "Möglicherweise von qaṣhta (قشطة): „Sahne". Berufsname.",
     notable: [
       { badge: "media", name: "Mohammed Salah Qashta", info: "Journalist. Getötet 21. Januar 2026 in Al-Zahra zusammen mit zwei anderen Journalisten.", url: "https://www.unesco.org/en/articles/unesco-director-general-condemns-killing-journalists-abdul-raouf-shaat-anas-ghoneim-and-mohammed" },
       { badge: "victims", name: "Qeshta-Familie", info: "12 Zivilisten, darunter Frauen und Kinder, getötet bei Angriff auf Haus in Rafah, 6. November 2023.", url: "https://airwars.org/civilian-casualties/ispt0915-november-6-2023/" }
@@ -1189,7 +1189,7 @@ window.FAM_ORIGINS = {
   },
 
   "safi": {
-    origin: "Von ṣafī (صافي): „rein“.",
+    origin: "Von ṣafī (صافي): „rein".",
     notable: []
   },
 
@@ -1199,14 +1199,14 @@ window.FAM_ORIGINS = {
   },
 
   "saydam": {
-    origin: "Von ṣaydām (صيدام): „starker Mann“. Spitzname.",
+    origin: "Von ṣaydām (صيدام): „starker Mann". Spitzname.",
     notable: [
       { badge: "medic", name: "Dr. Midhat Saydam", info: "Professor Plastische Chirurgie, Gründer Brandverletzten-Station Shifa. Getötet 14. Oktober 2023 mit gesamter Familie in Tel al-Hawa.", url: "https://gazahcsector.palestine-studies.org/en/medical_teams" }
     ]
   },
 
   "sharab": {
-    origin: "Von sharāb (شراب): „Getränk“. Berufsname.",
+    origin: "Von sharāb (شراب): „Getränk". Berufsname.",
     notable: [
       { badge: "culture", name: "Naji Abdel Qader Sharab", info: "Kalligraph und Kunstlehrer aus Gaza-Stadt. Getötet 13. August 2024.", url: "https://gazacultrualsector.palestine-studies.org/en/node/4805" }
     ]
@@ -1228,7 +1228,7 @@ window.FAM_ORIGINS = {
   },
 
   "sobh": {
-    origin: "Von ṣubḥ (صبح): „Morgen“.",
+    origin: "Von ṣubḥ (صبح): „Morgen".",
     notable: []
   },
 
@@ -1261,355 +1261,10 @@ window.FAM_ORIGINS = {
   },
 
   "zarab": {
-    origin: "Persisch-arabisch: zar (Gold) + ab (Wasser) = „Goldenes Wasser“.",
+    origin: "Persisch-arabisch: zar (Gold) + ab (Wasser) = „Goldenes Wasser".",
     notable: [
       { badge: "victims", name: "Odai Zarab (13) und Bruder (15)", info: "Zwei Brüder, Juli 2014 in Gaza bei Operation Protective Edge getötet.", url: "https://d3n8a8pro7vhmx.cloudfront.net/dcipalestine/pages/530/attachments/original/1436292897/OPE_A_War_Waged_on_Children.pdf?1436292897" }
     ]
   }
 
 };
-
-// ============================================================================
-// JUDAEA & SAMARIA (J&S) + INTERNATIONAL — ergaenzt 29.08.2026
-// Diese Familien kommen in der Gaza-Opferliste NICHT vor. Sie werden hier mit
-// oeffentlich dokumentierten Personen gefuehrt, die nicht in Gaza lebten,
-// sondern im Westjordanland (Abzeichen J&S) oder international im Exil (Abzeichen ✈).
-// Detailrecherche: gaza_familien_erweitert.md (#143–173) und westbank_familien.md.
-// ============================================================================
-Object.assign(window.FAM_NOTES, {
-
-  "al-amouri": {
-    origin: "Jenin-Flüchtlingslager (J&S). Familie der Gründer der Jenin-Brigade.",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Jamil al-Amouri", info: "Mitbegründer der Jenin-Brigade (Al-Quds-Brigaden/PIJ), Initiator der Wiederbelebung des bewaffneten Widerstands im nördlichen Westjordanland; 10.6.2021 bei gezielter Razzia getötet" },
-      { badge: ["fighter", "westbank"], name: "Ahmad al-Amouri (20)", info: "Bruder von Jamil; 5.7.2024 bei Razzia in Jenin getötet (Haus mit Panzerfaustgranate beschossen)" }
-    ]
-  },
-
-  "al-saadi": {
-    origin: "Jenin-Flüchtlingslager (J&S).",
-    notable: [
-      { badge: ["prisoner", "westbank"], name: "Sheikh Bassam al-Saadi", info: "PIJ-Führer im Westjordanland; seine Festnahme am 1./2.8.2022 löste die Gaza-Eskalation „Breaking Dawn“ aus; insgesamt über 15 Jahre in Haft" },
-      { badge: ["fighter", "westbank"], name: "Omar al-Saadi (24)", info: "Neffe von Bassam, Mitbegründer der Jenin-Brigade; 28.1.2023 an Wunden der Razzia vom 26.1. (10 Tote) gestorben; zuvor 3 Jahre in Haft" }
-    ]
-  },
-
-  "abu al-heija": {
-    origin: "Jenin-Flüchtlingslager (J&S). Eine der am schwersten getroffenen Jenin-Familien.",
-    notable: [
-      { badge: ["prisoner", "westbank"], name: "Sheikh Jamal Abu al-Heija", info: "Hamas-Führer im Jenin-Lager; in Haft seit 2002, verlor bei der Festnahme einen Arm; 12 Jahre Besuchsverbot für die Familie" },
-      { badge: "westbank", name: "Asma Abu al-Heija", info: "Ehefrau; 2003 in Administrativhaft; leidet an einem Hirntumor" },
-      { badge: ["prisoner", "westbank"], name: "Abdul Salam (Abed) Abu al-Heija", info: "Ältester Sohn; insgesamt ca. 12 Jahre israelische Haft, zuletzt verhaftet 11.8.2022; auch mehrfach in PA-Haft" },
-      { badge: ["prisoner", "westbank"], name: "Assem Abu al-Heija", info: "Sohn; Administrativhaft ohne Anklage seit April 2022" },
-      { badge: ["fighter", "westbank"], name: "Hamza Abu al-Heija (21)", info: "Sohn, Qassam-Brigaden; 22.3.2014 getötet — Haus mit Panzergranaten beschossen; beim selben Einsatz starben Yazan Jabarin und Muhammad Abu Zeinah" },
-      { badge: "westbank", name: "Banan Abu al-Heija", info: "Tochter; Sprecherin der Familie" }
-    ]
-  },
-
-  "hashash": {
-    origin: "Balata-Flüchtlingslager / Jenin (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Hammam Hashash (23)", info: "5.7.2024 bei Jenin-Razzia getötet; Leiche von israelischen Kräften konfisziert" },
-      { badge: ["fighter", "westbank"], name: "Hareth Hashash (19)", info: "Bruder; beim selben Einsatz getötet" }
-    ]
-  },
-
-  "ghuneim": {
-    origin: "Jenin-Flüchtlingslager (J&S).",
-    notable: [
-      { badge: ["prisoner", "westbank"], name: "Sami Ghuneim", info: "Vater; drei Tage nach dem Tod seiner Söhne ohne Anklage in Administrativhaft (29.1.2023)" },
-      { badge: ["victims", "westbank"], name: "Noor Ghuneim (25)", info: "26.1.2023 bei der großen Jenin-Razzia getötet" },
-      { badge: ["victims", "westbank"], name: "Mohammad Ghuneim (28)", info: "beim selben Einsatz getötet" },
-      { badge: "westbank", name: "Ahmad Ghuneim", info: "Sohn; schwerverletzt, überlebte" }
-    ]
-  },
-
-  "al-nabulsi": {
-    origin: "Nablus, Altstadt/Kasbah (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Ibrahim al-Nabulsi", info: "„Löwe von Nablus“; entkam mehreren Attentatsversuchen; 9.8.2022 bei Razzia in der Altstadt getötet; seine Audio-Abschiedsbotschaft („lasst das Gewehr nicht los“) ging viral", url: "https://en.wikipedia.org/wiki/Ibrahim_al-Nabulsi" },
-      { badge: ["prisoner", "westbank"], name: "Iyad al-Nabulsi", info: "Bruder; 26.10.2022 verhaftet" }
-    ]
-  },
-
-  "al-azizi": {
-    origin: "Nablus, Viertel al-Yasmina (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Mohammed al-Azizi („Abu Saleh“, 25)", info: "Gründer der Lions' Den (Areen al-Usud); 24.7.2022 nach dreistündigem Feuergefecht in seinem Haus getötet — erstes IDF-Vordringen in dieses Viertel seit 2002" }
-    ]
-  },
-
-  "suboh": {
-    origin: "Nablus (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Abdel Rahman „Aboud“ Suboh (28)", info: "Mitgründer der Lions' Den; 24.7.2022 zusammen mit Mohammed al-Azizi getötet" },
-      { badge: ["fighter", "westbank"], name: "Islam Subuh (32)", info: "9.8.2022 zusammen mit Ibrahim al-Nabulsi getötet" }
-    ]
-  },
-
-  "al-houh": {
-    origin: "Nablus, Altstadt (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Wadee al-Houh (31)", info: "Führender Mitbegründer der Lions' Den; 25.10.2022 bei Großrazzia auf die Kasbah getötet (Waffenwerkstatt zerstört)" }
-    ]
-  },
-
-  "al-kilani": {
-    origin: "Nablus, Altstadt (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Tamer al-Kilani (33)", info: "Senior-Mitglied der Lions' Den; 23.10.2022 durch Sprengsatz an einem Motorrad getötet — Palästinenser sprechen von gezieltem Attentat" }
-    ]
-  },
-
-  "tamimi": {
-    origin: "Großclan aus Hebron, Zweige in Nabi Salih (Ramallah) und Shuafat (Jerusalem) — J&S. Zentrum des gewaltlosen Dorfprotests von Nabi Salih seit 2009.",
-    notable: [
-      { badge: ["activist", "westbank"], name: "Bassem Tamimi", info: "Organisator der wöchentlichen Proteste von Nabi Salih; mindestens 9 Haftstrafen; Haus über 150-mal durchsucht", url: "https://en.wikipedia.org/wiki/Bassem_Tamimi" },
-      { badge: ["activist", "westbank"], name: "Nariman al-Tamimi", info: "Ehefrau Bassems; mehrfach verhaftet, ins Bein geschossen" },
-      { badge: ["activist", "westbank"], name: "Ahed Tamimi", info: "Tochter; 2017 (16-jährig) nach Ohrfeige gegen Soldaten 8 Monate Haft; international bekannt", url: "https://en.wikipedia.org/wiki/Ahed_Tamimi" },
-      { badge: ["fighter", "westbank"], name: "Uday al-Tamimi", info: "Shuafat-Lager; tötete am 8.10.2022 die Soldatin Noa Lazar am Checkpoint Shuafat, entkam 11 Tage (Jugendliche rasierten aus Solidarität Glatzen); 19.10.2022 bei Ma'ale Adumim erschossen" },
-      { badge: ["victims", "westbank"], name: "Qusai al-Tamimi", info: "Nabi Salih; 25.10.2022 in die Brust geschossen" },
-      { badge: ["victims", "westbank"], name: "Mustafa Tamimi", info: "Cousin Narimans; Dezember 2011 durch Tränengasgranate aus nächster Nähe getötet" },
-      { badge: ["victims", "westbank"], name: "Rushdi Tamimi", info: "Schwager Bassems; November 2012 erschossen" },
-      { badge: ["prisoner", "abroad"], name: "Ahlam Tamimi", info: "Cousine Bassems; Sbarro-Anschlag 2001; im Shalit-Deal 2011 freigelassen, lebt in Jordanien; von den USA zur Fahndung ausgeschrieben" }
-    ]
-  },
-
-  "abu hmeid": {
-    origin: "al-Amari-Flüchtlingslager bei Ramallah (J&S); Familie 1948 aus al-Safiyya (Jaffa) über Gaza geflohen. Haus fünfmal gesprengt. 10 Söhne, 2 Töchter.",
-    notable: [
-      { badge: "westbank", name: "Latifa Abu Hmeid („Um Nasser“, geb. 1945)", info: "„Khansa Palästinas“; besuchte über 40 Jahre ihre Söhne in Gefängnissen; von der PA mehrfach ausgezeichnet" },
-      { badge: ["fighter", "westbank"], name: "Abd al-Mun'im Abu Hmeid", info: "Sohn (PIJ); 31.5.1994 getötet" },
-      { badge: ["fighter", "westbank"], name: "Nasser Abu Hmeid", info: "Sohn, Mitbegründer der Al-Aqsa-Märtyrerbrigaden in Ramallah; 7× lebenslang + 50 Jahre; 20.12.2022 an Krebs in Haft gestorben; Leiche nicht übergeben", url: "https://en.wikipedia.org/wiki/Nasser_Abu_Hamid" },
-      { badge: ["prisoner", "abroad"], name: "Nasr Abu Hmeid", info: "5× lebenslang; im Geiseldeal Januar 2025 freigelassen und deportiert" },
-      { badge: ["prisoner", "abroad"], name: "Sharif Abu Hmeid", info: "4× lebenslang; freigelassen und deportiert Januar 2025" },
-      { badge: ["prisoner", "abroad"], name: "Muhammad Abu Hmeid", info: "2× lebenslang + 30 Jahre; freigelassen und deportiert Januar 2025" },
-      { badge: ["prisoner", "westbank"], name: "Islam Abu Hmeid", info: "Jüngster Sohn; lebenslang wegen Tötung eines Duvdevan-Soldaten (Steinwurf bei Lager-Razzia); nicht freigelassen" }
-    ]
-  },
-
-  "jaber": {
-    origin: "Nour-Shams-Flüchtlingslager, Tulkarem (J&S); Familie 1948 aus Haifa vertrieben. Familienhaus gesprengt.",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Mohammed Jaber („Abu Shuja'a“, 1998–2024)", info: "Kommandeur der Tulkarem-Brigade/Nour-Shams-Bataillon (PIJ); mehrere Attentatsversuche überlebt; 19.4.2024 fälschlich für tot erklärt und bei einem Trauerzug wieder aufgetaucht; 29.8.2024 mit 4 Kämpfern getötet („Operation Summer Camps“)", url: "https://en.wikipedia.org/wiki/Abu_Shujaa" },
-      { badge: ["victims", "westbank"], name: "Mahmoud Jaber", info: "Bruder; bei israelischer Razzia im Nour-Shams-Lager getötet" },
-      { badge: ["prisoner", "westbank"], name: "Oday Jaber", info: "Älterer Bruder; mehrfach verhaftet" },
-      { badge: ["prisoner", "westbank"], name: "Ahmed Jaber", info: "Jüngerer Bruder; verhaftet" }
-    ]
-  },
-
-  "hazem": {
-    origin: "Jenin (J&S).",
-    notable: [
-      { badge: "westbank", name: "Fathi Khazem („Abu Raad“)", info: "Ehemaliger Offizier der PA-Sicherheitskräfte; flüchtig; zwei Söhne getötet, Familienhaus gesprengt" },
-      { badge: ["fighter", "westbank"], name: "Raad Khazem", info: "Sohn; Anschlag Dizengoff Street, Tel Aviv (7.4.2022, 3 Tote); am nächsten Tag in Jaffa erschossen" },
-      { badge: ["fighter", "westbank"], name: "Abed al-Rahman Khazem", info: "Sohn; 28.9.2022 bei Razzia im Jenin-Lager getötet" },
-      { badge: ["fighter", "westbank"], name: "Wissam Hazem", info: "Hamas-Verantwortlicher Jenin; 30.8.2024 bei „Operation Summer Camps“ getötet (Zuordnung zur Familie zu verifizieren)" }
-    ]
-  },
-
-  "shtayyeh": {
-    origin: "Nablus (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Musab Shtayyeh", info: "Senior-Führer der Lions' Den (Hamas-nah); seit Sept. 2022 in PA-Haft — Festnahme löste Unruhen in Nablus aus; mehrfacher Hungerstreik" }
-    ]
-  },
-
-  "abu shallal": {
-    origin: "Balata-Flüchtlingslager, Nablus (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Amer Abdullah Abu Shallal (40)", info: "Kommandeur der Balata-Brigade; 17.1.2024 bei Drohnenschlag auf ein Auto nahe dem Lager getötet; laut IDF „Kopf der Terror-Infrastruktur in Nablus“" }
-    ]
-  },
-
-  "najmi": {
-    origin: "Balata-Flüchtlingslager, Nablus (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Yazan Najmi (25)", info: "17.1.2024 beim Drohnenschlag auf das Auto von Abu Shallal getötet" },
-      { badge: ["fighter", "westbank"], name: "Seif Najmi (27)", info: "Bruder; beim selben Schlag getötet" }
-    ]
-  },
-
-  "abu hamdan": {
-    origin: "Nablus (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Mahmoud Abu Hamdan (24)", info: "17.1.2024 beim Drohnenschlag auf das Auto von Abu Shallal getötet" }
-    ]
-  },
-
-  "daraghmeh": {
-    origin: "Tubas / Tayasir, nördliches Jordantal (J&S). Häuser der Brüder Mohamed und Ahmed im Februar 2025 zur Sprengung vermessen; Vater bei Razzia misshandelt.",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Ahmed Jamal Daraghmeh (26)", info: "Mitbegründer und Kommandeur der Tubas-Brigade (PIJ); 27.2.2024 getötet; zuvor von Israel UND der PA verfolgt" },
-      { badge: ["fighter", "westbank"], name: "Mohammad Jamal Daraghmeh (23)", info: "Bruder; zuvor 154 Tage in PA-Haft; 4.2.2025 Angriff auf Militärbasis am Checkpoint Tayasir (2 getötete israelische Soldaten), erschossen" },
-      { badge: "westbank", name: "Kamal Daraghmeh", info: "Bruder; Haus bei Razzia 9.2.2025 verwüstet" },
-      { badge: ["fighter", "westbank"], name: "Ra'fat Qadri Abdelatif Daraghmeh (29)", info: "Clan-Mitglied (Zuordnung zu verifizieren); 2002 bei Apache-Raketenangriff bei Tubas getötet — dabei starben auch 4 Unbeteiligte, darunter 2 Kinder" }
-    ]
-  },
-
-  "zakarneh": {
-    origin: "Qabatiya, südlich von Jenin (J&S); Jabal Zakarneh nach dem Clan benannt.",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Ahmed Maher Zakarneh (28)", info: "PIJ; bei der Qabatiya-Razzia 19./20.9.2024 getötet — der Einsatz, bei dem Soldaten Leichen von einem Dach warfen (AFP dokumentiert)" },
-      { badge: ["fighter", "westbank"], name: "Mustafa Faisal Zakarneh (23)", info: "PIJ; beim selben Einsatz getötet" }
-    ]
-  },
-
-  "abu al-rub": {
-    origin: "Qabatiya, südlich von Jenin (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Omar Hamza Abu al-Rub (24)", info: "PIJ; bei der Qabatiya-Razzia 19./20.9.2024 getötet" },
-      { badge: ["fighter", "westbank"], name: "Muhammad Khaled Abu al-Rub (28)", info: "PIJ; beim selben Einsatz getötet" },
-      { badge: ["diplomat", "westbank"], name: "Kamal Abu al-Rub", info: "Gouverneur von Jenin (PA) — politischer Flügel der Familie" }
-    ]
-  },
-
-  "hanaysha": {
-    origin: "Qabatiya, südlich von Jenin (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Fadi Jawdat Hanaysha (27)", info: "PIJ; bei der Qabatiya-Razzia 19./20.9.2024 getötet" },
-      { badge: ["fighter", "westbank"], name: "Raed Hanaysha", info: "19.11.2024 bei Undercover-Einsatz getötet; Leiche einbehalten" }
-    ]
-  },
-
-  "lahluh": {
-    origin: "Qabatiya, südlich von Jenin (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Wael Lahluh (31)", info: "Zellen-Chef Jenin; laut IDF verantwortlich für den Anschlag am Mehola-Kreuz (11.8.2024); 1.12.2024 bei Luftschlag getötet" }
-    ]
-  },
-
-  "hawashin": {
-    origin: "Jenin (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Muhammad Hawashin („Abu Shadi“)", info: "Oberkommandeur der Al-Quds-Brigaden im Westjordanland und Kommandeur des Jenin-Bataillons; 21.3.2024 bei Luftschlag auf Fahrzeug im Jenin-Lager getötet" }
-    ]
-  },
-
-  "lafi": {
-    origin: "Aqabat-Jaber-Flüchtlingslager, Jericho (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Malek Lafi", info: "Qassam-Brigaden, „Aqbat-Jaber-Bataillon“; am „Mi Casa“-Anschlag (28.1.2023) beteiligt; 5.2.2023 bei Großoperation im Lager getötet" }
-    ]
-  },
-
-  "abeidat": {
-    origin: "Aqabat-Jaber-Flüchtlingslager, Jericho (J&S).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Rafat Abeidat", info: "Qassam-Brigaden; zweiter Schütze des „Mi Casa“-Angriffs; 5.2.2023 beim selben Einsatz wie Malek Lafi getötet" }
-    ]
-  },
-
-  "jabarin": {
-    origin: "Jenin-Flüchtlingslager (J&S). Nicht zu verwechseln mit Zaher Jabarin (Hamas, Herkunft Tulkarem, Exil).",
-    notable: [
-      { badge: ["fighter", "westbank"], name: "Adham Muhammad Jabarin (28)", info: "Saraya al-Quds (PIJ); 19.1.2023 verletzt an der Haustür von Jawad Bawaqneh von Scharfschützen getötet; Rettungswagen durften nicht durch" },
-      { badge: ["victims", "westbank"], name: "Mohammad Mahmoud Jabarin (54)", info: "5.7.2024 bei der Jenin-Razzia getötet" },
-      { badge: ["victims", "westbank"], name: "Salah Mohammad Jabarin", info: "Sohn; lag schwerverletzt im Krankenhaus, als sein Vater getötet wurde; starb später an den Wunden vom 5.7.2024" },
-      { badge: ["fighter", "westbank"], name: "Karim Samer Tawfiq Jabarin (20)", info: "16.10.2024 getötet; Leiche konfisziert" },
-      { badge: ["fighter", "westbank"], name: "Yazan Mahmoud Bassem Jabarin (19)", info: "Al-Aqsa-Brigaden; 22.3.2014 beim Einsatz getötet, bei dem Hamza Abu al-Heija starb" }
-    ]
-  },
-
-  "bawaqneh": {
-    origin: "Jenin-Flüchtlingslager (J&S).",
-    notable: [
-      { badge: ["victims", "westbank"], name: "Jawad Bawaqneh (57)", info: "Lehrer; 19.1.2023 erschossen, als er dem verletzten Adham Jabarin zu Hilfe eilte — über 8 Schüsse; Sohn sprach von „offizieller Hinrichtung“" },
-      { badge: "westbank", name: "Farid Bawaqneh", info: "Sohn; Zeuge der Tötung seines Vaters" }
-    ]
-  },
-
-  "muhaisen": {
-    origin: "Dheisheh-Flüchtlingslager bei Bethlehem (J&S) — eines der am häufigsten geräumten Lager (UNRWA: 2017/18 drei Tote, 55 Verletzte durch scharfe Munition).",
-    notable: [
-      { badge: ["victims", "westbank"], name: "Ayman Muhaisen (29)", info: "2.6.2022 bei Morgen-Razzia im Lager erschossen" }
-    ]
-  },
-
-  "abu fouda": {
-    origin: "Hebron / al-Khalil (J&S).",
-    notable: [
-      { badge: ["victims", "westbank"], name: "Nassim Abu Fouda (26)", info: "30.1.2023 Kopfschuss nahe einem Checkpoint in Hebron" }
-    ]
-  },
-
-  "zubeidi": {
-    origin: "Jenin-Flüchtlingslager (J&S); verbunden mit dem Stone Theatre / Freedom Theatre (Arna Mer-Khamis).",
-    notable: [
-      { badge: ["prisoner", "westbank"], name: "Zakaria Zubeidi (geb. 1976)", info: "Kommandeur der Al-Aqsa-Märtyrerbrigaden Jenin, Mitbegründer Freedom Theatre; überlebte 4 Attentatsversuche; „Löffel-Flucht“ aus Gilboa 2021; im Geiseldeal Januar 2025 freigelassen", url: "https://en.wikipedia.org/wiki/Zakaria_Zubeidi" },
-      { badge: ["victims", "westbank"], name: "Samira Zubeidi", info: "Mutter, Theateraktivistin; 3.3.2002 am Fenster eines Nachbarhauses von Scharfschützen erschossen" },
-      { badge: ["fighter", "westbank"], name: "Taha Zubeidi", info: "Bruder, Kommandeur der Al-Quds-Brigaden Jenin; 2002 getötet — eine Woche vor seiner Hochzeit" },
-      { badge: ["fighter", "westbank"], name: "Daoud Zubeidi", info: "Bruder; Mai 2022 bei Einsatz im Jenin-Lager tödlich verwundet" },
-      { badge: ["fighter", "westbank"], name: "Mohammed Zubeidi", info: "Sohn von Zakaria, Jenin-Brigaden; September 2024 bei Drohnenschlag in Tubas getötet" }
-    ]
-  },
-
-  "barghouti": {
-    origin: "Deir Ghassaneh / Kobar / Beit Rima bei Ramallah (J&S). Eine der bekanntesten palästinensischen Familien — von Fatah über Hamas bis BDS und Literatur.",
-    notable: [
-      { badge: ["prisoner", "westbank"], name: "Marwan Barghouti (geb. 1959)", info: "Fatah-Führer; seit 2002 inhaftiert (5× lebenslang); in Umfragen beliebtester Palästinenser; internationale Freilassungskampagne", url: "https://en.wikipedia.org/wiki/Marwan_Barghouti" },
-      { badge: ["fighter", "westbank"], name: "Abdullah Barghouti (geb. 1972)", info: "Hamas-Qassam-Kommandeur und Bombenbauer; 67× lebenslang — die meisten lebenslangen Haftstrafen weltweit", url: "https://en.wikipedia.org/wiki/Abdullah_Barghouti" },
-      { badge: ["prisoner", "westbank"], name: "Bilal Barghouti", info: "Cousin Abdullahs; 16× lebenslang" },
-      { badge: ["prisoner", "westbank"], name: "Ahmed Barghouti", info: "Vertrauter Marwans, Al-Aqsa-Brigaden; 13× lebenslang; im Geiseldeal Januar 2025 freigelassen" },
-      { badge: ["diplomat", "westbank"], name: "Mustafa Barghouti", info: "Arzt und Politiker (PNI/Mubadara); Präsidentschaftskandidat 2005", url: "https://en.wikipedia.org/wiki/Mustafa_Barghouti" },
-      { badge: ["activist", "abroad"], name: "Omar Barghouti", info: "Mitbegründer der BDS-Bewegung", url: "https://en.wikipedia.org/wiki/Omar_Barghouti" },
-      { badge: ["culture", "abroad"], name: "Mourid Barghouti (1944–2021)", info: "Dichter" },
-      { badge: ["culture", "abroad"], name: "Tamim al-Barghouti (geb. 1977)", info: "Dichter, Sohn Mourids" },
-      { badge: "westbank", name: "Qassam Barghouti", info: "Ältester Sohn Marwans; führt die Freilassungskampagne" },
-      { badge: "westbank", name: "Fadwa Barghouti", info: "Ehefrau Marwans, Anwältin; internationale Kampagne" }
-    ]
-  },
-
-  "qawasmeh": {
-    origin: "Hebron, Stadtteil Wad Abu Katila (J&S); ca. 10.000 Mitglieder. Hamas-nah, agierte aber zeitweise gegen Weisungen der Hamas-Führung; mindestens 15 Clan-Mitglieder in der 2. Intifada getötet.",
-    notable: [
-      { badge: ["diplomat", "westbank"], name: "Fahd Qawasmeh", info: "Bürgermeister von Hebron 1976–1980, später PLO-Exekutivkomitee; 1984 in Amman ermordet" },
-      { badge: ["fighter", "westbank"], name: "Abdullah al-Qawasmeh", info: "Hamas-Militärchef Hebron; Juni 2003 erschossen — galt als meistgesuchter Mann des Westjordanlands" },
-      { badge: ["fighter", "westbank"], name: "Basel al-Qawasmeh", info: "Nachfolger Abdullahs; September 2003 getötet" },
-      { badge: ["prisoner", "westbank"], name: "Imad al-Qawasmeh", info: "Hamas-Militärchef Hebron; Oktober 2004 verhaftet; beauftragte den Doppelanschlag von Be'er Sheva (31.8.2004, 16 Tote)" },
-      { badge: ["fighter", "westbank"], name: "Ahmed al-Qawasmeh", info: "Selbstmordattentäter von Be'er Sheva, 31.8.2004" },
-      { badge: ["fighter", "westbank"], name: "Marwan Qawasmeh", info: "Verdächtiger der Entführung/Ermordung von 3 israelischen Jugendlichen (12.6.2014); 23.9.2014 erschossen" },
-      { badge: ["prisoner", "westbank"], name: "Hussam Qawasmeh", info: "Organisator der Entführung 2014; 3× lebenslang (2015)" }
-    ]
-  },
-
-  "al-jabari": {
-    origin: "Hebron (J&S), ca. 10.000 Mitglieder; historisch die pro-jordanischste Familie des Distrikts, teils Hamas-nah.",
-    notable: [
-      { badge: ["diplomat", "westbank"], name: "Sheikh Muhammad Ali al-Jabari", info: "Bürgermeister von Hebron; Vorsitzender der Jericho-Konferenz 1948; Mitglied des jordanischen Regentschaftsrats; gest. 1980" },
-      { badge: ["fighter", "westbank"], name: "Nasim al-Ja'abri", info: "Selbstmordattentäter von Be'er Sheva, 31.8.2004" }
-    ]
-  },
-
-  "al-arouri": {
-    origin: "Dorf Arura zwischen Ramallah und Nablus (J&S). Familienhaus zweimal gesprengt (2014, 2023).",
-    notable: [
-      { badge: ["official", "westbank"], name: "Saleh al-Arouri (1966–2024)", info: "Stellv. Hamas-Politbüro-Chef, Mitgründer der Qassam-Brigaden im Westjordanland; ~15 Jahre Haft, 2010 deportiert (Syrien, Türkei, Katar, Libanon); US-Kopfgeld 5 Mio. $; 2.1.2024 in Beirut getötet", url: "https://en.wikipedia.org/wiki/Saleh_al-Arouri" },
-      { badge: "westbank", name: "Aisha al-Arouri", info: "Mutter; hatte ihren Sohn 20 Jahre nicht gesehen" },
-      { badge: ["prisoner", "westbank"], name: "Dalal al-Arouri", info: "Schwester; Januar 2024 verhaftet, angeklagt wegen angeblicher Terrorfinanzierung" },
-      { badge: ["prisoner", "westbank"], name: "Fatma al-Arouri", info: "Schwester; am selben Tag verhaftet" }
-    ]
-  },
-
-  "erekat": {
-    origin: "Jericho (J&S). Eine der angesehenen Familien der Stadt; sechs von sieben Geschwistern leben in der Diaspora.",
-    notable: [
-      { badge: ["diplomat", "westbank"], name: "Saeb Erekat (1955–2020)", info: "PLO-Generalsekretär und palästinensischer Chefunterhändler seit 1991; gestorben an COVID-19 in Jerusalem", url: "https://en.wikipedia.org/wiki/Saeb_Erekat" }
-    ]
-  },
-
-  "mashal": {
-    origin: "Silwad bei Ramallah (J&S) → Familie nach 1967 nach Kuwait; heute Katar.",
-    notable: [
-      { badge: ["official", "abroad"], name: "Khaled Mashal (geb. 1956)", info: "Hamas-Politbüro-Chef 1996–2017, danach Leiter des Auslandsbüros; überlebte 1997 Mossad-Giftanschlag in Amman; beim Doha-Angriff 9.9.2025 Ziel, laut Hamas überlebt", url: "https://en.wikipedia.org/wiki/Khaled_Mashal" }
-    ]
-  },
-
-  "abu marzouk": {
-    origin: "Rafah (Gaza) → international: USA, Jordanien, Syrien, Katar/Ägypten.",
-    notable: [
-      { badge: ["official", "abroad"], name: "Mousa Abu Marzouk (geb. 1951)", info: "Hamas-Politbüro im Exil; 14 Jahre in den USA, dort 1995 verhaftet, 1997 ausgewiesen; führender Verhandlungsführer", url: "https://en.wikipedia.org/wiki/Mousa_Mohammed_Abu_Marzook" }
-    ]
-  }
-
-});
