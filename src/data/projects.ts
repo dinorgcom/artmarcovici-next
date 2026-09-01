@@ -26,5 +26,13 @@ export const projectItems: ProjectNavItem[] = [
     image: "/images/sarkophag-leopold.jpg",
     meta: "Interactive data project",
   },
+  {
+    slug: "femizide-at",
+    title: "FEMIZIDE IN ÖSTERREICH",
+    image_count: 1,
+    href: "/femizide/",
+    image: "/images/femizide-card.jpg",
+    meta: "Case database 2019–2026",
+  },
 ]
   .sort((a, b) => a.title.localeCompare(b.title));
