@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Femizide in Österreich 2019–2026 · Falldatenbank</title>
+  <meta name="description" content="Dokumentation der Femizide in Österreich 2019–2026 auf Basis öffentlicher Medienberichte und der AÖF-Zählung, mit historischem Rückblick 1970–2024." />
+  <script type="module" crossorigin src="/Users/mike/AppData/Roaming/kimi-desktop/daimon-bundle/runtime/git/femizide/assets/index-DCk_VyiZ.js"></script>
+  <link rel="stylesheet" crossorigin href="/Users/mike/AppData/Roaming/kimi-desktop/daimon-bundle/runtime/git/femizide/assets/index-D-DtES4C.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="kicker">Falldatenbank · Gedenken &amp; Dokumentation</p>
+      <h1>Femizide in Österreich 2019–2026</h1>
+      <p class="subtitle">Dokumentation auf Basis öffentlicher Medienberichte &amp; AÖF-Zählung · mit historischem Rückblick 1970–2024</p>
+      <nav class="toc" aria-label="Inhaltsverzeichnis">
+        <a href="#statistiken">Statistiken</a>
+        <a href="#ursachen">Ursachen &amp; Kontext</a>
+        <a href="#historie">Historie 1970–2024</a>
+        <a href="#vergleich">Männer &amp; Frauen</a>
+        <a href="#karte">Karte</a>
+        <a href="#fallarchiv">Fallarchiv</a>
+      </nav>
+      <div class="disclaimer" role="note">
+        <strong>Hinweis:</strong> Alle Angaben zur Fallliste stammen aus öffentlich zugänglichen Medienberichten und der
+        AÖF-Medienzählung. Namen werden nur genannt, wenn sie öffentlich berichtet wurden. Es gilt die
+        Unschuldsvermutung; laufende Verfahren sind als solche gekennzeichnet. Daten ohne Gewähr auf Vollständigkeit.
+        Die Kategorie „statistische Annahme" zur Religion basiert ausschließlich auf Mehrheitsverhältnissen des
+        Herkunftslandes und ist keine Aussage über die tatsächliche Religionszugehörigkeit einer Person.
+        Ungeprüfte Angaben sind gesondert gekennzeichnet. Der historische Rückblick 1970–2024 beruht auf einer
+        anderen Datenbasis (Todesursachenstatistik) und ist mit der Fallliste nicht gleichzusetzen.
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="kpis" class="kpis" aria-label="Kennzahlen"></section>
+
+    <section id="statistiken" class="yearstats" aria-label="Statistiken nach Jahr">
+      <h2>Statistiken nach Jahr</h2>
+      <p class="yearstats-note">
+        Verteilungen nach Tatjahr (2019–2026), jeweils gestapelt nach Kategorien. Die Balkenlänge entspricht
+        der absoluten Fallzahl des Jahres; die Segmente zeigen Anzahl und Anteil (per Tooltip).
+        „Unbekannt/keine Angabe" ist bewusst als eigene Kategorie sichtbar — sie markiert Berichtslücken
+        in der öffentlichen Berichterstattung.
+      </p>
+      <div class="yearstats-grid">
+        <div class="stat-block">
+          <h3>Tatwaffe <span class="h3-sub">aus Freitext-Angaben abgeleitet</span></h3>
+          <div id="ys-weapon" class="stacked-bars"></div>
+          <div class="legend" id="ys-weapon-legend"></div>
+        </div>
+        <div class="stat-block">
+          <h3>Bundesland</h3>
+          <div id="ys-state" class="stacked-bars"></div>
+          <div class="legend" id="ys-state-legend"></div>
+        </div>
+        <div class="stat-block">
+          <h3>Herkunftsland der Täter <span class="h3-sub">normalisiert zu Ländergruppen</span></h3>
+          <div id="ys-origin" class="stacked-bars"></div>
+          <div class="legend" id="ys-origin-legend"></div>
+        </div>
+        <div class="stat-block">
+          <h3>Religion der Täter <span class="h3-sub">berichtet / statistische Annahme</span></h3>
+          <div id="ys-religion" class="stacked-bars"></div>
+          <div class="legend" id="ys-religion-legend"></div>
+          <p class="reli-note">„Statistische Annahme" basiert ausschließlich auf den Mehrheitsverhältnissen des
+          Herkunftslandes und ist keine Aussage über die tatsächliche Religionszugehörigkeit einer Person.</p>
+        </div>
+      </div>
+      <div class="stat-block pop-block">
+        <h3>Bevölkerungsbezug <span class="h3-sub">Über-/Unterrepräsentation der Tätergruppen gegenüber der Wohnbevölkerung</span></h3>
+        <div class="pop-controls">
+          <label>Zeitraum
+            <select id="pop-year"></select>
+          </label>
+          <span id="pop-period" class="pop-period"></span>
+        </div>
+        <div class="pop-table-wrap">
+          <table id="pop-table" class="pop-table"></table>
+        </div>
+        <p class="pop-legend-note"><strong>RI</strong> = Repräsentationsindex (Täteranteil ÷ Bevölkerungsanteil):
+        1,0 = proportional · <span class="ri-badge ri-over">&gt; 1 überrepräsentiert</span>
+        <span class="ri-badge ri-under">&lt; 1 unterrepräsentiert</span>.
+        „Unbekannt" hat keine Bevölkerungsbasis und daher keinen RI.</p>
+        <div class="disclaimer pop-methodik" role="note">
+          <strong>Methodik &amp; Vorsicht bei der Interpretation:</strong>
+          Kleine Fallzahlen — bei Gruppen mit einstelligen Fallzahlen über 8 Jahre (z. B. Syrien 5, Türkei 4)
+          verändert ein einziger Fall den RI massiv; die Werte schwanken stark und sind keine stabilen Risikomaße.
+          <strong>Staatsangehörigkeit ist nicht gleich Migrationshintergrund</strong> — Eingebürgerte zählen als
+          „Österreich", in den Ausländergruppen sind auch in Österreich Geborene enthalten.
+          <strong>63 von 200 Fällen (31,5 %) ohne bekannte Täterherkunft</strong> verzerren alle Anteile, falls sie
+          nicht zufällig verteilt sind. Femizide sind Extremereignisse (~25/Jahr bei ~9 Mio. Einwohnern); Raten pro
+          100.000 beruhen auf einstelligen Jahresfallzahlen. Herkunftsangaben stammen aus Medienberichten/AÖF-Listen,
+          nicht aus amtlichen Registern; <strong>es gilt die Unschuldsvermutung</strong> — die Tabelle beschreibt
+          mutmaßliche bzw. verurteilte Täter laut Quellenlage.
+          <span class="pop-src">Quellen: Eurostat, Tabelle <code>migr_pop1ctz</code> (Bevölkerung am 1. Jänner nach
+          Staatsangehörigkeit, 2019–2025; Werte von Statistik Austria geliefert) · Statistik Austria, Bevölkerungsstand
+          1.1.2026 (vorläufig). Details: <code>data/population_methodik.md</code>.</span>
+        </div>
+      </div>
+      <div class="stat-block sui-block">
+        <h3>Tätersuizid nach der Tat <span class="h3-sub">aufgeschlüsselt nach Religion des Täters</span></h3>
+        <div class="pop-controls">
+          <label>Jahr
+            <select id="sui-year"></select>
+          </label>
+          <span id="sui-summary" class="pop-period"></span>
+        </div>
+        <div id="sui-chart" class="stacked-bars"></div>
+        <div class="legend" id="sui-legend"></div>
+        <p class="reli-note"><strong>Methodik:</strong> Die Religionsangabe folgt der Annahme-Ebene dieser
+        Datenbank — „statistische Annahme" beruht ausschließlich auf den Mehrheitsverhältnissen des
+        Herkunftslandes und ist keine Aussage über die tatsächliche Religionszugehörigkeit einer Person.
+        Täter, die nach der Tat Suizid begehen, durchlaufen kein Strafverfahren; die Angaben beruhen daher
+        auf Ermittlungs- und Medienberichten und nicht auf gerichtlichen Feststellungen.</p>
+      </div>
+    </section>
+
+    <section id="ursachen" class="context" aria-label="Ursachen und Kontext">
+      <h2>Ursachen &amp; Kontext</h2>
+      <p class="context-note">
+        Datenbasis: Medienberichte und Gerichtsberichte. „Unbekannt" ist selbst ein Befund — es markiert
+        Berichtslücken in der öffentlichen Berichterstattung. Alle Angaben beziehen sich auf alle
+        dokumentierten Fälle (ungefiltert).
+      </p>
+      <div class="context-grid">
+        <div class="stat-block wide">
+          <h3>Motiv-Verteilung <span class="h3-sub">nach Beleglage</span></h3>
+          <div id="ctx-motive" class="stacked-bars"></div>
+          <div class="legend">
+            <span><i class="sw b-urteil"></i>Urteil</span>
+            <span><i class="sw b-ermittlungen"></i>Ermittlungen</span>
+            <span><i class="sw b-medienbericht"></i>Medienbericht</span>
+            <span><i class="sw b-unbekannt"></i>Unbekannt</span>
+          </div>
+        </div>
+        <div class="stat-block religion-panel">
+          <h3>Transparenz: Religion der Täter</h3>
+          <div id="ctx-religion"></div>
+        </div>
+        <div class="stat-block">
+          <h3>Aufenthaltsstatus der Täter</h3>
+          <div id="ctx-residence" class="bars"></div>
+        </div>
+        <div class="stat-block">
+          <h3>Psychiatrische Evaluation</h3>
+          <div id="ctx-psych" class="bars"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="historie" class="history" aria-label="Historischer Rückblick 1970 bis 2024">
+      <h2>Historischer Rückblick 1970–2024</h2>
+      <div class="disclaimer hist-note" role="note">
+        <strong>Andere Datenbasis — nicht gleichzusetzen:</strong> Diese Zeitreihe stammt aus der
+        <em>Todesursachenstatistik</em> (WHO Mortality Database 1970–2001 auf Basis amtlicher Meldungen der
+        Statistik Austria; ab 2002 Statistik Austria nach ICD-10, aufbereitet in der FH-Joanneum-Studie
+        „Morde in Österreich 1970–2024", Loidl 2025). Sie zählt <em>Gestorbene</em> mit der Todesursache
+        „Mord, tätlicher Angriff" — sterbefallbasiert, ohne Täter-Opfer-Beziehung und ohne strafrechtliche
+        Wertung, also <strong>keine</strong> Femizid-Statistik. Sie ist mit der Fallliste 2019–2026
+        (medienbasierte AÖF-Zählung) <strong>nicht gleichzusetzen</strong>. Die zusätzlich eingeblendete
+        Eurostat-Reihe (polizeiliche Registerdaten, ICCS0101) liegt regelmäßig über der
+        Todesursachenstatistik (z.&nbsp;B. 2010: 33 vs. 28 weibliche Opfer) — Grund sind unterschiedliche
+        Deliktsbegriffe und Meldewege (Anzeigestand statt Sterbefall).
+        <strong>Die Jahre 2025/2026 sind in der Todesursachenstatistik noch nicht verfügbar</strong>
+        (Studienstand: Berichtsjahr 2024); sie werden nachgetragen, sobald Statistik Austria sie veröffentlicht.
+      </div>
+      <div class="stat-block hist-chart-block">
+        <h3>Ermordete Frauen pro Jahr <span class="h3-sub">Todesursachenstatistik, mit Tötungsdelikten gesamt als Referenz</span></h3>
+        <div class="hist-toggle" role="group" aria-label="Darstellung des Diagramms umschalten">
+          <button type="button" id="hist-mode-abs" class="active" aria-pressed="true">Absolute Zahlen</button>
+          <button type="button" id="hist-mode-rate" aria-pressed="false">Pro 100.000 Einwohner</button>
+        </div>
+        <div id="hist-chart"></div>
+        <div class="legend">
+          <span><i class="sw" style="background:#d4a017"></i>Weibliche Opfer (Todesursachenstatistik)</span>
+          <span><i class="sw" style="background:#5dade2"></i>Tötungsdelikte gesamt (Referenz)</span>
+          <span><i class="sw" style="background:#af7ac5"></i>Weibliche Opfer (Eurostat/PKS, 2008–2024)</span>
+        </div>
+        <p class="reli-note">Die Ansicht „pro 100.000 Einwohner" bereinigt die Zeitreihe um das
+        Bevölkerungswachstum (7,5 Mio. 1970 → 9,2 Mio. 2024; Bevölkerungsstand jeweils am 1. Jänner,
+        Eurostat <code>demo_pjan</code> / Statistik Austria). Die Rate bezieht sich auf die
+        Gesamtbevölkerung; Raten pro 100.000 <em>weiblicher</em> Bevölkerung liegen in
+        <code>data/history_aggregates.json</code> vor.</p>
+      </div>
+      <h3 class="hist-sub">Ausgewählte Befunde der IKF-Studie „Untersuchung Frauenmorde" (2010–2020)</h3>
+      <div class="ikf-grid">
+        <div class="ikf-card">
+          <div class="num">59 %</div>
+          <div class="lbl">familiärer Kontext</div>
+          <div class="sub">der weiblichen Mordopfer (PKS § 75, 2010–2020) standen in familiärer Beziehung zum Tatverdächtigen — davon 75 % in Hausgemeinschaft.</div>
+          <div class="src">Quelle: IKF-Studie Haller 2023</div>
+        </div>
+        <div class="ikf-card">
+          <div class="num">¼</div>
+          <div class="lbl">jeder vierte Femizid per Schusswaffe</div>
+          <div class="sub">25 von 100 Femiziden (Justizakten 2016–2020); das Messer war inkl. Alltagsgegenstände das häufigste Mordinstrument (36-mal).</div>
+          <div class="src">Quelle: IKF-Studie Haller 2023</div>
+        </div>
+        <div class="ikf-card">
+          <div class="num">46,9 %</div>
+          <div class="lbl">psychische Erkrankung der Täter</div>
+          <div class="sub">aller Femizid-Täter (n = 93); in 24 % der Fälle tatauslösend. Bei 93,5 % der Täter lagen Hochrisikoindikatoren vor.</div>
+          <div class="src">Quelle: IKF-Studie Haller 2023</div>
+        </div>
+        <div class="ikf-card">
+          <div class="num">74 %</div>
+          <div class="lbl">Partnerschaftsmorde</div>
+          <div class="sub">unter den Femiziden 2016–2020 (Beziehung/Ehe oder Ex-Beziehung); bei rund 30 % der Partnerschaftsfemizide war eine Trennung der Anlass.</div>
+          <div class="src">Quelle: IKF-Studie Haller 2023</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vergleich" class="history" aria-label="Vergleich männliche und weibliche Opfer">
+      <h2>Vergleich: männliche und weibliche Opfer</h2>
+      <div class="disclaimer hist-note" role="note">
+        <strong>Keine Falldokumentation für männliche Opfer:</strong> Für männliche Tötungsopfer
+        existiert — anders als für Femizide — <strong>keine fallweise öffentliche Dokumentation</strong>.
+        Der Vergleich ist daher nur <em>aggregiert</em> möglich: aus der Todesursachenstatistik
+        (Gestorbene mit der Todesursache „Mord, tätlicher Angriff"; WHO Mortality Database 1970–2001,
+        Statistik Austria/FH-Joanneum-Studie Loidl 2025 ab 2002), aus der PKS (Eurostat ICCS0101)
+        und aus der IKF-Studie (Haller 2023). Die männliche Jahresreihe wurde aus der
+        Sterbetafel-Matrix Abb. 24 der FH-Joanneum-Studie extrahiert (Spaltensumme 2002–2024:
+        exakt 504, wie in der Studie genannt) und für 1970–2001 aus derselben WHO-Quelle wie die
+        weibliche Reihe übernommen. Wie die Historie-Reihe handelt es sich <strong>nicht</strong> um
+        eine Femizid-Statistik.
+      </div>
+      <div class="stat-block hist-chart-block">
+        <h3>Ermordete Männer und Frauen pro Jahr <span class="h3-sub">Todesursachenstatistik 1970–2024</span></h3>
+        <div class="hist-toggle" role="group" aria-label="Darstellung des Diagramms umschalten">
+          <button type="button" id="mc-mode-abs" class="active" aria-pressed="true">Absolute Zahlen</button>
+          <button type="button" id="mc-mode-rate" aria-pressed="false">Pro 100.000 (geschlechtsspezifisch)</button>
+        </div>
+        <div id="mc-chart"></div>
+        <div class="legend">
+          <span><i class="sw" style="background:#d4a017"></i>Weibliche Opfer</span>
+          <span><i class="sw" style="background:#5dade2"></i>Männliche Opfer</span>
+        </div>
+        <p class="reli-note">Die Ansicht „pro 100.000" bezieht jede Reihe auf die jeweilige
+        Geschlechterbevölkerung (männliche Opfer pro 100.000 Männer, weibliche Opfer pro 100.000
+        Frauen; Bevölkerungsstand jeweils am 1. Jänner, Eurostat <code>demo_pjan</code>). Die
+        Trendumkehr ist sichtbar: Bis Mitte der 1990er-Jahre wurden meist mehr Männer getötet,
+        seit Ende der 1990er-Jahre überwiegend mehr Frauen — weil die männlichen Zahlen stärker
+        gesunken sind (FH-Joanneum-Studie, S. 77–78).</p>
+      </div>
+      <div class="kpis" id="mc-kpis"></div>
+      <h3 class="hist-sub">Befunde zum Geschlechtervergleich (IKF-Studie 2023 und FH-Joanneum-Studie 2025)</h3>
+      <div class="ikf-grid">
+        <div class="ikf-card">
+          <div class="num">2016–2020</div>
+          <div class="lbl">durchgehend mehr weibliche Opfer</div>
+          <div class="sub">In Österreich war die Kriminalitätsbelastung durch Tötungsdelikte (pro 100.000, ICCS0101) für Frauen und Mädchen fünf Jahre in Folge höher als für Männer und Buben — auch absolut wurden mehr Frauen getötet. EU-weit ist das Verhältnis umgekehrt (2015–2020: Frauen 0,69 / Männer 1,22).</div>
+          <div class="src">Quelle: IKF-Studie Haller 2023, Tab. A 54, S. 55 (Eurostat CRIM_HOM_SOFF)</div>
+        </div>
+        <div class="ikf-card">
+          <div class="num">87,1 %</div>
+          <div class="lbl">männliche Tatverdächtige</div>
+          <div class="sub">Bei den PKS-Mord(versuchs)fällen mit weiblichen Opfern 2010–2020 (668 von 767; 9,0 % weiblich). Bei Familientaten an Frauen sind es sogar 96,3 % männliche Tatverdächtige.</div>
+          <div class="src">Quelle: IKF-Studie Haller 2023, Tab. A 10, S. 21; Abb. A 30, S. 29–30</div>
+        </div>
+        <div class="ikf-card">
+          <div class="num">⅔ vs. ⅓</div>
+          <div class="lbl">Tatort Zuhause</div>
+          <div class="sub">Zwei Drittel der ermordeten Frauen, aber nur ein Drittel der ermordeten Männer sterben zu Hause (2002–2024). Männliche Opfer werden deutlich häufiger an sonstigen oder nicht näher bezeichneten Orten getötet.</div>
+          <div class="src">Quelle: FH-Joanneum-Studie Loidl 2025, S. 98</div>
+        </div>
+        <div class="ikf-card">
+          <div class="num">77 : 19</div>
+          <div class="lbl">Strangulierung zu Hause</div>
+          <div class="sub">Erhängen, Strangulieren oder Ersticken am Tatort Zuhause 2002–2024: 77 weibliche vs. 19 männliche Gestorbene. Strangulierung betrifft 18,2 % der ermordeten Frauen, aber nur 7,1 % der Männer.</div>
+          <div class="src">Quelle: FH-Joanneum-Studie Loidl 2025, Abb. 23–25, S. 93–98</div>
+        </div>
+        <div class="ikf-card">
+          <div class="num">9 von 10</div>
+          <div class="lbl">Femizid-Täter sind Männer</div>
+          <div class="sub">Justizakten 2016–2020: 137 ermordete Frauen und Mädchen durch 124 Täter:innen — 113 Männer (91,2 %), 9 Frauen, 2 unbekannt. Bei den 100 Femiziden (EIGE-Definition): 93 männliche Täter.</div>
+          <div class="src">Quelle: IKF-Studie Haller 2023, S. 68, 77, 118–119</div>
+        </div>
+        <div class="ikf-card">
+          <div class="num">16 : 15</div>
+          <div class="lbl">Ausnahme Mädchenmorde</div>
+          <div class="sub">Einzige Opfergruppe mit knapper Mehrheit weiblicher Tatverdächtiger: Bei (versuchten) Morden an Mädchen unter 14 Jahren waren 16 von 31 Tatverdächtigen weiblich (vornehmlich familiärer Kontext).</div>
+          <div class="src">Quelle: IKF-Studie Haller 2023, Tab. A 7, S. 18</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="karte" class="map" aria-label="Karte der Bundesländer">
+      <h2>Karte</h2>
+      <p class="map-note">
+        Verteilung der dokumentierten Fälle auf die Bundesländer (Tatort). Klick auf ein Bundesland
+        filtert die Fallliste im Fallarchiv; erneuter Klick hebt die Filterung wieder auf.
+      </p>
+      <div class="stat-block map-block">
+        <div class="pop-controls">
+          <label>Jahr
+            <select id="map-year"></select>
+          </label>
+          <span id="map-hover" class="pop-period">Zeigen Sie auf ein Bundesland oder wählen Sie es aus.</span>
+        </div>
+        <div id="map-chart"></div>
+        <div class="legend" id="map-legend"></div>
+        <p class="reli-note">Geometrie: GADM 4.1, Verwaltungsebene 1 (vereinfachte SVG-Pfade, lokal eingebettet;
+        keine externe Kartenbibliothek). Fallzahlen aus dieser Datenbank (Medienberichte/AÖF-Zählung).</p>
+      </div>
+    </section>
+
+    <section id="fallarchiv" class="archive" aria-label="Fallarchiv">
+      <h2>Fallarchiv</h2>
+      <div class="search-block">
+        <label for="f-search">Fallfinder</label>
+        <div class="search-row">
+          <input id="f-search" type="search" placeholder="Fall suchen: Ort, Name, Stichwort …" autocomplete="off" />
+          <span id="search-count" class="search-count" hidden></span>
+        </div>
+        <p class="search-hint">Durchsucht Ort, Bezirk, Bundesland, Namen, Notizen, Motiv, Methode, Gericht, Urteil und Quellen.</p>
+      </div>
+      <div class="filters" aria-label="Filter">
+        <div class="filters-grid">
+          <label>Jahr
+            <select id="f-year"><option value="">Alle Jahre</option></select>
+          </label>
+          <label>Bundesland
+            <select id="f-state"><option value="">Alle Bundesländer</option></select>
+          </label>
+          <label>Beziehung Täter–Opfer
+            <select id="f-rel">
+              <option value="">Alle</option>
+              <option value="partner">Partner (Ehe/Lebensgefährte)</option>
+              <option value="ex">Ex-Partner / in Trennung</option>
+              <option value="familie">Familienangehöriger</option>
+              <option value="bekannter">Bekannter / Nachbar / Kollege</option>
+              <option value="sonstiges">Sonstiges / keine Beziehung</option>
+            </select>
+          </label>
+          <label>Tatmittel
+            <select id="f-method">
+              <option value="">Alle</option>
+              <option value="schuss">Schusswaffe</option>
+              <option value="stich">Stich-/Schnittwaffe</option>
+              <option value="würgen">Würgen / Ersticken</option>
+              <option value="schlag">Schläge / stumpfe Gewalt</option>
+              <option value="brand">Brand / Explosion</option>
+              <option value="fahrzeug">Fahrzeug / Zug</option>
+              <option value="substanz">Gift / Substanzen</option>
+              <option value="unbekannt">Sonstiges / unbekannt</option>
+            </select>
+          </label>
+          <label>Täter-Ausgang
+            <select id="f-outcome">
+              <option value="">Alle</option>
+              <option value="suizid">Suizid nach der Tat</option>
+              <option value="urteil">Urteil / Verfahren abgeschlossen</option>
+              <option value="laufend">Laufend / ungeklärt</option>
+            </select>
+          </label>
+          <label>Motiv-Kategorie
+            <select id="f-motive"><option value="">Alle</option></select>
+          </label>
+          <label>Religion (Täter)
+            <select id="f-religion">
+              <option value="">Alle</option>
+              <option value="berichtet">In Berichten erwähnt</option>
+              <option value="mutmasslich_muslimisch">Statistische Annahme: mutmaßlich muslimisch</option>
+              <option value="mutmasslich_christlich">Statistische Annahme: mutmaßlich christlich</option>
+              <option value="keine">Keine Angabe / keine Annahme</option>
+            </select>
+          </label>
+        </div>
+        <div class="filters-meta">
+          <span id="result-count"></span>
+          <button id="f-reset" type="button">Filter zurücksetzen</button>
+        </div>
+      </div>
+      <div class="case-list-wrap">
+        <div id="year-indicator" class="year-indicator" hidden aria-hidden="true"></div>
+        <section id="cases" class="case-list" aria-label="Fallliste"></section>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Statistik der angezeigten Fälle">
+      <h2>Statistik der angezeigten Fälle</h2>
+      <p class="stats-note">Aus den angezeigten (gefilterten) Fällen berechnet. Kategorisierung von Beziehung, Tatmittel und Ausgang erfolgt heuristisch anhand der dokumentierten Freitext-Angaben.</p>
+      <div class="stats-grid">
+        <div class="stat-block">
+          <h3>Fälle pro Bundesland</h3>
+          <div id="stat-states" class="bars"></div>
+        </div>
+        <div class="stat-block">
+          <h3>Altersverteilung der Opfer</h3>
+          <div id="stat-ages" class="bars"></div>
+        </div>
+        <div class="stat-block">
+          <h3>Beziehung Täter–Opfer</h3>
+          <div id="stat-rel" class="bars"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Datenbasis Fallliste 2019–2026: öffentlich zugängliche Medienberichte und Jahreslisten der AÖF (Autonome Österreichische Frauenhäuser). Die maschinenlesbare Gesamtdatei liegt unter <code>data/cases.json</code>.
+      Historischer Rückblick 1970–2024: Todesursachenstatistik (WHO Mortality Database / Statistik Austria, aufbereitet in FH-Joanneum/Loidl 2025) sowie Eurostat (ICCS0101) und IKF-Studie Haller 2023 — abweichende Zählweisen, nicht mit der Fallliste gleichzusetzen.
+      Vergleich männliche/weibliche Opfer: <code>data/male_comparison.json</code> (männliche Reihe aus FH-Joanneum-Matrix Abb. 24 extrahiert, Summe 2002–2024 = 504 verifiziert; 1970–2001 WHO Mortality Database) — keine fallweise Dokumentation männlicher Opfer vorhanden.</p>
+      <p class="help">Wenn Sie oder jemand in Ihrem Umfeld von Gewalt betroffen ist: Frauenhelpline 0800 222 555 (kostenlos, rund um die Uhr) · Notruf 112.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
