@@ -20,7 +20,7 @@
         <span class="tag ${d==="suizid"?"outcome-suizid":""}">${f(Se[d])}</span>
       </div>
     </div>
-    <span class="c-chevron">▾</span>`}function w(e,t){return`<dt>${f(e)}</dt><dd>${N(t)}</dd>`}function De(e){const t=e.analysis||{};if(t.religion_reported){const i=t.religion_context?` — ${t.religion_context}`:"";return`<span class="reli-reported">In Berichten erwähnt${f(i)}</span>`}return t.religion_inferred&&he[t.religion_inferred]?`<span class="reli-assumed">Statistische Annahme: ${he[t.religion_inferred]} <em>(aus Herkunftsland abgeleitet, keine Individualaussage)</em></span>`:'<span class="na">Keine Angabe</span>'}function je(e){const t="/"+String(e.file).replace(/^\/+/,""),i=e.kind==="victim"?"Opfer":"Mutmaßlicher Täter",o=e.kind==="victim"?"badge-victim":"badge-perp";return`<figure class="photo-item">
+    <span class="c-chevron">▾</span>`}function w(e,t){return`<dt>${f(e)}</dt><dd>${N(t)}</dd>`}function De(e){const t=e.analysis||{};if(t.religion_reported){const i=t.religion_context?` — ${t.religion_context}`:"";return`<span class="reli-reported">In Berichten erwähnt${f(i)}</span>`}return t.religion_inferred&&he[t.religion_inferred]?`<span class="reli-assumed">Statistische Annahme: ${he[t.religion_inferred]} <em>(aus Herkunftsland abgeleitet, keine Individualaussage)</em></span>`:'<span class="na">Keine Angabe</span>'}function je(e){const t="/femizide/"+String(e.file).replace(/^\/+/,""),i=e.kind==="victim"?"Opfer":"Mutmaßlicher Täter",o=e.kind==="victim"?"badge-victim":"badge-perp";return`<figure class="photo-item">
     <a href="${f(t)}" target="_blank" rel="noopener noreferrer" title="Bild in Originalgröße öffnen (neuer Tab)">
       <img src="${f(t)}" alt="${f(e.caption||i)}" loading="lazy" />
     </a>
