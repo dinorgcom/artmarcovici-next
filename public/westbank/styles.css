@@ -324,30 +324,123 @@ h1 em {
   font-size: 0.96rem;
 }
 
-.aggregate-band {
+.fatality-comparison {
+  padding-block: clamp(64px, 8vw, 110px);
+  background: var(--paper-deep);
+}
+
+.fatality-heading {
+  margin-bottom: 38px;
+}
+
+.fatality-heading h2 {
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+}
+
+.fatality-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.fatality-card {
+  display: flex;
+  min-width: 0;
+  min-height: 405px;
+  padding: clamp(26px, 4vw, 46px);
+  flex-direction: column;
+  align-items: flex-start;
   color: var(--white);
+}
+
+.fatality-palestinian {
   background: var(--red-dark);
 }
 
-.aggregate-inner {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: clamp(28px, 6vw, 80px);
-  padding-block: 42px;
-  align-items: center;
+.fatality-israeli {
+  background: var(--ink);
 }
 
-.aggregate-inner strong {
+.fatality-period {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fatality-card strong {
+  margin-block: 22px 18px;
   font-family: var(--font-display);
-  font-size: clamp(5rem, 10vw, 8.5rem);
-  letter-spacing: -0.07em;
+  font-size: clamp(5.5rem, 10vw, 8.5rem);
+  letter-spacing: -0.08em;
   line-height: 0.8;
 }
 
-.aggregate-inner p {
-  max-width: 800px;
+.fatality-card > p:not(.fatality-period) {
+  max-width: 510px;
+  margin: 0 0 28px;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.5;
+}
+
+.fatality-card a {
+  margin-top: auto;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.fatality-card a:hover {
+  color: var(--gold);
+}
+
+.fatality-history {
+  margin-top: 34px;
+  padding-top: 30px;
+  border-top: 1px solid var(--ink);
+}
+
+.fatality-history > p:first-child {
+  margin: 0 0 18px;
+  font-weight: 700;
+}
+
+.fatality-history dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
   margin: 0;
-  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  background: var(--line);
+}
+
+.fatality-history dl > div {
+  display: flex;
+  min-width: 0;
+  padding: 16px 20px;
+  flex-direction: column;
+  background: var(--paper);
+}
+
+.fatality-history dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fatality-history dd {
+  margin: 5px 0 0;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.fatality-history .fatality-note {
+  max-width: 990px;
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
 }
 
 .section {
@@ -1069,13 +1162,16 @@ blockquote {
     padding-top: 22px;
   }
 
-  .aggregate-inner {
+  .fatality-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
   }
 
-  .aggregate-inner strong {
-    font-size: 5.4rem;
+  .fatality-card {
+    min-height: 0;
+  }
+
+  .fatality-history dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .section {
