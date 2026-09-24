@@ -337,6 +337,12 @@ h1 em {
   font-size: clamp(2.8rem, 5.5vw, 5rem);
 }
 
+.fatality-scope {
+  margin: 20px 0 0;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 700;
+}
+
 .fatality-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -384,6 +390,16 @@ h1 em {
   line-height: 1.5;
 }
 
+.fatality-card > p.fatality-subset {
+  padding-top: 16px;
+  border-top: 1px solid rgb(255 255 255 / 45%);
+  font-size: 0.95rem;
+}
+
+.fatality-subset b {
+  font-size: 1.13rem;
+}
+
 .fatality-card a {
   margin-top: auto;
   font-size: 0.82rem;
@@ -394,20 +410,34 @@ h1 em {
   color: var(--gold);
 }
 
+.fatality-compare-note {
+  max-width: 990px;
+  margin: 28px 0 0;
+  padding-left: 18px;
+  border-left: 3px solid var(--ink);
+  font-size: 0.91rem;
+}
+
 .fatality-history {
-  margin-top: 34px;
+  margin-top: 42px;
   padding-top: 30px;
   border-top: 1px solid var(--ink);
 }
 
-.fatality-history > p:first-child {
+.fatality-history h3 {
+  margin: 0 0 8px;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.fatality-history > p:not(.fatality-note) {
   margin: 0 0 18px;
-  font-weight: 700;
 }
 
 .fatality-history dl {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   margin: 0;
   background: var(--line);
@@ -1171,7 +1201,7 @@ blockquote {
   }
 
   .fatality-history dl {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .section {
