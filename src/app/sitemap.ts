@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/free-market-chess",
     "/mortality/",
     "/mortality/weekly.html",
+    "/westbank/",
     "/gallery/artworks",
     "/gallery/mosaic",
     "/gallery/cado",

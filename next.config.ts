@@ -21,6 +21,10 @@ const nextConfig: NextConfig = {
         destination: "/mortality/index.html",
       },
       {
+        source: "/westbank",
+        destination: "/westbank/index.html",
+      },
+      {
         source: "/wien-sonne-temperatur",
         destination: "/wien-sonne-temperatur/index.html",
       },

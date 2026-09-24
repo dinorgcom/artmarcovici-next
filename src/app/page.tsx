@@ -107,6 +107,37 @@ export default function Home() {
         </a>
       </section>
 
+      {/* West Bank — sourced data project */}
+      <section className="max-w-7xl mx-auto px-4 pt-6">
+        <a
+          href="/westbank/"
+          className="art-card group relative block overflow-hidden rounded-lg border border-accent/30 hover:border-accent transition-colors duration-300 bg-black"
+        >
+          <div className="absolute inset-0 overflow-hidden bg-[#11110f]">
+            <div className="absolute -right-12 -top-24 h-96 w-96 rounded-full border border-accent/30 transition-transform duration-700 group-hover:scale-110" />
+            <div className="absolute right-24 -top-10 h-[130%] w-24 rotate-[14deg] bg-accent/70 transition-transform duration-700 group-hover:rotate-[18deg]" />
+            <div className="absolute right-52 top-16 h-72 w-72 rounded-full border border-white/10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
+          </div>
+          <div className="relative px-8 py-12 md:px-14 md:py-16 max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4">
+              Data &amp; sources · West Bank 2023–2026
+            </p>
+            <h2 className="font-serif text-3xl md:text-5xl tracking-wide mb-4">
+              SETTLER VIOLENCE — <span className="text-gray-300">CASES &amp; CONTEXT</span>
+            </h2>
+            <p className="text-gray-300 mb-8 leading-relaxed max-w-xl">
+              A sourced German-language working page separating direct killings from deaths in
+              the context of settler attacks — with case records, prosecution status and the
+              Palestinian population series for the West Bank.
+            </p>
+            <span className="inline-block px-8 py-3 border border-accent text-accent group-hover:bg-accent group-hover:text-black transition-all duration-300 tracking-widest text-sm uppercase">
+              Open the research
+            </span>
+          </div>
+        </a>
+      </section>
+
       {/* Mortality in Austria — interactive data project */}
       <section className="max-w-7xl mx-auto px-4 pt-6">
         <a

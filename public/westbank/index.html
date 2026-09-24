@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0b0a" />
+    <title>Siedlergewalt &amp; Demografie im Westjordanland — Biest</title>
+    <meta
+      name="description"
+      content="Eine quellenbasierte Arbeitsseite zu tödlichen Fällen, Strafverfolgung und palästinensischer Bevölkerungsentwicklung im Westjordanland."
+    />
+    <link rel="canonical" href="https://biest.com/westbank/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Biest" />
+    <meta property="og:title" content="Siedlergewalt &amp; Demografie im Westjordanland" />
+    <meta
+      property="og:description"
+      content="Tödliche Fälle, Strafverfolgung und Bevölkerungsentwicklung – getrennt, dokumentiert und mit Quellen versehen."
+    />
+    <meta property="og:url" content="https://biest.com/westbank/" />
+    <meta property="og:image" content="https://biest.com/og/og-default.jpg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Zur Startseite von Biest">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>biest.com</span>
+      </a>
+      <a class="back-link" href="/">Alle Projekte <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="inhalt">
+      <section class="hero shell" aria-labelledby="page-title">
+        <p class="eyebrow">Datenprojekt · Westjordanland · Stand 24.09.2026</p>
+        <h1 id="page-title">Siedlergewalt,<br /><em>Tötungen &amp; Demografie</em></h1>
+        <div class="hero-grid">
+          <p class="lede">
+            Eine quellenbasierte Arbeitsseite. Sie trennt direkte Tötungen durch israelische
+            Siedler von Todesfällen im Kontext von Siedlerangriffen, dokumentiert bekannte
+            Strafverfahren und stellt die Entwicklung der palästinensischen Bevölkerung im
+            Westjordanland gegenüber.
+          </p>
+          <p class="reading-note">
+            Die Begriffe in dieser Seite folgen den jeweils verlinkten Quellen. Wo Berichte
+            unterschiedliche Einordnungen zulassen, wird das sichtbar gemacht.
+          </p>
+        </div>
+      </section>
+
+      <section class="metrics shell" aria-label="Kennzahlen">
+        <article class="metric metric-primary">
+          <span>Palästinensische Bevölkerung</span>
+          <strong>3,46 Mio.</strong>
+          <small>PCBS-Projektion für 2026</small>
+        </article>
+        <article class="metric">
+          <span>Wachstum 2016–2026</span>
+          <strong>+23,6 %</strong>
+          <small>PCBS-Schätz-/Projektionsreihe</small>
+        </article>
+        <article class="metric">
+          <span>Area C · Flächenanteil</span>
+          <strong>59,6 %</strong>
+          <small>PCBS/GeoMOLG 2017</small>
+        </article>
+        <article class="metric">
+          <span>Öffentlich belegte Tötungsanklage</span>
+          <strong>1</strong>
+          <small>seit mehr als sieben Jahren · Stand 2026</small>
+        </article>
+      </section>
+
+      <section class="shell method-block" aria-labelledby="method-title">
+        <div>
+          <p class="eyebrow" id="method-title">Methodischer Kern</p>
+          <p class="method-statement">
+            „Von einem Siedler getötet“ ist nicht automatisch gleichbedeutend mit
+            „Opfer eines Siedlerangriffs“.
+          </p>
+        </div>
+        <p>
+          OCHA führt Angriffe palästinensischer Täter, bei denen der Täter anschließend von
+          einem Siedler erschossen wird, separat. Umgekehrt bedeutet ein Todesfall während
+          eines Siedlerangriffs nicht zwingend, dass das Opfer völlig passiv war; in mehreren
+          Fällen gab es Steinwürfe oder andere Auseinandersetzungen.
+        </p>
+      </section>
+
+      <aside class="aggregate-band">
+        <div class="shell aggregate-inner">
+          <strong>23</strong>
+          <p>
+            palästinensische Todesfälle meldete OCHA bis Ende August 2026
+            <em>im Kontext von Siedlerangriffen</em>. Diese Kategorie ist breiter als „direkt
+            von Siedlern getötet“ und kann auch Tötungen durch israelische Kräfte oder Fälle
+            mit ungeklärter Täterschaft enthalten.
+          </p>
+        </div>
+      </aside>
+
+      <section class="section shell" aria-labelledby="cases-title">
+        <header class="section-head">
+          <div>
+            <p class="section-number">01</p>
+            <h2 id="cases-title">Tödliche Fälle<br />und Strafverfolgung</h2>
+          </div>
+          <p>
+            Öffentlich rekonstruierbare Fälle seit dem 7. Oktober 2023, die in OCHA- oder
+            anderen belastbaren Berichten direkt Siedlern oder Siedlungswächtern zugerechnet
+            werden. „Keine öffentliche Anklage gefunden“ ist keine Aussage über möglicherweise
+            nicht veröffentlichte Ermittlungen.
+          </p>
+        </header>
+
+        <div class="case-overview" aria-labelledby="case-overview-title">
+          <div>
+            <p class="eyebrow" id="case-overview-title">Einträge nach Einordnung</p>
+            <p class="chart-caption">Anzahl der dokumentierten Tabellenfälle – nicht Anzahl der Toten.</p>
+          </div>
+          <div class="category-chart" id="category-chart"></div>
+        </div>
+
+        <div class="filters" aria-label="Fallliste filtern">
+          <label>
+            <span>Suche</span>
+            <input id="q" type="search" placeholder="Ort, Name oder Kontext" autocomplete="off" />
+          </label>
+          <label>
+            <span>Einordnung</span>
+            <select id="kind">
+              <option value="">Alle Kategorien</option>
+              <option value="Angreifer">Aktiver Angreifer</option>
+              <option value="Siedlerangriff">Siedlerangriff</option>
+              <option value="Konfrontation">Konfrontation</option>
+              <option value="unklar">Unklar</option>
+            </select>
+          </label>
+          <p class="result-count" id="result-count" aria-live="polite"></p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="case-table" id="cases">
+            <caption class="sr-only">Dokumentierte tödliche Fälle und Stand der Strafverfolgung</caption>
+            <thead>
+              <tr>
+                <th scope="col">Datum / Ort</th>
+                <th scope="col">Opfer / Zahl</th>
+                <th scope="col">Kontext</th>
+                <th scope="col">Bewaffnung / Rolle</th>
+                <th scope="col">Ermittlungen / Verfahren</th>
+                <th scope="col">Quellen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">11.–12.10.2023 · Qusra</td>
+                <td data-label="Opfer / Zahl">5</td>
+                <td data-label="Kontext">Siedler drangen in oder nahe Qusra ein; anschließende Konfrontationen und Trauerzug.</td>
+                <td data-label="Bewaffnung / Rolle">Steinwürfe im Umfeld; keine Schusswaffen der Getöteten öffentlich belegt.</td>
+                <td data-label="Verfahren">Mordverdächtiger Siedler am 7.11. festgenommen, nach kurzer Befragung mit Auflagen freigelassen; keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.washingtonpost.com/investigations/2024/01/09/israel-settler-violence-qusra-west-bank/">Washington Post</a></td>
+              </tr>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">24.10.2023 · Ras Karkar</td>
+                <td data-label="Opfer / Zahl">1</td>
+                <td data-label="Kontext">Palästinensisches Fahrzeug beschossen.</td>
+                <td data-label="Bewaffnung / Rolle">Kein Angriff des Getöteten berichtet.</td>
+                <td data-label="Verfahren">Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/hostilities-gaza-strip-and-israel-flash-update-24">OCHA</a></td>
+              </tr>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">28.10.2023 · As Sawiya</td>
+                <td data-label="Opfer / Zahl">Bilal Saleh</td>
+                <td data-label="Kontext">Vorfall während der Olivenernte; Auseinandersetzung.</td>
+                <td data-label="Bewaffnung / Rolle">Israelische Darstellung erwähnte Steinwürfe; keine Schusswaffe des Getöteten belegt.</td>
+                <td data-label="Verfahren">Schütze festgenommen und nach wenigen Tagen freigelassen; keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.yesh-din.org/en/summary-of-the-2023-olive-harvest-season/">Yesh Din</a></td>
+              </tr>
+              <tr data-kind="Angreifer">
+                <td data-label="Datum / Ort">29.02.2024 · Eli</td>
+                <td data-label="Opfer / Zahl">Mohammad Manasra</td>
+                <td data-label="Kontext">Erschoss zuvor zwei israelische Siedler an einer Tankstelle; danach von einem Siedler erschossen.</td>
+                <td data-label="Bewaffnung / Rolle"><strong>Schusswaffe; aktiver Angreifer.</strong></td>
+                <td data-label="Verfahren">Kein Verfahren gegen den Siedler zu erwarten; Tötung erfolgte unmittelbar nach tödlichem Angriff.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-update-198-west-bank">OCHA</a></td>
+              </tr>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">15.08.2024 · Jit</td>
+                <td data-label="Opfer / Zahl">1</td>
+                <td data-label="Kontext">Rund 100 maskierte Israelis drangen laut IDF in Jit ein, legten Feuer und warfen Steine oder Molotowcocktails.</td>
+                <td data-label="Bewaffnung / Rolle">Keine Schusswaffe des Getöteten berichtet.</td>
+                <td data-label="Verfahren">Vier Verdächtige festgenommen; IDF sprach von schwerem nationalistischem Verbrechen. Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/august-24-pr/summary-of-the-investigation-into-the-riots-in-the-town-of-jit-in-samaria/">IDF</a></td>
+              </tr>
+              <tr data-kind="Konfrontation">
+                <td data-label="Datum / Ort">26.08.2024 · Wadi Rahhal</td>
+                <td data-label="Opfer / Zahl">1</td>
+                <td data-label="Kontext">Siedler in Reservisteneinheit schossen; laut erster IDF-Untersuchung verließen sie ihren zugewiesenen Bereich.</td>
+                <td data-label="Bewaffnung / Rolle">Steinwürfe zwischen Gruppen berichtet.</td>
+                <td data-label="Verfahren">Untersuchung dokumentiert; keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-update-210-west-bank">OCHA</a></td>
+              </tr>
+              <tr data-kind="Angreifer">
+                <td data-label="Datum / Ort">06.11.2024 · Shilo</td>
+                <td data-label="Opfer / Zahl">1</td>
+                <td data-label="Kontext">Fahrzeugangriff auf Siedler; Täter stieg laut Berichten mit Messer aus.</td>
+                <td data-label="Bewaffnung / Rolle"><strong>Fahrzeug und Messer; aktiver Angreifer.</strong></td>
+                <td data-label="Verfahren">Kein Strafverfahren gegen den schießenden Siedler öffentlich bekannt.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-update-238-west-bank">OCHA</a></td>
+              </tr>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">19.06.2025 · Surif</td>
+                <td data-label="Opfer / Zahl">1</td>
+                <td data-label="Kontext">Siedler griffen Haus und älteren Mann an; als Angehörige kamen, wurde geschossen.</td>
+                <td data-label="Bewaffnung / Rolle">Keine Waffe des Getöteten berichtet.</td>
+                <td data-label="Verfahren">Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-update-299-west-bank">OCHA</a></td>
+              </tr>
+              <tr data-kind="Konfrontation">
+                <td data-label="Datum / Ort">11.07.2025 · Sinjil / Al-Mazra’a ash Sharqiya</td>
+                <td data-label="Opfer / Zahl">2 Tote, davon 1 sicher Siedler zugerechnet</td>
+                <td data-label="Kontext">Große Konfrontation; palästinensische und israelische Darstellungen unterscheiden sich zum Beginn.</td>
+                <td data-label="Bewaffnung / Rolle">Steinwürfe; ein Mann erschossen, ein US-Palästinenser nach Schlägen gestorben.</td>
+                <td data-label="Verfahren">Polizei und Shin Bet eröffneten Untersuchung; zunächst keine Festnahmen. Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quellen"><a href="https://www.reuters.com/world/middle-east/us-aware-reported-death-american-after-beating-by-israeli-settlers-2025-07-12/">Reuters</a> · <a href="https://www.timesofisrael.com/liveblog_entry/israeli-authorities-open-probe-into-alleged-settler-killing-of-palestinian-no-arrests-made/">Times of Israel</a></td>
+              </tr>
+              <tr data-kind="Konfrontation">
+                <td data-label="Datum / Ort">25.07.2025 · Migdal Oz</td>
+                <td data-label="Opfer / Zahl">1</td>
+                <td data-label="Kontext">Am Siedlungseingang von Sicherheitsmann erschossen.</td>
+                <td data-label="Bewaffnung / Rolle">Laut IDF Messer und Steinwürfe; daher als mutmaßlicher Angriffsfall zu behandeln.</td>
+                <td data-label="Verfahren">Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-update-310-west-bank">OCHA</a></td>
+              </tr>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">28.07.2025 · Umm al-Khair</td>
+                <td data-label="Opfer / Zahl">Awdah Hathaleen</td>
+                <td data-label="Kontext">Konfrontation um Erdarbeiten auf privatem palästinensischem Land; Video dokumentiert Schüsse.</td>
+                <td data-label="Bewaffnung / Rolle">Keine Schusswaffe des Getöteten berichtet.</td>
+                <td data-label="Verfahren"><strong>Yinon Levi am 06.08.2026 wegen reckless manslaughter angeklagt.</strong> Reuters: erste solche Anklage gegen einen Israeli seit mehr als sieben Jahren. Verfahren offen.</td>
+                <td data-label="Quelle"><a href="https://www.reuters.com/world/middle-east/israel-charges-settler-palestinian-activists-killing-rare-indictment-2026-08-06/">Reuters</a></td>
+              </tr>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">02.08.2025 · Aqraba</td>
+                <td data-label="Opfer / Zahl">Mu’in al-Asfar</td>
+                <td data-label="Kontext">Bewaffnete Siedler konfrontierten Bauern auf landwirtschaftlicher Fläche.</td>
+                <td data-label="Bewaffnung / Rolle">Keine Schusswaffe des Getöteten in den verwendeten Berichten.</td>
+                <td data-label="Verfahren">Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.btselem.org/settler_violence/20251109_settlers_opened_fire_at_palestinian_farmers_killing_one_and_wounding_seven_others_in_aqraba">B’Tselem</a></td>
+              </tr>
+              <tr data-kind="Konfrontation">
+                <td data-label="Datum / Ort">13.08.2025 · Duma</td>
+                <td data-label="Opfer / Zahl">Thameen Dawabsheh</td>
+                <td data-label="Kontext">Konfrontation um Erdarbeiten für Außenposten.</td>
+                <td data-label="Bewaffnung / Rolle">Palästinenser warfen laut israelischer Darstellung Steine; keine eigene Schusswaffe berichtet.</td>
+                <td data-label="Verfahren">Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.btselem.org/node/217300">B’Tselem</a></td>
+              </tr>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">08.03.2026 · Khirbet Abu Falah</td>
+                <td data-label="Opfer / Zahl">Far’ Hamayel</td>
+                <td data-label="Kontext">Von Siedlern erschossen.</td>
+                <td data-label="Bewaffnung / Rolle">Keine belastbare öffentliche Angreiferrolle gefunden.</td>
+                <td data-label="Verfahren">Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.un.org/unispal/document/palestine-human-rights-bulletin-reporting-period-1-march-31-march-2026-en-ar/">OHCHR</a></td>
+              </tr>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">14.03.2026 · Qusra</td>
+                <td data-label="Opfer / Zahl">1</td>
+                <td data-label="Kontext">Siedler steinigten Haus und eröffneten anschließend Feuer.</td>
+                <td data-label="Bewaffnung / Rolle">Keine Schusswaffe des Getöteten berichtet.</td>
+                <td data-label="Verfahren">Bis August 2026 laut Reuters weiterhin keine weitere Tötungsanklage.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-report-19-march-2026">OCHA</a></td>
+              </tr>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">26.03.2026 · Jannatah / Beit Falouh</td>
+                <td data-label="Opfer / Zahl">1, 37 Jahre</td>
+                <td data-label="Kontext">Landbesitzer protestierten gegen Landnahme; Siedler eröffneten Feuer.</td>
+                <td data-label="Bewaffnung / Rolle">Keine Schusswaffe des Getöteten berichtet.</td>
+                <td data-label="Verfahren">IDF meldete eröffnete Polizeiuntersuchung; keine öffentliche Anklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-report-2-april-2026">OCHA</a></td>
+              </tr>
+              <tr data-kind="Konfrontation">
+                <td data-label="Datum / Ort">08.04.2026 · Tayasir</td>
+                <td data-label="Opfer / Zahl">1</td>
+                <td data-label="Kontext">Nach wiederholten Siedlerangriffen gegenseitige Steinwürfe; Siedler schoss Palästinenser.</td>
+                <td data-label="Bewaffnung / Rolle">Steinwürfe; kein Schusswaffenbesitz des Getöteten berichtet.</td>
+                <td data-label="Verfahren">Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-report-17-april-2026">OCHA</a></td>
+              </tr>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">21.04.2026 · Al Mughayyir</td>
+                <td data-label="Opfer / Zahl">1 Kind</td>
+                <td data-label="Kontext">Siedler eröffnete nahe einer Schule Feuer in Richtung Dorf.</td>
+                <td data-label="Bewaffnung / Rolle">Keine Angreiferrolle des Kindes berichtet.</td>
+                <td data-label="Verfahren">Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-report-23-april-2026">OCHA</a></td>
+              </tr>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">22.04.2026 · Deir Dibwan</td>
+                <td data-label="Opfer / Zahl">1</td>
+                <td data-label="Kontext">Während Siedlerangriff erschossen.</td>
+                <td data-label="Bewaffnung / Rolle">Keine belastbare öffentliche Angreiferrolle gefunden.</td>
+                <td data-label="Verfahren">Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-report-23-april-2026">OCHA</a></td>
+              </tr>
+              <tr data-kind="unklar">
+                <td data-label="Datum / Ort">15.04.2026 → Tod 11.05. · Qarawat Bani Hassan</td>
+                <td data-label="Opfer / Zahl">1</td>
+                <td data-label="Kontext">Von Siedler angeschossen, anschließend von israelischen Kräften festgenommen; starb später.</td>
+                <td data-label="Bewaffnung / Rolle">Konkrete Angreiferrolle in den verwendeten öffentlichen Berichten nicht eindeutig rekonstruiert.</td>
+                <td data-label="Verfahren">Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-report-15-may-2026">OCHA</a></td>
+              </tr>
+              <tr data-kind="Konfrontation">
+                <td data-label="Datum / Ort">23.07.2026 · Beit Furik</td>
+                <td data-label="Opfer / Zahl">2</td>
+                <td data-label="Kontext">Nach Brand und Konfrontation; zuvor wurde ein israelischer Siedler von einem Palästinenser erstochen oder verletzt.</td>
+                <td data-label="Bewaffnung / Rolle">Konfliktlage; nicht als einfacher Siedlerüberfall einzuordnen.</td>
+                <td data-label="Verfahren">Keine öffentliche Tötungsanklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-report-31-july-2026">OCHA</a></td>
+              </tr>
+              <tr data-kind="Siedlerangriff">
+                <td data-label="Datum / Ort">21.08.2026 · Hamrush bei Sa’ir</td>
+                <td data-label="Opfer / Zahl">1 palästinensischer Junge</td>
+                <td data-label="Kontext">Siedlungs-Sicherheitsmann schoss während eines Angriffs von mehr als 50 Siedlern.</td>
+                <td data-label="Bewaffnung / Rolle">Keine Angreiferrolle des Jungen im OCHA-Bericht.</td>
+                <td data-label="Verfahren">Fall sehr neu; keine öffentliche Anklage gefunden.</td>
+                <td data-label="Quelle"><a href="https://www.ochaopt.org/content/humanitarian-situation-report-28-august-2026">OCHA</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="caution">
+          <span>Hinweis zur Vollständigkeit</span>
+          <p>
+            OCHA-Aggregate zeigen mehr direkt Siedlern zugerechnete Todesfälle, als sich aus frei
+            zugänglichen Einzelberichten mit identischem Detailgrad rekonstruieren lassen. Diese
+            Seite erfindet deshalb keine Namen oder Tatabläufe für nicht aufgelöste Aggregatfälle.
+            Aggregierte Jahreszahlen und dokumentierte Einzelfälle bleiben getrennt.
+          </p>
+        </aside>
+      </section>
+
+      <section class="section shell" aria-labelledby="prosecution-title">
+        <header class="section-head">
+          <div>
+            <p class="section-number">02</p>
+            <h2 id="prosecution-title">Was sagt die<br />Strafverfolgung?</h2>
+          </div>
+          <p>
+            Der stärkste öffentlich überprüfbare Anker ist die Anklage gegen Yinon Levi vom
+            6. August 2026. Reuters bezeichnete sie als erste Anklage eines Israelis wegen der
+            Tötung eines Palästinensers im Westjordanland seit mehr als sieben Jahren. Das
+            schließt frühere Ermittlungen oder Festnahmen nicht aus.
+          </p>
+        </header>
+        <div class="process-grid">
+          <article>
+            <span>2023 · Qusra</span>
+            <strong>Festnahme</strong>
+            <p>Mordverdacht, kurze Befragung, Freilassung mit Auflagen.</p>
+          </article>
+          <article>
+            <span>2024 · Jit</span>
+            <strong>4 Verdächtige</strong>
+            <p>IDF räumte schweres Versagen ein; keine öffentliche Tötungsanklage gefunden.</p>
+          </article>
+          <article class="process-active">
+            <span>2025/26 · Umm al-Khair</span>
+            <strong>Anklage</strong>
+            <p>Reckless manslaughter; das Verfahren war zum Berichtsstand offen.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell" aria-labelledby="population-title">
+        <header class="section-head">
+          <div>
+            <p class="section-number">03</p>
+            <h2 id="population-title">Bevölkerungs&shy;entwicklung</h2>
+          </div>
+          <p>
+            Die amtliche PCBS-Schätz-/Projektionsreihe auf Basis des Zensus 2017 steigt von
+            2.803.411 Menschen im Jahr 2016 auf 3.464.858 im Jahr 2026. Die Zahl für 2026 ist
+            eine Projektion, keine neue Volkszählung.
+          </p>
+        </header>
+
+        <div class="population-layout">
+          <figure class="population-chart-card">
+            <figcaption>
+              <span>Palästinensische Bevölkerung</span>
+              <strong>2016–2026 · Westjordanland</strong>
+            </figcaption>
+            <div id="population-chart" class="population-chart"></div>
+            <p class="chart-source">Quelle: PCBS · Schätz-/Projektionsreihe, Werte auf Basis des Zensus 2017</p>
+          </figure>
+          <div class="population-table-wrap">
+            <table class="population-table">
+              <caption>Jahreswerte der PCBS-Reihe</caption>
+              <thead><tr><th scope="col">Jahr</th><th scope="col">Bevölkerung</th></tr></thead>
+              <tbody id="population-table"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="area-grid">
+          <div>
+            <p class="eyebrow">Area A / B / C</p>
+            <h3>Fläche ist nicht Bevölkerung.</h3>
+          </div>
+          <div>
+            <div class="area-bar" aria-label="Flächenanteile: 17,7 Prozent Area A, 18,4 Prozent Area B, 59,6 Prozent Area C und 4,3 Prozent andere Kategorien">
+              <span class="area-a" style="--share: 17.7%">A</span>
+              <span class="area-b" style="--share: 18.4%">B</span>
+              <span class="area-c" style="--share: 59.6%">C</span>
+              <span class="area-other" style="--share: 4.3%"><i>+</i></span>
+            </div>
+            <ul class="area-legend">
+              <li><i class="swatch area-a"></i>Area A <strong>17,7 %</strong></li>
+              <li><i class="swatch area-b"></i>Area B <strong>18,4 %</strong></li>
+              <li><i class="swatch area-c"></i>Area C <strong>59,6 %</strong></li>
+              <li><i class="swatch area-other"></i>Weitere <strong>4,3 %</strong></li>
+            </ul>
+            <p>
+              PCBS/GeoMOLG weist diese Anteile 2017 für die Fläche aus. Die übrigen 4,3 Prozent
+              umfassen Kategorien wie Ostjerusalem/J1, H2, Naturreservate und nicht spezifizierte
+              Flächen. Für die Bevölkerung nach Area A/B/C ließ sich keine methodisch konsistente,
+              jährlich fortgeschriebene amtliche Zeitreihe für 2016–2026 verifizieren.
+            </p>
+          </div>
+        </div>
+
+        <blockquote>
+          Das gesamte Westjordanland weist laut PCBS 2016–2026 deutliches palästinensisches
+          Bevölkerungswachstum auf. Daraus folgt nicht, dass es keine lokalen Vertreibungen gab;
+          umgekehrt belegen lokale Vertreibungen keine allgemeine demografische Schrumpfung des
+          Westjordanlands.
+        </blockquote>
+      </section>
+
+      <section class="sources-section" aria-labelledby="sources-title">
+        <div class="shell">
+          <p class="section-number">04</p>
+          <h2 id="sources-title">Quellen &amp;<br />Gegenprüfung</h2>
+          <ol class="sources-list">
+            <li><a href="https://microdata.pcbs.gov.ps/statisticsIndicatorsTables.aspx?lang=en&amp;table_id=676"><span class="source-name">PCBS</span><span class="source-title">Geschätzte Bevölkerung nach Jahr und Gouvernement, 1997–2026</span></a></li>
+            <li><a href="https://www.pcbs.gov.ps/Portals/_Rainbow/Documents/LandUse-Tab3-2017.html"><span class="source-name">PCBS / GeoMOLG</span><span class="source-title">Flächenanteile A/B/C, 2017</span></a></li>
+            <li><a href="https://www.ochaopt.org/data/casualties"><span class="source-name">OCHA</span><span class="source-title">Casualty data</span></a></li>
+            <li><a href="https://www.ochaopt.org/page/settler-related-violence"><span class="source-name">OCHA</span><span class="source-title">Settler-related violence dashboard</span></a></li>
+            <li><a href="https://www.ochaopt.org/content/humanitarian-situation-report-28-august-2026"><span class="source-name">OCHA</span><span class="source-title">23 Todesfälle im Kontext von Siedlerangriffen bis 24. August 2026</span></a></li>
+            <li><a href="https://www.ochaopt.org/content/humanitarian-situation-report-11-september-2026"><span class="source-name">OCHA</span><span class="source-title">Entwicklung der Siedlerangriffe, Januar bis August 2026</span></a></li>
+            <li><a href="https://www.reuters.com/world/middle-east/israel-charges-settler-palestinian-activists-killing-rare-indictment-2026-08-06/"><span class="source-name">Reuters</span><span class="source-title">Anklage Yinon Levi</span></a></li>
+            <li><a href="https://www.idf.il/en/mini-sites/idf-press-releases-israel-at-war/august-24-pr/summary-of-the-investigation-into-the-riots-in-the-town-of-jit-in-samaria/"><span class="source-name">IDF</span><span class="source-title">Untersuchung Jit</span></a></li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <p>
+          Arbeitsstand 24.09.2026. Diese Seite ist als Daten- und Quellenprojekt angelegt, nicht
+          als politische Wahlempfehlung oder Gesamturteil. Wo Quellen widersprechen, wird der
+          Konflikt kenntlich gemacht.
+        </p>
+        <a href="#inhalt">Nach oben ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>
