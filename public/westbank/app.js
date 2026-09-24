@@ -86,9 +86,12 @@
 
   function renderPopulationChart() {
     const chart = document.querySelector("#population-chart");
-    const width = 900;
-    const height = 340;
-    const plot = { left: 74, right: 25, top: 42, bottom: 52 };
+    const mobile = window.matchMedia("(max-width: 760px)").matches;
+    const width = mobile ? 390 : 900;
+    const height = mobile ? 300 : 340;
+    const plot = mobile
+      ? { left: 52, right: 25, top: 42, bottom: 48 }
+      : { left: 74, right: 25, top: 42, bottom: 52 };
     const floor = 2700000;
     const ceiling = 3500000;
     const innerWidth = width - plot.left - plot.right;
@@ -108,7 +111,7 @@
         const tickY = y(tick);
         return `
           <line class="chart-grid-line" x1="${plot.left}" y1="${tickY}" x2="${width - plot.right}" y2="${tickY}" />
-          <text class="chart-axis-label" x="${plot.left - 12}" y="${tickY + 4}" text-anchor="end">${(tick / 1000000).toLocaleString("de-DE", { maximumFractionDigits: 1 })} Mio.</text>`;
+          <text class="chart-axis-label" x="${plot.left - (mobile ? 8 : 12)}" y="${tickY + 4}" text-anchor="end">${(tick / 1000000).toLocaleString("de-DE", { maximumFractionDigits: 1 })}${mobile ? "" : " Mio."}</text>`;
       })
       .join("");
 
@@ -124,10 +127,13 @@
         const pointX = x(index);
         const pointY = y(value);
         const labelClass = index === 0 ? " chart-label-first" : index === population.length - 1 ? " chart-label-last" : "";
-        const label = index === 0 || index === population.length - 1 || index % 2 === 0
-          ? `<text class="chart-point-label${labelClass}" x="${pointX}" y="${pointY - 15}" text-anchor="middle">${(value / 1000000).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</text>`
+        const showLabel = index === 0 || index === population.length - 1 || (!mobile && index % 2 === 0);
+        const labelX = mobile && index === 0 ? pointX + 7 : mobile && index === population.length - 1 ? pointX - 2 : pointX;
+        const labelAnchor = mobile && index === 0 ? "start" : mobile && index === population.length - 1 ? "end" : "middle";
+        const label = showLabel
+          ? `<text class="chart-point-label${labelClass}" x="${labelX}" y="${pointY - 15}" text-anchor="${labelAnchor}">${(value / 1000000).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</text>`
           : "";
-        return `${label}<circle class="chart-point" cx="${pointX}" cy="${pointY}" r="5"><title>${year}: ${value.toLocaleString("de-DE")}</title></circle>`;
+        return `${label}<circle class="chart-point" cx="${pointX}" cy="${pointY}" r="${mobile ? 4 : 5}"><title>${year}: ${value.toLocaleString("de-DE")}</title></circle>`;
       })
       .join("");
 
@@ -135,6 +141,7 @@
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="population-chart-title population-chart-desc">
         <title id="population-chart-title">Palästinensische Bevölkerung im Westjordanland 2016 bis 2026</title>
         <desc id="population-chart-desc">Die PCBS-Reihe steigt von 2,80 Millionen im Jahr 2016 auf 3,46 Millionen in der Projektion für 2026.</desc>
+        ${mobile ? '<text class="chart-unit-label" x="9" y="25">Mio.</text>' : ""}
         ${grid}
         <path class="chart-area" d="${areaPath}" />
         <path class="chart-line" d="${linePath}" />
@@ -150,4 +157,5 @@
 
   searchInput.addEventListener("input", filterCases);
   kindSelect.addEventListener("change", filterCases);
+  window.matchMedia("(max-width: 760px)").addEventListener("change", renderPopulationChart);
 })();

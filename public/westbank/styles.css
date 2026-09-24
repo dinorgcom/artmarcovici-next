@@ -691,7 +691,8 @@ h2 {
 
 .chart-axis-label,
 .chart-year-label,
-.chart-point-label {
+.chart-point-label,
+.chart-unit-label {
   fill: var(--muted);
   font-family: var(--font-display);
   font-size: 12px;
@@ -1222,12 +1223,13 @@ blockquote {
 
   .chart-axis-label,
   .chart-year-label,
-  .chart-point-label {
-    font-size: 24px;
+  .chart-point-label,
+  .chart-unit-label {
+    font-size: 14px;
   }
 
   .chart-point-label {
-    font-size: 26px;
+    font-size: 15px;
   }
 
   .chart-point-label:not(.chart-label-first):not(.chart-label-last) {
