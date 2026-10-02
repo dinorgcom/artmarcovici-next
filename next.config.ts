@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
+        // CADO Builder: eigenständige 3D-App, gebaut im CADO-Projekt (npm run build:site)
+        source: "/cado-builder",
+        destination: "/cado-builder/index.html",
+      },
+      {
         source: "/mortality",
         destination: "/mortality/index.html",
       },
