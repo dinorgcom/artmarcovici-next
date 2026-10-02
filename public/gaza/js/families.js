@@ -3,6 +3,9 @@
   const get = async name => (await fetch("data/" + name)).json();
   const nf = new Intl.NumberFormat(window.NUMLOC || "de-DE");
   const FAMS = await get("families.json");
+  const IDF = window.IDF_PRESS;
+  if (IDF) await IDF.load();
+  const dossierPeople = key => IDF?.state.byFamily.get(key) || [];
   const FAM_INDEX = new Map(FAMS.map((family, index) => [family.k, index]));
 
   // J&S-/Exil-Familien: kommen in der Gaza-Opferliste nicht vor, werden aber in
@@ -46,6 +49,7 @@
     westbank: { sym: "J&S", cls: "b-js", label: t("b.westbank") },
     abroad:   { sym: "✈", cls: "b-ab", label: t("b.abroad") },
     fighter:  { sym: "★", cls: "b-f",  label: t("b.fighter") },
+    idf:      { sym: "IDF", cls: "b-idf", label: t("b.idf") },
     press:    { sym: "✎", cls: "b-p",  label: t("b.press") },
     medic:    { sym: "✚", cls: "b-m",  label: t("b.medic") },
     prisoner: { sym: "⛓", cls: "b-pr", label: t("b.prisoner") },
@@ -59,7 +63,7 @@
     academic: { sym: "▦", cls: "b-ac", label: t("b.academic") },
     sport:    { sym: "🏅", cls: "b-s",  label: t("b.sport") },
   };
-  const BADGE_ORDER = ["westbank", "abroad", "fighter", "press", "medic", "prisoner", "official", "victims",
+  const BADGE_ORDER = ["westbank", "abroad", "fighter", "idf", "press", "medic", "prisoner", "official", "victims",
     "media", "culture", "activist", "diplomat", "aid", "academic", "sport"];
   const PUBLIC_BADGES = new Set(["media", "culture", "activist", "diplomat", "aid", "academic", "sport"]);
 
@@ -78,12 +82,13 @@
     (FN.tags || []).forEach(k => { if (BADGE[k] && !out[k]) out[k] = []; });
     if (f.p) out.press = (f.pn || []).map(x => ({ name: x.n, info: x.o }));
     if (f.hw) out.medic = (out.medic || []).concat((f.hwn || []).map(x => ({ name: x.n, info: x.o })));
+    if (dossierPeople(f.k).length) out.idf = dossierPeople(f.k).map(r => ({ name: r.name, url: r.url, dossier: r }));
     return BADGE_ORDER.filter(k => out[k]).map(k => ({ key: k, people: out[k] }));
   }
 
   const badgeHtml = f => famBadges(f).map(b => {
     const B = BADGE[b.key], names = b.people.map(personName).join(", ");
-    const cnt = b.key === "press" && f.p > 1 ? f.p
+    const cnt = b.key === "idf" ? ` ${b.people.length}` : b.key === "press" && f.p > 1 ? f.p
       : b.key === "medic" && f.hw > 1 ? f.hw
       : PUBLIC_BADGES.has(b.key) && b.people.length > 1 ? b.people.length : "";
     return `<span class="bdg ${B.cls}" title="${esc(B.label)}${names ? ": " + esc(names) : ""}">${B.sym}${cnt}</span>`;
@@ -106,6 +111,8 @@
     if (!bs.length) return "";
     return `<div class="badgebox"><h4>${t("fam.badgebox")}</h4>` + bs.map(b => {
       const B = BADGE[b.key];
+      if (b.key === "idf") return `<div class="badgeline"><span class="bdg ${B.cls}">${B.sym}</span>
+        <div><b>${esc(B.label)} (${b.people.length})</b>${b.people.map(p => IDF.personHtml(p.dossier)).join("")}</div></div>`;
       const who = b.people.length ? b.people.map(p =>
           (p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${esc(personName(p))}</a>` : `<b>${esc(personName(p))}</b>`)
           + (noteInfo(p) ? ` <span class="fine">— ${esc(noteInfo(p))}</span>` : "")).join("<br>")
@@ -123,7 +130,7 @@
   const curated = new Set(Object.entries(window.FAM_NOTES || {})
     .filter(([_key, note]) => note.origin || (note.notable || []).some(person => !person.generated))
     .map(([key]) => key));
-  const TOPSET = FAMS.map((f, i) => ({ f, i })).filter(({ f }, rank) => rank < TOPN || curated.has(f.k));
+  const TOPSET = FAMS.map((f, i) => ({ f, i })).filter(({ f }, rank) => rank < TOPN || curated.has(f.k) || dossierPeople(f.k).length);
   const badgeWeight = f => {
     const bs = famBadges(f);
     return bs.length * 1000 + bs.reduce((sum, b) => sum + b.people.length, 0);
@@ -131,6 +138,7 @@
   const COLS = [
     { k: "k",     t: t("col.family"), v: o => o.f.k, txt: true },
     { k: "bdg",   t: t("col.badges"), v: o => badgeWeight(o.f) },
+    { k: "idf",   t: t("col.idf"), title: t("idf.column.tip"), v: o => dossierPeople(o.f.k).length },
     { k: "n",     t: t("col.dead"), v: o => o.f.n },
     { k: "avg",   t: t("col.avgdiff"), title: t("col.avgdiff.tip", avgNf.format(AVG_FAMILY_LOSSES)),
       v: o => o.f.n - AVG_FAMILY_LOSSES },
@@ -156,7 +164,7 @@
         `${sortK === c.k ? (sortDir < 0 ? " ▾" : " ▴") : ""}</th>`).join("") +
       `</tr></thead><tbody>` + rows.map(({ f, i }) =>
         `<tr data-i="${i}"><td>${cap(f.k)}${i >= TOPN ? ` <span class="fine">${t("fam.rank", i + 1)}</span>` : ""}</td>` +
-        `<td class="bdgcell">${badgeHtml(f)}</td><td>${nf.format(f.n)}</td>` +
+        `<td class="bdgcell">${badgeHtml(f)}</td><td class="idf-count">${dossierPeople(f.k).length || "—"}</td><td>${nf.format(f.n)}</td>` +
         `<td class="avgdiff" title="${esc(t("col.avgdiff.cell", nf.format(f.n), avgNf.format(AVG_FAMILY_LOSSES), signedAvgNf.format(f.n - AVG_FAMILY_LOSSES), avgNf.format(f.n / AVG_FAMILY_LOSSES)))}">${signedAvgNf.format(f.n - AVG_FAMILY_LOSSES)}</td>` +
         `<td>${nf.format(f.m)}</td><td>${nf.format(f.f)}</td>` +
         `<td class="sexratio" title="${esc(t("col.sexratio.cell", nf.format(f.m), nf.format(f.f)))}">${ratioText(f)}</td>` +
@@ -164,6 +172,10 @@
       `</tbody></table>`;
   }
   renderTop();
+  IDF?.render(key => {
+    const index = FAM_INDEX.get(key);
+    if (index != null) { openFam(index); detail.scrollIntoView({ behavior: "smooth", block: "start" }); }
+  });
 
   function openFam(i) {
     const f = FAMS[i];
@@ -193,10 +205,11 @@
 
     const FN = (window.FAM_NOTES || {})[f.k];
     let notes = "";
-    const origin = ((window.FAMNOTES_I18N || {})[f.k]?.origin || {})[LANG]
+    const originRaw = ((window.FAMNOTES_I18N || {})[f.k]?.origin || {})[LANG]
       || (FN && FN.origin)
       || ((window.FAM_ORIGINS_I18N || {})[f.k] || {})[LANG]
       || (window.FAM_ORIGINS || {})[f.k];
+    const origin = typeof originRaw === "string" ? originRaw : originRaw?.origin;
     if (origin) notes += `<div class="origin"><span class="lbl">${t("fam.origin.lbl")}</span> ${origin}</div>`;
     notes += badgeBlock(f);
     const rest = ((FN || {}).notable || []).map((p, _i) => ({ ...p, _i, _k: f.k })).filter(p => !p.badge);
@@ -223,6 +236,12 @@
     if (bios.length) html += `<h4 style="margin:12px 0 4px;color:var(--muted);font-size:13px">${t("fam.bio.head")}</h4>` +
       bios.map(({ family, index, person }) => `<div class="famrow" data-i="${index}"><b>${esc(personName(person))}</b>${personBadgeHtml(person)}
         <span class="meta">${t("fam.bio.family", cap(family))}</span></div>`).join("");
+    const dossierHits = (IDF?.state.records || []).filter(r => searchNorm(r.name).includes(query)).slice(0, 40);
+    if (dossierHits.length) html += `<h4 class="idf-search-heading">${t("col.idf")}</h4>` + dossierHits.map(r => {
+      const index = r.family ? FAM_INDEX.get(r.family) : null;
+      return index != null ? `<div class="famrow" data-i="${index}"><b>${esc(r.name)}</b><span class="bdg b-idf">IDF</span><span class="meta">${t("idf.group", esc(cap(r.family)))}</span></div>`
+        : `<div class="idf-person"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)} ↗</a><span class="fine"> — ${t("idf.unmatched")}</span></div>`;
+    }).join("");
     if (LIST) {
       const people = [];
       for (let i = 0; i < LIST.length && people.length < 40; i++)
