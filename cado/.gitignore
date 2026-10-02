@@ -1,0 +1,10 @@
+# erzeugt / gross - wird aus blender/cado_bricks.py bzw. npm-Skripten neu erzeugt
+web/node_modules/
+web/dist/
+web/public/models/*.min.glb
+glb/
+renders/
+*.blend
+*.blend1
+.claude/
+web/.claude/

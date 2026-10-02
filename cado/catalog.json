@@ -1,0 +1,1152 @@
+{
+  "unit": "mm",
+  "grid": 30,
+  "shapes": [
+    {
+      "code": "001",
+      "name": "Wuerfel 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 27.0,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "002",
+      "name": "Quader 30x30x60",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 54.0,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "003",
+      "name": "Quader 30x30x90",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 81.0,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "004",
+      "name": "Platte 30x30x10",
+      "dims_mm": [
+        30.0,
+        30.0,
+        10.0
+      ],
+      "volume_cm3": 9.0,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "005",
+      "name": "Platte 30x30x5",
+      "dims_mm": [
+        30.0,
+        30.0,
+        5.0
+      ],
+      "volume_cm3": 4.5,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "006",
+      "name": "Platte 30x60x10",
+      "dims_mm": [
+        30.0,
+        60.0,
+        10.0
+      ],
+      "volume_cm3": 18.0,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "007",
+      "name": "Platte 30x90x10",
+      "dims_mm": [
+        30.0,
+        90.0,
+        10.0
+      ],
+      "volume_cm3": 27.0,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "008",
+      "name": "Dreikant 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 13.5,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "009",
+      "name": "Dreieckplatte 30x30x5",
+      "dims_mm": [
+        30.0,
+        30.0,
+        5.0
+      ],
+      "volume_cm3": 2.25,
+      "grain_axis": "X",
+      "form_unsicher": true
+    },
+    {
+      "code": "010",
+      "name": "Zylinder 30x30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 21.197,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "011",
+      "name": "Zylinder 30x60",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 42.394,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "012",
+      "name": "Zylinder 30x90",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 63.592,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "013",
+      "name": "Wuerfel mit Hohlkehle",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 17.578,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "014",
+      "name": "Stab 10x10x60",
+      "dims_mm": [
+        10.0,
+        60.0,
+        10.0
+      ],
+      "volume_cm3": 6.0,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "015",
+      "name": "Stab 10x10x90",
+      "dims_mm": [
+        10.0,
+        90.0,
+        10.0
+      ],
+      "volume_cm3": 9.0,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "016",
+      "name": "Stab 10x10x180",
+      "dims_mm": [
+        10.0,
+        180.0,
+        10.0
+      ],
+      "volume_cm3": 18.0,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "017",
+      "name": "Wuerfel 10",
+      "dims_mm": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "volume_cm3": 1.0,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "018",
+      "name": "Viertelzylinder R30x30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 21.202,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "019",
+      "name": "Halbzylinder 30x30",
+      "dims_mm": [
+        30.0,
+        15.0,
+        30.0
+      ],
+      "volume_cm3": 10.599,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "020",
+      "name": "Rampe 30x30x10",
+      "dims_mm": [
+        30.0,
+        30.0,
+        10.0
+      ],
+      "volume_cm3": 4.5,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "021",
+      "name": "Scheibe 30x5",
+      "dims_mm": [
+        30.0,
+        30.0,
+        5.0
+      ],
+      "volume_cm3": 3.533,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "022",
+      "name": "Dreikant 10",
+      "dims_mm": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "volume_cm3": 0.5,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "023",
+      "name": "Halbscheibe 30x15",
+      "dims_mm": [
+        30.0,
+        15.0,
+        15.0
+      ],
+      "volume_cm3": 5.299,
+      "grain_axis": "Y",
+      "form_unsicher": true
+    },
+    {
+      "code": "024",
+      "name": "Quader 15x15x30",
+      "dims_mm": [
+        15.0,
+        15.0,
+        30.0
+      ],
+      "volume_cm3": 6.75,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "025",
+      "name": "Eck-Tetraeder 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 4.5,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "026",
+      "name": "Wuerfel mit Eckschnitt",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 22.5,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "027",
+      "name": "Pyramide 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 9.0,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "028",
+      "name": "Dreikant 15x15x30",
+      "dims_mm": [
+        15.0,
+        30.0,
+        15.0
+      ],
+      "volume_cm3": 3.375,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "029",
+      "name": "Pyramide flach 30x15",
+      "dims_mm": [
+        30.0,
+        30.0,
+        15.0
+      ],
+      "volume_cm3": 4.5,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "030",
+      "name": "Staebchen 10x10x30",
+      "dims_mm": [
+        10.0,
+        30.0,
+        10.0
+      ],
+      "volume_cm3": 3.0,
+      "grain_axis": "Y",
+      "form_unsicher": true
+    },
+    {
+      "code": "031",
+      "name": "Rhomboid 90",
+      "dims_mm": [
+        90.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 54.0,
+      "grain_axis": "X",
+      "form_unsicher": true
+    },
+    {
+      "code": "035",
+      "name": "Trapez 90",
+      "dims_mm": [
+        90.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 54.0,
+      "grain_axis": "X",
+      "form_unsicher": false
+    },
+    {
+      "code": "036",
+      "name": "Pultdach 30x30x60",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 40.5,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "037",
+      "name": "Keil 45",
+      "dims_mm": [
+        45.0,
+        30.0,
+        45.0
+      ],
+      "volume_cm3": 30.375,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "041",
+      "name": "Rundstab 10x10",
+      "dims_mm": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "volume_cm3": 0.784,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "042",
+      "name": "Rundstab 10x30",
+      "dims_mm": [
+        10.0,
+        10.0,
+        30.0
+      ],
+      "volume_cm3": 2.352,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "043",
+      "name": "Rundstab 10x60",
+      "dims_mm": [
+        10.0,
+        10.0,
+        60.0
+      ],
+      "volume_cm3": 4.705,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "044",
+      "name": "Viertelzylinder R30x60",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 42.404,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "045",
+      "name": "Viertelzylinder R30x90",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 63.606,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "046",
+      "name": "Viertelstab R15x30",
+      "dims_mm": [
+        15.0,
+        15.0,
+        30.0
+      ],
+      "volume_cm3": 5.299,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "047",
+      "name": "Viertelstab R15x60",
+      "dims_mm": [
+        15.0,
+        15.0,
+        60.0
+      ],
+      "volume_cm3": 10.599,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "048",
+      "name": "Viertelstab R15x90",
+      "dims_mm": [
+        15.0,
+        15.0,
+        90.0
+      ],
+      "volume_cm3": 15.898,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "039",
+      "name": "Pfeiler 10x10x45",
+      "dims_mm": [
+        10.0,
+        10.0,
+        45.0
+      ],
+      "volume_cm3": 4.5,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "040",
+      "name": "Platte 60x60x5",
+      "dims_mm": [
+        60.0,
+        60.0,
+        5.0
+      ],
+      "volume_cm3": 18.0,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "053",
+      "name": "Stab 10x10x90",
+      "dims_mm": [
+        10.0,
+        90.0,
+        10.0
+      ],
+      "volume_cm3": 9.0,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "063",
+      "name": "Rampe 65/30",
+      "dims_mm": [
+        65.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 29.25,
+      "grain_axis": "X",
+      "form_unsicher": true
+    },
+    {
+      "code": "114",
+      "name": "Rampe 90/30",
+      "dims_mm": [
+        90.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 40.5,
+      "grain_axis": "X",
+      "form_unsicher": false
+    },
+    {
+      "code": "094",
+      "name": "Pultkeil 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 18.0,
+      "grain_axis": "X",
+      "form_unsicher": false
+    },
+    {
+      "code": "095",
+      "name": "Pultkeil 60",
+      "dims_mm": [
+        60.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 36.0,
+      "grain_axis": "X",
+      "form_unsicher": false
+    },
+    {
+      "code": "096",
+      "name": "Pultkeil 90",
+      "dims_mm": [
+        90.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 54.0,
+      "grain_axis": "X",
+      "form_unsicher": false
+    },
+    {
+      "code": "120",
+      "name": "Rhomboid 90",
+      "dims_mm": [
+        90.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 54.0,
+      "grain_axis": "X",
+      "form_unsicher": false
+    },
+    {
+      "code": "123",
+      "name": "Platte 30x120x5",
+      "dims_mm": [
+        30.0,
+        120.0,
+        5.0
+      ],
+      "volume_cm3": 18.0,
+      "grain_axis": "Y",
+      "form_unsicher": false
+    },
+    {
+      "code": "121",
+      "name": "Matte 60x90x5",
+      "dims_mm": [
+        60.0,
+        90.0,
+        5.0
+      ],
+      "volume_cm3": 27.0,
+      "grain_axis": "Y",
+      "form_unsicher": true
+    },
+    {
+      "code": "135",
+      "name": "Scheibe 30x10",
+      "dims_mm": [
+        30.0,
+        30.0,
+        10.0
+      ],
+      "volume_cm3": 7.066,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "073",
+      "name": "Zylinder 60x60",
+      "dims_mm": [
+        60.0,
+        60.0,
+        60.0
+      ],
+      "volume_cm3": 169.578,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "074",
+      "name": "Zylinder 60x90",
+      "dims_mm": [
+        60.0,
+        60.0,
+        90.0
+      ],
+      "volume_cm3": 254.367,
+      "grain_axis": "Z",
+      "form_unsicher": false
+    },
+    {
+      "code": "093",
+      "name": "T-Profil 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        20.0
+      ],
+      "volume_cm3": 12.0,
+      "grain_axis": "Y",
+      "form_unsicher": true
+    },
+    {
+      "code": "065",
+      "name": "T-Profil 60",
+      "dims_mm": [
+        30.0,
+        60.0,
+        20.0
+      ],
+      "volume_cm3": 24.0,
+      "grain_axis": "Y",
+      "form_unsicher": true
+    },
+    {
+      "code": "064",
+      "name": "T-Profil 90",
+      "dims_mm": [
+        30.0,
+        90.0,
+        20.0
+      ],
+      "volume_cm3": 36.0,
+      "grain_axis": "Y",
+      "form_unsicher": true
+    },
+    {
+      "code": "049",
+      "name": "Ring 30x10",
+      "dims_mm": [
+        30.0,
+        30.0,
+        10.0
+      ],
+      "volume_cm3": 6.114,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "058",
+      "name": "Rohr 30x30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 18.342,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "057",
+      "name": "Rohr 30x60",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 36.683,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "056",
+      "name": "Rohr 30x90",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 55.025,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "117",
+      "name": "Dreiviertelzylinder 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 15.898,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "116",
+      "name": "Dreiviertelzylinder 60",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 31.796,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "068",
+      "name": "Schraegschnitt 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 11.655,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "067",
+      "name": "Schraegschnitt 60",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 31.786,
+      "grain_axis": "Z",
+      "form_unsicher": true
+    },
+    {
+      "code": "GRI001",
+      "name": "Gitterwuerfel 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 2.534,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "GRI002",
+      "name": "Gitterquader 60",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 4.147,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "GRI003",
+      "name": "Gitterquader 90",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 5.76,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "GRI004",
+      "name": "Gitterplatte 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        10.0
+      ],
+      "volume_cm3": 1.434,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "GRI007",
+      "name": "Gitterplatte 90",
+      "dims_mm": [
+        30.0,
+        90.0,
+        10.0
+      ],
+      "volume_cm3": 3.61,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "059",
+      "name": "Holzrahmen 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 3.724,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "060",
+      "name": "Holzrahmen 60",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 5.194,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "061",
+      "name": "Holzrahmen 90",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 6.664,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "PAN001",
+      "name": "Kugelwuerfel",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 3.914,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "PAN002",
+      "name": "Kugelwuerfel 2-fach",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 7.829,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "PAN003",
+      "name": "Kugelwuerfel 3-fach",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 11.743,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "ALWE001",
+      "name": "Wuerfel mit Alu-Buchse",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 20.202,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25,
+      "insert": "aluminium"
+    },
+    {
+      "code": "ALWE002",
+      "name": "Quader 60 mit Alu-Buchsen",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 40.403,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25,
+      "insert": "aluminium"
+    },
+    {
+      "code": "ALWE003",
+      "name": "Quader 90 mit Alu-Buchsen",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 60.605,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25,
+      "insert": "aluminium"
+    },
+    {
+      "code": "AIR078",
+      "name": "Linse 60x30x30",
+      "dims_mm": [
+        60.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 37.713,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "AIR079",
+      "name": "Linse 60x30x60",
+      "dims_mm": [
+        60.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 75.425,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "PRO151",
+      "name": "U-Profil 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 6.375,
+      "grain_axis": "Y",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "SSP012",
+      "name": "Edelstahlrohr 30x90",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 8.194,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "MOX003",
+      "name": "Acrylbox mit Moos",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 22.864,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25,
+      "insert": "moss"
+    },
+    {
+      "code": "LEGO003",
+      "name": "Lederblock 90",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 75.142,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "MOO001",
+      "name": "Moos-Wuerfel 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 24.676,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "MOO002",
+      "name": "Moos-Quader 60",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 49.757,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "MOO003",
+      "name": "Moos-Quader 90",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 74.692,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "MOO010",
+      "name": "Moos-Zylinder 30",
+      "dims_mm": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "volume_cm3": 19.294,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "MOO011",
+      "name": "Moos-Zylinder 60",
+      "dims_mm": [
+        30.0,
+        30.0,
+        60.0
+      ],
+      "volume_cm3": 39.048,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    },
+    {
+      "code": "MOO012",
+      "name": "Moos-Zylinder 90",
+      "dims_mm": [
+        30.0,
+        30.0,
+        90.0
+      ],
+      "volume_cm3": 58.524,
+      "grain_axis": "Z",
+      "form_unsicher": true,
+      "price": 25
+    }
+  ]
+}
