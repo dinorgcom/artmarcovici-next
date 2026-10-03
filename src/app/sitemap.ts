@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/mortality/",
     "/mortality/weekly.html",
     "/westbank/",
+    "/frankreich-bildung/",
     "/gallery/artworks",
     "/gallery/mosaic",
     "/gallery/cado",

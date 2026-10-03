@@ -26,6 +26,10 @@ const nextConfig: NextConfig = {
         destination: "/mortality/index.html",
       },
       {
+        source: "/frankreich-bildung",
+        destination: "/frankreich-bildung/index.html",
+      },
+      {
         source: "/westbank",
         destination: "/westbank/index.html",
       },

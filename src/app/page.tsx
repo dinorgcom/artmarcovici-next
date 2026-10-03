@@ -73,6 +73,42 @@ export default function Home() {
         </a>
       </section>
 
+      {/* France: school spending vs. results — data dossier */}
+      <section className="max-w-7xl mx-auto px-4 pt-6">
+        <a
+          href="/frankreich-bildung/"
+          className="art-card group relative block overflow-hidden rounded-lg border border-accent/30 hover:border-accent transition-colors duration-300 bg-black"
+        >
+          <div className="absolute inset-0">
+            <Image
+              src="/images/frankreich-schule-card.jpg"
+              alt="French primary school classroom in 1912, about thirty pupils, the word Calcul on the blackboard"
+              fill
+              className="object-cover object-[65%_45%] opacity-70 transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              unoptimized
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/10" />
+          </div>
+          <div className="relative px-8 py-12 md:px-14 md:py-16 max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4">
+              Data dossier · France 1980–2026
+            </p>
+            <h2 className="font-serif text-3xl md:text-5xl tracking-wide mb-4">
+              MORE MONEY PER CHILD — <span className="text-gray-300">LESS LEARNING?</span>
+            </h2>
+            <p className="text-gray-300 mb-8 leading-relaxed max-w-xl">
+              As French pupils blockade their lycées over &quot;cuts&quot;: spending per pupil since
+              1980, inflation-adjusted, set against PISA, TIMSS, PIRLS and four decades of
+              identical national tests. Deutsch.
+            </p>
+            <span className="inline-block px-8 py-3 border border-accent text-accent group-hover:bg-accent group-hover:text-black transition-all duration-300 tracking-widest text-sm uppercase">
+              Open the dossier
+            </span>
+          </div>
+        </a>
+      </section>
+
       {/* Femizide in Österreich — case database */}
       <section className="max-w-7xl mx-auto px-4 pt-6">
         <a
