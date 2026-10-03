@@ -119,6 +119,9 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 20px 90px; }
 .topbar #topShare { margin-inline-end: auto; margin-top: 0; }
 .topbar .sharemain { padding: 5px 13px; font-size: 13px; }
 .topbar .sharemini { min-width: 32px; height: 28px; font-size: 12px; }
+.site-home { color: var(--ink); text-decoration: none; font-size: 13.5px; font-weight: 750; letter-spacing: .01em;
+  padding-block: 5px; padding-inline: 0 12px; border-inline-end: 1px solid var(--grid); white-space: nowrap; }
+.site-home:hover { text-decoration: underline; text-underline-offset: 3px; }
 .site-nav { display: flex; align-items: center; gap: 4px; flex: 0 0 auto; }
 .site-nav a { color: var(--muted); text-decoration: none; font-size: 13.5px; font-weight: 650;
   padding: 5px 11px; border: 1px solid transparent; border-radius: 7px; white-space: nowrap; }
@@ -149,6 +152,31 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 20px 90px; }
 .b-d { color: #6fa6ee; } .b-h { color: #6fbd7a; }
 .b-js { color: #8a63d2; } .b-ab { color: #5aa3b0; }
 .b-ac { color: #9fb8ce; } .b-s { color: #efc04f; }
+.b-idf { color: #b07336; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.idf-count { color: #b07336; font-variant-numeric: tabular-nums; }
+.idf-person { margin: 12px 0; overflow-wrap: anywhere; }
+.idf-person > a { font-weight: 600; }
+.idf-person dl { display: grid; grid-template-columns: minmax(120px, .8fr) minmax(0, 2fr); gap: 5px 14px; margin: 8px 0; font-size: 13px; }
+.idf-person dt { color: var(--muted); }
+.idf-person dd { margin: 0; }
+.idf-roster > summary { cursor: pointer; padding: 12px 0; font-weight: 650; }
+.idf-controls { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+.idf-controls label { display: flex; flex-direction: column; gap: 6px; flex: 1 1 220px; min-width: 0; font-size: 13px; color: var(--muted); }
+.idf-controls .idf-search-label { flex-basis: 450px; }
+.idf-controls input, .idf-controls select { box-sizing: border-box; width: 100%; min-width: 0; color: var(--ink); background: var(--surface); border: 1px solid var(--ring); border-radius: 7px; padding: 10px; font: inherit; }
+.idf-record { border-top: 1px solid var(--ring); padding: 10px 0; }
+.idf-record > summary { cursor: pointer; overflow-wrap: anywhere; }
+.idf-record > summary .fine { display: block; margin-inline-start: 18px; }
+.idf-assignment button { color: var(--ink); background: var(--surface); border: 1px solid var(--ring); padding: 8px 10px; border-radius: 7px; font: inherit; cursor: pointer; }
+.idf-search-heading { margin: 12px 0 4px; color: var(--muted); font-size: 13px; }
+.badgeline > div { min-width: 0; }
+@media (max-width: 600px) {
+  .idf-person dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .idf-person dd { margin-bottom: 8px; }
+  .idf-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .idf-stats .stat { padding: 12px; }
+  .idf-assignment .fine { display: block; margin-top: 5px; }
+}
 
 .statrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 0 0 24px; }
 .stat { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 14px 16px; }

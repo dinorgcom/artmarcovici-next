@@ -32,6 +32,7 @@ const navCategories = [
       { href: "/work/cado-bricks-1", label: "CADO ELEMENTS" },
       { href: "/work/cado-sets", label: "CADO SETS" },
       { href: "/work/cado-architect", label: "CADO ARCHITECT" },
+      { href: "/cado-builder", label: "CADO BUILDER" },
     ],
   },
   {

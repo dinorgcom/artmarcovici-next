@@ -20,6 +20,7 @@ if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">'
 <body data-page="families">
 
 <div class="topbar family-topbar">
+  <a class="site-home" href="/" aria-label="Zur Startseite von biest.com">biest.com</a>
   <nav class="site-nav" aria-label="Gaza-Bereiche">
     <a href="index.html" data-i18n="nav.page.deaths">Tote in Gaza</a>
     <a class="active" href="familien.html" aria-current="page" data-i18n="nav.page.families">Familien</a>
@@ -37,17 +38,19 @@ if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">'
 <main>
 <section id="familien" class="mod family-module">
   <h2>Familien &amp; Suche</h2>
-  <p class="lede">Palästinensische Namen sind Ketten: Eigenname – Vater – Großvater – Familienname.
-     Der Familienname ist zugleich der Clan (Hamula) — so lässt sich fragen: Wie viele Tote trägt eine Familie?
-     Wie viele davon Frauen, Kinder? Und wo starben mutmaßlich ganze Geschwistergruppen
-     (gleicher Vater <em>und</em> Großvater)?</p>
+  <p class="lede">Palästinensische Namen enthalten häufig Eigenname – Vater – Großvater – Familienname.
+     Hier wird nach Familiennamen gruppiert: Wie viele Tote, Männer, Frauen und Minderjährige
+     führt die Opferliste unter einem Namen? Ein gleicher Nachname belegt noch keine Verwandtschaft
+     und ist nicht automatisch ein gemeinsamer Clan (Hamula).</p>
   <input type="search" id="famSearch" placeholder="Familie oder Person suchen — z.&nbsp;B. „al-najjar“, „doghmush“, „Mohammed…“" autocomplete="off">
   <div id="searchInfo" class="note"></div>
   <div id="famResults"></div>
   <div id="famDetail" class="event-panel" hidden></div>
-  <h3>Die 100 Familien mit den meisten Toten</h3>
+  <h3>Namensgruppen: Top 100 und dokumentierte Einzelpersonen</h3>
   <p class="note">Ein Klick auf eine Spaltenüberschrift sortiert um — auch nach Abzeichen, dann stehen die
-     Familien mit dokumentierten Einzelpersonen oben. Zeile anklicken öffnet das Detail-Panel.</p>
+     Namensgruppen mit dokumentierten Einzelpersonen oben. Die Spalte „IDF-Dossier“ zählt separat
+     die von der IDF genannten Personen, nicht bestätigte Kämpfer. Zeile anklicken öffnet das Detail-Panel.
+     <a href="familien.html#idfPressFiles">Zum vollständigen IDF-Dossier ↓</a></p>
   <div class="legend" style="flex-wrap:wrap;font-size:13px">
     <span><span class="bdg b-f">★</span> dokumentierte Kämpfer/Kommandeure</span>
     <span><span class="bdg b-p">✎</span> getötete Journalisten (mit Anzahl)</span>
@@ -90,12 +93,19 @@ if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">'
      Das israelische <a href="https://www.timesofisrael.com/finally-naming-their-war-dead-gazan-terror-groups-admit-slain-journalists-were-fighters/">ITIC bestreitet den Zivilstatus</a>
      eines erheblichen Teils der als Journalisten Gezählten — die Presse-Liste ist eine palästinensische Quelle.</p>
 </section>
+<section id="idfPressFiles" class="mod">
+  <h2 data-i18n="idf.title">The Press Files: 170 Einzelprofile</h2>
+  <p class="note" data-i18n="idf.note"></p>
+  <p><a href="https://www.idf.il/en/mini-sites/the-press-files/" target="_blank" rel="noopener" data-i18n="idf.source">IDF-Originaldossier öffnen ↗</a></p>
+  <div id="idfContent"></div>
+</section>
 </main>
 
 <script src="js/famnotes.js"></script>
 <script src="js/famnotes-i18n.js"></script>
 <script src="js/public-figures.js"></script>
 <script src="js/content.js"></script>
+<script src="js/idf-press-files.js"></script>
 <script src="js/families.js"></script>
 </body>
 </html>

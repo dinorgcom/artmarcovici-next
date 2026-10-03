@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // CADO Builder: eigenes Vite-Projekt (Quellen gespiegelt) und dessen fertiger Build
+    "cado/**",
+    "public/cado-builder/**",
   ]),
 ]);
 

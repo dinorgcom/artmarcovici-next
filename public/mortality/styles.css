@@ -38,6 +38,8 @@ a { color: inherit; }
 .site-nav a { display: flex; align-items: center; border-bottom: 2px solid transparent; padding: 2px 14px 0; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; transition: color .2s, border-color .2s; }
 .site-nav a:hover { color: var(--ink); }
 .site-nav a.active { border-bottom-color: var(--red); color: var(--ink); }
+.site-nav a.site-home { margin-right: 6px; border-right: 1px solid var(--line); color: var(--ink); }
+.site-nav a.site-home:hover { color: var(--red); }
 
 .hero { padding: 82px 0 58px; }
 .eyebrow, .section-index { color: var(--red); font-size: 11px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }

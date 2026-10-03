@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CADO Builder</title>
+  </head>
+  <body>
+    <div id="app">
+      <aside id="palette">
+        <header>
+          <a class="back" href="/work/cado-bricks-1" title="Zurück zu CADO ELEMENTS auf biest.com">← biest.com</a>
+          <div class="wordmark">CADO</div>
+          <div class="sub">Creativity Aided Design Objects</div>
+        </header>
+        <section class="scroll">
+          <h2>Material <span id="mat-info"></span></h2>
+          <div id="materials"></div>
+        </section>
+        <section class="grow">
+          <h2><b id="shapes-title">Formen</b> <span id="shape-info"></span></h2>
+          <div class="finder">
+            <input id="shape-search" type="search" placeholder="Nr. oder Name suchen" autocomplete="off" />
+            <button id="shape-all" title="Alle Formen zeigen, auch die es in diesem Material nicht gibt">Alle</button>
+          </div>
+          <div id="shape-mats"></div>
+          <div id="shapes"></div>
+        </section>
+      </aside>
+
+      <main id="stage">
+        <div id="viewport"></div>
+        <div id="hint"></div>
+        <div id="photopanel" hidden>
+          <h2>Foto</h2>
+          <label>Tiefenschärfe: alles scharf – weich <input id="photo-aperture" type="range" min="0" max="10" step="0.5" /></label>
+          <p>Klick auf einen Stein stellt dort scharf. Steht die Kamera still, rechnet das Bild nach: weiche Schatten, saubere Kanten, Unschärfe.</p>
+          <button id="photo-shot">Bild speichern</button>
+        </div>
+        <div id="lightpanel" hidden>
+          <h2>Lichtstudio</h2>
+          <div class="row" id="light-presets">
+            <button data-preset="day">Tageslicht</button>
+            <button data-preset="studio">Studio</button>
+            <button data-preset="warm">Galerie warm</button>
+            <button data-preset="night">Nacht</button>
+          </div>
+          <label>Strahler heller / dunkler <input id="light-bright" type="range" min="0" max="250" step="5" /></label>
+          <label>Grundlicht <input id="light-ambient" type="range" min="0" max="150" step="5" /></label>
+          <label>Lichtfarbe warm – kalt <input id="light-kelvin" type="range" min="2400" max="10000" step="100" value="6500" /></label>
+          <div id="light-lamps"></div>
+        </div>
+        <div id="dpad" hidden>
+          <button data-key="ArrowUp" aria-label="vorwärts">▲</button>
+          <button data-key="ArrowLeft" aria-label="links drehen">◀</button>
+          <button data-key="ArrowRight" aria-label="rechts drehen">▶</button>
+          <button data-key="ArrowDown" aria-label="zurück">▼</button>
+        </div>
+        <div id="toolbar">
+          <div class="grp">
+            <button data-act="rotate" title="Stein drehen (R)">Drehen</button>
+            <button data-act="tip" title="Stein kippen (T)">Kippen</button>
+            <button data-act="select" title="Auswahlmodus: Steine anklicken (Esc)">Auswahl</button>
+          </div>
+          <div class="grp">
+            <button data-act="dup" title="Auswahl duplizieren und wie einen Stempel setzen (Strg+D)">Duplizieren</button>
+            <button data-act="move" title="Auswahl aufnehmen und neu setzen (M)">Verschieben</button>
+            <button data-act="del" title="Auswahl löschen (Entf)">Löschen</button>
+          </div>
+          <div class="grp">
+            <button data-act="undo" title="Rückgängig (Strg+Z)">Zurück</button>
+            <button data-act="redo" title="Wiederholen (Strg+Y)">Vor</button>
+          </div>
+        </div>
+        <div id="viewbar">
+          <button data-act="view" title="Ganzes Modell zeigen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg><span>Ansicht</span></button>
+          <button data-act="dark" title="Hintergrund hell / dunkel"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M12 5a7 7 0 0 1 0 14z" class="fill"/></svg><span>Dunkel</span></button>
+          <button data-act="light" title="Lichtstudio: Deckenstrahler, Helligkeit, Lichtfarbe"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/></svg><span>Licht</span></button>
+          <button data-act="walk" title="Auf Augenhöhe durch das Modell gehen (Pfeiltasten)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M12 7v7M8 10.5h8M9 21l3-7 3 7"/></svg><span>Begehen</span></button>
+          <button data-act="photo" title="Foto-Modus: ohne Hilfslinien, mit Tiefenschärfe – Klick stellt scharf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h4l1.5-2.5h7L17 8h4v11H3z"/><circle cx="12" cy="13.5" r="3.5"/></svg><span>Foto</span></button>
+          <button data-act="help" title="Bedienung und Tastenkürzel (?)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.6a2.4 2.4 0 1 1 3.4 2.2c-.6.3-1 .8-1 1.5v.7"/><path d="M12 16.6v.4"/></svg><span>Hilfe</span></button>
+        </div>
+      </main>
+
+      <aside id="order">
+        <section class="scroll">
+          <h2>Vorlagen</h2>
+          <div id="templates"></div>
+        </section>
+        <section class="grow">
+          <h2>Stückliste</h2>
+          <div id="bom"></div>
+        </section>
+        <section id="totals"></section>
+        <section class="actions">
+          <button id="to-cart" class="primary">In den Warenkorb</button>
+          <div class="row">
+            <button id="shot">Bild speichern</button>
+            <button id="export">Entwurf sichern</button>
+            <button id="import">Laden</button>
+          </div>
+          <button id="save-tpl" hidden title="Nur lokal: aktuellen Stand als Vorlage ins Projekt schreiben – wird beim Deployen mit ausgeliefert">Als Vorlage speichern</button>
+          <input id="import-file" type="file" accept="application/json" hidden />
+        </section>
+      </aside>
+    </div>
+
+    <dialog id="savetpl">
+      <form method="dialog">
+        <h2>Als Vorlage speichern</h2>
+        <label>Name <input id="tpl-name" required /></label>
+        <label>Gruppe <input id="tpl-group" list="tpl-groups" /></label>
+        <datalist id="tpl-groups"></datalist>
+        <label>Beschreibung <input id="tpl-note" /></label>
+        <p id="tpl-info"></p>
+        <div class="row">
+          <button type="button" id="tpl-cancel">Abbrechen</button>
+          <button type="button" id="tpl-revert" hidden>Eigene Fassung verwerfen</button>
+          <button type="button" id="tpl-save" class="primary">Speichern</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="help">
+      <h2>Bedienung</h2>
+      <div class="keys">
+        <h3>Bauen</h3>
+        <dl>
+          <dt>Klick</dt><dd>Stein setzen (Form links wählen)</dd>
+          <dt>R / T</dt><dd>drehen / kippen</dd>
+          <dt>Rechtsklick</dt><dd>Stein entfernen</dd>
+          <dt>Mittelklick · Alt+Klick</dt><dd>Form, Material und Lage übernehmen</dd>
+          <dt>Shift+Klick</dt><dd>Stein im aktiven Material umfärben</dd>
+          <dt>Esc</dt><dd>Bauen beenden</dd>
+        </dl>
+        <h3>Auswahl</h3>
+        <dl>
+          <dt>Klick</dt><dd>Stein wählen, Shift/Strg+Klick erweitert</dd>
+          <dt>Shift+Ziehen</dt><dd>Rahmen aufziehen</dd>
+          <dt>Strg+A</dt><dd>alle Steine</dd>
+          <dt>Strg+D</dt><dd>duplizieren und als Stempel setzen</dd>
+          <dt>M</dt><dd>verschieben</dd>
+          <dt>Strg+C / Strg+V</dt><dd>kopieren / einfügen</dd>
+          <dt>Entf</dt><dd>löschen</dd>
+          <dt>Material anklicken</dt><dd>Auswahl umfärben</dd>
+        </dl>
+        <h3>Ansicht</h3>
+        <dl>
+          <dt>Ziehen</dt><dd>drehen · Rechts ziehen: verschieben · Rad: zoomen</dd>
+          <dt>Pfeiltasten</dt><dd>gehen, Shift: seitwärts / Höhe</dd>
+          <dt>Strg+Z / Strg+Y</dt><dd>zurück / vor</dd>
+          <dt>?</dt><dd>diese Hilfe</dd>
+        </dl>
+      </div>
+      <label class="quality">Darstellung
+        <select id="quality">
+          <option value="auto">Automatisch</option>
+          <option value="hoch">Hoch – alle Effekte</option>
+          <option value="mittel">Mittel – ohne Fugenschatten</option>
+          <option value="niedrig">Niedrig – für ältere Geräte</option>
+        </select>
+        <span id="quality-now"></span>
+      </label>
+      <form method="dialog"><button>Schließen</button></form>
+    </dialog>
+
+    <dialog id="cart">
+      <h2>Deine Auswahl</h2>
+      <pre id="cart-text"></pre>
+      <p id="cart-note"></p>
+      <div class="row">
+        <button id="cart-copy">Stückliste kopieren</button>
+        <button id="cart-close" class="primary">Schließen</button>
+      </div>
+    </dialog>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
