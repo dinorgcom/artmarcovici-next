@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "models": "npx --yes @gltf-transform/cli meshopt public/models/cado_elements_all.glb public/models/cado_elements_all.min.glb --level medium",
-    "build:site": "node scripts/build-site.mjs"
+    "build:site": "node scripts/build-site.mjs",
+    "release": "node scripts/release.mjs"
   },
   "dependencies": {
     "three": "^0.186.0"
