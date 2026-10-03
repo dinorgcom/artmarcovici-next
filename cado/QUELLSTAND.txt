@@ -1,2 +1,2 @@
-Gespiegelt aus dem CADO-Projekt, Stand 87d2ca2, 2026-10-03T20:13:17.534Z.
+Gespiegelt aus dem CADO-Projekt, Stand 87d2ca2, 2026-10-03T20:28:59.405Z.
 Nicht hier bearbeiten: Quelle ist das CADO-Projekt, dieser Ordner wird von npm run build:site ueberschrieben.
