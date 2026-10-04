@@ -160,12 +160,13 @@ export default function Home() {
               Data &amp; sources · West Bank 2023–2026
             </p>
             <h2 className="font-serif text-3xl md:text-5xl tracking-wide mb-4">
-              SETTLER VIOLENCE — <span className="text-gray-300">CASES &amp; CONTEXT</span>
+              KILLED IN THE WEST BANK — <span className="text-gray-300">ATTACK OR SELF-DEFENCE?</span>
             </h2>
             <p className="text-gray-300 mb-8 leading-relaxed max-w-xl">
-              A sourced German-language working page separating direct killings from deaths in
-              the context of settler attacks — with case records, prosecution status and the
-              Palestinian population series for the West Bank.
+              Every killing between Israeli civilians and Palestinians since 7 October 2023, case
+              by case: attacker stopped, attack alleged, confrontation or raid — with both
+              sides&apos; accounts, prosecution data and a comparison of Israeli, Palestinian and
+              UN sources. Deutsch.
             </p>
             <span className="inline-block px-8 py-3 border border-accent text-accent group-hover:bg-accent group-hover:text-black transition-all duration-300 tracking-widest text-sm uppercase">
               Open the research
