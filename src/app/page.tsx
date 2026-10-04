@@ -131,9 +131,9 @@ export default function Home() {
               FEMIZIDE IN ÖSTERREICH
             </h2>
             <p className="text-gray-300 mb-8 leading-relaxed">
-              200 documented femicide cases — victims, perpetrators, motives, trials, sources —
+              203 documented femicide cases — victims, perpetrators, motives, trials, sources —
               searchable and filterable, with year-by-year statistics, an interactive map of the
-              nine Bundesländer, a population-adjusted comparison, and a 55-year historical view
+              nine Bundesländer, a population-adjusted comparison, and a 56-year historical view
               back to 1970. Deutsch.
             </p>
             <span className="inline-block px-8 py-3 border border-accent text-accent group-hover:bg-accent group-hover:text-black transition-all duration-300 tracking-widest text-sm uppercase">

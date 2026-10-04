@@ -5,22 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gaza: Familien &amp; Namenssuche — biest.com</title>
 <meta name="description" content="Familiennamen in der Gaza-Opferliste: Todesfälle, Männer-Frauen-Verhältnis, Minderjährige, Geschwistergruppen und öffentlich dokumentierte Biografien.">
+<script>/* Auf biest.com liegen alle Assets unter /gaza/. Lokal bleiben Pfade relativ. */
+if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">');</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="biest.com">
+<meta property="og:locale" content="de_AT">
 <meta property="og:title" content="Gaza: Familien &amp; Namenssuche">
 <meta property="og:description" content="3.127 Familiennamen: Verluste, Geschlechterverhältnis, Suche, Biografien und sortierbare Tabelle. DE · EN · AR · HE">
 <meta property="og:url" content="https://biest.com/gaza/familien.html">
-<meta property="og:image" content="https://biest.com/gaza/og-pyramid.jpg">
+<meta property="og:image" content="https://biest.com/og/og-gaza-familien.jpg?v=20261004">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Familiennamen mit den meisten Toten in der Gaza-Opferliste, nach Männern und Frauen">
 <meta name="twitter:card" content="summary_large_image">
-<script>/* Auf biest.com liegen alle Assets unter /gaza/. Lokal bleiben Pfade relativ. */
-if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">');</script>
+<meta name="twitter:title" content="Gaza: Familien &amp; Namenssuche">
+<meta name="twitter:description" content="3.127 Familiennamen: Verluste, Geschlechterverhältnis, Suche, Biografien und sortierbare Tabelle. DE · EN · AR · HE">
+<meta name="twitter:image" content="https://biest.com/og/og-gaza-familien.jpg?v=20261004">
+<meta name="twitter:image:alt" content="Familiennamen mit den meisten Toten in der Gaza-Opferliste, nach Männern und Frauen">
+<link rel="stylesheet" href="/shared/biest-brand.css">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/i18n.js"></script>
 </head>
 <body data-page="families">
 
 <div class="topbar family-topbar">
-  <a class="site-home" href="/" aria-label="Zur Startseite von biest.com">biest.com</a>
+  <a class="biest-brand" href="/" aria-label="biest.com – Startseite"><span class="biest-brand__name">BIEST.COM</span><span class="biest-brand__tag">Dossier</span></a>
   <nav class="site-nav" aria-label="Gaza-Bereiche">
     <a href="index.html" data-i18n="nav.page.deaths">Tote in Gaza</a>
     <a class="active" href="familien.html" aria-current="page" data-i18n="nav.page.families">Familien</a>

@@ -1,4 +1,4 @@
-const DATA_URL = "/mortality/data/mortality.json?v=20260807-5";
+const DATA_URL = "/mortality/data/mortality.json?v=20261004-1";
 
 const numberFormat = new Intl.NumberFormat("de-AT");
 const decimalFormat = new Intl.NumberFormat("de-AT", {

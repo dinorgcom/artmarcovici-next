@@ -119,9 +119,7 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 20px 90px; }
 .topbar #topShare { margin-inline-end: auto; margin-top: 0; }
 .topbar .sharemain { padding: 5px 13px; font-size: 13px; }
 .topbar .sharemini { min-width: 32px; height: 28px; font-size: 12px; }
-.site-home { color: var(--ink); text-decoration: none; font-size: 13.5px; font-weight: 750; letter-spacing: .01em;
-  padding-block: 5px; padding-inline: 0 12px; border-inline-end: 1px solid var(--grid); white-space: nowrap; }
-.site-home:hover { text-decoration: underline; text-underline-offset: 3px; }
+.topbar .biest-brand { margin-inline-end: 8px; }
 .site-nav { display: flex; align-items: center; gap: 4px; flex: 0 0 auto; }
 .site-nav a { color: var(--muted); text-decoration: none; font-size: 13.5px; font-weight: 650;
   padding: 5px 11px; border: 1px solid transparent; border-radius: 7px; white-space: nowrap; }

@@ -11,23 +11,37 @@
       content="Eine interaktive Datenarbeit über Sonnenscheindauer und jährliche Temperaturspitzen in Wien von 1880 bis 2025."
     />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="biest.com">
+    <meta property="og:locale" content="de_AT">
+    <meta property="og:title" content="146 Jahre Sonne &amp; Temperatur in Wien">
+    <meta property="og:description" content="Eine interaktive Datenarbeit über Sonnenscheindauer und jährliche Temperaturspitzen in Wien von 1880 bis 2025.">
+    <meta property="og:url" content="https://biest.com/wien-sonne-temperatur">
+    <meta property="og:image" content="https://biest.com/og/og-wien-sonne-temperatur.jpg?v=20261004">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Wärmestreifen für Wien seit 1880, von kühl (blau) bis warm (rot)">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="146 Jahre Sonne &amp; Temperatur in Wien">
+    <meta name="twitter:description" content="Eine interaktive Datenarbeit über Sonnenscheindauer und jährliche Temperaturspitzen in Wien von 1880 bis 2025.">
+    <meta name="twitter:image" content="https://biest.com/og/og-wien-sonne-temperatur.jpg?v=20261004">
+    <meta name="twitter:image:alt" content="Wärmestreifen für Wien seit 1880, von kühl (blau) bis warm (rot)">
+    <link rel="stylesheet" href="/shared/biest-brand.css">
     <link rel="stylesheet" href="/wien-sonne-temperatur/styles.css" />
     <script defer src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
     <script defer src="/wien-sonne-temperatur/data.js"></script>
     <script defer src="/wien-sonne-temperatur/annual-index-data.js"></script>
     <script defer src="/wien-sonne-temperatur/co2-data.js"></script>
     <script defer src="/wien-sonne-temperatur/app.js"></script>
-    <script defer src="/wien-sonne-temperatur/recent-data.js"></script>
+    <script defer src="/wien-sonne-temperatur/recent-data.js?v=20261004"></script>
     <script defer src="/wien-sonne-temperatur/recent.js"></script>
   </head>
   <body>
     <div class="ambient" aria-hidden="true"></div>
 
     <header class="site-header">
-      <a class="brand" href="/" aria-label="Zur Startseite von biest.com">
-        <span>BIEST.COM</span>
-        <span>DATA WORK</span>
-      </a>
+      <a class="biest-brand" href="/" aria-label="biest.com – Startseite"><span class="biest-brand__name">BIEST.COM</span><span class="biest-brand__tag">Dossier</span></a>
       <p>Wien, Hohe Warte</p>
     </header>
 
@@ -246,7 +260,7 @@
           </div>
           <div>
             <span>Datenstand</span>
-            <strong id="recent-latest-date">19. Aug 2026</strong>
+            <strong id="recent-latest-date">3. Okt 2026</strong>
             <small id="recent-live-status">wird automatisch aktualisiert</small>
           </div>
         </div>
@@ -256,23 +270,23 @@
             <button type="button" data-recent-mode="week" aria-pressed="true">Wöchentlich</button>
             <button type="button" data-recent-mode="day" aria-pressed="false">Täglich</button>
           </div>
-          <p id="recent-freshness">Temperatur bis 19. August, Sonne bis 18. August 2026</p>
+          <p id="recent-freshness">Temperatur bis 3. Oktober 2026, Sonne bis 3. Oktober 2026</p>
         </div>
 
         <div class="recent-reader" aria-live="polite">
           <div>
             <span id="recent-period-label">Ausgewählte Woche</span>
-            <strong id="recent-period">17. bis 23. August 2026</strong>
+            <strong id="recent-period">28. September bis 4. Oktober 2026</strong>
           </div>
           <div>
             <span id="recent-temperature-label">Wochenmaximum</span>
-            <strong class="recent-temperature-value" id="recent-temperature">30,3 °C</strong>
-            <small id="recent-temperature-detail">am 19. August</small>
+            <strong class="recent-temperature-value" id="recent-temperature">25,6 °C</strong>
+            <small id="recent-temperature-detail">am 30. September</small>
           </div>
           <div>
             <span id="recent-sunshine-label">Sonne in der Woche</span>
-            <strong class="recent-sunshine-value" id="recent-sunshine">4,0 h</strong>
-            <small id="recent-sunshine-detail">2 Messwerte verfügbar</small>
+            <strong class="recent-sunshine-value" id="recent-sunshine">63,4 h</strong>
+            <small id="recent-sunshine-detail">6 von 7 Tageswerten verfügbar</small>
           </div>
         </div>
 

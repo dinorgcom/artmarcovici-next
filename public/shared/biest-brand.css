@@ -1,0 +1,41 @@
+/* Einheitliches biest.com-Logo für alle Dossiers (gleiche Wortmarke wie in der Hauptnavigation).
+   Einbinden: <link rel="stylesheet" href="/shared/biest-brand.css">
+   Markup:    <a class="biest-brand" href="/" aria-label="biest.com – Startseite">
+                <span class="biest-brand__name">BIEST.COM</span><span class="biest-brand__tag">Dossier</span>
+              </a> */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap");
+
+.biest-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  flex: 0 0 auto;
+  color: inherit;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+.biest-brand__name {
+  color: #dc2626;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+.biest-brand__tag {
+  padding-inline-start: 10px;
+  border-inline-start: 1px solid currentColor;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: .6;
+}
+.biest-brand:hover .biest-brand__name { color: #b91c1c; }
+.biest-brand:hover .biest-brand__tag { opacity: .9; }
+.biest-brand:focus-visible { outline: 2px solid #dc2626; outline-offset: 4px; }
+@media (max-width: 420px) {
+  .biest-brand__name { font-size: 17px; }
+  .biest-brand__tag { display: none; }
+}
