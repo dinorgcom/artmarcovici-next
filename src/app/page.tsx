@@ -143,10 +143,10 @@ export default function Home() {
         </a>
       </section>
 
-      {/* West Bank — sourced data project */}
+      {/* Judäa und Samaria — sourced data project */}
       <section className="max-w-7xl mx-auto px-4 pt-6">
         <a
-          href="/westbank/"
+          href="/js/"
           className="art-card group relative block overflow-hidden rounded-lg border border-accent/30 hover:border-accent transition-colors duration-300 bg-black"
         >
           <div className="absolute inset-0 overflow-hidden bg-[#11110f]">
@@ -157,10 +157,10 @@ export default function Home() {
           </div>
           <div className="relative px-8 py-12 md:px-14 md:py-16 max-w-2xl">
             <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4">
-              Data &amp; sources · West Bank 2023–2026
+              Data &amp; sources · Judea &amp; Samaria 2023–2026
             </p>
             <h2 className="font-serif text-3xl md:text-5xl tracking-wide mb-4">
-              KILLED IN THE WEST BANK — <span className="text-gray-300">ATTACK OR SELF-DEFENCE?</span>
+              KILLED IN JUDEA AND SAMARIA — <span className="text-gray-300">ATTACK OR SELF-DEFENCE?</span>
             </h2>
             <p className="text-gray-300 mb-8 leading-relaxed max-w-xl">
               Every killing between Israeli civilians and Palestinians since 7 October 2023, case

@@ -17,6 +17,7 @@
     P: { label: "Nur UN, palästinensische oder arabische Quellen", short: "nur UN/palästinensisch", cls: "src-p" },
   };
   const SRC_ORDER = ["A", "M", "N", "I", "P"];
+  let UNTIL = "4. Oktober";
   const CAT_ORDER = ["K1", "K2", "K3", "K4", "U"];
   const YEARS = ["2023", "2024", "2025", "2026"];
   const STATUS = { Z: "Zivilist", S: "Sicherheitskraft" };
@@ -119,7 +120,7 @@
         return `<div class="stack-row"><span class="stack-year">${y}${y === "2023" ? "*" : y === "2026" ? "**" : ""}</span><span class="stack-track">${segs}</span><strong>${sum}</strong></div>`;
       }).join("")}
       </div>
-      <p class="chart-source">* ab 7. Oktober · ** bis 4. Oktober</p>`;
+      <p class="chart-source">* ab 7. Oktober · ** bis ${UNTIL}</p>`;
     bindTips($("#cat-year-chart"));
   }
 
@@ -161,9 +162,14 @@
   }
 
   // ---------------------------------------------------------------- israeli cases
-  function renderIsr(isr, counts) {
-    // year chart, list A
-    const a = counts.A.years;
+  function renderIsr(isr) {
+    // year chart, list A – direkt aus der Fallliste gezählt
+    const a = {};
+    isr.filter((c) => c.list === "A").forEach((c) => {
+      const y = c.date.slice(0, 4);
+      a[y] = a[y] || { total: 0, Z: 0, S: 0 };
+      c.victims.forEach((v) => { a[y].total += 1; a[y][v.status] = (a[y][v.status] || 0) + 1; });
+    });
     const max = Math.max(...YEARS.map((y) => (a[y] ? a[y].total : 0)));
     $("#isr-year-chart").innerHTML = `
       <ul class="wb-legend"><li><i style="background:${STATUS_COLOR.Z}"></i>Zivilisten</li><li><i style="background:${STATUS_COLOR.S}"></i>Sicherheitskräfte</li></ul>
@@ -177,7 +183,7 @@
         return `<div class="stack-row"><span class="stack-year">${y}${y === "2023" ? "*" : y === "2026" ? "**" : ""}</span><span class="stack-track">${segs}</span><strong>${r.total}</strong></div>`;
       }).join("")}
       </div>
-      <p class="chart-source">* ab 7. Oktober · ** bis 4. Oktober · ohne Ost-Jerusalem, Allenby, Militäreinsätze und Anschläge in Israel</p>`;
+      <p class="chart-source">* ab 7. Oktober · ** bis ${UNTIL} · ohne Ost-Jerusalem, Allenby, Militäreinsätze und Anschläge in Israel</p>`;
     bindTips($("#isr-year-chart"));
 
     const tbody = $("#isr-cases tbody");
@@ -211,6 +217,33 @@
     };
     ["#isr-q", "#isr-list", "#isr-status"].forEach((s) => $(s).addEventListener(s === "#isr-q" ? "input" : "change", filter));
     filter();
+  }
+
+  // ---------------------------------------------------------------- kennzahlen aus den daten
+  function renderStats(data) {
+    const pal = data.palestinians;
+    const isrA = data.israelis.filter((c) => c.list === "A").flatMap((c) => c.victims);
+    const sum = (arr) => arr.reduce((t, c) => t + c.n, 0);
+    const [y, m, d] = data.updated.split("-");
+    const [uy, um, ud] = data.period[1].split("-");
+    const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+    UNTIL = `${+ud}. ${months[+um - 1]}`;
+    const stats = {
+      updated: `${d}.${m}.${y}`,
+      until: `${+ud}.${+um}.${uy}`,
+      "isr-total": isrA.length,
+      "isr-z": isrA.filter((v) => v.status === "Z").length,
+      "isr-s": isrA.filter((v) => v.status === "S").length,
+      "pal-cases": pal.length,
+      "pal-dead": sum(pal),
+      "pal-clear": sum(pal.filter((c) => c.cat !== "U")),
+      "pal-u": sum(pal.filter((c) => c.cat === "U")),
+      "pal-k1": sum(pal.filter((c) => c.cat === "K1")),
+      indicted: pal.filter((c) => /angeklagt/i.test(c.legal)).length,
+    };
+    document.querySelectorAll("[data-stat]").forEach((el) => {
+      if (el.dataset.stat in stats) el.textContent = String(stats[el.dataset.stat]);
+    });
   }
 
   // ---------------------------------------------------------------- grouped bars
@@ -280,7 +313,7 @@
     }).join("");
     chart.innerHTML = `
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="population-chart-title population-chart-desc">
-        <title id="population-chart-title">Palästinensische Bevölkerung im Westjordanland 2016 bis 2026</title>
+        <title id="population-chart-title">Palästinensische Bevölkerung in Judäa und Samaria 2016 bis 2026</title>
         <desc id="population-chart-desc">Die PCBS-Reihe steigt von 2,80 Millionen im Jahr 2016 auf 3,46 Millionen in der Projektion für 2026.</desc>
         ${mobile ? '<text class="chart-unit-label" x="9" y="25">Mio.</text>' : ""}
         ${grid}
@@ -298,12 +331,13 @@
   groupedBars($("#settler-chart"), $("#settler-legend"), SETTLER_INC);
   groupedBars($("#attack-chart"), $("#attack-legend"), PAL_ATTACKS);
 
-  fetch("/westbank/data/cases.json?v=20261004")
+  fetch("/js/data/cases.json?v=20261004")
     .then((r) => r.json())
     .then((data) => {
+      renderStats(data);
       renderCats(data.palestinians);
       renderPal(data.palestinians);
-      renderIsr(data.israelis, data.israeliCounts);
+      renderIsr(data.israelis);
     })
     .catch(() => {
       $("#pal-count").textContent = "Fallliste konnte nicht geladen werden.";

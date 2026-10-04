@@ -19,6 +19,13 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      // Westjordanland-Dossier heißt seit 10/2026 „Judäa und Samaria“ unter /js
+      { source: "/westbank", destination: "/js", permanent: true },
+      { source: "/westbank/:path*", destination: "/js/:path*", permanent: true },
+    ];
+  },
   async rewrites() {
     return {
       // beforeFiles: wins over any leftover static copy in public/gapminder.
@@ -48,8 +55,8 @@ const nextConfig: NextConfig = {
           destination: "/frankreich-bildung/index.html",
         },
         {
-          source: "/westbank",
-          destination: "/westbank/index.html",
+          source: "/js",
+          destination: "/js/index.html",
         },
         {
           source: "/wien-sonne-temperatur",

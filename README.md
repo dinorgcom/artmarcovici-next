@@ -26,3 +26,19 @@ Die App wird nicht hier entwickelt, sondern im CADO-Projekt (Vite + three.js) un
 cd cado/web
 npm run build:site   # komprimiert die Steinformen und schreibt nach artmarcovici-next/public/cado-builder
 ```
+
+## Judäa und Samaria (/js) – Falllisten pflegen
+
+Die Datenseite unter [biest.com/js](https://biest.com/js) liest alles aus `public/js/data/cases.json`
+(Tötungen zwischen israelischen Zivilisten und Palästinensern seit dem 7. Oktober 2023). Alle Zahlen auf
+der Seite werden daraus berechnet; `/westbank` leitet dauerhaft auf `/js` weiter.
+
+```bash
+npm run js -- add               # neuen Fall abfragen (Kategorie, beide Darstellungen, Links, Quellenlage)
+npm run js -- check             # Pflichtfelder, Datumsangaben, Duplikate, Fälle nur mit UN/palästinensischen Quellen
+npm run js -- check --links     # zusätzlich alle Links abrufen
+npm run js -- stats             # Übersicht nach Kategorie, Jahr und Quellenlage
+npm run js -- date 2026-10-31   # Stand und Zeitraumende setzen
+```
+
+Danach committen und auf `master` pushen – das geht direkt live.
