@@ -215,22 +215,50 @@ const dossiers = {
     };
   },
 
-  westbank() {
-    // OCHA-Wochenmittel der Siedlerangriffe mit Verletzten oder Sachschaden (Werte wie im Dossier belegt)
-    const rows = [
-      { label: "1.1.–6.10.2023", v: 21 },
-      { label: "7.10.2023–7.1.2024", v: 29 },
-      { label: "2025", v: 35 },
-      { label: "Jan.–Aug. 2026", v: 46.9 },
-    ];
+  js() {
+    // Fälle aus public/js/data/cases.json; Kategorien und Farben wie in public/js/app.js
+    const data = JSON.parse(read("js/data/cases.json"));
+    const app = read("js/app.js");
+    const cats = Object.fromEntries([...app.matchAll(/(K1|K2|K3|K4|U): \{ label: "([^"]+)", short: "([^"]+)", color: "(#[0-9a-fA-F]+)"/g)]
+      .map((m) => [m[1], { label: m[2], color: m[4] }]));
+    const order = ["K1", "K2", "K3", "K4", "U"];
+    const pal = Object.fromEntries(order.map((k) => [k, 0]));
+    for (const c of data.palestinians) pal[c.cat] = (pal[c.cat] || 0) + c.n;
+    const palTotal = order.reduce((a, k) => a + pal[k], 0);
+    const isr = data.israelis.filter((c) => c.list === "A").flatMap((c) => c.victims);
+    const isrZ = isr.filter((v) => v.status === "Z").length, isrS = isr.length - isrZ;
+    const cw = 590, ch = 380, bw = 520, unit = bw / Math.max(palTotal, isr.length);
+    let svg = `<svg width="${cw}" height="${ch}" viewBox="0 0 ${cw} ${ch}">`;
+    // Israelis
+    svg += `<text x="0" y="22" font-size="16" fill="#2b2a26">Israelis bei Anschlägen getötet</text>`;
+    svg += `<rect x="0" y="34" width="${(isrZ * unit).toFixed(1)}" height="46" fill="#1f2a44"/>`;
+    svg += `<rect x="${(isrZ * unit).toFixed(1)}" y="34" width="${(isrS * unit).toFixed(1)}" height="46" fill="#55617d"/>`;
+    svg += `<text x="${(isr.length * unit + 10).toFixed(1)}" y="65" font-size="22" font-weight="700" fill="#1a1a18">${isr.length}</text>`;
+    svg += `<rect x="0" y="92" width="12" height="12" fill="#1f2a44"/><text x="18" y="103" font-size="13.5" fill="#2b2a26">${isrZ} Zivilisten</text><rect x="120" y="92" width="12" height="12" fill="#55617d"/><text x="138" y="103" font-size="13.5" fill="#2b2a26">${isrS} Sicherheitskräfte</text>`;
+    // Palästinenser nach Kategorie
+    svg += `<text x="0" y="152" font-size="16" fill="#2b2a26">Palästinenser von israelischen Zivilisten getötet</text>`;
+    let x = 0;
+    for (const k of order) {
+      const w = pal[k] * unit;
+      svg += `<rect x="${x.toFixed(1)}" y="164" width="${w.toFixed(1)}" height="46" fill="${cats[k]?.color || "#999"}"/>`;
+      if (w > 22) svg += `<text x="${(x + w / 2).toFixed(1)}" y="193" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">${pal[k]}</text>`;
+      x += w;
+    }
+    svg += `<text x="${(x + 10).toFixed(1)}" y="195" font-size="22" font-weight="700" fill="#1a1a18">${palTotal}</text>`;
+    order.forEach((k, i) => {
+      const lx = (i % 2) * 290, ly = 238 + Math.floor(i / 2) * 25;
+      svg += `<rect x="${lx}" y="${ly}" width="12" height="12" fill="${cats[k]?.color}"/><text x="${lx + 18}" y="${ly + 11}" font-size="13.5" fill="#2b2a26">${esc(cats[k]?.label || k)}</text>`;
+    });
+    const [y0, y1] = data.period.map((d) => d.split("-").reverse().map(Number).join("."));
+    svg += `<text x="0" y="${ch - 8}" font-size="13" fill="#77736a">${y0} bis ${y1} · ohne Ost-Jerusalem</text></svg>`;
     return {
-      file: "og-westbank.jpg", accent: "#c0392b",
-      kicker: "Westjordanland · 2023–2026",
-      title: "Siedlergewalt, Tötungen &amp; Demografie",
-      sub: "Eine quellenbasierte Arbeitsseite: Tötungen in beide Richtungen, nichttödliche Angriffe, staatliche Reaktionen und Bevölkerung.",
-      url: "biest.com/westbank", source: "Daten: OCHA, PCBS, Kommission",
-      chart: hbars(rows, { color: "#c0392b", labelW: 180, fmt: (v) => nf(Math.round(v)), note: "Siedlerangriffe pro Woche mit Verletzten oder Sachschaden · OCHA" }),
-      alt: "Balkendiagramm: Siedlerangriffe pro Woche im Westjordanland laut OCHA, von 21 (2023) auf rund 47 (2026)",
+      file: "og-js.jpg", accent: "#2a6fb0",
+      kicker: "Judäa und Samaria · 2023–2026",
+      title: "Getötet in Judäa und Samaria",
+      sub: "Angriff, Notwehr, Überfall: jede Tötung zwischen israelischen Zivilisten und Palästinensern seit dem 7. Oktober 2023, Fall für Fall.",
+      url: "biest.com/js", source: "Quellen: israelische, palästinensische, UN-Angaben",
+      chart: svg,
+      alt: `Getötete in Judäa und Samaria seit 7.10.2023: ${isr.length} Israelis bei Anschlägen, ${palTotal} Palästinenser durch israelische Zivilisten, nach Angriff, Notwehr und Überfall eingeordnet`,
     };
   },
 

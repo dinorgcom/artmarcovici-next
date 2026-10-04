@@ -107,19 +107,20 @@ const dossiers: Dossier[] = [
     ),
   },
   {
-    href: "/westbank/",
-    updated: "2026-09-25",
-    kicker: "Data & sources · West Bank 2023–2026",
+    href: "/js/",
+    updated: "2026-10-04",
+    kicker: "Data & sources · Judea & Samaria 2023–2026",
     title: (
       <>
-        SETTLER VIOLENCE — <span className="text-gray-300">CASES &amp; CONTEXT</span>
+        KILLED IN JUDEA AND SAMARIA — <span className="text-gray-300">ATTACK OR SELF-DEFENCE?</span>
       </>
     ),
     body: (
       <>
-        A sourced German-language working page separating direct killings from deaths in
-        the context of settler attacks — with case records, prosecution status and the
-        Palestinian population series for the West Bank.
+        Every killing between Israeli civilians and Palestinians since 7 October 2023, case
+        by case: attacker stopped, attack alleged, confrontation or raid — with both
+        sides&apos; accounts, prosecution data and a comparison of Israeli, Palestinian and
+        UN sources. Deutsch.
       </>
     ),
     cta: "Open the research",
