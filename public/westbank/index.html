@@ -146,6 +146,18 @@
           </p>
         </header>
 
+        <div class="src-box">
+          <p class="eyebrow">Quellenlage je Fall</p>
+          <p>
+            Jeder Fall ist danach gekennzeichnet, wer ihn bestätigt. Am belastbarsten sind Fälle,
+            zu denen sich IDF, Polizei oder Justiz selbst äußern. Fälle, die nur auf UN-,
+            palästinensischen oder arabischen Quellen beruhen, sind rot markiert: Dass die Person
+            tot ist, ist dort meist durch Namen, Krankenhaus und Beerdigung belegt; ob ein Siedler
+            geschossen hat und unter welchen Umständen, ist nicht unabhängig bestätigt.
+          </p>
+          <ul id="src-summary"></ul>
+        </div>
+
         <div class="filters wb-filters" aria-label="Fallliste filtern">
           <label>
             <span>Suche</span>
@@ -160,6 +172,15 @@
             <select id="pal-year">
               <option value="">Alle Jahre</option>
               <option>2023</option><option>2024</option><option>2025</option><option>2026</option>
+            </select>
+          </label>
+          <label>
+            <span>Quellenlage</span>
+            <select id="pal-src">
+              <option value="">Alle</option>
+              <option value="IL">Mit israelischer Quelle</option>
+              <option value="A">Israelische Behörde äußert sich</option>
+              <option value="P">Nur UN/palästinensisch</option>
             </select>
           </label>
         </div>

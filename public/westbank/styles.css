@@ -1934,3 +1934,28 @@ blockquote {
 
 .wb-filters { grid-template-columns: minmax(220px, 1.4fr) minmax(200px, 1fr) minmax(130px, 0.5fr); }
 @media (max-width: 760px) { .wb-filters { grid-template-columns: 1fr; } }
+
+/* Quellenlage */
+.wb-filters { grid-template-columns: minmax(200px, 1.3fr) minmax(180px, 1fr) minmax(110px, 0.5fr) minmax(180px, 0.9fr); }
+@media (max-width: 760px) { .wb-filters { grid-template-columns: 1fr; } }
+.src-box { margin: -30px 0 34px; padding: 20px 22px; border: 1px solid var(--line); background: var(--white); }
+.src-box p:not(.eyebrow) { max-width: 900px; margin: 8px 0 12px; font-size: 0.86rem; }
+.src-box ul { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; font-size: 0.8rem; }
+.src-badge {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 1px 6px;
+  border: 1px solid currentColor;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.src-a { color: #1f5a2e; background: #e6f1e8; }
+.src-m { color: #2a5c8a; background: #e7eff7; }
+.src-n { color: #5b4a7a; background: #eeeaf5; }
+.src-i { color: #5f5a50; background: #efede7; }
+.src-p { color: #fff; background: var(--red-dark); border-color: var(--red-dark); }
+.case-table tr.row-weak td:not(:first-child) { background: color-mix(in srgb, var(--red) 7%, var(--white)); }
+.case-table tr.row-weak td:first-child { box-shadow: inset 4px 0 0 var(--red-dark); }

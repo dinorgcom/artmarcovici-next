@@ -9,6 +9,14 @@
     K4: { label: "Überfall", short: "Überfall", color: "#d6493d", desc: "Keine Quelle, auch keine israelische, berichtet Gewalt des Getöteten. Er wurde bei einem Angriff von Siedlern getötet." },
     U: { label: "Schütze unklar", short: "unklar", color: "#a9a49a", desc: "Ungeklärt, ob Siedler oder Soldaten geschossen haben. Darstellungen und UN-Zuordnung widersprechen sich." },
   };
+  const SRC = {
+    A: { label: "Israelische Behörde äußert sich", short: "IDF/Polizei", cls: "src-a" },
+    M: { label: "Israelische Medien", short: "israel. Medien", cls: "src-m" },
+    N: { label: "Israelische NGO", short: "israel. NGO", cls: "src-n" },
+    I: { label: "Internationale Medien", short: "international", cls: "src-i" },
+    P: { label: "Nur UN, palästinensische oder arabische Quellen", short: "nur UN/palästinensisch", cls: "src-p" },
+  };
+  const SRC_ORDER = ["A", "M", "N", "I", "P"];
   const CAT_ORDER = ["K1", "K2", "K3", "K4", "U"];
   const YEARS = ["2023", "2024", "2025", "2026"];
   const STATUS = { Z: "Zivilist", S: "Sicherheitskraft" };
@@ -45,7 +53,7 @@
     "english.wafa.ps": "WAFA", "pchrgaza.org": "PCHR", "imemc.org": "IMEMC", "aljazeera.com": "Al Jazeera",
     "reuters.com": "Reuters", "theguardian.com": "Guardian", "npr.org": "NPR", "bbc.com": "BBC", "edition.cnn.com": "CNN",
     "middleeasteye.net": "MEE", "972mag.com": "+972", "ccrjustice.org": "CCR (FOIA)", "en.wikipedia.org": "Wikipedia",
-    "nbcnews.com": "NBC", "gulfnews.com": "Gulf News", "stgmobile.jpost.com": "Jerusalem Post",
+    "nbcnews.com": "NBC", "abc17news.com": "CNN (Syndikation)", "arabnews.com": "Arab News", "gulfnews.com": "Gulf News", "stgmobile.jpost.com": "Jerusalem Post",
   };
   const hostLabel = (url) => {
     try {
@@ -121,29 +129,35 @@
     sel.insertAdjacentHTML("beforeend", CAT_ORDER.map((k) => `<option value="${k}">${CATS[k].label}</option>`).join(""));
     const tbody = $("#pal-cases tbody");
     tbody.innerHTML = pal.map((c) => `
-      <tr data-cat="${c.cat}" data-year="${c.date.slice(0, 4)}">
+      <tr data-cat="${c.cat}" data-year="${c.date.slice(0, 4)}" data-src="${c.src}" class="${c.src === "P" ? "row-weak" : ""}">
         <td data-label="Datum / Ort"><div><strong>${fmtDate(c.date)}</strong><br />${esc(c.place)}</div></td>
         <td data-label="Getötete"><div>${esc(c.victims)}${c.n > 1 ? `<br /><span class="wb-n">${c.n} Tote</span>` : ""}</div></td>
         <td data-label="Kategorie"><div><span class="cat-badge" style="--cat:${CATS[c.cat].color}">${CATS[c.cat].label}</span></div></td>
         <td data-label="Hergang"><div>${esc(c.context)}</div></td>
         <td data-label="Schütze / Verfahren"><div><b>${esc(c.shooter)}</b><br />${esc(c.legal)}</div></td>
-        <td data-label="Belege"><div>${linkList(c.links)}</div></td>
+        <td data-label="Belege"><div><span class="src-badge ${SRC[c.src].cls}" title="${SRC[c.src].label}">${SRC[c.src].short}</span><br />${linkList(c.links)}</div></td>
       </tr>`).join("");
     const rows = [...tbody.rows];
     const filter = () => {
       const q = $("#pal-q").value.trim().toLocaleLowerCase("de");
       const cat = sel.value;
       const year = $("#pal-year").value;
+      const src = $("#pal-src").value;
       let cases = 0, dead = 0;
       rows.forEach((row, i) => {
-        const show = (!q || row.textContent.toLocaleLowerCase("de").includes(q)) && (!cat || row.dataset.cat === cat) && (!year || row.dataset.year === year);
+        const show = (!q || row.textContent.toLocaleLowerCase("de").includes(q)) && (!cat || row.dataset.cat === cat) && (!year || row.dataset.year === year) && (!src || (src === "IL" ? "AMN".includes(row.dataset.src) : row.dataset.src === src));
         row.hidden = !show;
         if (show) { cases += 1; dead += pal[i].n; }
       });
       $("#pal-count").textContent = `${cases} von ${rows.length} Vorfällen · ${dead} Tote`;
     };
-    ["#pal-q", "#pal-cat", "#pal-year"].forEach((s) => $(s).addEventListener(s === "#pal-q" ? "input" : "change", filter));
+    ["#pal-q", "#pal-cat", "#pal-year", "#pal-src"].forEach((s) => $(s).addEventListener(s === "#pal-q" ? "input" : "change", filter));
     filter();
+
+    const tot = Object.fromEntries(SRC_ORDER.map((k) => [k, { f: 0, t: 0 }]));
+    pal.forEach((c) => { tot[c.src].f += 1; tot[c.src].t += c.n; });
+    $("#src-summary").innerHTML = SRC_ORDER.map((k) =>
+      `<li><span class="src-badge ${SRC[k].cls}">${SRC[k].short}</span> ${SRC[k].label}: <b>${tot[k].f} Vorfälle, ${tot[k].t} Tote</b></li>`).join("");
   }
 
   // ---------------------------------------------------------------- israeli cases
