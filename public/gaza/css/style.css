@@ -324,3 +324,23 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 20px 90px; }
   .famrow { padding: 9px 12px; gap: 6px 12px; }
   .famrow .meta { font-size: 12.5px; }
 }
+
+/* MoH-Jahresbericht 2025 (Check 3) */
+.mohreport { margin-top: 30px; padding: 20px 22px; background: var(--surface); border: 1px solid var(--ring); border-left: 3px solid var(--f); border-radius: 10px; }
+.mohreport h3 { margin-top: 0; }
+.mohreport .statrow { margin: 14px 0 18px; }
+.mohreport .stat { background: transparent; }
+.cmpbars { display: grid; gap: 10px; margin: 6px 0 16px; max-width: 760px; }
+.cmp { display: grid; grid-template-columns: minmax(0, 1fr) 72px; grid-template-areas: "l l" "bar n"; column-gap: 12px; align-items: center; }
+.cmp-l { grid-area: l; font-size: 13.5px; color: var(--muted); margin-bottom: 4px; }
+.cmp-bar { grid-area: bar; display: block; height: 16px; width: var(--w); background: var(--muted); }
+.cmp-bar.alt { background: #bdb9b0; }
+.cmp-bar.war { background: var(--f); }
+.cmp b { grid-area: n; color: var(--ink); font-size: 16px; text-align: end; font-variant-numeric: tabular-nums; }
+.readings { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin: 4px 0 16px; }
+.reading { border: 1px solid var(--ring); border-radius: 8px; padding: 14px 16px; }
+.reading h4 { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.reading p { margin: 0 0 8px; font-size: 14px; color: var(--muted); line-height: 1.5; }
+.reading p:last-child { margin-bottom: 0; }
+.reading b { color: var(--ink); }
+#natQuick { margin-top: 10px; }

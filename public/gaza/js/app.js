@@ -333,7 +333,8 @@
       verdict.innerHTML = t("scen.verdict", nf.format(rate), nf.format(totalRemoved), nf.format(cum[cum.length - 1]),
         nf.format(cum[cum.length - 1] - totalRemoved), nf.format(NAT.list_60plus), nf.format(NAT.under_rubble));
     }
-    slider.addEventListener("input", update); update();
+    const markNat = wireQuick("natQuick", slider, () => slider.dispatchEvent(new Event("input")));
+    slider.addEventListener("input", () => { update(); markNat(); }); update(); markNat();
     table("#scenTable", [t("scen.col.month"), t("scen.col.cum")], months.map((m, i) => [m, nf.format(cum[i])]));
   })();
 

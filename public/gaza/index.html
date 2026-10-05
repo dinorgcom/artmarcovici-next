@@ -23,7 +23,7 @@
 <script>/* Unter biest.com liegt die Seite auf /gaza (ohne Slash-Redirect) — base fixiert alle relativen Pfade. Lokal neutral. */
 if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">');</script>
 <link rel="stylesheet" href="/shared/biest-brand.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=20261005">
 <script src="js/i18n.js"></script>
 </head>
 <body>
@@ -177,12 +177,67 @@ if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">'
 
   <div class="sliderrow">
     <label for="natSlider">Unterstellte natürliche Tote pro Jahr in der Liste:</label>
-    <input type="range" id="natSlider" min="0" max="8000" step="250" value="0">
+    <input type="range" id="natSlider" min="0" max="8000" step="1" value="0">
     <output id="natOut">0</output>
   </div>
   <p class="warn" id="natWarn" hidden>⚠ <strong>Über dem Altersstruktur-Deckel:</strong> Die Liste enthält insgesamt nur
      5.174 Menschen über 60 — mehr als ~5.000 natürliche Tote lassen sich demografisch nicht in ihr verstecken,
      da natürliche Sterblichkeit zu ~62% Menschen über 60 trifft.</p>
+  <div class="quickset" id="natQuick">
+    <button data-v="0">keine (Lesart des Ministeriums)</button>
+    <button data-v="5780">5.780 · nicht gewaltsame Tote 2025</button>
+    <button data-v="7364">7.364 · alle Nicht-Kriegstoten 2025 inkl. Unfälle</button>
+  </div>
+
+  <div class="mohreport" id="mohReport">
+    <p class="kicker" id="mohKicker">Neu · Oktober 2026</p>
+    <h3 id="mohH">Der erste Sterblichkeits-Jahresbericht des Ministeriums (2025)</h3>
+    <p class="note" id="mohIntro">Ende September 2026 hat das Gesundheitsministerium in Gaza erstmals seit Kriegsbeginn einen
+       Jahresbericht mit <strong>allen</strong> registrierten Todesfällen veröffentlicht – auch den natürlichen. Damit lässt sich
+       die Frage dieses Kapitels zumindest für ein Jahr an den eigenen Zahlen des Ministeriums prüfen.</p>
+    <div class="statrow" id="mohStats">
+      <div class="stat"><b>24.650</b><span>registrierte Todesfälle 2025</span></div>
+      <div class="stat"><b>17.286</b><span>durch Kriegshandlungen (70,1&nbsp;%)</span></div>
+      <div class="stat"><b>1.584</b><span>Unfälle, u.&nbsp;a. Verkehr (6,4&nbsp;%)</span></div>
+      <div class="stat"><b>5.780</b><span>nicht gewaltsam: Krankheit, Alter u.&nbsp;a. (23,4&nbsp;%)</span></div>
+    </div>
+    <div class="cmpbars" id="mohCmp" role="img" aria-label="Vergleich: Anstieg der MoH-Zählung 2025 mit dem Jahresbericht 2025">
+      <div class="cmp"><span class="cmp-l">Anstieg der laufenden MoH-Zählung 2025 (45.541 → 71.269)</span><span class="cmp-bar" style="--w:100%"></span><b>25.728</b></div>
+      <div class="cmp"><span class="cmp-l">Jahresbericht: alle registrierten Todesfälle 2025</span><span class="cmp-bar alt" style="--w:95.8%"></span><b>24.650</b></div>
+      <div class="cmp"><span class="cmp-l">davon durch Kriegshandlungen</span><span class="cmp-bar war" style="--w:67.2%"></span><b>17.286</b></div>
+    </div>
+    <p class="note" id="mohGap">Der Befund: Die laufende Zählung wuchs 2025 um <strong>8.442 mehr</strong>, als der Jahresbericht
+       an Kriegstoten für dasselbe Jahr ausweist – aber fast genau um die Zahl <em>aller</em> registrierten Todesfälle.
+       Dafür gibt es zwei Lesarten.</p>
+    <div class="readings">
+      <div class="reading" id="mohA">
+        <h4>Lesart A: Die Zählung enthält auch Nicht-Kriegstote</h4>
+        <p><b>Dafür:</b> Der Anstieg 2025 passt zu allen Todesfällen, nicht zu den Kriegstoten. Überträgt man den Kriegsanteil
+           von 70,1&nbsp;% auf die heutige Gesamtzahl, blieben rund 52.000 – diese Rechnung kursiert derzeit.</p>
+        <p><b>Dagegen:</b> 2025 waren laut Bericht 17,7&nbsp;% aller Verstorbenen über 60 (4.368 Menschen) – in der Namensliste
+           sind es über den ganzen Krieg nur 7,1&nbsp;% (5.174). Enthielte sie alle Todesfälle, stammten fast alle ihre
+           Älteren aus einem einzigen Jahr. Und der Anteil von 2025 lässt sich nicht einfach auf Ende 2023 und 2024 übertragen,
+           als deutlich intensiver gekämpft wurde.</p>
+      </div>
+      <div class="reading" id="mohB">
+        <h4>Lesart B: Der Jahresbericht erfasst zu wenig</h4>
+        <p><b>Dafür:</b> Er zählt nur Fälle mit ausgestelltem Totenschein, den viele Familien nicht beantragen
+           (Ministeriumsvertreter gegenüber Haaretz), Datenstand 11.&nbsp;Juli 2026. Die laufende Zählung nimmt dagegen auch
+           Nachträge aus früheren Monaten auf – etwa 279 Tote am 24.&nbsp;Juli und 298 am 23.&nbsp;August 2025 nach Prüfung
+           durch einen Ausschuss (OCHA) – sowie aus Trümmern Geborgene.</p>
+        <p><b>Dagegen:</b> Nachträge in der Größenordnung von über 8.000 in einem Jahr sind nirgends einzeln belegt; das
+           Ministerium gleicht beide Zahlen nicht miteinander ab.</p>
+      </div>
+    </div>
+    <p class="note" id="mohNat"><b>Was der Bericht über natürliche Tote sagt:</b> Ohne Kriegs- und Unfalltote liegt die
+       Sterberate 2025 bei 2,72 je 1.000 Einwohner, mit Unfällen bei 3,46. Das entspricht der Sterblichkeit vor dem Krieg
+       (2,85–3,5, die Annahme dieses Kapitels) – eine große Welle zusätzlicher Krankheits- oder Hungertote zeigt der
+       Bericht für 2025 nicht. Die Schnellwahl oben setzt die Zahlen des Berichts in den Regler ein.</p>
+    <p class="fine" id="mohSrc">Quelle: <a href="https://www.moh.gov.ps/portal/wp-content/uploads/2026/09/Annual_Mortality_Report_Gaza_2025_EN.pdf">Palestinian Ministry of Health, Health Information Unit: Annual Mortality Report Gaza Strip 2025</a>
+       (Bevölkerung 2.127.034 laut PCBS) · Anstieg der Zählung: Monatsendstände Dez. 2024 und Dez. 2025 (Tech for Palestine) ·
+       <a href="https://www.haaretz.com/gaza/2026-10-02/ty-article/.premium/gaza-health-ministry-report-shows-excess-2025-deaths-lower-than-experts-expected/000001a0-fc97-de00-adfb-fcd744850000">Haaretz, 2.10.2026</a> ·
+       <a href="https://www.un.org/unispal/document/ocha-sitrep-gaza-28aug25/">OCHA, 28.8.2025</a></p>
+  </div>
 </section>
 
 <section id="eigen" class="mod check">
@@ -319,8 +374,8 @@ if (location.pathname.startsWith("/gaza")) document.write('<base href="/gaza/">'
 
 <div id="tooltip" class="tooltip" hidden></div>
 <script src="js/events.js"></script>
-<script src="js/content.js"></script>
-<script src="js/app.js"></script>
+<script src="js/content.js?v=20261005"></script>
+<script src="js/app.js?v=20261005"></script>
 <script src="js/pyramid.js"></script>
 </body>
 </html>

@@ -17,7 +17,7 @@ type Dossier = {
 const dossiers: Dossier[] = [
   {
     href: "/gaza/",
-    updated: "2026-10-04",
+    updated: "2026-10-05",
     kicker: "Data installation · 2023–2026",
     title: (
       <>
