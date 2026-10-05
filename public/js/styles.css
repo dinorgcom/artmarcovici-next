@@ -1959,3 +1959,11 @@ blockquote {
 .src-p { color: #fff; background: var(--red-dark); border-color: var(--red-dark); }
 .case-table tr.row-weak td:not(:first-child) { background: color-mix(in srgb, var(--red) 7%, var(--white)); }
 .case-table tr.row-weak td:first-child { box-shadow: inset 4px 0 0 var(--red-dark); }
+
+/* Video */
+.js-video { padding-top: 56px; }
+.js-video figure { margin: 14px 0 0; }
+.js-video video { display: block; width: 100%; aspect-ratio: 16 / 9; background: var(--paper-deep); border: 1px solid var(--line); }
+.js-video video.is-portrait { width: auto; max-width: 100%; height: min(78vh, 760px); aspect-ratio: 9 / 16; margin-inline: auto; }
+.js-video figcaption { max-width: 900px; margin-top: 10px; color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
+.js-video figcaption a { color: var(--red-dark); font-weight: 600; }

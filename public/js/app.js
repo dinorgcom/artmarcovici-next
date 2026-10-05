@@ -324,6 +324,16 @@
       </svg>`;
   }
 
+  // ---------------------------------------------------------------- video: Hochformat auf schmalen Bildschirmen
+  (function chooseVideo() {
+    const v = document.getElementById("js-video");
+    if (!v || !window.matchMedia("(max-width: 760px) and (orientation: portrait)").matches) return;
+    v.poster = v.dataset.posterPortrait;
+    v.querySelector("source").src = v.dataset.srcPortrait;
+    v.classList.add("is-portrait");
+    v.load();
+  })();
+
   // ---------------------------------------------------------------- boot
   renderPopulationTable();
   renderPopulationChart();

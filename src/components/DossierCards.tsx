@@ -108,7 +108,7 @@ const dossiers: Dossier[] = [
   },
   {
     href: "/js/",
-    updated: "2026-10-04",
+    updated: "2026-10-05",
     kicker: "Data & sources · Judea & Samaria 2023–2026",
     title: (
       <>
