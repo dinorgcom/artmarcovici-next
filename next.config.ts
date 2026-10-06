@@ -32,6 +32,14 @@ const nextConfig: NextConfig = {
       // The proxied response keeps the origin's Cache-Control headers.
       beforeFiles: [
         {
+          // Vercel Web Analytics of the gapminder project (cookie-free visit
+          // and story counts): its script and endpoint live at the origin's
+          // root /_vercel/insights, so this rule must come before the generic
+          // /gapminder/:path* proxy below.
+          source: "/gapminder/_vercel/insights/:path*",
+          destination: `${GAPMINDER_ORIGIN}/_vercel/insights/:path*`,
+        },
+        {
           source: "/gapminder",
           destination: `${GAPMINDER_ORIGIN}/gapminder`,
         },
