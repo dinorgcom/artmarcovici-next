@@ -1,7 +1,9 @@
 import siteData from "@/data/siteData.json";
 
 // Pages in the "other" nav section that are info/meta pages, already linked
-// elsewhere in the navigation — everything else is a standalone project.
+// elsewhere in the navigation — everything else is a standalone art project.
+// Statistical / current-affairs data dossiers are NOT projects: they live in
+// src/data/dataProjects.ts and get their own "Data" menu.
 const EXCLUDED_SLUGS = new Set(["home", "about", "BIOGRAPHY", "in-the-news", "manifesto"]);
 
 export type ProjectNavItem = {
@@ -13,26 +15,6 @@ export type ProjectNavItem = {
   meta?: string;
 };
 
-const standaloneProjects: ProjectNavItem[] = siteData.navigation.other.items
-  .filter((item) => !EXCLUDED_SLUGS.has(item.slug));
-
-export const projectItems: ProjectNavItem[] = [
-  ...standaloneProjects,
-  {
-    slug: "mortality-austria",
-    title: "WORAN ÖSTERREICH STIRBT",
-    image_count: 1,
-    href: "/mortality/",
-    image: "/images/sarkophag-leopold.jpg",
-    meta: "Interactive data project",
-  },
-  {
-    slug: "femizide-at",
-    title: "FEMIZIDE IN ÖSTERREICH",
-    image_count: 1,
-    href: "/femizide/",
-    image: "/images/femizide-card.jpg",
-    meta: "Case database 2019–2026",
-  },
-]
+export const projectItems: ProjectNavItem[] = siteData.navigation.other.items
+  .filter((item) => !EXCLUDED_SLUGS.has(item.slug))
   .sort((a, b) => a.title.localeCompare(b.title));

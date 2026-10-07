@@ -20,10 +20,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/mortality/weekly.html",
     "/js/",
     "/frankreich-bildung/",
+    "/gaza/",
+    "/femizide/",
+    "/elements",
     "/gallery/artworks",
     "/gallery/mosaic",
     "/gallery/cado",
     "/gallery/projects",
+    "/gallery/data",
   ];
 
   const works = Object.keys(siteData.pages as Record<string, unknown>).map(

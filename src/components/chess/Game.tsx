@@ -6,6 +6,8 @@ import { Chess, type Move, type Square } from "chess.js";
 import ChessScene, { type ViewMode } from "./Scene";
 import { getTips, speakTips, stopSpeech, type Tip } from "./tips";
 import { setSlideMuted } from "./slideSound";
+import FigureBoard, { capitalize, pieceLabel } from "./FigureBoard";
+import FigureIcon from "./FigureIcon";
 import {
   applyMoveToPieces,
   buildInitialPieces,
@@ -14,7 +16,6 @@ import {
   movablePieces,
   pieceChooseMoveAI,
   PIECE_NAMES,
-  PIECE_SYMBOLS,
   type Color,
   type PieceState,
   type Role,
@@ -224,17 +225,23 @@ export default function Game() {
   }, [phase, role, captured, spectating]);
 
   const selectedPiece = selectedPieceId ? pieces.find((p) => p.id === selectedPieceId) : null;
+  const roleLabel =
+    role?.kind === "player"
+      ? `${colorName(role.color).toLowerCase()} player`
+      : humanPiece
+        ? pieceLabel(humanPiece)
+        : "";
 
   const statusText = useMemo(() => {
     if (phase === "over") return result ?? "Game over.";
-    if (captured) return "You were captured — spectating from above.";
+    if (captured) return "You were captured. Watching from above.";
     if (phase === "commander") {
-      if (humanColor === turn) return "Your move as player: choose WHICH piece moves.";
-      return `${colorName(turn)} player is choosing a piece…`;
+      if (humanColor === turn) return "Your turn: choose which figure moves.";
+      return `The ${colorName(turn).toLowerCase()} player is choosing a figure…`;
     }
     if (phase === "piece" && selectedPiece) {
       if (selectedPiece.id === humanPieceId)
-        return "You have been called! Look around (drag) and click a glowing square.";
+        return "Your turn: choose a glowing square.";
       return `${describePiece(selectedPiece)} is deciding its move…`;
     }
     return "";
@@ -242,9 +249,9 @@ export default function Game() {
 
   const prompt = useMemo(() => {
     if (phase === "commander" && humanColor === turn)
-      return { title: "YOUR MOVE", sub: "choose which figure moves — click a ringed figure" };
+      return { title: "Your move", sub: "Choose which figure moves: click one with a gold ring." };
     if (phase === "piece" && selectedPieceId === humanPieceId && humanPieceId)
-      return { title: "YOU ARE CALLED", sub: "drag to look around — click a glowing square" };
+      return { title: "You've been called", sub: "Drag to look around, then click a glowing square." };
     return null;
   }, [phase, humanColor, turn, selectedPieceId, humanPieceId]);
 
@@ -356,23 +363,51 @@ export default function Game() {
       )}
 
       {/* top bar */}
-      <div className="absolute top-16 left-0 right-0 flex items-start justify-between gap-3 px-4 py-3 bg-gradient-to-b from-black/90 to-transparent pointer-events-none">
-        <div className="pointer-events-auto shrink-0">
-          <Link href="/work/democratic-chess" className="text-xs tracking-widest text-gray-500 hover:text-white transition-colors uppercase whitespace-nowrap">
-            ← Democratic Chess
-          </Link>
-          <h1 className="hidden sm:block font-serif text-xl text-accent tracking-wider">DEMOCRATIC CHESS</h1>
-        </div>
-        {phase !== "role" && (
+      {phase !== "role" && (
+        <div className="absolute top-16 left-0 right-0 flex items-start justify-between gap-3 px-4 sm:px-6 pt-3 pb-10 bg-gradient-to-b from-black/90 via-black/50 to-transparent pointer-events-none">
+          <div className="pointer-events-auto min-w-0">
+            <Link
+              href="/work/democratic-chess"
+              className="text-xs text-gray-500 hover:text-white transition-colors whitespace-nowrap"
+            >
+              ← About the installation
+            </Link>
+            <div className="mt-2 flex items-center gap-2.5">
+              {humanPiece ? (
+                <FigureIcon color={humanPiece.color} type={humanPiece.type} className="w-6 h-9 shrink-0" />
+              ) : (
+                <span
+                  className={`w-3.5 h-3.5 rounded-full shrink-0 ring-1 ${
+                    humanColor === "w" ? "bg-[#efece5] ring-white/40" : "bg-[#1d1d1d] ring-white/30"
+                  }`}
+                />
+              )}
+              <p className="font-serif text-base sm:text-lg text-gray-100 truncate">
+                <span className="sm:hidden">{capitalize(roleLabel)}</span>
+                <span className="hidden sm:inline">You are the {roleLabel}</span>
+              </p>
+            </div>
+          </div>
           <div className="text-right pointer-events-auto min-w-0">
-            <p className="text-xs sm:text-sm text-gray-300">{statusText}</p>
-            <div className="mt-2 flex items-center justify-end gap-2">
+            <p className="flex items-center justify-end gap-2 text-xs sm:text-sm text-gray-200">
+              {phase !== "over" && (
+                <span
+                  className={`w-2.5 h-2.5 rounded-full ring-1 ${
+                    turn === "w" ? "bg-[#efece5] ring-white/40" : "bg-[#1d1d1d] ring-white/40"
+                  }`}
+                />
+              )}
+              <span>{phase === "over" ? "Game over" : `${colorName(turn)} to move`}</span>
+            </p>
+            <p className="hidden sm:block mt-1 text-xs text-gray-500 max-w-sm ml-auto">{statusText}</p>
+            <div className="mt-2.5 flex items-center justify-end gap-2">
               <button
                 onClick={() => setMuted((m) => !m)}
                 title={muted ? "Unmute figure voices" : "Mute figure voices"}
-                className={`flex items-center gap-1.5 px-3 py-1 rounded-full border text-[10px] uppercase tracking-widest transition-colors ${
+                aria-pressed={!muted}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full border text-[11px] transition-colors ${
                   muted
-                    ? "border-white/10 text-gray-600 hover:border-white/30 hover:text-gray-300"
+                    ? "border-white/10 text-gray-500 hover:border-white/30 hover:text-gray-300"
                     : "border-accent/40 text-accent hover:border-accent"
                 }`}
               >
@@ -388,11 +423,11 @@ export default function Game() {
                     <path strokeLinecap="round" d="M17.5 8.5a5 5 0 010 7M19.5 6.5a8 8 0 010 11" />
                   )}
                 </svg>
-                Sound
+                <span className="hidden sm:inline">{muted ? "Voices off" : "Voices on"}</span>
               </button>
               <button
                 onClick={restart}
-                className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500 hover:border-white/30 hover:text-gray-300 transition-colors"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 text-[11px] text-gray-400 hover:border-white/30 hover:text-gray-200 transition-colors"
               >
                 <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path
@@ -401,52 +436,60 @@ export default function Game() {
                     d="M4.5 12a7.5 7.5 0 0113.05-5.1M19.5 12a7.5 7.5 0 01-13.05 5.1M17.55 3v3.9h-3.9M6.45 21v-3.9h3.9"
                   />
                 </svg>
-                Restart
+                <span className="hidden sm:inline">New game</span>
               </button>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
-      {/* prominent center prompt when it is the human's turn */}
+      {/* prominent prompt when it is the human's turn — fades in once per call */}
       {prompt && (
-        <div className="absolute inset-x-0 top-[24%] sm:top-[15%] flex justify-center pointer-events-none">
-          <div className="text-center animate-pulse px-4">
-            <p className="font-serif text-2xl sm:text-4xl md:text-6xl tracking-widest text-orange-400 drop-shadow-[0_0_18px_rgba(251,146,60,0.65)]">
+        <div className="absolute inset-x-0 top-[24%] sm:top-[14%] flex justify-center pointer-events-none">
+          <div
+            key={prompt.title}
+            className="dc-prompt text-center px-10 py-6 [background:radial-gradient(closest-side,rgba(0,0,0,0.7),transparent)]"
+          >
+            <p className="font-serif text-3xl sm:text-5xl md:text-6xl text-accent drop-shadow-[0_0_24px_rgba(212,168,83,0.45)]">
               {prompt.title}
             </p>
-            <p className="mt-2 text-xs sm:text-sm md:text-base uppercase tracking-widest text-orange-300/90 drop-shadow-[0_0_8px_rgba(251,146,60,0.5)]">
+            <p className="mt-3 text-sm sm:text-base text-gray-200 drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]">
               {prompt.sub}
             </p>
           </div>
         </div>
       )}
 
-      {/* dispatch log */}
+      {/* table talk: everything said and played at the table */}
       {phase !== "role" && (
-        <div className="absolute bottom-4 left-4 w-80 max-w-[calc(100vw-2rem)] max-h-24 sm:max-h-48 overflow-y-auto rounded-lg border border-white/10 bg-black/70 backdrop-blur-sm p-3 text-xs space-y-1">
-          {log.slice(-14).map((e) => (
-            <p
-              key={e.id}
-              className={
-                e.color === "w" ? "text-gray-200" : e.color === "b" ? "text-gray-500" : "text-accent"
-              }
-            >
-              {e.text}
-            </p>
-          ))}
+        <div className="absolute bottom-4 left-4 w-[22rem] max-w-[calc(100vw-2rem)] rounded-lg border border-white/10 bg-black/75 backdrop-blur-md">
+          <p className="px-4 pt-3 pb-1 font-serif text-sm text-accent">Table talk</p>
+          <div className="dc-log max-h-24 sm:max-h-52 overflow-y-auto px-4 pb-3 text-xs leading-relaxed space-y-1.5">
+            {log.slice(-14).map((e) => (
+              <p key={e.id} className="flex gap-2">
+                <span
+                  className={`mt-[5px] w-1.5 h-1.5 rounded-full shrink-0 ${
+                    e.color === "w" ? "bg-[#efece5]" : e.color === "b" ? "bg-gray-600 ring-1 ring-gray-400/40" : "bg-accent"
+                  }`}
+                />
+                <span className={e.color === "w" ? "text-gray-200" : e.color === "b" ? "text-gray-400" : "text-accent/90"}>
+                  {e.text}
+                </span>
+              </p>
+            ))}
+          </div>
         </div>
       )}
 
       {/* captured overlay */}
       {captured && phase !== "over" && !spectating && (
-        <Overlay title="You have been captured">
+        <Overlay title="You've been captured">
           <p className="text-gray-400 mb-6">
-            Your camera went dark. The game continues without you.
+            Your camera went dark. The game goes on without you.
           </p>
           <div className="flex gap-3 justify-center">
-            <OverlayButton onClick={() => setSpectating(true)}>Spectate</OverlayButton>
-            <OverlayButton onClick={restart}>New game</OverlayButton>
+            <OverlayButton onClick={() => setSpectating(true)}>Watch the rest</OverlayButton>
+            <OverlayButton onClick={restart} primary>New game</OverlayButton>
           </div>
         </Overlay>
       )}
@@ -455,7 +498,7 @@ export default function Game() {
       {phase === "over" && (
         <Overlay title={result ?? "Game over"}>
           <div className="flex gap-3 justify-center">
-            <OverlayButton onClick={restart}>Play again</OverlayButton>
+            <OverlayButton onClick={restart} primary>Play again</OverlayButton>
           </div>
         </Overlay>
       )}
@@ -470,88 +513,131 @@ export default function Game() {
 
 function Overlay({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <div className="text-center px-6 py-8 border border-white/10 rounded-xl bg-black/80 max-w-md">
-        <h2 className="font-serif text-3xl text-accent mb-4">{title}</h2>
+    <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+      <div className="dc-prompt text-center px-8 py-10 border border-accent/25 rounded-xl bg-black/85 max-w-md shadow-[0_30px_90px_-30px_rgba(212,168,83,0.35)]">
+        <h2 className="font-serif text-3xl sm:text-4xl text-accent mb-4">{title}</h2>
         {children}
       </div>
     </div>
   );
 }
 
-function OverlayButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
+function OverlayButton({
+  onClick,
+  children,
+  primary,
+}: {
+  onClick: () => void;
+  children: React.ReactNode;
+  primary?: boolean;
+}) {
   return (
     <button
       onClick={onClick}
-      className="px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-black transition-all text-sm uppercase tracking-widest"
+      className={`px-6 py-2.5 rounded-full text-sm transition-colors ${
+        primary
+          ? "bg-accent text-black hover:bg-[#e2bb6c]"
+          : "border border-white/20 text-gray-200 hover:border-white/50"
+      }`}
     >
       {children}
     </button>
   );
 }
 
-function RoleSelect({ pieces, onStart }: { pieces: PieceState[]; onStart: (r: Role) => void }) {
-  const rows: { label: string; color: Color }[] = [
-    { label: "White", color: "w" },
-    { label: "Black", color: "b" },
-  ];
+function SeatButton({ color, onClick }: { color: Color; onClick: () => void }) {
   return (
-    <div className="absolute inset-0 overflow-y-auto bg-black/70 backdrop-blur-sm">
-      <div className="max-w-3xl mx-auto px-4 pt-24 pb-12 text-center">
-        <h2 className="font-serif text-4xl md:text-5xl text-accent tracking-wider mb-3">
-          DEMOCRATIC CHESS
-        </h2>
-        <p className="text-gray-400 max-w-xl mx-auto mb-2">
-          34 roles: two players and thirty-two camera-figures. The players only decide{" "}
-          <span className="text-white">which</span> figure moves. The figure sees the board through
-          its own camera and decides <span className="text-white">where</span> to go.
-        </p>
-        <p className="text-gray-600 text-sm mb-10">Choose who you are — the other 33 are AI.</p>
+    <button
+      type="button"
+      onClick={onClick}
+      className="group w-full flex items-center gap-4 px-4 py-3 rounded-md border border-white/12 bg-black/40 hover:border-accent hover:bg-accent/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors text-left"
+    >
+      <span
+        className={`w-5 h-5 rounded-full shrink-0 ring-1 ${
+          color === "w" ? "bg-[#efece5] ring-white/40" : "bg-[#1d1d1d] ring-white/40"
+        }`}
+      />
+      <span className="min-w-0">
+        <span className="block font-serif text-lg text-gray-100 group-hover:text-accent transition-colors">
+          Play as the {colorName(color).toLowerCase()} player
+        </span>
+        <span className="block text-xs text-gray-500">
+          Sit at the {colorName(color).toLowerCase()} side and decide which figure moves
+        </span>
+      </span>
+    </button>
+  );
+}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-          {rows.map(({ label, color }) => (
-            <button
-              key={color}
-              onClick={() => onStart({ kind: "player", color })}
-              className="p-6 border border-white/15 rounded-lg hover:border-accent transition-colors group"
-            >
-              <span className="font-serif text-2xl group-hover:text-accent transition-colors">
-                {label} Player
-              </span>
-              <p className="text-xs text-gray-500 mt-2 uppercase tracking-widest">
-                Command — choose who moves
-              </p>
-            </button>
-          ))}
-        </div>
+function RoleSelect({ pieces, onStart }: { pieces: PieceState[]; onStart: (r: Role) => void }) {
+  const [hovered, setHovered] = useState<PieceState | null>(null);
 
-        {rows.map(({ label, color }) => (
-          <div key={color} className="mb-8">
-            <h3 className="text-xs uppercase tracking-widest text-gray-500 mb-3">
-              …or be a {label} figure
-            </h3>
-            <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
-              {pieces
-                .filter((p) => p.color === color)
-                .sort((a, b) => a.initialSquare.localeCompare(b.initialSquare))
-                .map((p) => (
-                  <button
-                    key={p.id}
-                    onClick={() => onStart({ kind: "piece", pieceId: p.id })}
-                    title={`${PIECE_NAMES[p.type]} on ${p.initialSquare}`}
-                    className="py-2 border border-white/10 rounded hover:border-accent hover:text-accent transition-colors"
-                  >
-                    <span className="text-2xl leading-none">{PIECE_SYMBOLS[p.color][p.type]}</span>
-                    <span className="block text-[10px] text-gray-500">{p.initialSquare}</span>
-                  </button>
-                ))}
+  return (
+    <div className="absolute inset-0 overflow-y-auto bg-black/85 lg:bg-transparent lg:bg-gradient-to-r lg:from-black lg:via-black/85 lg:to-black/55">
+      <div className="min-h-full max-w-6xl mx-auto px-5 sm:px-8 pt-24 pb-16 grid gap-10 lg:gap-x-16 lg:gap-y-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:grid-rows-[1fr_1fr] content-center">
+        <section className="order-1 lg:order-none max-w-lg lg:col-start-1 lg:row-start-1 lg:self-end">
+          <Link
+            href="/work/democratic-chess"
+            className="text-xs text-gray-500 hover:text-white transition-colors"
+          >
+            ← About the installation
+          </Link>
+          <h1 className="mt-6 font-serif text-5xl sm:text-6xl xl:text-7xl leading-[0.95] text-accent">
+            Democratic
+            <br />
+            Chess
+          </h1>
+          <p className="mt-6 text-lg leading-relaxed text-gray-300">
+            Two players and thirty-two camera-figures. The players decide which figure moves.
+            The figure looks through its own lens and decides where it goes.
+          </p>
+        </section>
+
+        <section className="order-3 lg:order-none max-w-lg lg:col-start-1 lg:row-start-2 lg:self-start">
+          <dl className="space-y-4 border-l border-accent/40 pl-5">
+            <div>
+              <dt className="font-serif text-gray-100">The players</dt>
+              <dd className="text-sm text-gray-400">call on a figure — they never choose the square.</dd>
             </div>
+            <div>
+              <dt className="font-serif text-gray-100">The figure that is called</dt>
+              <dd className="text-sm text-gray-400">sees the board from its own camera and picks its move.</dd>
+            </div>
+            <div>
+              <dt className="font-serif text-gray-100">Everyone else</dt>
+              <dd className="text-sm text-gray-400">talks, advises and argues at the table — out loud.</dd>
+            </div>
+          </dl>
+
+          <p className="mt-8 text-sm text-gray-500">
+            Take a seat or click any figure to become it. The computer plays the other 33 roles.
+          </p>
+        </section>
+
+        <section
+          aria-label="Choose your role"
+          className="order-2 lg:order-none w-full max-w-[440px] mx-auto lg:mx-0 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center"
+        >
+          <SeatButton color="b" onClick={() => onStart({ kind: "player", color: "b" })} />
+          <div className="my-5 pl-5">
+            <FigureBoard
+              pieces={pieces}
+              active={hovered?.id ?? null}
+              onHover={setHovered}
+              onPick={(pieceId) => onStart({ kind: "piece", pieceId })}
+            />
           </div>
-        ))}
-        <p className="text-gray-700 text-xs max-w-md mx-auto">
-          Based on the installation “Democratic Chess” by Michael Marcovici — IP cameras as chess
-          figures, debating their moves.
-        </p>
+          <SeatButton color="w" onClick={() => onStart({ kind: "player", color: "w" })} />
+          <p aria-live="polite" className="mt-4 h-5 text-center text-sm text-gray-400">
+            {hovered ? (
+              <>
+                Play as the <span className="text-accent">{pieceLabel(hovered)}</span>
+              </>
+            ) : (
+              "…or click a figure on the board"
+            )}
+          </p>
+        </section>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import siteData from "@/data/siteData.json";
 import ImageGallery from "@/components/ImageGallery";
+import DemocraticChessProject from "@/components/chess/DemocraticChessProject";
 
 type PageData = {
   title: string;
@@ -47,6 +48,11 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
     notFound();
   }
 
+  // installations with their own page design
+  if (fullSlug === "democratic-chess") {
+    return <DemocraticChessProject />;
+  }
+
   // Find sub-pages (e.g., for cado-bricks-1 -> cado-bricks-1/*)
   const subPages = Object.entries(pages)
     .filter(([key]) => key.startsWith(fullSlug + "/") && key !== fullSlug)
@@ -80,14 +86,6 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
         </h1>
         {page.images.length > 0 && (
           <p className="text-sm text-gray-600 mt-2">{page.images.length} works</p>
-        )}
-        {fullSlug === "democratic-chess" && (
-          <Link
-            href="/democratic-chess"
-            className="inline-block mt-6 px-8 py-3 border border-accent text-accent hover:bg-accent hover:text-black transition-all duration-300 tracking-widest text-sm uppercase"
-          >
-            Play Democratic Chess
-          </Link>
         )}
         {fullSlug === "free-market-chess" && (
           <Link
