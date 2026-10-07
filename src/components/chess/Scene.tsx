@@ -265,53 +265,6 @@ function PieceFigure({
 /* ---------- board ---------- */
 
 const FILES = "abcdefgh";
-const PODIUM = 9.3;
-
-/** Gold inlay line and a–h / 1–8 on the podium rim, readable from both sides. */
-function useCoordinateTexture() {
-  return useMemo(() => {
-    const size = 2048;
-    const canvas = document.createElement("canvas");
-    canvas.width = size;
-    canvas.height = size;
-    const ctx = canvas.getContext("2d")!;
-    const px = (world: number) => ((world + PODIUM / 2) / PODIUM) * size;
-    // inlay
-    ctx.strokeStyle = "rgba(212,168,83,0.75)";
-    ctx.lineWidth = 5;
-    ctx.strokeRect(px(-4.12), px(-4.12), px(4.12) - px(-4.12), px(4.12) - px(-4.12));
-    ctx.strokeStyle = "rgba(212,168,83,0.25)";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(px(-4.58), px(-4.58), px(4.58) - px(-4.58), px(4.58) - px(-4.58));
-    // labels
-    ctx.fillStyle = "rgba(212,168,83,0.9)";
-    ctx.font = '600 58px "Playfair Display", Georgia, serif';
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    const label = (text: string, x: number, z: number, flip: boolean) => {
-      ctx.save();
-      ctx.translate(px(x), px(z));
-      if (flip) ctx.rotate(Math.PI);
-      ctx.fillText(text, 0, 0);
-      ctx.restore();
-    };
-    for (let i = 0; i < 8; i++) {
-      const file = FILES[i];
-      const fx = i - 3.5;
-      label(file, fx, 4.36, false); // white side
-      label(file, fx, -4.36, true); // black side
-      const rank = String(i + 1);
-      const rz = 4.5 - (i + 1);
-      label(rank, -4.36, rz, false);
-      label(rank, 4.36, rz, true);
-    }
-    const tex = new THREE.CanvasTexture(canvas);
-    tex.anisotropy = 8;
-    tex.colorSpace = THREE.SRGBColorSpace;
-    return tex;
-  }, []);
-}
-
 function Board({
   targetSquares,
   onSquarePick,
@@ -331,7 +284,6 @@ function Board({
     return list;
   }, []);
   const targets = useMemo(() => new Set(targetSquares), [targetSquares]);
-  const coords = useCoordinateTexture();
 
   return (
     <group>
@@ -363,14 +315,11 @@ function Board({
           />
         </mesh>
       ))}
-      {/* podium the board sits on, with gold inlay and coordinates */}
-      <mesh position={[0, -0.27, 0]} receiveShadow castShadow>
-        <boxGeometry args={[PODIUM, 0.42, PODIUM]} />
-        <meshStandardMaterial color="#0e0d0b" roughness={0.38} metalness={0.25} />
-      </mesh>
-      <mesh position={[0, -0.0585, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[PODIUM, PODIUM]} />
-        <meshBasicMaterial map={coords} transparent toneMapped={false} />
+      {/* like the installation: just the glossy tiles on the floor — no frame,
+          no coordinates. A black base exactly under the tiles fills the seams. */}
+      <mesh position={[0, -0.06, 0]} receiveShadow>
+        <boxGeometry args={[7.98, 0.03, 7.98]} />
+        <meshStandardMaterial color="#030303" roughness={0.4} />
       </mesh>
       {/* target markers: glowing square + light pillar so they read in first person */}
       {targetSquares.map((square) => {
@@ -536,7 +485,7 @@ export default function ChessScene({
         color="#fff1d6"
       />
       {/* gallery floor */}
-      <mesh position={[0, -0.48, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+      <mesh position={[0, -0.076, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <circleGeometry args={[40, 64]} />
         <meshStandardMaterial color="#0b0a09" roughness={0.75} metalness={0.1} />
       </mesh>

@@ -5,6 +5,7 @@ import { PIECE_NAMES, type Color, type PieceState } from "./engine";
 
 const FILES = "abcdefgh";
 const RANKS = [8, 7, 6, 5, 4, 3, 2, 1];
+// no coordinates around the board: like the installation, you orient yourself by the figures
 
 export const colorName = (c: Color) => (c === "w" ? "White" : "Black");
 export const pieceLabel = (p: Pick<PieceState, "color" | "type" | "initialSquare">) =>
@@ -84,21 +85,6 @@ export default function FigureBoard({
             );
           })
         )}
-      </div>
-      {/* coordinates */}
-      <div className="pointer-events-none absolute -left-5 inset-y-0 grid grid-rows-8 text-[10px] text-accent/70 font-serif">
-        {RANKS.map((r) => (
-          <span key={r} className="flex items-center justify-center">
-            {r}
-          </span>
-        ))}
-      </div>
-      <div className="pointer-events-none absolute -bottom-5 inset-x-0 grid grid-cols-8 text-[10px] text-accent/70 font-serif">
-        {FILES.split("").map((f) => (
-          <span key={f} className="flex items-center justify-center">
-            {f}
-          </span>
-        ))}
       </div>
     </div>
   );

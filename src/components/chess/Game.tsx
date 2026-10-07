@@ -619,7 +619,7 @@ function RoleSelect({ pieces, onStart }: { pieces: PieceState[]; onStart: (r: Ro
           className="order-2 lg:order-none w-full max-w-[440px] mx-auto lg:mx-0 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center"
         >
           <SeatButton color="b" onClick={() => onStart({ kind: "player", color: "b" })} />
-          <div className="my-5 pl-5">
+          <div className="my-5">
             <FigureBoard
               pieces={pieces}
               active={hovered?.id ?? null}

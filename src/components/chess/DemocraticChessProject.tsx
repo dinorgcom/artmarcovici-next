@@ -174,7 +174,7 @@ export default function DemocraticChessProject() {
             <Link
               href="/democratic-chess"
               aria-label="Play Democratic Chess"
-              className="block pl-5 pb-5 transition-transform duration-500 hover:-translate-y-1"
+              className="block transition-transform duration-500 hover:-translate-y-1"
             >
               <FigureBoard pieces={pieces} />
             </Link>
