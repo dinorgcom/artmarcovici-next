@@ -84,6 +84,25 @@ main,
   text-transform: uppercase;
 }
 
+/* Sprachumschalter DE | EN rechts neben der Ortsangabe */
+.site-header p {
+  margin-left: auto;
+}
+
+.header-lang {
+  flex: 0 0 auto;
+  margin-left: 22px;
+}
+
+/* Sprachpaare in Werten, die per JavaScript befüllt werden, sehen aus wie der Elterntext */
+:is(strong, small, span)[id] > [data-lang] {
+  display: inline;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
 .brand {
   display: inline-flex;
   gap: 13px;
@@ -136,6 +155,15 @@ main,
   font-style: italic;
   line-height: 0.96;
   padding-bottom: 0.04em;
+}
+
+/* zweiter Teil der Überschrift („Wien im Licht.“) bleibt normaler Fließtext der h1 */
+.hero h1 span.title-rest {
+  display: inline;
+  color: inherit;
+  font-style: normal;
+  line-height: inherit;
+  padding-bottom: 0;
 }
 
 .hero-copy {

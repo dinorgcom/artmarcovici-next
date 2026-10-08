@@ -40,6 +40,7 @@ a { color: inherit; }
 .site-nav a.active { border-bottom-color: var(--red); color: var(--ink); }
 .brand-row { display: flex; align-items: center; gap: 22px; }
 .brand-row .brand { padding-left: 22px; border-left: 1px solid var(--line-dark); }
+.lang-slot { display: flex; align-items: center; margin-left: 18px; }
 
 .hero { padding: 82px 0 58px; }
 .eyebrow, .section-index { color: var(--red); font-size: 11px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
@@ -372,6 +373,8 @@ footer { display: flex; justify-content: space-between; padding: 30px 0 40px; co
   .brand small { display: none; }
   .site-nav { margin-left: auto; }
   .site-nav a { padding-inline: 8px; font-size: 9px; }
+  .lang-slot { order: 1; margin: -5px 0 -5px auto; }
+  .site-nav { order: 2; }
   .sticky-selection { margin-inline: -16px; padding-inline: 16px; }
   .sticky-selection > span { font-size: 9px; }
   .sticky-selection button:first-child { display: none; }

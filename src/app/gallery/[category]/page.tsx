@@ -41,7 +41,7 @@ function getNav(category: string): NavCategory | null {
 }
 
 const intros: Record<string, string> = {
-  data: "Statistical dossiers on current affairs — official figures, case databases and sources, made explorable.",
+  data: "Statistical dossiers on current affairs — official figures, case databases and sources, made explorable. Every dossier in English and German.",
 };
 
 export function generateStaticParams() {

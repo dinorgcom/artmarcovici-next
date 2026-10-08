@@ -1,14 +1,24 @@
 const DATA_URL = "/mortality/data/mortality.json?v=20261004-1";
 
-const numberFormat = new Intl.NumberFormat("de-AT");
-const decimalFormat = new Intl.NumberFormat("de-AT", {
+// Language (set by /shared/biest-lang.js; German if it is missing)
+const IS_EN = window.BIEST_LANG === "en";
+const L = (de, en) => (IS_EN && en != null ? en : de);
+const LOCALE = IS_EN ? "en-GB" : "de-AT";
+const PCT = IS_EN ? "%" : " %";
+const WK = IS_EN ? "Week" : "KW";
+
+const numberFormat = new Intl.NumberFormat(LOCALE);
+const decimalFormat = new Intl.NumberFormat(LOCALE, {
   minimumFractionDigits: 1,
   maximumFractionDigits: 1,
 });
-const percentFormat = new Intl.NumberFormat("de-AT", {
+const percentFormat = new Intl.NumberFormat(LOCALE, {
   minimumFractionDigits: 1,
   maximumFractionDigits: 1,
 });
+const MONTHS_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const dayMonthFormat = { format: (date) => `${date.getDate()} ${MONTHS_EN[date.getMonth()]}` };
+const fullDateFormat = { format: (date) => `${dayMonthFormat.format(date)} ${date.getFullYear()}` };
 
 const state = {
   year: 2026,
@@ -41,7 +51,7 @@ function formatDecimal(value, suffix = "") {
 
 function compactNumber(value) {
   return Math.abs(value) >= 1000
-    ? `${decimalFormat.format(value / 1000)} Tsd.`
+    ? `${decimalFormat.format(value / 1000)}${L(" Tsd.", "k")}`
     : formatNumber(value);
 }
 
@@ -123,18 +133,33 @@ function signedNumber(value) {
 }
 
 function sexLabel() {
-  return { all: "Alle Geschlechter", male: "Männer", female: "Frauen" }[state.sex];
+  return IS_EN
+    ? { all: "Both sexes", male: "Males", female: "Females" }[state.sex]
+    : { all: "Alle Geschlechter", male: "Männer", female: "Frauen" }[state.sex];
 }
 
 function ageLabel() {
-  return { total: "Alle Altersgruppen", under65: "0–64 Jahre", over65: "65 Jahre und älter" }[
-    state.age
-  ];
+  return IS_EN
+    ? { total: "All age groups", under65: "0–64 years", over65: "65 years and over" }[state.age]
+    : { total: "Alle Altersgruppen", under65: "0–64 Jahre", over65: "65 Jahre und älter" }[state.age];
+}
+
+// "31.08.2026" → Date (only used for English formatting)
+function parseGermanDate(text) {
+  const match = String(text).match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+  return match ? new Date(Number(match[3]), Number(match[2]) - 1, Number(match[1])) : null;
 }
 
 function periodLabel(point) {
   const match = point.label.match(/Woche von\s+(.+?)\s+bis\s+(.+?)\)/);
-  return match ? `${match[1]} – ${match[2]}` : point.label;
+  if (!match) return IS_EN ? `${WK} ${point.week}/${point.year}` : point.label;
+  if (!IS_EN) return `${match[1]} – ${match[2]}`;
+  const start = parseGermanDate(match[1]);
+  const end = parseGermanDate(match[2]);
+  if (!start || !end) return `${match[1]} – ${match[2]}`;
+  return start.getFullYear() === end.getFullYear()
+    ? `${dayMonthFormat.format(start)} – ${fullDateFormat.format(end)}`
+    : `${fullDateFormat.format(start)} – ${fullDateFormat.format(end)}`;
 }
 
 function renderControls() {
@@ -160,11 +185,11 @@ function renderControls() {
   range.style.setProperty("--range-progress", `${progress}%`);
 
   const point = selectedPoint();
-  $("#weekly-week-output").textContent = `KW ${point.week}`;
+  $("#weekly-week-output").textContent = `${WK} ${point.week}`;
   $("#weekly-week-dates").textContent = periodLabel(point);
   $("#weekly-year-help").textContent = point.provisional
-    ? "Vorläufige Ergebnisse"
-    : "Endgültige Ergebnisse";
+    ? L("Vorläufige Ergebnisse", "Provisional results")
+    : L("Endgültige Ergebnisse", "Final results");
 }
 
 function renderKpis() {
@@ -175,27 +200,33 @@ function renderKpis() {
   const change = changePercent(currentValue, previousValue);
   const weather = point.weather;
 
-  $("#weekly-selected-label").textContent = `Sterbefälle · KW ${point.week}`;
+  $("#weekly-selected-label").textContent = L(`Sterbefälle · KW ${point.week}`, `Deaths · week ${point.week}`);
   $("#weekly-selected-deaths").textContent = formatNumber(currentValue);
   $("#weekly-selected-note").textContent = `${sexLabel()} · ${ageLabel()} · ${state.year}`;
   $("#weekly-selected-change").textContent = change === null
     ? "–"
-    : `${change > 0 ? "+" : ""}${percentFormat.format(change)} %`;
+    : `${change > 0 ? "+" : ""}${percentFormat.format(change)}${PCT}`;
   $("#weekly-selected-change").style.color = change > 0
     ? "var(--red-dark)"
     : change < 0
       ? "var(--green)"
       : "";
   $("#weekly-change-note").textContent = previous
-    ? `${formatNumber(previousValue)} Sterbefälle in KW ${previous.week}/${previous.year}`
-    : "Kein Vorjahreswert verfügbar";
+    ? L(
+      `${formatNumber(previousValue)} Sterbefälle in KW ${previous.week}/${previous.year}`,
+      `${formatNumber(previousValue)} deaths in week ${previous.week}/${previous.year}`,
+    )
+    : L("Kein Vorjahreswert verfügbar", "No value available for the previous year");
   $("#weekly-temperature").textContent = formatDecimal(weather?.temperatureMean, " °C");
   $("#weekly-temperature-range").textContent = weather
-    ? `${decimalFormat.format(weather.temperatureMin)} bis ${decimalFormat.format(weather.temperatureMax)} °C`
+    ? `${decimalFormat.format(weather.temperatureMin)} ${L("bis", "to")} ${decimalFormat.format(weather.temperatureMax)} °C`
     : "–";
   $("#weekly-weather-note").textContent = weather
-    ? `${decimalFormat.format(weather.precipitation)} mm Niederschlag · ${decimalFormat.format(weather.sunshineHours)} h Sonne`
-    : "Keine Wetterdaten verfügbar";
+    ? L(
+      `${decimalFormat.format(weather.precipitation)} mm Niederschlag · ${decimalFormat.format(weather.sunshineHours)} h Sonne`,
+      `${decimalFormat.format(weather.precipitation)} mm precipitation · ${decimalFormat.format(weather.sunshineHours)} h sunshine`,
+    )
+    : L("Keine Wetterdaten verfügbar", "No weather data available");
 }
 
 function renderReferenceSummary() {
@@ -208,22 +239,25 @@ function renderReferenceSummary() {
 
   $("#reference-expected").textContent = reference ? formatNumber(reference.mean) : "–";
   $("#reference-expected-note").textContent = reference
-    ? `Spannweite ${formatNumber(reference.min)}–${formatNumber(reference.max)} · ${reference.count} Vorjahre`
-    : "Für dieses Jahr fehlt eine historische Referenz";
+    ? L(
+      `Spannweite ${formatNumber(reference.min)}–${formatNumber(reference.max)} · ${reference.count} Vorjahre`,
+      `Range ${formatNumber(reference.min)}–${formatNumber(reference.max)} · ${reference.count} previous ${reference.count === 1 ? "year" : "years"}`,
+    )
+    : L("Für dieses Jahr fehlt eine historische Referenz", "No historical reference is available for this year");
   $("#reference-weekly-balance").textContent = balance === null
     ? "–"
-    : `${signedNumber(balance)} · ${balancePercent > 0 ? "+" : ""}${percentFormat.format(balancePercent)} %`;
+    : `${signedNumber(balance)} · ${balancePercent > 0 ? "+" : ""}${percentFormat.format(balancePercent)}${PCT}`;
   $("#reference-weekly-balance").classList.toggle("negative", balance < 0);
   $("#reference-weekly-balance").classList.toggle("positive", balance > 0);
   $("#reference-weekly-note").textContent = reference
-    ? `Beobachtet: ${formatNumber(currentValue)} in KW ${point.week}`
-    : "Keine Berechnung möglich";
+    ? L(`Beobachtet: ${formatNumber(currentValue)} in KW ${point.week}`, `Observed: ${formatNumber(currentValue)} in week ${point.week}`)
+    : L("Keine Berechnung möglich", "Cannot be calculated");
   $("#reference-cumulative").textContent = signedNumber(cumulative);
   $("#reference-cumulative").classList.toggle("negative", cumulative < 0);
   $("#reference-cumulative").classList.toggle("positive", cumulative > 0);
   $("#reference-cumulative-note").textContent = reference
-    ? `Summe der Abweichungen von KW 1 bis KW ${point.week}`
-    : "Keine Berechnung möglich";
+    ? L(`Summe der Abweichungen von KW 1 bis KW ${point.week}`, `Sum of deviations from week 1 to week ${point.week}`)
+    : L("Keine Berechnung möglich", "Cannot be calculated");
 
   $("#weather-deaths").textContent = formatNumber(currentValue);
   $("#weather-reference").textContent = reference ? formatNumber(reference.mean) : "–";
@@ -274,17 +308,23 @@ function renderDeathsChart() {
   const weekTicks = [1, 13, 26, 39, 52].filter((week) => week <= maxWeek);
   const selected = selectedPoint();
 
-  $("#weekly-chart-subtitle").textContent = `${sexLabel()} · ${ageLabel()} · ${state.year}${selected.provisional ? " · vorläufig" : " · endgültig"}`;
+  $("#weekly-chart-subtitle").textContent = `${sexLabel()} · ${ageLabel()} · ${state.year}${selected.provisional ? L(" · vorläufig", " · provisional") : L(" · endgültig", " · final")}`;
   $("#weekly-chart-footnote").textContent = reference.length
-    ? `Über eines der beiden Diagramme fahren: Beide Ansichten folgen derselben Woche. Referenz: Mittelwert und beobachtete Spannweite der bis zu fünf Vorjahre. Die Y-Achse ist auf ${formatNumber(yMin)} bis ${formatNumber(yMax)} Fälle verdichtet und beginnt nicht bei null.`
-    : `Über eines der beiden Diagramme fahren: Beide Ansichten folgen derselben Woche. Für ${state.year} liegt noch keine historische Referenz vor. Die Y-Achse ist auf ${formatNumber(yMin)} bis ${formatNumber(yMax)} Fälle verdichtet und beginnt nicht bei null.`;
+    ? L(
+      `Über eines der beiden Diagramme fahren: Beide Ansichten folgen derselben Woche. Referenz: Mittelwert und beobachtete Spannweite der bis zu fünf Vorjahre. Die Y-Achse ist auf ${formatNumber(yMin)} bis ${formatNumber(yMax)} Fälle verdichtet und beginnt nicht bei null.`,
+      `Hover over either chart: both views follow the same week. Reference: mean and observed range of up to five previous years. The y-axis is condensed to ${formatNumber(yMin)} to ${formatNumber(yMax)} deaths and does not start at zero.`,
+    )
+    : L(
+      `Über eines der beiden Diagramme fahren: Beide Ansichten folgen derselben Woche. Für ${state.year} liegt noch keine historische Referenz vor. Die Y-Achse ist auf ${formatNumber(yMin)} bis ${formatNumber(yMax)} Fälle verdichtet und beginnt nicht bei null.`,
+      `Hover over either chart: both views follow the same week. No historical reference is available yet for ${state.year}. The y-axis is condensed to ${formatNumber(yMin)} to ${formatNumber(yMax)} deaths and does not start at zero.`,
+    );
   chart.innerHTML = `
-    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Wöchentliche Sterbefälle ${state.year}, Skala ${formatNumber(yMin)} bis ${formatNumber(yMax)}">
+    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${L(`Wöchentliche Sterbefälle ${state.year}, Skala ${formatNumber(yMin)} bis ${formatNumber(yMax)}`, `Weekly deaths ${state.year}, scale ${formatNumber(yMin)} to ${formatNumber(yMax)}`)}">
       ${yTicks.map((tick) => `
         <line class="chart-grid" x1="${margin.left}" x2="${width - margin.right}" y1="${tick.position}" y2="${tick.position}" />
         <text class="chart-axis-label" x="${margin.left - 11}" y="${tick.position + 3}" text-anchor="end">${escapeHtml(compactNumber(tick.value))}</text>
       `).join("")}
-      ${weekTicks.map((week) => `<text class="chart-axis-label" x="${x(week)}" y="${height - 12}" text-anchor="middle">KW ${week}</text>`).join("")}
+      ${weekTicks.map((week) => `<text class="chart-axis-label" x="${x(week)}" y="${height - 12}" text-anchor="middle">${WK} ${week}</text>`).join("")}
       ${reference.length ? `<polygon class="week-reference-band" points="${referenceBand}" />` : ""}
       ${reference.length ? `<path class="week-reference-line" d="${referencePath}" />` : ""}
       <path class="chart-line" d="${pathFor(current)}" />
@@ -296,7 +336,7 @@ function renderDeathsChart() {
           cx="${x(point.week)}"
           cy="${y(point.value)}"
           r="${point.week === state.week ? 5 : 2.8}"
-        ><title>KW ${point.week}: ${formatNumber(point.value)} Sterbefälle${referenceForWeek(point.week) ? ` · Referenz ${formatNumber(referenceForWeek(point.week).mean)}` : ""}</title></circle>
+        ><title>${WK} ${point.week}: ${formatNumber(point.value)} ${L("Sterbefälle", "deaths")}${referenceForWeek(point.week) ? ` · ${L("Referenz", "reference")} ${formatNumber(referenceForWeek(point.week).mean)}` : ""}</title></circle>
       `).join("")}
       ${current.map((point) => `
         <rect
@@ -309,7 +349,7 @@ function renderDeathsChart() {
           height="${innerHeight}"
           role="button"
           tabindex="0"
-          aria-label="KW ${point.week}: ${formatNumber(point.value)} Sterbefälle"
+          aria-label="${WK} ${point.week}: ${formatNumber(point.value)} ${L("Sterbefälle", "deaths")}"
         />
       `).join("")}
     </svg>`;
@@ -320,7 +360,7 @@ function renderWeatherChart() {
   const points = pointsForYear().filter((point) => point.weather);
   const chart = $("#weekly-weather-chart");
   if (!points.length) {
-    chart.innerHTML = '<div class="chart-empty">Für dieses Jahr sind keine Wetterwerte verfügbar.</div>';
+    chart.innerHTML = `<div class="chart-empty">${L("Für dieses Jahr sind keine Wetterwerte verfügbar.", "No weather values are available for this year.")}</div>`;
     return;
   }
 
@@ -351,20 +391,20 @@ function renderWeatherChart() {
   const weekTicks = [1, 13, 26, 39, 52].filter((week) => week <= maxWeek);
 
   chart.innerHTML = `
-    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Wetterindikatoren ${state.year}">
+    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${L("Wetterindikatoren", "Weather indicators")} ${state.year}">
       ${tempTicks.map((tick) => `
         <line class="chart-grid" x1="${margin.left}" x2="${width - margin.right}" y1="${yTemp(tick)}" y2="${yTemp(tick)}" />
         <text class="chart-axis-label" x="${margin.left - 10}" y="${yTemp(tick) + 3}" text-anchor="end">${decimalFormat.format(tick)} °C</text>
       `).join("")}
       <polygon class="temperature-band" points="${bandPath.join(" ")}" />
       <path class="temperature-line" d="${meanPath}" />
-      ${points.map((point) => `<circle class="temperature-point ${point.week === state.week ? "selected" : ""}" data-week="${point.week}" cx="${x(point.week)}" cy="${yTemp(point.weather.temperatureMean)}" r="${point.week === state.week ? 4.5 : 2.2}"><title>KW ${point.week}: ${decimalFormat.format(point.weather.temperatureMean)} °C</title></circle>`).join("")}
+      ${points.map((point) => `<circle class="temperature-point ${point.week === state.week ? "selected" : ""}" data-week="${point.week}" cx="${x(point.week)}" cy="${yTemp(point.weather.temperatureMean)}" r="${point.week === state.week ? 4.5 : 2.2}"><title>${WK} ${point.week}: ${decimalFormat.format(point.weather.temperatureMean)} °C</title></circle>`).join("")}
       <line class="weather-divider" x1="${margin.left}" x2="${width - margin.right}" y1="${rainTop - 17}" y2="${rainTop - 17}" />
-      <text class="chart-axis-label" x="${margin.left}" y="${rainTop - 24}">Niederschlag · ${decimalFormat.format(rainMax)} mm Skala</text>
+      <text class="chart-axis-label" x="${margin.left}" y="${rainTop - 24}">${L(`Niederschlag · ${decimalFormat.format(rainMax)} mm Skala`, `Precipitation · ${decimalFormat.format(rainMax)} mm scale`)}</text>
       ${points.map((point) => `
-        <rect class="rain-bar ${point.week === state.week ? "selected" : ""}" data-week="${point.week}" x="${x(point.week) - barWidth / 2}" y="${yRain(point.weather.precipitation)}" width="${barWidth}" height="${rainTop + rainHeight - yRain(point.weather.precipitation)}"><title>KW ${point.week}: ${decimalFormat.format(point.weather.precipitation)} mm</title></rect>
+        <rect class="rain-bar ${point.week === state.week ? "selected" : ""}" data-week="${point.week}" x="${x(point.week) - barWidth / 2}" y="${yRain(point.weather.precipitation)}" width="${barWidth}" height="${rainTop + rainHeight - yRain(point.weather.precipitation)}"><title>${WK} ${point.week}: ${decimalFormat.format(point.weather.precipitation)} mm</title></rect>
       `).join("")}
-      ${weekTicks.map((week) => `<text class="chart-axis-label" x="${x(week)}" y="${height - 12}" text-anchor="middle">KW ${week}</text>`).join("")}
+      ${weekTicks.map((week) => `<text class="chart-axis-label" x="${x(week)}" y="${height - 12}" text-anchor="middle">${WK} ${week}</text>`).join("")}
       <line class="chart-selected shared-week-cursor" x1="${x(state.week)}" x2="${x(state.week)}" y1="${tempTop}" y2="${rainTop + rainHeight}" />
       ${points.map((point) => `
         <rect
@@ -377,7 +417,7 @@ function renderWeatherChart() {
           height="${rainTop + rainHeight - tempTop}"
           role="button"
           tabindex="0"
-          aria-label="KW ${point.week}: ${decimalFormat.format(point.weather.temperatureMean)} °C, ${decimalFormat.format(point.weather.precipitation)} mm Niederschlag"
+          aria-label="${WK} ${point.week}: ${decimalFormat.format(point.weather.temperatureMean)} °C, ${decimalFormat.format(point.weather.precipitation)} mm ${L("Niederschlag", "precipitation")}"
         />
       `).join("")}
     </svg>`;
@@ -387,10 +427,10 @@ function renderWeatherChart() {
 function renderWeatherDetail() {
   const point = selectedPoint();
   const weather = point.weather;
-  $("#weather-detail-title").textContent = `KW ${point.week} · ${point.year}`;
+  $("#weather-detail-title").textContent = `${WK} ${point.week} · ${point.year}`;
   $("#weather-detail-dates").textContent = periodLabel(point);
   $("#weather-rain").textContent = formatDecimal(weather?.precipitation, " mm");
-  $("#weather-sun").textContent = formatDecimal(weather?.sunshineHours, " Stunden");
+  $("#weather-sun").textContent = formatDecimal(weather?.sunshineHours, L(" Stunden", " hours"));
   $("#weather-min").textContent = formatDecimal(weather?.temperatureMin, " °C");
   $("#weather-max").textContent = formatDecimal(weather?.temperatureMax, " °C");
 }
@@ -402,7 +442,7 @@ function renderTable() {
     const weather = point.weather;
     return `
       <tr data-week-selector data-week="${point.week}" class="${point.week === state.week ? "selected" : ""}" tabindex="0">
-        <td><strong>KW ${point.week}</strong></td>
+        <td><strong>${WK} ${point.week}</strong></td>
         <td>${escapeHtml(periodLabel(point))}</td>
         <td class="numeric">${formatNumber(valueFor(point))}</td>
         <td class="numeric">${formatDecimal(weather?.temperatureMean, " °C")}</td>
@@ -412,7 +452,7 @@ function renderTable() {
       </tr>`;
   }).join("");
   bindWeekSelectors(body);
-  $("#weekly-table-count").textContent = `${points.length} veröffentlichte Kalenderwochen`;
+  $("#weekly-table-count").textContent = L(`${points.length} veröffentlichte Kalenderwochen`, `${points.length} published calendar weeks`);
 }
 
 function bindWeekSelectors(container) {
@@ -439,7 +479,7 @@ function renderWeekSelection() {
   range.value = String(point.week);
   const progress = ((point.week - Number(range.min)) / Math.max(1, Number(range.max) - Number(range.min))) * 100;
   range.style.setProperty("--range-progress", `${progress}%`);
-  $("#weekly-week-output").textContent = `KW ${point.week}`;
+  $("#weekly-week-output").textContent = `${WK} ${point.week}`;
   $("#weekly-week-dates").textContent = periodLabel(point);
 
   renderKpis();
@@ -519,7 +559,7 @@ function bindEvents() {
 async function init() {
   try {
     const response = await fetch(DATA_URL);
-    if (!response.ok) throw new Error(`Datendatei konnte nicht geladen werden (${response.status}).`);
+    if (!response.ok) throw new Error(L(`Datendatei konnte nicht geladen werden (${response.status}).`, `The data file could not be loaded (${response.status}).`));
     dataset = await response.json();
     $("#weekly-count-display").textContent = numberFormat.format(
       dataset.weeklyDeaths.points.length,
@@ -532,7 +572,7 @@ async function init() {
     console.error(error);
     document.querySelector("main").innerHTML = `
       <div class="error-state">
-        <strong>Die Wochenanalyse konnte nicht geladen werden.</strong>
+        <strong>${L("Die Wochenanalyse konnte nicht geladen werden.", "The weekly analysis could not be loaded.")}</strong>
         <p>${escapeHtml(error.message)}</p>
       </div>`;
   }

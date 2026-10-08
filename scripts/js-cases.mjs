@@ -7,6 +7,9 @@
 //   npm run js -- check --links    zusätzlich jeden Link abrufen (dauert etwas)
 //   npm run js -- add              neuen Fall abfragen und einsortieren
 //   npm run js -- date [JJJJ-MM-TT] Stand und Zeitraumende setzen (Standard: heute)
+//
+// Englisch: jedes Textfeld hat ein Gegenstück <feld>_en (place_en, context_en, flags_en …).
+// „add“ fragt es optional ab, „check“ meldet Fälle ohne englische Fassung als Hinweis.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -37,6 +40,27 @@ const LISTS = {
   D: "Allenby-Übergang (jordanische Täter)",
   E: "In Israel, Täter aus Judäa und Samaria",
 };
+// Englische Fassung (biest.com/js?lang=en): parallele Felder <feld>_en je Fall, z. B. context_en.
+// Fehlt ein _en-Feld, zeigt die englische Seite den deutschen Text; „check“ meldet das als Hinweis.
+const EN_PAL = ["place", "victims", "shooter", "context", "legal"];
+const EN_ISR = ["place", "type", "perp", "affiliation", "outcome"];
+const EN_DEFAULTS = { "keine bekannt": "none known", unbekannt: "unknown", "nicht bekannt": "not known", unklar: "unclear", "–": "–" };
+const missingEn = (c, fields) => {
+  const miss = fields.filter((f) => c[f] && !(typeof c[f + "_en"] === "string" && c[f + "_en"].trim()));
+  if (c.flags?.length && !(Array.isArray(c.flags_en) && c.flags_en.length === c.flags.length && c.flags_en.every((x) => x && String(x).trim()))) miss.push("flags");
+  return miss;
+};
+// _en-Felder direkt hinter das deutsche Feld stellen (lesbarere JSON-Datei)
+const orderEn = (c) => {
+  const out = {};
+  for (const [k, v] of Object.entries(c)) {
+    if (k.endsWith("_en") && k.slice(0, -3) in c) continue;
+    out[k] = v;
+    if (k + "_en" in c) out[k + "_en"] = c[k + "_en"];
+  }
+  return out;
+};
+
 // Domains für den Vorschlag der Quellenlage
 const DOMAINS = {
   A: ["t.me", "idf.il", "police.gov.il", "shabak.gov.il", "gov.il"],
@@ -110,6 +134,8 @@ async function check(withLinks) {
     const key = `${c.date}|${c.place}|${c.victims}`;
     if (seen.has(key)) warn.push(`${id}: Datum, Ort und Getötete doppelt – Duplikat?`);
     seen.add(key);
+    const miss = missingEn(c, EN_PAL);
+    if (miss.length) warn.push(`${id}: englische Fassung fehlt (${miss.map((f) => f + "_en").join(", ")})`);
   });
   d.israelis.forEach((c, i) => {
     const id = `Israelis ${c.id || "#" + (i + 1)} (${c.date})`;
@@ -119,6 +145,9 @@ async function check(withLinks) {
     if (!c.victims?.length) errors.push(`${id}: keine Opfer`);
     c.victims?.forEach((v) => { if (!["Z", "S"].includes(v.status)) errors.push(`${id}: Status von ${v.name} muss Z oder S sein`); });
     if (!c.links?.length) warn.push(`${id}: keine Links`);
+    const miss = missingEn(c, EN_ISR);
+    c.victims?.forEach((v) => { if (/[a-zäöüß]/i.test(String(v.age ?? "")) && !v.age_en) miss.push(`age_en (${v.name})`); });
+    if (miss.length) warn.push(`${id}: englische Fassung fehlt (${miss.map((f) => (f.includes("_en") ? f : f + "_en")).join(", ")})`);
   });
   const ids = d.israelis.map((c) => c.id);
   ids.forEach((x, i) => { if (ids.indexOf(x) !== i) errors.push(`Israelis: ID ${x} doppelt`); });
@@ -185,6 +214,24 @@ async function add() {
     for (;;) { const a = (await rl.question("  > ")).trim(); if (!a) break; if (host(a)) out.push(a); else console.log("  keine gültige URL"); }
     return out;
   };
+  // optional: englische Fassung je Textfeld (leer = später nachtragen; Namen/Orte: Enter übernimmt den deutschen Wert)
+  const askEnglish = async (c, fields) => {
+    if (!(await ask("Englische Fassung jetzt erfassen (für biest.com/js?lang=en)? j/n", "j")).toLowerCase().startsWith("j")) {
+      console.log("  → später nachtragen: Felder …_en in cases.json (npm run js -- check zeigt, was fehlt)");
+      return c;
+    }
+    for (const [f, label, same] of fields) {
+      const def = same ? c[f] : EN_DEFAULTS[c[f]] || "";
+      const v = await ask(`  EN ${label}`, def);
+      if (v) c[f + "_en"] = v;
+    }
+    if (c.flags?.length) {
+      const en = [];
+      for (const fl of c.flags) en.push(await ask(`  EN Hinweis „${fl}“`));
+      if (en.every(Boolean)) c.flags_en = en;
+    }
+    return orderEn(c);
+  };
 
   const data = load();
   const side = await askChoice("Wer wurde getötet? P = Palästinenser (durch israelische Zivilisten), I = Israelis (durch Palästinenser)", { P: "Palästinenser", I: "Israelis" }, "P");
@@ -202,8 +249,9 @@ async function add() {
     c.links = await askLinks();
     if (!c.links.length) console.log("  ⚠ ohne Links – bitte später nachtragen");
     c.src = await askChoice("Quellenlage", SRC, suggestSrc(c.links));
-    console.log("\n" + JSON.stringify(c, null, 2));
-    if ((await ask("Speichern? j/n", "j")).toLowerCase().startsWith("j")) data.palestinians.push(c);
+    const e = await askEnglish(c, [["place", "Ort", true], ["victims", "Getötete", true], ["shooter", "Schütze (z. B. Settler, Settlement security guard, Off-duty soldier, Settler reservist, unclear)"], ["context", "Hergang nach beiden Seiten"], ["legal", "Verfahren"]]);
+    console.log("\n" + JSON.stringify(e, null, 2));
+    if ((await ask("Speichern? j/n", "j")).toLowerCase().startsWith("j")) data.palestinians.push(e);
     else { console.log("Verworfen."); rl.close(); return; }
   } else {
     const c = {};
@@ -228,8 +276,9 @@ async function add() {
     c.links = await askLinks();
     const flags = await ask("Hinweise/Grenzfall (optional, mehrere mit ;)");
     c.flags = flags ? flags.split(";").map((s) => s.trim()).filter(Boolean) : [];
-    console.log("\n" + JSON.stringify(c, null, 2));
-    if ((await ask("Speichern? j/n", "j")).toLowerCase().startsWith("j")) data.israelis.push(c);
+    const e = await askEnglish(c, [["place", "Ort", true], ["type", "Tat (z. B. Firearm, Knife, Ramming)"], ["perp", "Täter"], ["affiliation", "Zugehörigkeit/Bekennung"], ["outcome", "Ausgang für den Täter"]]);
+    console.log("\n" + JSON.stringify(e, null, 2));
+    if ((await ask("Speichern? j/n", "j")).toLowerCase().startsWith("j")) data.israelis.push(e);
     else { console.log("Verworfen."); rl.close(); return; }
   }
   const newest = [...data.palestinians, ...data.israelis].map((c) => c.date).sort().at(-1);

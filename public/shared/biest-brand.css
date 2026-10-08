@@ -39,3 +39,39 @@
   .biest-brand__name { font-size: 17px; }
   .biest-brand__tag { display: none; }
 }
+
+/* Sprachumschalter DE | EN (gerendert von /shared/biest-lang.js) */
+.biest-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  border-radius: 999px;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  line-height: 1;
+}
+.biest-lang button {
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  opacity: .6;
+}
+.biest-lang button:hover { opacity: 1; }
+.biest-lang button[aria-pressed="true"] {
+  background: #dc2626;
+  color: #fff;
+  opacity: 1;
+  cursor: default;
+}
+.biest-lang button:focus-visible { outline: 2px solid #dc2626; outline-offset: 2px; }

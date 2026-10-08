@@ -60,7 +60,7 @@ const dossiers: Dossier[] = [
       <>
         As French pupils blockade their lycées over &quot;cuts&quot;: spending per pupil since
         1980, inflation-adjusted, set against PISA, TIMSS, PIRLS and four decades of
-        identical national tests. Deutsch.
+        identical national tests. English · Deutsch.
       </>
     ),
     cta: "Open the dossier",
@@ -89,7 +89,7 @@ const dossiers: Dossier[] = [
         203 documented femicide cases — victims, perpetrators, motives, trials, sources —
         searchable and filterable, with year-by-year statistics, an interactive map of the
         nine Bundesländer, a population-adjusted comparison, and a 56-year historical view
-        back to 1970. Deutsch.
+        back to 1970. English · Deutsch.
       </>
     ),
     cta: "Open the database",
@@ -120,7 +120,7 @@ const dossiers: Dossier[] = [
         Every killing between Israeli civilians and Palestinians since 7 October 2023, case
         by case: attacker stopped, attack alleged, confrontation or raid — with both
         sides&apos; accounts, prosecution data and a comparison of Israeli, Palestinian and
-        UN sources. Deutsch.
+        UN sources. English · Deutsch.
       </>
     ),
     cta: "Open the research",
@@ -143,7 +143,7 @@ const dossiers: Dossier[] = [
       <>
         Fifty-six years of official mortality data, made explorable by cause of death,
         sex and age. Compare trends, standardized rates and estimated years of life
-        lost — plus a separate week-by-week view of mortality and weather.
+        lost — plus a separate week-by-week view of mortality and weather. English · Deutsch.
       </>
     ),
     cta: "Explore the data",
@@ -169,7 +169,7 @@ const dossiers: Dossier[] = [
       <>
         Daily observations from Vienna&apos;s Hohe Warte, transformed into a long view of
         sunshine, maximum temperatures and their changing ratio — with weekly detail for
-        2025 and 2026 and atmospheric CO₂ measurements from 1959 onward.
+        2025 and 2026 and atmospheric CO₂ measurements from 1959 onward. English · Deutsch.
       </>
     ),
     cta: "Explore the climate data",

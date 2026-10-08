@@ -10,12 +10,15 @@ import {
   type MetricKey,
 } from "@/data/elements";
 import type { ElementCell } from "./PeriodicTable2D";
+import type { BiestLang } from "@/lib/biestLang";
+import { elementName } from "./i18n";
 
 type Props = {
   data: ElementCell[];
   metric: MetricKey;
   selectedZ: number | null;
   onSelect: (z: number) => void;
+  lang: BiestLang;
 };
 
 // Rank 1 = most expensive, computed once as the $/kg baseline.
@@ -26,7 +29,7 @@ function kgRanks(): Map<number, number> {
   return new Map(priced.map((el, i) => [el.z, i + 1]));
 }
 
-export default function RankingView({ data, metric, selectedZ, onSelect }: Props) {
+export default function RankingView({ data, metric, selectedZ, onSelect, lang }: Props) {
   const rows = useMemo(() => {
     const baseline = kgRanks();
     return data
@@ -68,7 +71,7 @@ export default function RankingView({ data, metric, selectedZ, onSelect }: Props
                 </td>
                 <td className="w-32 whitespace-nowrap py-1.5 pr-2">
                   <span className="font-bold text-white">{cell.el.symbol}</span>{" "}
-                  <span className="text-xs text-gray-400">{cell.el.name}</span>
+                  <span className="text-xs text-gray-400">{elementName(cell.el, lang)}</span>
                 </td>
                 <td className="py-1.5 pr-3">
                   <div className="flex items-center gap-2">
@@ -80,7 +83,7 @@ export default function RankingView({ data, metric, selectedZ, onSelect }: Props
                       }}
                     />
                     <span className="whitespace-nowrap text-xs text-gray-300">
-                      {formatUSD(cell.value)}
+                      {formatUSD(cell.value, lang)}
                     </span>
                   </div>
                 </td>

@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#050505" />
     <meta name="robots" content="noindex, nofollow, noarchive" />
-    <title>146 Jahre Sonne und Temperatur in Wien | biest.com</title>
+    <title data-en-text="146 Years of Sunshine and Temperature in Vienna | biest.com">146 Jahre Sonne und Temperatur in Wien | biest.com</title>
     <meta
       name="description"
       content="Eine interaktive Datenarbeit über Sonnenscheindauer und jährliche Temperaturspitzen in Wien von 1880 bis 2025."
+      data-en-content="An interactive data work on sunshine duration and annual temperature peaks in Vienna from 1880 to 2025."
     />
+    <script src="/shared/biest-lang.js"></script>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="biest.com">
@@ -28,102 +30,111 @@
     <meta name="twitter:image" content="https://biest.com/og/og-wien-sonne-temperatur.jpg?v=20261004">
     <meta name="twitter:image:alt" content="Wärmestreifen für Wien seit 1880, von kühl (blau) bis warm (rot)">
     <link rel="stylesheet" href="/shared/biest-brand.css">
-    <link rel="stylesheet" href="/wien-sonne-temperatur/styles.css" />
+    <link rel="stylesheet" href="/wien-sonne-temperatur/styles.css?v=20261008" />
     <script defer src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
     <script defer src="/wien-sonne-temperatur/data.js"></script>
     <script defer src="/wien-sonne-temperatur/annual-index-data.js"></script>
     <script defer src="/wien-sonne-temperatur/co2-data.js"></script>
-    <script defer src="/wien-sonne-temperatur/app.js"></script>
+    <script defer src="/wien-sonne-temperatur/app.js?v=20261008"></script>
     <script defer src="/wien-sonne-temperatur/recent-data.js?v=20261004"></script>
-    <script defer src="/wien-sonne-temperatur/recent.js"></script>
+    <script defer src="/wien-sonne-temperatur/recent.js?v=20261008"></script>
   </head>
   <body>
     <div class="ambient" aria-hidden="true"></div>
 
     <header class="site-header">
-      <a class="biest-brand" href="/" aria-label="biest.com – Startseite"><span class="biest-brand__name">BIEST.COM</span><span class="biest-brand__tag">Dossier</span></a>
-      <p>Wien, Hohe Warte</p>
+      <a class="biest-brand" href="/" aria-label="biest.com – Startseite" data-en-aria-label="biest.com – Home"><span class="biest-brand__name">BIEST.COM</span><span class="biest-brand__tag">Dossier</span></a>
+      <p><span data-lang="de">Wien, Hohe Warte</span><span data-lang="en">Vienna, Hohe Warte</span></p>
+      <div class="header-lang" data-biest-lang-switch></div>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="page-title">
-        <p class="eyebrow">DATENARBEIT / 1880 BIS 2025 / GEOSPHERE AUSTRIA</p>
-        <h1 id="page-title"><span>146 Jahre</span> Wien im Licht.</h1>
+        <p class="eyebrow"><span data-lang="de">DATENARBEIT / 1880 BIS 2025 / GEOSPHERE AUSTRIA</span><span data-lang="en">DATA WORK / 1880 TO 2025 / GEOSPHERE AUSTRIA</span></p>
+        <h1 id="page-title"><span data-lang="de">146 Jahre</span><span data-lang="en">146 years</span> <span class="title-rest" data-lang="de">Wien im Licht.</span><span class="title-rest" data-lang="en">Vienna in light.</span></h1>
         <p class="hero-copy">
-          Jährliche Sonnenscheindauer und der heißeste Tag jedes Jahres. Eine Stadt, zwei Klimaspuren.
+          <span data-lang="de">Jährliche Sonnenscheindauer und der heißeste Tag jedes Jahres. Eine Stadt, zwei Klimaspuren.</span>
+          <span data-lang="en">Annual sunshine duration and the hottest day of every year. One city, two climate traces.</span>
         </p>
       </section>
 
-      <section class="facts" aria-label="Kennzahlen der Auswertung">
+      <section class="facts" aria-label="Kennzahlen der Auswertung" data-en-aria-label="Key figures of the analysis">
         <div class="fact">
           <strong>142</strong>
-          <span>vollständige Jahre</span>
+          <span data-lang="de">vollständige Jahre</span>
+          <span data-lang="en">complete years</span>
         </div>
         <div class="fact">
-          <strong>0,59</strong>
-          <span>Korrelation</span>
+          <strong data-lang="de">0,59</strong>
+          <strong data-lang="en">0.59</strong>
+          <span data-lang="de">Korrelation</span>
+          <span data-lang="en">correlation</span>
         </div>
         <div class="fact">
           <strong>+259 h</strong>
-          <span>Sonne im 20-Jahres-Vergleich</span>
+          <span data-lang="de">Sonne im 20-Jahres-Vergleich</span>
+          <span data-lang="en">sunshine in the 20-year comparison</span>
         </div>
         <div class="fact">
-          <strong>+2,6 °C</strong>
-          <span>bei jährlichen Hitzespitzen</span>
+          <strong data-lang="de">+2,6 °C</strong>
+          <strong data-lang="en">+2.6 °C</strong>
+          <span data-lang="de">bei jährlichen Hitzespitzen</span>
+          <span data-lang="en">in annual heat peaks</span>
         </div>
       </section>
 
       <section class="visual" aria-labelledby="visual-title">
         <div class="visual-heading">
           <div>
-            <p class="section-kicker">ZEITREIHE</p>
-            <h2 id="visual-title">146 Jahre, drei Perspektiven.</h2>
+            <p class="section-kicker"><span data-lang="de">ZEITREIHE</span><span data-lang="en">TIME SERIES</span></p>
+            <h2 id="visual-title"><span data-lang="de">146 Jahre, drei Perspektiven.</span><span data-lang="en">146 years, three perspectives.</span></h2>
           </div>
-          <div class="series-controls" aria-label="Darstellung der Detailgrafiken auswählen">
+          <div class="series-controls" aria-label="Darstellung der Detailgrafiken auswählen" data-en-aria-label="Choose how the detail charts are shown">
             <button type="button" data-mode="raw" aria-pressed="true">
               <span class="control-line control-line-raw" aria-hidden="true"></span>
-              Jahreswerte
+              <span data-lang="de">Jahreswerte</span><span data-lang="en">Annual values</span>
             </button>
             <button type="button" data-mode="mean" aria-pressed="true">
               <span class="control-line control-line-mean" aria-hidden="true"></span>
-              10-Jahres-Mittel
+              <span data-lang="de">10-Jahres-Mittel</span><span data-lang="en">10-year average</span>
             </button>
           </div>
         </div>
 
         <div class="year-reader" aria-live="polite">
           <div class="reader-year">
-            <span>Ausgewähltes Jahr</span>
+            <span data-lang="de">Ausgewähltes Jahr</span>
+            <span data-lang="en">Selected year</span>
             <strong id="reader-year">2025</strong>
           </div>
           <div class="reader-value temperature-reader">
-            <span id="reader-temperature-label">Summe Tagesmaxima</span>
-            <strong id="reader-temperature">6.015 °C-Tage</strong>
-            <small id="reader-date">Quotient 2,96 °C-Tage/h</small>
+            <span id="reader-temperature-label"><span data-lang="de">Summe Tagesmaxima</span><span data-lang="en">Sum of daily maxima</span></span>
+            <strong id="reader-temperature"><span data-lang="de">6.015 °C-Tage</span><span data-lang="en">6,015 °C-days</span></strong>
+            <small id="reader-date"><span data-lang="de">Quotient 2,96 °C-Tage/h</span><span data-lang="en">Ratio 2.96 °C-days/h</span></small>
           </div>
           <div class="reader-value sunshine-reader">
-            <span id="reader-sunshine-label">Sonnenscheindauer</span>
-            <strong id="reader-sunshine">2.032 h</strong>
-            <small id="reader-status">vollständiges Kalenderjahr</small>
+            <span id="reader-sunshine-label"><span data-lang="de">Sonnenscheindauer</span><span data-lang="en">Sunshine duration</span></span>
+            <strong id="reader-sunshine"><span data-lang="de">2.032 h</span><span data-lang="en">2,032 h</span></strong>
+            <small id="reader-status"><span data-lang="de">vollständiges Kalenderjahr</span><span data-lang="en">complete calendar year</span></small>
           </div>
         </div>
 
         <article class="annual-combined-panel">
           <div class="annual-combined-heading">
             <div>
-              <h3>Kombinierte Jahresansicht</h3>
-              <p>Jahressummen als Balken und Linie, ergänzt um ihren Quotienten</p>
+              <h3><span data-lang="de">Kombinierte Jahresansicht</span><span data-lang="en">Combined annual view</span></h3>
+              <p><span data-lang="de">Jahressummen als Balken und Linie, ergänzt um ihren Quotienten</span><span data-lang="en">Annual totals as bars and a line, plus their ratio</span></p>
             </div>
-            <div class="annual-combined-legend" aria-label="Dargestellte Messreihen">
-              <span><i class="temperature-line" aria-hidden="true"></i>Summe Tagesmaxima</span>
-              <span><i class="sunshine-bar" aria-hidden="true"></i>Sonnenstunden</span>
-              <span><i class="ratio-line" aria-hidden="true"></i>Quotient</span>
-              <span><i class="ratio-trend-line" aria-hidden="true"></i>10-Jahres-Mittel</span>
+            <div class="annual-combined-legend" aria-label="Dargestellte Messreihen" data-en-aria-label="Data series shown">
+              <span><i class="temperature-line" aria-hidden="true"></i><span data-lang="de">Summe Tagesmaxima</span><span data-lang="en">Sum of daily maxima</span></span>
+              <span><i class="sunshine-bar" aria-hidden="true"></i><span data-lang="de">Sonnenstunden</span><span data-lang="en">Sunshine hours</span></span>
+              <span><i class="ratio-line" aria-hidden="true"></i><span data-lang="de">Quotient</span><span data-lang="en">Ratio</span></span>
+              <span><i class="ratio-trend-line" aria-hidden="true"></i><span data-lang="de">10-Jahres-Mittel</span><span data-lang="en">10-year average</span></span>
             </div>
           </div>
           <svg role="img" aria-labelledby="annual-combined-title annual-combined-desc">
-            <title id="annual-combined-title">Temperatursumme, Sonnenscheindauer und Quotient in Wien von 1880 bis 2025</title>
-            <desc id="annual-combined-desc">
+            <title id="annual-combined-title" data-en-text="Temperature sum, sunshine duration and ratio in Vienna from 1880 to 2025">Temperatursumme, Sonnenscheindauer und Quotient in Wien von 1880 bis 2025</title>
+            <desc id="annual-combined-desc" data-en-text="Combined time series with annual sunshine duration as bars, the sum of all daily maximum temperatures as a line and the ratio of temperature sum to sunshine hours as a second line. A moving average over ten complete years shows the long-term trend of the ratio. Four incomplete years are marked.">
               Kombinierte Zeitreihe mit der jährlichen Sonnenscheindauer als Balken, der Summe aller täglichen
               Maximaltemperaturen als Linie und dem Quotienten aus Temperatursumme und Sonnenstunden als zweiter Linie.
               Ein gleitendes Mittel über zehn vollständige Jahre zeigt den langfristigen Quotiententrend. Vier
@@ -131,68 +142,78 @@
             </desc>
           </svg>
           <p class="annual-combined-note">
-            Die Temperatursumme addiert alle Tagesmaxima eines Jahres. Der Quotient in <strong>°C-Tage/h</strong> ist
+            <span data-lang="de">Die Temperatursumme addiert alle Tagesmaxima eines Jahres. Der Quotient in <strong>°C-Tage/h</strong> ist
             ein Vergleichsindex, keine physikalische Effizienzgröße. Die helle Linie zeigt das gleitende
-            <strong>10-Jahres-Mittel</strong>.
+            <strong>10-Jahres-Mittel</strong>.</span>
+            <span data-lang="en">The temperature sum adds up all daily maxima of a year. The ratio in <strong>°C-days/h</strong> is
+            a comparative index, not a physical measure of efficiency. The light line shows the moving
+            <strong>10-year average</strong>.</span>
           </p>
         </article>
 
         <article class="co2-panel co2-timeline-panel">
           <div class="co2-panel-heading">
             <div>
-              <h3>Atmosphärisches CO₂</h3>
-              <p>Direkt gemessenes Jahresmittel am Mauna Loa Observatorium</p>
+              <h3><span data-lang="de">Atmosphärisches CO₂</span><span data-lang="en">Atmospheric CO₂</span></h3>
+              <p><span data-lang="de">Direkt gemessenes Jahresmittel am Mauna Loa Observatorium</span><span data-lang="en">Directly measured annual mean at the Mauna Loa Observatory</span></p>
             </div>
-            <span>1959 bis 2025</span>
+            <span data-lang="de">1959 bis 2025</span>
+            <span data-lang="en">1959 to 2025</span>
           </div>
           <div class="co2-reader" aria-live="polite">
             <div>
-              <span>Ausgewähltes Jahr</span>
+              <span data-lang="de">Ausgewähltes Jahr</span>
+              <span data-lang="en">Selected year</span>
               <strong id="co2-reader-year">2025</strong>
             </div>
             <div>
-              <span>CO₂-Jahresmittel</span>
-              <strong id="co2-reader-value">427,35 ppm</strong>
+              <span data-lang="de">CO₂-Jahresmittel</span>
+              <span data-lang="en">Annual mean CO₂</span>
+              <strong id="co2-reader-value"><span data-lang="de">427,35 ppm</span><span data-lang="en">427.35 ppm</span></strong>
             </div>
             <div>
-              <span>Temperatur-Sonne-Quotient</span>
-              <strong id="co2-reader-ratio">2,96</strong>
-              <small>°C-Tage/h</small>
+              <span data-lang="de">Temperatur-Sonne-Quotient</span>
+              <span data-lang="en">Temperature–sunshine ratio</span>
+              <strong id="co2-reader-ratio"><span data-lang="de">2,96</span><span data-lang="en">2.96</span></strong>
+              <small data-lang="de">°C-Tage/h</small>
+              <small data-lang="en">°C-days/h</small>
             </div>
           </div>
           <svg role="img" aria-labelledby="co2-timeline-title co2-timeline-desc">
-            <title id="co2-timeline-title">Jährliches CO₂-Mittel am Mauna Loa von 1959 bis 2025</title>
-            <desc id="co2-timeline-desc">
+            <title id="co2-timeline-title" data-en-text="Annual mean CO₂ at Mauna Loa from 1959 to 2025">Jährliches CO₂-Mittel am Mauna Loa von 1959 bis 2025</title>
+            <desc id="co2-timeline-desc" data-en-text="Instrumentally measured annual CO₂ concentration in dry air, given in ppm.">
               Instrumentell gemessene jährliche CO₂-Konzentration in trockener Luft, angegeben in ppm.
             </desc>
           </svg>
           <p class="co2-note">
-            Die direkte Messreihe beginnt 1959. Frühere Werte aus Eisbohrkernen werden hier bewusst nicht mit
-            instrumentellen Messungen vermischt.
+            <span data-lang="de">Die direkte Messreihe beginnt 1959. Frühere Werte aus Eisbohrkernen werden hier bewusst nicht mit
+            instrumentellen Messungen vermischt.</span>
+            <span data-lang="en">The direct measurement series begins in 1959. Earlier values from ice cores are deliberately not mixed
+            with instrumental measurements here.</span>
           </p>
         </article>
 
         <article class="co2-panel co2-correlation-panel">
           <div class="co2-panel-heading">
             <div>
-              <h3>CO₂ und Quotient</h3>
-              <p>Jedes Jahr als Punkt, mit linearer Trendlinie</p>
+              <h3><span data-lang="de">CO₂ und Quotient</span><span data-lang="en">CO₂ and ratio</span></h3>
+              <p><span data-lang="de">Jedes Jahr als Punkt, mit linearer Trendlinie</span><span data-lang="en">Each year as a dot, with a linear trend line</span></p>
             </div>
-            <div class="co2-correlation-legend" aria-label="Dargestellte Elemente">
-              <span><i class="co2-dot" aria-hidden="true"></i>Jahreswert</span>
-              <span><i class="co2-trend-key" aria-hidden="true"></i>Trendlinie</span>
+            <div class="co2-correlation-legend" aria-label="Dargestellte Elemente" data-en-aria-label="Elements shown">
+              <span><i class="co2-dot" aria-hidden="true"></i><span data-lang="de">Jahreswert</span><span data-lang="en">Annual value</span></span>
+              <span><i class="co2-trend-key" aria-hidden="true"></i><span data-lang="de">Trendlinie</span><span data-lang="en">Trend line</span></span>
             </div>
           </div>
           <svg role="img" aria-labelledby="co2-correlation-title co2-correlation-desc">
-            <title id="co2-correlation-title">Korrelation zwischen CO₂ und dem Temperatur-Sonne-Quotienten</title>
-            <desc id="co2-correlation-desc">
+            <title id="co2-correlation-title" data-en-text="Correlation between CO₂ and the temperature–sunshine ratio">Korrelation zwischen CO₂ und dem Temperatur-Sonne-Quotienten</title>
+            <desc id="co2-correlation-desc" data-en-text="Scatter plot of the 67 shared years from 1959 to 2025, with CO₂ in ppm on the horizontal axis and the ratio of temperature sum to sunshine hours on the vertical axis.">
               Streudiagramm der 67 gemeinsamen Jahre von 1959 bis 2025 mit CO₂ in ppm auf der horizontalen Achse und
               dem Quotienten aus Temperatursumme und Sonnenstunden auf der vertikalen Achse.
             </desc>
           </svg>
           <p class="co2-note">
-            Über die 67 gemeinsamen Jahre besteht praktisch kein linearer Zusammenhang:
-            <strong id="co2-correlation-value">r = -0,08</strong>. Korrelation bedeutet nicht Ursache.
+            <span data-lang="de">Über die 67 gemeinsamen Jahre besteht praktisch kein linearer Zusammenhang:</span><span data-lang="en">Across the 67 shared years there is practically no linear relationship:</span>
+            <strong id="co2-correlation-value"><span data-lang="de">r = -0,08</span><span data-lang="en">r = -0.08</span></strong>. <span data-lang="de">Korrelation bedeutet nicht Ursache.</span><span data-lang="en">Correlation does not mean causation.</span>
           </p>
         </article>
 
@@ -200,14 +221,14 @@
           <div class="panel-title">
             <span class="series-key series-key-temperature" aria-hidden="true"></span>
             <div>
-              <h3>Temperaturspitze</h3>
-              <p>Höchste gemessene Tages-Maximaltemperatur pro Jahr</p>
+              <h3><span data-lang="de">Temperaturspitze</span><span data-lang="en">Temperature peak</span></h3>
+              <p><span data-lang="de">Höchste gemessene Tages-Maximaltemperatur pro Jahr</span><span data-lang="en">Highest measured daily maximum temperature per year</span></p>
             </div>
             <strong>°C</strong>
           </div>
           <svg role="img" aria-labelledby="temperature-title temperature-desc">
-            <title id="temperature-title">Jährliche Temperaturspitzen in Wien von 1880 bis 2025</title>
-            <desc id="temperature-desc">
+            <title id="temperature-title" data-en-text="Annual temperature peaks in Vienna from 1880 to 2025">Jährliche Temperaturspitzen in Wien von 1880 bis 2025</title>
+            <desc id="temperature-desc" data-en-text="Annual values and a moving average over ten complete years. Four incomplete years are marked.">
               Jahreswerte und gleitendes Mittel über zehn vollständige Jahre. Vier unvollständige Jahre sind markiert.
             </desc>
           </svg>
@@ -217,162 +238,188 @@
           <div class="panel-title">
             <span class="series-key series-key-sunshine" aria-hidden="true"></span>
             <div>
-              <h3>Sonnenscheindauer</h3>
-              <p>Summe der gemessenen Sonnenstunden pro Jahr</p>
+              <h3><span data-lang="de">Sonnenscheindauer</span><span data-lang="en">Sunshine duration</span></h3>
+              <p><span data-lang="de">Summe der gemessenen Sonnenstunden pro Jahr</span><span data-lang="en">Total measured sunshine hours per year</span></p>
             </div>
             <strong>h</strong>
           </div>
           <svg role="img" aria-labelledby="sunshine-title sunshine-desc">
-            <title id="sunshine-title">Jährliche Sonnenscheindauer in Wien von 1880 bis 2025</title>
-            <desc id="sunshine-desc">
+            <title id="sunshine-title" data-en-text="Annual sunshine duration in Vienna from 1880 to 2025">Jährliche Sonnenscheindauer in Wien von 1880 bis 2025</title>
+            <desc id="sunshine-desc" data-en-text="Annual values and a moving average over ten complete years. Four incomplete years are marked.">
               Jahreswerte und gleitendes Mittel über zehn vollständige Jahre. Vier unvollständige Jahre sind markiert.
             </desc>
           </svg>
         </article>
 
-        <p class="chart-help">Mit Maus oder Finger über Balken und Linien fahren, um ein Jahr zu lesen.</p>
+        <p class="chart-help"><span data-lang="de">Mit Maus oder Finger über Balken und Linien fahren, um ein Jahr zu lesen.</span><span data-lang="en">Move the mouse or a finger over the bars and lines to read a year.</span></p>
         <div class="viz-error" role="status" hidden>
-          Die interaktive Grafik konnte nicht geladen werden. Bitte die Seite neu laden.
+          <span data-lang="de">Die interaktive Grafik konnte nicht geladen werden. Bitte die Seite neu laden.</span>
+          <span data-lang="en">The interactive chart could not be loaded. Please reload the page.</span>
         </div>
         <noscript>
-          <p class="viz-error">Für die interaktive Grafik muss JavaScript aktiviert sein.</p>
+          <p class="viz-error"><span data-lang="de">Für die interaktive Grafik muss JavaScript aktiviert sein.</span><span data-lang="en">JavaScript must be enabled for the interactive chart.</span></p>
         </noscript>
       </section>
 
       <section class="recent" aria-labelledby="recent-title">
         <div class="recent-heading">
-          <h2 id="recent-title">2025 bis heute, Tag für Tag.</h2>
+          <h2 id="recent-title"><span data-lang="de">2025 bis heute, Tag für Tag.</span><span data-lang="en">2025 to today, day by day.</span></h2>
           <p>
-            Die jüngste Klimaspur im Detail. Tageswerte zeigen das Wetter, Wochenwerte machen den Rhythmus lesbar.
+            <span data-lang="de">Die jüngste Klimaspur im Detail. Tageswerte zeigen das Wetter, Wochenwerte machen den Rhythmus lesbar.</span>
+            <span data-lang="en">The latest climate trace in detail. Daily values show the weather; weekly values make the rhythm legible.</span>
           </p>
         </div>
 
-        <div class="recent-summary" aria-label="Kennzahlen seit 2025">
+        <div class="recent-summary" aria-label="Kennzahlen seit 2025" data-en-aria-label="Key figures since 2025">
           <div>
-            <span>Höchster Tageswert</span>
-            <strong id="recent-peak-temperature">39,8 °C</strong>
-            <small id="recent-peak-date">4. August 2026</small>
+            <span data-lang="de">Höchster Tageswert</span>
+            <span data-lang="en">Highest daily value</span>
+            <strong id="recent-peak-temperature"><span data-lang="de">39,8 °C</span><span data-lang="en">39.8 °C</span></strong>
+            <small id="recent-peak-date"><span data-lang="de">4. August 2026</span><span data-lang="en">4 August 2026</span></small>
           </div>
           <div>
-            <span>Sonnenstunden 2025</span>
-            <strong id="recent-sun-2025">2.032 h</strong>
-            <small>vollständiges Kalenderjahr</small>
+            <span data-lang="de">Sonnenstunden 2025</span>
+            <span data-lang="en">Sunshine hours 2025</span>
+            <strong id="recent-sun-2025"><span data-lang="de">2.032 h</span><span data-lang="en">2,032 h</span></strong>
+            <small data-lang="de">vollständiges Kalenderjahr</small>
+            <small data-lang="en">complete calendar year</small>
           </div>
           <div>
-            <span>Datenstand</span>
-            <strong id="recent-latest-date">3. Okt 2026</strong>
-            <small id="recent-live-status">wird automatisch aktualisiert</small>
+            <span data-lang="de">Datenstand</span>
+            <span data-lang="en">Latest data</span>
+            <strong id="recent-latest-date"><span data-lang="de">3. Okt 2026</span><span data-lang="en">3 Oct 2026</span></strong>
+            <small id="recent-live-status"><span data-lang="de">wird automatisch aktualisiert</span><span data-lang="en">updated automatically</span></small>
           </div>
         </div>
 
         <div class="recent-toolbar">
-          <div class="recent-controls" aria-label="Zeitliche Auflösung auswählen">
-            <button type="button" data-recent-mode="week" aria-pressed="true">Wöchentlich</button>
-            <button type="button" data-recent-mode="day" aria-pressed="false">Täglich</button>
+          <div class="recent-controls" aria-label="Zeitliche Auflösung auswählen" data-en-aria-label="Choose time resolution">
+            <button type="button" data-recent-mode="week" aria-pressed="true"><span data-lang="de">Wöchentlich</span><span data-lang="en">Weekly</span></button>
+            <button type="button" data-recent-mode="day" aria-pressed="false"><span data-lang="de">Täglich</span><span data-lang="en">Daily</span></button>
           </div>
-          <p id="recent-freshness">Temperatur bis 3. Oktober 2026, Sonne bis 3. Oktober 2026</p>
+          <p id="recent-freshness"><span data-lang="de">Temperatur bis 3. Oktober 2026, Sonne bis 3. Oktober 2026</span><span data-lang="en">Temperature up to 3 October 2026, sunshine up to 3 October 2026</span></p>
         </div>
 
         <div class="recent-reader" aria-live="polite">
           <div>
-            <span id="recent-period-label">Ausgewählte Woche</span>
-            <strong id="recent-period">28. September bis 4. Oktober 2026</strong>
+            <span id="recent-period-label"><span data-lang="de">Ausgewählte Woche</span><span data-lang="en">Selected week</span></span>
+            <strong id="recent-period"><span data-lang="de">28. September bis 4. Oktober 2026</span><span data-lang="en">28 September – 4 October 2026</span></strong>
           </div>
           <div>
-            <span id="recent-temperature-label">Wochenmaximum</span>
-            <strong class="recent-temperature-value" id="recent-temperature">25,6 °C</strong>
-            <small id="recent-temperature-detail">am 30. September</small>
+            <span id="recent-temperature-label"><span data-lang="de">Wochenmaximum</span><span data-lang="en">Weekly maximum</span></span>
+            <strong class="recent-temperature-value" id="recent-temperature"><span data-lang="de">25,6 °C</span><span data-lang="en">25.6 °C</span></strong>
+            <small id="recent-temperature-detail"><span data-lang="de">am 30. September</span><span data-lang="en">on 30 September</span></small>
           </div>
           <div>
-            <span id="recent-sunshine-label">Sonne in der Woche</span>
-            <strong class="recent-sunshine-value" id="recent-sunshine">63,4 h</strong>
-            <small id="recent-sunshine-detail">6 von 7 Tageswerten verfügbar</small>
+            <span id="recent-sunshine-label"><span data-lang="de">Sonne in der Woche</span><span data-lang="en">Weekly sunshine</span></span>
+            <strong class="recent-sunshine-value" id="recent-sunshine"><span data-lang="de">63,4 h</span><span data-lang="en">63.4 h</span></strong>
+            <small id="recent-sunshine-detail"><span data-lang="de">6 von 7 Tageswerten verfügbar</span><span data-lang="en">6 of 7 daily values available</span></small>
           </div>
         </div>
 
         <div class="recent-chart">
-          <div class="recent-legend" aria-label="Dargestellte Messreihen">
-            <span><i class="temperature-line" aria-hidden="true"></i>Maximaltemperatur</span>
-            <span><i class="sunshine-bar" aria-hidden="true"></i>Sonnenscheindauer</span>
+          <div class="recent-legend" aria-label="Dargestellte Messreihen" data-en-aria-label="Data series shown">
+            <span><i class="temperature-line" aria-hidden="true"></i><span data-lang="de">Maximaltemperatur</span><span data-lang="en">Maximum temperature</span></span>
+            <span><i class="sunshine-bar" aria-hidden="true"></i><span data-lang="de">Sonnenscheindauer</span><span data-lang="en">Sunshine duration</span></span>
           </div>
           <svg role="img" aria-labelledby="recent-chart-title recent-chart-desc">
-            <title id="recent-chart-title">Temperatur und Sonnenscheindauer in Wien seit 2025</title>
-            <desc id="recent-chart-desc">
+            <title id="recent-chart-title" data-en-text="Temperature and sunshine duration in Vienna since 2025">Temperatur und Sonnenscheindauer in Wien seit 2025</title>
+            <desc id="recent-chart-desc" data-en-text="Combined time series with selectable daily or weekly values. Temperature is shown as a line, sunshine duration as bars.">
               Kombinierte Zeitreihe mit wählbaren Tageswerten oder Wochenwerten. Die Temperatur erscheint als Linie,
               die Sonnenscheindauer als Balken.
             </desc>
           </svg>
         </div>
         <p class="recent-note">
-          2026 ist ein laufendes Jahr und bleibt deshalb aus der Jahresgrafik oben ausgeschlossen. Die aktuelle Woche
-          kann unvollständig sein.
+          <span data-lang="de">2026 ist ein laufendes Jahr und bleibt deshalb aus der Jahresgrafik oben ausgeschlossen. Die aktuelle Woche
+          kann unvollständig sein.</span>
+          <span data-lang="en">2026 is still in progress and is therefore excluded from the annual chart above. The current week
+          may be incomplete.</span>
         </p>
         <div class="recent-error" role="status" hidden>
-          Die aktuelle Detailgrafik konnte nicht geladen werden. Bitte die Seite neu laden.
+          <span data-lang="de">Die aktuelle Detailgrafik konnte nicht geladen werden. Bitte die Seite neu laden.</span>
+          <span data-lang="en">The current detail chart could not be loaded. Please reload the page.</span>
         </div>
       </section>
 
       <section class="finding" aria-labelledby="finding-title">
         <div class="finding-copy">
-          <h2 id="finding-title">Mehr Sonne. Heißere Spitzen.</h2>
+          <h2 id="finding-title"><span data-lang="de">Mehr Sonne. Heißere Spitzen.</span><span data-lang="en">More sun. Hotter peaks.</span></h2>
           <p>
-            Bei den Jahressummen sind sonnige Jahre häufig auch Jahre mit höheren Temperaturspitzen. Der statistische
+            <span data-lang="de">Bei den Jahressummen sind sonnige Jahre häufig auch Jahre mit höheren Temperaturspitzen. Der statistische
             Zusammenhang ist mit <strong>r = 0,59</strong> deutlich, erklärt aber nicht alles. Langfristig verschieben
-            sich beide Reihen nach oben.
+            sich beide Reihen nach oben.</span>
+            <span data-lang="en">In the annual totals, sunny years are often also years with higher temperature peaks. At
+            <strong>r = 0.59</strong>, the statistical relationship is clear, but it does not explain everything. Over the
+            long term, both series are shifting upwards.</span>
           </p>
         </div>
-        <div class="comparison" aria-label="Vergleich früher und heute">
+        <div class="comparison" aria-label="Vergleich früher und heute" data-en-aria-label="Comparison, then and now">
           <div class="comparison-row">
-            <span>1881 bis 1900</span>
-            <strong>1.835 h</strong>
-            <strong>33,1 °C</strong>
+            <span data-lang="de">1881 bis 1900</span>
+            <span data-lang="en">1881 to 1900</span>
+            <strong data-en-text="1,835 h">1.835 h</strong>
+            <strong data-en-text="33.1 °C">33,1 °C</strong>
           </div>
           <div class="comparison-rule" aria-hidden="true"><span></span></div>
           <div class="comparison-row comparison-row-current">
-            <span>2006 bis 2025</span>
-            <strong>2.095 h</strong>
-            <strong>35,7 °C</strong>
+            <span data-lang="de">2006 bis 2025</span>
+            <span data-lang="en">2006 to 2025</span>
+            <strong data-en-text="2,095 h">2.095 h</strong>
+            <strong data-en-text="35.7 °C">35,7 °C</strong>
           </div>
           <div class="comparison-labels" aria-hidden="true">
             <span></span>
-            <span>Sonne</span>
-            <span>Spitze</span>
+            <span data-lang="de">Sonne</span>
+            <span data-lang="en">Sunshine</span>
+            <span data-lang="de">Spitze</span>
+            <span data-lang="en">Peak</span>
           </div>
         </div>
       </section>
 
       <section class="method" aria-labelledby="method-title">
-        <h2 id="method-title">Was hier gemessen wird</h2>
+        <h2 id="method-title"><span data-lang="de">Was hier gemessen wird</span><span data-lang="en">What is measured here</span></h2>
         <div class="method-grid">
           <p>
-            Grundlage sind qualitätsgeprüfte Tagesdaten der Station Wien Hohe Warte. Pro vollständigem Kalenderjahr
+            <span data-lang="de">Grundlage sind qualitätsgeprüfte Tagesdaten der Station Wien Hohe Warte. Pro vollständigem Kalenderjahr
             wurden die Sonnenstunden summiert und der höchste Tageswert der Maximaltemperatur bestimmt.
             Die kombinierte Jahresansicht summiert zusätzlich alle täglichen Maximaltemperaturen und teilt diese
-            Temperatursumme durch die jährlichen Sonnenstunden.
+            Temperatursumme durch die jährlichen Sonnenstunden.</span>
+            <span data-lang="en">The basis is quality-controlled daily data from the Vienna Hohe Warte station. For each complete
+            calendar year, the sunshine hours were summed and the highest daily maximum temperature was determined.
+            The combined annual view also sums all daily maximum temperatures and divides this temperature sum by the
+            annual sunshine hours.</span>
           </p>
           <p>
-            Die Jahre 1880, 1890, 1904 und 1920 sind unvollständig und deshalb nicht aggregiert. Das gleitende Mittel
+            <span data-lang="de">Die Jahre 1880, 1890, 1904 und 1920 sind unvollständig und deshalb nicht aggregiert. Das gleitende Mittel
             verwendet jeweils zehn vollständige Jahre. In der aktuellen Detailansicht wird die Sonne je Woche summiert
-            und der höchste Tageswert als Wochenmaximum verwendet. Korrelation bedeutet Zusammenhang, nicht Ursache.
+            und der höchste Tageswert als Wochenmaximum verwendet. Korrelation bedeutet Zusammenhang, nicht Ursache.</span>
+            <span data-lang="en">The years 1880, 1890, 1904 and 1920 are incomplete and therefore not aggregated. The moving average
+            always uses ten complete years. In the current detail view, sunshine is summed per week and the highest daily
+            value is used as the weekly maximum. Correlation means association, not causation.</span>
           </p>
           <p>
-            Die CO₂-Ergänzung verwendet instrumentell gemessene Jahresmittel vom Mauna Loa Observatorium. Sie beginnt
-            1959; die Korrelation mit dem Temperatur-Sonne-Quotienten umfasst deshalb 67 gemeinsame Jahre bis 2025.
+            <span data-lang="de">Die CO₂-Ergänzung verwendet instrumentell gemessene Jahresmittel vom Mauna Loa Observatorium. Sie beginnt
+            1959; die Korrelation mit dem Temperatur-Sonne-Quotienten umfasst deshalb 67 gemeinsame Jahre bis 2025.</span>
+            <span data-lang="en">The CO₂ addition uses instrumentally measured annual means from the Mauna Loa Observatory. It begins
+            in 1959; the correlation with the temperature–sunshine ratio therefore covers 67 shared years up to 2025.</span>
           </p>
         </div>
         <div class="source-line">
-          <span>Quellen: GeoSphere Austria, Stationsdaten v2, CC BY 4.0; NOAA Global Monitoring Laboratory</span>
+          <span data-lang="de">Quellen: GeoSphere Austria, Stationsdaten v2, CC BY 4.0; NOAA Global Monitoring Laboratory</span>
+          <span data-lang="en">Sources: GeoSphere Austria (Austria’s national weather and geological service, formerly ZAMG), station data v2, CC BY 4.0; NOAA Global Monitoring Laboratory</span>
           <div class="source-links">
             <a
               href="https://dataset.api.hub.geosphere.at/app/frontend/station/historical/klima-v2-1d"
               target="_blank"
               rel="noreferrer"
-            >GeoSphere öffnen</a>
+            ><span data-lang="de">GeoSphere öffnen</span><span data-lang="en">Open GeoSphere</span></a>
             <a
               href="https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"
               target="_blank"
               rel="noreferrer"
-            >NOAA öffnen</a>
+            ><span data-lang="de">NOAA öffnen</span><span data-lang="en">Open NOAA</span></a>
           </div>
         </div>
       </section>
@@ -380,7 +427,8 @@
 
     <footer class="page-footer">
       <a href="/">BIEST.COM</a>
-      <span>Interaktive Datenarbeit · 2026</span>
+      <span data-lang="de">Interaktive Datenarbeit · 2026</span>
+      <span data-lang="en">Interactive data work · 2026</span>
     </footer>
   </body>
 </html>
