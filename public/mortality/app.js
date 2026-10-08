@@ -1,14 +1,55 @@
 const DATA_URL = "/mortality/data/mortality.json?v=20261004-1";
+const LABELS_EN_URL = "/mortality/data/labels-en.json?v=20261008";
 
-const numberFormat = new Intl.NumberFormat("de-AT");
-const decimalFormat = new Intl.NumberFormat("de-AT", {
+// Language (set by /shared/biest-lang.js; German if it is missing)
+const IS_EN = window.BIEST_LANG === "en";
+const L = (de, en) => (IS_EN && en != null ? en : de);
+const LOCALE = IS_EN ? "en-GB" : "de-AT";
+const PCT = IS_EN ? "%" : " %";
+
+const numberFormat = new Intl.NumberFormat(LOCALE);
+const decimalFormat = new Intl.NumberFormat(LOCALE, {
   minimumFractionDigits: 1,
   maximumFractionDigits: 1,
 });
-const percentFormat = new Intl.NumberFormat("de-AT", {
+const percentFormat = new Intl.NumberFormat(LOCALE, {
   minimumFractionDigits: 1,
   maximumFractionDigits: 1,
 });
+
+// Age-group labels stay German in the data (they are used as keys); translate only for display.
+function ageText(label) {
+  if (!IS_EN || !label) return label;
+  if (label === "Alle Altersgruppen") return "All age groups";
+  if (label === "Unter 1 Jahr") return "Under 1 year";
+  return label
+    .replace(/\s+Jahre und älter$/, " years and over")
+    .replace(/\s+Jahre$/, " years")
+    .replace(/\s+Jahr$/, " year");
+}
+
+function ageShortText(label) {
+  return IS_EN ? ageText(label).replace(" years", "") : label.replace(" Jahre", "");
+}
+
+// Replace German cause names, notes and source labels with the English overlay (falls back to German).
+function applyEnglishLabels(data, overlay) {
+  if (!overlay) return;
+  const entries = Object.values(overlay.causes || {});
+  data.causes.forEach((cause) => {
+    let entry = overlay.causes?.[cause.id];
+    if (!entry || entry.de !== cause.name) entry = entries.find((candidate) => candidate.de === cause.name);
+    if (!entry?.en) return;
+    cause.nameDe = cause.name;
+    cause.name = entry.en;
+    if (entry.icd) cause.icd = entry.icd;
+    cause.label = cause.icd ? `${cause.name} (${cause.icd})` : cause.name;
+  });
+  const sources = overlay.sources || {};
+  data.meta.sources = data.meta.sources.map((source) => ({ ...source, label: sources[source.label] || source.label }));
+  const notes = overlay.notes || [];
+  data.meta.notes = data.meta.notes.map((note) => notes.find((candidate) => candidate.de === note)?.en || note);
+}
 
 const YLL_METRICS = new Set(["yll", "yllRate", "yllAsr"]);
 const ESP_2013_WEIGHTS = [
@@ -99,12 +140,18 @@ function groupForCause(causeId) {
 }
 
 function sexLabel(sex = state.sex) {
-  return { all: "Alle Geschlechter", male: "Männer", female: "Frauen" }[sex];
+  return IS_EN
+    ? { all: "Both sexes", male: "Males", female: "Females" }[sex]
+    : { all: "Alle Geschlechter", male: "Männer", female: "Frauen" }[sex];
 }
 
 function currentAgeLabel() {
   const profile = dataset.ageProfiles[String(state.year)];
   return profile?.ageGroups[state.ageIndex]?.label || "Alle Altersgruppen";
+}
+
+function currentAgeText() {
+  return ageText(currentAgeLabel());
 }
 
 function yearIndex(year) {
@@ -264,7 +311,7 @@ function formatValue(value, metric = state.metric, compact = false) {
   if (value === null || value === undefined || Number.isNaN(value)) return "–";
   if (compact && Math.abs(value) >= 1000) {
     const divisor = Math.abs(value) >= 1_000_000 ? 1_000_000 : 1000;
-    const suffix = divisor === 1_000_000 ? " Mio." : " Tsd.";
+    const suffix = divisor === 1_000_000 ? L(" Mio.", "m") : L(" Tsd.", "k");
     return `${decimalFormat.format(value / divisor)}${suffix}`;
   }
   return (metric === "asr" && state.ageIndex === 0) || isYllRateMetric(metric)
@@ -291,7 +338,7 @@ function niceInterval(value) {
 
 function signedPercent(value) {
   if (value === null || Number.isNaN(value)) return "–";
-  return `${value > 0 ? "+" : ""}${percentFormat.format(value)} %`;
+  return `${value > 0 ? "+" : ""}${percentFormat.format(value)}${PCT}`;
 }
 
 function ageLabelFor(year, ageIndex) {
@@ -313,31 +360,32 @@ function comparisonConfig() {
 
 function comparisonLabel(config = comparisonConfig()) {
   if (!state.compareEnabled) return "";
-  if (state.compareDimension === "cause") return causeById(config.causeId)?.name || "Vergleichsursache";
+  if (state.compareDimension === "cause") return causeById(config.causeId)?.name || L("Vergleichsursache", "Comparison cause");
   if (state.compareDimension === "sex") return sexLabel(config.sex);
-  return ageLabelFor(state.year, config.ageIndex);
+  return ageText(ageLabelFor(state.year, config.ageIndex));
 }
 
 function primaryTrendLabel() {
   const cause = causeById(state.selectedCause);
-  if (state.compareDimension === "cause" && state.compareEnabled) return cause?.name || "Alle Todesursachen";
+  const allCauses = L("Alle Todesursachen", "All causes of death");
+  if (state.compareDimension === "cause" && state.compareEnabled) return cause?.name || allCauses;
   if (state.compareDimension === "sex" && state.compareEnabled) return sexLabel();
-  if (state.compareDimension === "age" && state.compareEnabled) return currentAgeLabel();
-  return cause?.name || "Alle Todesursachen";
+  if (state.compareDimension === "age" && state.compareEnabled) return currentAgeText();
+  return cause?.name || allCauses;
 }
 
 function trendMetricLabel() {
-  if (state.trendMode === "share") return "Anteil an allen Todesfällen";
-  if (state.trendMode === "index") return "Index · erstes verfügbares Jahr = 100";
-  if (state.metric === "yll") return "verlorene Lebensjahre";
-  if (state.metric === "yllRate") return "verlorene Lebensjahre je 100.000";
-  if (state.metric === "yllAsr") return "altersstandardisierte YLL-Rate je 100.000";
-  if (state.metric === "asr" && state.ageIndex === 0) return "Rate je 100.000";
-  return "Fälle";
+  if (state.trendMode === "share") return L("Anteil an allen Todesfällen", "share of all deaths");
+  if (state.trendMode === "index") return L("Index · erstes verfügbares Jahr = 100", "index · first available year = 100");
+  if (state.metric === "yll") return L("verlorene Lebensjahre", "years of life lost");
+  if (state.metric === "yllRate") return L("verlorene Lebensjahre je 100.000", "years of life lost per 100,000");
+  if (state.metric === "yllAsr") return L("altersstandardisierte YLL-Rate je 100.000", "age-standardised YLL rate per 100,000");
+  if (state.metric === "asr" && state.ageIndex === 0) return L("Rate je 100.000", "rate per 100,000");
+  return L("Fälle", "deaths");
 }
 
 function formatTrendValue(value, compact = false) {
-  if (state.trendMode === "share") return `${percentFormat.format(value)} %`;
+  if (state.trendMode === "share") return `${percentFormat.format(value)}${PCT}`;
   if (state.trendMode === "index") return decimalFormat.format(value);
   return formatValue(value, state.metric, compact);
 }
@@ -356,6 +404,8 @@ function updateUrlState() {
     params.set("compare", state.compareDimension);
     params.set("with", state.compareValue);
   }
+  const lang = new URLSearchParams(location.search).get("lang");
+  if (lang) params.set("lang", lang);
   history.replaceState(null, "", `${location.pathname}?${params.toString()}${location.hash}`);
 }
 
@@ -387,7 +437,7 @@ function applyUrlState() {
 }
 
 function selectionDescription() {
-  return `${state.year} · ${sexLabel()} · ${currentAgeLabel()}`;
+  return `${state.year} · ${sexLabel()} · ${currentAgeText()}`;
 }
 
 function renderAgeOptions() {
@@ -398,21 +448,21 @@ function renderAgeOptions() {
 
   if (!profile) {
     state.ageIndex = 0;
-    select.innerHTML = '<option value="0">Alle Altersgruppen</option>';
+    select.innerHTML = `<option value="0">${L("Alle Altersgruppen", "All age groups")}</option>`;
     select.disabled = true;
     badge.classList.add("hidden");
-    help.textContent = "Altersfilter in frei zugänglichen Jahrbüchern ab 2017";
+    help.textContent = L("Altersfilter in frei zugänglichen Jahrbüchern ab 2017", "Age filter available from 2017 in the freely accessible yearbooks");
   } else {
     select.disabled = false;
     select.innerHTML = profile.ageGroups
       .map(
         (group, index) =>
-          `<option value="${index}">${escapeHtml(group.label)}</option>`,
+          `<option value="${index}">${escapeHtml(ageText(group.label))}</option>`,
       )
       .join("");
     select.value = String(state.ageIndex);
     badge.classList.remove("hidden");
-    help.textContent = "Detaillierte Altersdaten für dieses Jahr verfügbar";
+    help.textContent = L("Detaillierte Altersdaten für dieses Jahr verfügbar", "Detailed age data available for this year");
   }
 }
 
@@ -461,17 +511,18 @@ function syncMetricControl() {
     state.compareValue = event.target.value;
     renderAll();
   });
+  const lifeTableYear = isYllMetric() ? dataset.lifeTables[String(state.year)].sourceYear : null;
   $("#metric-help").textContent = isYllMetric()
     ? state.metric === "yllAsr"
-      ? `Direkt standardisiert · ESP 2013 · Sterbetafel ${dataset.lifeTables[String(state.year)].sourceYear}`
+      ? L(`Direkt standardisiert · ESP 2013 · Sterbetafel ${lifeTableYear}`, `Directly standardised · ESP 2013 · life table ${lifeTableYear}`)
       : state.metric === "yllRate"
-        ? `Je 100.000 der mittleren Jahresbevölkerung · Sterbetafel ${dataset.lifeTables[String(state.year)].sourceYear}`
-        : `Näherung mit Altersgruppen · Sterbetafel ${dataset.lifeTables[String(state.year)].sourceYear}`
+        ? L(`Je 100.000 der mittleren Jahresbevölkerung · Sterbetafel ${lifeTableYear}`, `Per 100,000 of the mean annual population · life table ${lifeTableYear}`)
+        : L(`Näherung mit Altersgruppen · Sterbetafel ${lifeTableYear}`, `Approximation using age groups · life table ${lifeTableYear}`)
     : isAgeSpecific
-      ? "Für Altersgruppen werden veröffentlichte Fallzahlen gezeigt"
+      ? L("Für Altersgruppen werden veröffentlichte Fallzahlen gezeigt", "For age groups, published death counts are shown")
       : canCalculateYll
-        ? "Rate je 100.000 oder geschätzte verlorene Lebensjahre"
-        : "Rate je 100.000 · verlorene Jahre ab 2017";
+        ? L("Rate je 100.000 oder geschätzte verlorene Lebensjahre", "Rate per 100,000 or estimated years of life lost")
+        : L("Rate je 100.000 · verlorene Jahre ab 2017", "Rate per 100,000 · years lost from 2017");
 }
 
 function renderCoverageNote() {
@@ -479,17 +530,29 @@ function renderCoverageNote() {
   if (isYllMetric()) {
     const sourceYear = dataset.lifeTables[String(state.year)]?.sourceYear;
     const rateNote = state.metric === "yllAsr"
-      ? " Die Altersraten werden mit der Europäischen Standardbevölkerung 2013 gewichtet."
+      ? L(" Die Altersraten werden mit der Europäischen Standardbevölkerung 2013 gewichtet.", " The age-specific rates are weighted with the 2013 European Standard Population.")
       : state.metric === "yllRate"
-        ? " Der Wert wird auf 100.000 Personen der mittleren Jahresbevölkerung bezogen."
+        ? L(" Der Wert wird auf 100.000 Personen der mittleren Jahresbevölkerung bezogen.", " The value is expressed per 100,000 people of the mean annual population.")
         : "";
-    element.innerHTML = `<strong>Berechnete Kennzahl:</strong> Todesfälle je veröffentlichter Altersgruppe × fernere Lebenserwartung e(x) am Mittelpunkt der Altersgruppe. Sterbetafel ${sourceYear}; deshalb ist das Ergebnis eine belastbare Näherung, keine personenbezogene Messung.${rateNote}`;
+    element.innerHTML = L(
+      `<strong>Berechnete Kennzahl:</strong> Todesfälle je veröffentlichter Altersgruppe × fernere Lebenserwartung e(x) am Mittelpunkt der Altersgruppe. Sterbetafel ${sourceYear}; deshalb ist das Ergebnis eine belastbare Näherung, keine personenbezogene Messung.${rateNote}`,
+      `<strong>Calculated measure:</strong> deaths per published age group × remaining life expectancy e(x) at the midpoint of the age group. Life table ${sourceYear}; the result is therefore a robust approximation, not an individual-level measurement.${rateNote}`,
+    );
   } else if (state.ageIndex > 0) {
-    element.innerHTML = `<strong>Detailansicht:</strong> Für ${state.year} stehen Alter und Geschlecht gemeinsam zur Verfügung. Im Zeitverlauf erscheinen nur Jahre mit exakt derselben veröffentlichten Altersgruppe.`;
+    element.innerHTML = L(
+      `<strong>Detailansicht:</strong> Für ${state.year} stehen Alter und Geschlecht gemeinsam zur Verfügung. Im Zeitverlauf erscheinen nur Jahre mit exakt derselben veröffentlichten Altersgruppe.`,
+      `<strong>Detailed view:</strong> for ${state.year}, age and sex are available together. The time series only shows years with exactly the same published age group.`,
+    );
   } else if (hasAgeProfile()) {
-    element.innerHTML = `<strong>Vollständige Auswahl:</strong> ${state.year} enthält sowohl die nationale Zeitreihe als auch die veröffentlichte Jahrbuchgliederung nach Alter und Geschlecht.`;
+    element.innerHTML = L(
+      `<strong>Vollständige Auswahl:</strong> ${state.year} enthält sowohl die nationale Zeitreihe als auch die veröffentlichte Jahrbuchgliederung nach Alter und Geschlecht.`,
+      `<strong>Complete selection:</strong> ${state.year} includes both the national time series and the published yearbook breakdown by age and sex.`,
+    );
   } else {
-    element.innerHTML = `<strong>Zeitreihenansicht:</strong> Für ${state.year} veröffentlicht die verwendete nationale ODS-Reihe Ursache und Geschlecht. Der Altersfilter ist deshalb auf „Alle Altersgruppen“ begrenzt.`;
+    element.innerHTML = L(
+      `<strong>Zeitreihenansicht:</strong> Für ${state.year} veröffentlicht die verwendete nationale ODS-Reihe Ursache und Geschlecht. Der Altersfilter ist deshalb auf „Alle Altersgruppen“ begrenzt.`,
+      `<strong>Time-series view:</strong> for ${state.year}, the national ODS series used here publishes cause and sex. The age filter is therefore limited to “All age groups”.`,
+    );
   }
 }
 
@@ -527,51 +590,51 @@ function renderKpis() {
 
   $("#total-kpi-label").textContent =
     isAllGroups && isYll
-      ? isYllRate ? "YLL-Rate – alle Ursachen" : "Verlorene Lebensjahre – alle Ursachen"
+      ? isYllRate ? L("YLL-Rate – alle Ursachen", "YLL rate – all causes") : L("Verlorene Lebensjahre – alle Ursachen", "Years of life lost – all causes")
       : isAllGroups
-        ? "Todesfälle – alle Ursachen"
+        ? L("Todesfälle – alle Ursachen", "Deaths – all causes")
         : isYll
-      ? isYllRate ? "YLL-Rate der ausgewählten Ursache" : "Geschätzte verlorene Lebensjahre"
+      ? isYllRate ? L("YLL-Rate der ausgewählten Ursache", "YLL rate of the selected cause") : L("Geschätzte verlorene Lebensjahre", "Estimated years of life lost")
       : state.metric === "asr" && state.ageIndex === 0
-      ? "Rate der ausgewählten Ursache"
-      : "Todesfälle der ausgewählten Ursache";
+      ? L("Rate der ausgewählten Ursache", "Rate of the selected cause")
+      : L("Todesfälle der ausgewählten Ursache", "Deaths from the selected cause");
   $("#total-kpi").textContent = formatValue(selectedValue);
   $("#total-kpi-note").textContent =
     isYll
-      ? `${selectionDescription()} · ${state.metric === "yll" ? "Summe" : state.metric === "yllAsr" ? "altersstandardisiert je 100.000" : "je 100.000"} · Sterbetafel ${dataset.lifeTables[String(state.year)].sourceYear}`
+      ? `${selectionDescription()} · ${state.metric === "yll" ? L("Summe", "total") : state.metric === "yllAsr" ? L("altersstandardisiert je 100.000", "age-standardised per 100,000") : L("je 100.000", "per 100,000")} · ${L("Sterbetafel", "life table")} ${dataset.lifeTables[String(state.year)].sourceYear}`
       : state.metric === "asr" && state.ageIndex === 0
-      ? `${selectionDescription()} · je 100.000`
+      ? `${selectionDescription()} · ${L("je 100.000", "per 100,000")}`
       : selectionDescription();
 
   $("#top-cause-label").textContent = isAllGroups
     ? isYll
-      ? isYllRate ? "Höchste YLL-Rate" : "Meiste verlorene Lebensjahre"
-      : "Häufigste Hauptgruppe"
-    : "Ausgewählte Todesursache";
+      ? isYllRate ? L("Höchste YLL-Rate", "Highest YLL rate") : L("Meiste verlorene Lebensjahre", "Most years of life lost")
+      : L("Häufigste Hauptgruppe", "Leading main group")
+    : L("Ausgewählte Todesursache", "Selected cause of death");
   $("#top-cause-kpi").textContent = isAllGroups
     ? leadingGroup?.name || "–"
     : selected?.name || "–";
   $("#top-cause-note").textContent = isAllGroups && leadingGroup
-    ? `${formatValue(leadingGroup.value)} ${isYllRate ? "YLL je 100.000" : isYll ? "verlorene Jahre" : state.metric === "asr" ? "je 100.000" : "Fälle"}`
+    ? `${formatValue(leadingGroup.value)} ${isYllRate ? L("YLL je 100.000", "YLL per 100,000") : isYll ? L("verlorene Jahre", "years lost") : state.metric === "asr" ? L("je 100.000", "per 100,000") : L("Fälle", "deaths")}`
     : selected
-      ? `${selected.icd || "ohne ICD-Code"} · ${selected.isBroad ? "Hauptgruppe" : "Untergruppe"}`
+      ? `${selected.icd || L("ohne ICD-Code", "no ICD code")} · ${selected.isBroad ? L("Hauptgruppe", "main group") : L("Untergruppe", "subgroup")}`
     : "–";
   const shareValue = isAllGroups ? leadingGroup?.value || 0 : selectedValue;
   $("#top-share-kpi").textContent = selected || leadingGroup
-    ? `${percentFormat.format(percent(shareValue, allDeaths))} %`
+    ? `${percentFormat.format(percent(shareValue, allDeaths))}${PCT}`
     : "–";
   $(".kpi-card:nth-child(3) > span").textContent =
     isYll
-      ? state.metric === "yllAsr" ? "Relation zur gesamten YLL-Rate" : "Anteil an allen verlorenen Lebensjahren"
+      ? state.metric === "yllAsr" ? L("Relation zur gesamten YLL-Rate", "Ratio to the total YLL rate") : L("Anteil an allen verlorenen Lebensjahren", "Share of all years of life lost")
       : state.metric === "asr" && state.ageIndex === 0
-      ? "Relation zur Gesamt-Rate"
-      : "Anteil an allen Todesfällen";
+      ? L("Relation zur Gesamt-Rate", "Ratio to the total rate")
+      : L("Anteil an allen Todesfällen", "Share of all deaths");
   $(".kpi-card:nth-child(3) > small").textContent =
     isYll
-      ? state.metric === "yllAsr" ? "rechnerisches Verhältnis standardisierter YLL-Raten" : "an der geschätzten Summe aller Todesursachen"
+      ? state.metric === "yllAsr" ? L("rechnerisches Verhältnis standardisierter YLL-Raten", "arithmetic ratio of standardised YLL rates") : L("an der geschätzten Summe aller Todesursachen", "of the estimated total for all causes of death")
       : state.metric === "asr" && state.ageIndex === 0
-      ? "rechnerisches Verhältnis standardisierter Raten"
-      : "an allen Todesfällen der Auswahl";
+      ? L("rechnerisches Verhältnis standardisierter Raten", "arithmetic ratio of standardised rates")
+      : L("an allen Todesfällen der Auswahl", "of all deaths in the selection");
 
   let previousYear = state.year - 1;
   let previousAgeIndex = state.ageIndex;
@@ -585,18 +648,19 @@ function renderKpis() {
   if (previousValue === null) previousYear = null;
   const change = changePercent(selectedValue, previousValue);
   $("#change-kpi-label").textContent = previousYear
-    ? `Veränderung zu ${previousYear}`
-    : "Vorjahresvergleich";
+    ? L(`Veränderung zu ${previousYear}`, `Change vs. ${previousYear}`)
+    : L("Vorjahresvergleich", "Year-on-year change");
   $("#change-kpi").textContent =
-    change === null ? "–" : `${change > 0 ? "+" : ""}${percentFormat.format(change)} %`;
+    change === null ? "–" : `${change > 0 ? "+" : ""}${percentFormat.format(change)}${PCT}`;
   $("#change-kpi").style.color = change > 0 ? "var(--red-dark)" : change < 0 ? "var(--green)" : "";
-  $("#change-kpi-note").textContent = `${isAllGroups ? "Alle Todesursachen" : selected?.name || "Ausgewählte Ursache"} · ${sexLabel()} · ${currentAgeLabel()}`;
+  const kpiCauseName = isAllGroups ? L("Alle Todesursachen", "All causes of death") : selected?.name || L("Ausgewählte Ursache", "Selected cause");
+  $("#change-kpi-note").textContent = `${kpiCauseName} · ${sexLabel()} · ${currentAgeText()}`;
   $(".kpi-grid").classList.toggle("yll-mode", isYll);
   $("#yll-average-card").classList.toggle("hidden", !isYll);
   $("#yll-average-kpi").textContent = averageYll === null
     ? "–"
-    : `${decimalFormat.format(averageYll)} Jahre`;
-  $("#yll-average-note").textContent = `${isAllGroups ? "Alle Todesursachen" : selected?.name || "Ausgewählte Ursache"} · ${sexLabel()} · ${currentAgeLabel()}`;
+    : `${decimalFormat.format(averageYll)} ${L("Jahre", "years")}`;
+  $("#yll-average-note").textContent = `${kpiCauseName} · ${sexLabel()} · ${currentAgeText()}`;
 }
 
 function renderRanking() {
@@ -605,15 +669,15 @@ function renderRanking() {
   const chart = $("#ranking-chart");
   $("#ranking-subtitle").textContent = `${selectionDescription()} · ${
     state.metric === "yll"
-      ? "geschätzte verlorene Lebensjahre"
+      ? L("geschätzte verlorene Lebensjahre", "estimated years of life lost")
       : state.metric === "yllRate"
-        ? "verlorene Lebensjahre je 100.000"
+        ? L("verlorene Lebensjahre je 100.000", "years of life lost per 100,000")
         : state.metric === "yllAsr"
-          ? "altersstandardisierte YLL-Rate je 100.000"
+          ? L("altersstandardisierte YLL-Rate je 100.000", "age-standardised YLL rate per 100,000")
       : state.metric === "asr" && state.ageIndex === 0
-      ? "altersstandardisierte Rate"
-      : "absolute Fälle"
-  } · ${state.level === "broad" || state.selectedGroup === "all" ? "alle Hauptgruppen" : selectedGroup()?.name || "Untergruppen"}`;
+      ? L("altersstandardisierte Rate", "age-standardised rate")
+      : L("absolute Fälle", "absolute deaths")
+  } · ${state.level === "broad" || state.selectedGroup === "all" ? L("alle Hauptgruppen", "all main groups") : selectedGroup()?.name || L("Untergruppen", "subgroups")}`;
 
   chart.innerHTML = ranking
     .map(
@@ -638,8 +702,11 @@ function renderRanking() {
 
   $("#ranking-footnote").textContent =
     state.level === "broad" || state.selectedGroup === "all"
-      ? "Alle Hauptgruppen im direkten Vergleich. Ein Klick übernimmt die Gruppe in die Auswahl oben."
-      : `Untergruppen von ${selectedGroup()?.name || "der gewählten Hauptgruppe"}. Sie sind Teilmengen der Hauptgruppe und dürfen nicht ungeprüft addiert werden.`;
+      ? L("Alle Hauptgruppen im direkten Vergleich. Ein Klick übernimmt die Gruppe in die Auswahl oben.", "All main groups side by side. Click a group to apply it to the selection above.")
+      : L(
+        `Untergruppen von ${selectedGroup()?.name || "der gewählten Hauptgruppe"}. Sie sind Teilmengen der Hauptgruppe und dürfen nicht ungeprüft addiert werden.`,
+        `Subgroups of ${selectedGroup()?.name || "the selected main group"}. They are subsets of the main group and must not be added up without checking.`,
+      );
 }
 
 function makeTrendPointsFor(config = {
@@ -714,10 +781,10 @@ function renderTrend() {
   $("#trend-selection").innerHTML = cause
     ? `<strong>${escapeHtml(cause.name)}</strong><small>${escapeHtml(cause.icd || "")}${state.compareEnabled ? ` · vs. ${escapeHtml(comparisonLabel(compareConfig))}` : ""}</small>`
     : "–";
-  $("#trend-subtitle").textContent = `${cause?.name || "Alle Todesursachen"} · ${sexLabel()} · ${currentAgeLabel()} · ${trendMetricLabel()}`;
+  $("#trend-subtitle").textContent = `${cause?.name || L("Alle Todesursachen", "All causes of death")} · ${sexLabel()} · ${currentAgeText()} · ${trendMetricLabel()}`;
 
   if (!points.length || !cause) {
-    chart.innerHTML = '<div class="chart-empty">Für diese Auswahl sind keine Werte verfügbar.</div>';
+    chart.innerHTML = `<div class="chart-empty">${L("Für diese Auswahl sind keine Werte verfügbar.", "No values are available for this selection.")}</div>`;
     return;
   }
 
@@ -766,10 +833,13 @@ function renderTrend() {
   if (state.compareEnabled) {
     $("#trend-compare-legend b").textContent = comparisonLabel(compareConfig);
   }
-  $("#trend-footnote").textContent = `Jedes Jahr ist mit Maus, Tastatur oder Klick auswählbar. Die Y-Achse ist auf ${formatTrendValue(yMin)} bis ${formatTrendValue(yMax)} verdichtet und beginnt${yMin === 0 ? "" : " nicht"} bei null.`;
+  $("#trend-footnote").textContent = L(
+    `Jedes Jahr ist mit Maus, Tastatur oder Klick auswählbar. Die Y-Achse ist auf ${formatTrendValue(yMin)} bis ${formatTrendValue(yMax)} verdichtet und beginnt${yMin === 0 ? "" : " nicht"} bei null.`,
+    `Every year can be selected by mouse, keyboard or click. The y-axis is condensed to ${formatTrendValue(yMin)} to ${formatTrendValue(yMax)} and ${yMin === 0 ? "starts" : "does not start"} at zero.`,
+  );
 
   chart.innerHTML = `
-    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Zeitverlauf ${escapeHtml(cause.name)} von ${minYear} bis ${maxYear}">
+    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${L(`Zeitverlauf ${escapeHtml(cause.name)} von ${minYear} bis ${maxYear}`, `Trend for ${escapeHtml(cause.name)} from ${minYear} to ${maxYear}`)}">
       <defs>
         <linearGradient id="area-gradient" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stop-color="#d62f2f" stop-opacity="0.18" />
@@ -797,7 +867,7 @@ function renderTrend() {
       <line class="chart-selected" x1="${selectedX}" x2="${selectedX}" y1="${margin.top}" y2="${margin.top + innerHeight}" />
       <circle class="trend-primary-selected" cx="${selectedX}" cy="${selectedY}" r="5" fill="#171715" stroke="#fffefa" stroke-width="2" />
       ${comparisonSelected ? `<circle cx="${selectedX}" cy="${y(comparisonSelected.value)}" r="5" class="chart-compare-selected trend-comparison-selected" />` : ""}
-      ${hitYears.map((year) => `<rect class="trend-hit-target" data-trend-year="${year}" x="${x(year) - hitWidth / 2}" y="${margin.top}" width="${hitWidth}" height="${innerHeight}" role="button" tabindex="0" aria-label="${year} auswählen" />`).join("")}
+      ${hitYears.map((year) => `<rect class="trend-hit-target" data-trend-year="${year}" x="${x(year) - hitWidth / 2}" y="${margin.top}" width="${hitWidth}" height="${innerHeight}" role="button" tabindex="0" aria-label="${L(`${year} auswählen`, `Select ${year}`)}" />`).join("")}
     </svg>`;
 
   const adoptYear = (year) => {
@@ -878,7 +948,7 @@ function renderCauseControls() {
   const detailSelect = $("#cause-detail-select");
 
   groupSelect.innerHTML = `
-    <option value="all">Keine Auswahl – alle Hauptgruppen</option>
+    <option value="all">${L("Keine Auswahl – alle Hauptgruppen", "No selection – all main groups")}</option>
     ${groups
       .map(
         (item) =>
@@ -889,10 +959,10 @@ function renderCauseControls() {
 
   if (!group) {
     state.selectedCause = "all";
-    detailSelect.innerHTML = '<option value="all">Alle Hauptgruppen im Vergleich</option>';
+    detailSelect.innerHTML = `<option value="all">${L("Alle Hauptgruppen im Vergleich", "All main groups compared")}</option>`;
     detailSelect.value = "all";
     detailSelect.disabled = true;
-    $("#cause-detail-help").textContent = "Wähle eine Hauptgruppe für ihre Untergruppen";
+    $("#cause-detail-help").textContent = L("Wähle eine Hauptgruppe für ihre Untergruppen", "Choose a main group to see its subgroups");
     return;
   }
 
@@ -900,7 +970,7 @@ function renderCauseControls() {
   if (!validCauseIds.has(state.selectedCause)) state.selectedCause = group.id;
 
   detailSelect.innerHTML = `
-    <option value="${group.id}">Gesamte Hauptgruppe</option>
+    <option value="${group.id}">${L("Gesamte Hauptgruppe", "Entire main group")}</option>
     ${group.children
       .map(
         (cause) =>
@@ -910,8 +980,8 @@ function renderCauseControls() {
   detailSelect.value = state.selectedCause;
   detailSelect.disabled = group.children.length === 0;
   $("#cause-detail-help").textContent = group.children.length
-    ? `${group.children.length} veröffentlichte Untergruppen verfügbar`
-    : "Keine eigene Untergruppe veröffentlicht";
+    ? L(`${group.children.length} veröffentlichte Untergruppen verfügbar`, `${group.children.length} published ${group.children.length === 1 ? "subgroup" : "subgroups"} available`)
+    : L("Keine eigene Untergruppe veröffentlicht", "No separate subgroup published");
 }
 
 function renderComparisonControls() {
@@ -927,19 +997,19 @@ function renderComparisonControls() {
   dimension.querySelector('option[value="age"]').disabled = !profile || state.metric === "asr";
   dimension.value = state.compareDimension;
   toggle.setAttribute("aria-pressed", String(state.compareEnabled));
-  toggle.textContent = state.compareEnabled ? "Vergleich entfernen" : "Vergleich hinzufügen";
+  toggle.textContent = state.compareEnabled ? L("Vergleich entfernen", "Remove comparison") : L("Vergleich hinzufügen", "Add comparison");
   controls.classList.toggle("hidden", !state.compareEnabled);
 
   let options = [];
   if (state.compareDimension === "sex") {
     options = [
-      { value: "all", label: "Alle Geschlechter" },
-      { value: "male", label: "Männer" },
-      { value: "female", label: "Frauen" },
+      { value: "all", label: sexLabel("all") },
+      { value: "male", label: sexLabel("male") },
+      { value: "female", label: sexLabel("female") },
     ].filter((option) => option.value !== state.sex);
   } else if (state.compareDimension === "age") {
     options = (profile?.ageGroups || [])
-      .map((group, index) => ({ value: String(index), label: group.label }))
+      .map((group, index) => ({ value: String(index), label: ageText(group.label) }))
       .filter((option) => Number(option.value) !== state.ageIndex);
   } else {
     const broad = causeGroups()
@@ -950,7 +1020,7 @@ function renderComparisonControls() {
       .filter((cause) => cause.id !== state.selectedCause)
       .map((cause) => ({
         value: cause.id,
-        label: `${cause.isBroad ? "Hauptgruppe · " : ""}${cause.name}`,
+        label: `${cause.isBroad ? L("Hauptgruppe · ", "Main group · ") : ""}${cause.name}`,
       }));
   }
 
@@ -978,13 +1048,11 @@ function weeklyValue(point) {
 }
 
 function weeklySelectionLabel() {
-  const sex = { all: "Alle Geschlechter", male: "Männer", female: "Frauen" }[
-    state.weeklySex
-  ];
+  const sex = sexLabel(state.weeklySex);
   const age = { total: "Alle Altersgruppen", under65: "0–64 Jahre", over65: "65 Jahre und älter" }[
     state.weeklyAge
   ];
-  return `${sex} · ${age}`;
+  return `${sex} · ${ageText(age)}`;
 }
 
 function renderWeekly() {
@@ -1004,7 +1072,7 @@ function renderWeekly() {
   );
   const chart = $("#weekly-chart");
   if (!points.length) {
-    chart.innerHTML = '<div class="chart-empty">Für dieses Jahr sind keine Wochenwerte verfügbar.</div>';
+    chart.innerHTML = `<div class="chart-empty">${L("Für dieses Jahr sind keine Wochenwerte verfügbar.", "No weekly values are available for this year.")}</div>`;
     return;
   }
 
@@ -1021,19 +1089,20 @@ function renderWeekly() {
     ? changePercent(latest.value, weeklyValue(previous))
     : null;
 
-  $("#weekly-latest-label").textContent = `KW ${latest.week} · ${state.weeklyYear}`;
+  const WK = L("KW", "Week");
+  $("#weekly-latest-label").textContent = `${WK} ${latest.week} · ${state.weeklyYear}`;
   $("#weekly-latest").textContent = formatValue(latest.value, "absolute");
   $("#weekly-change").textContent = weeklyChange === null
     ? "–"
-    : `${weeklyChange > 0 ? "+" : ""}${percentFormat.format(weeklyChange)} %`;
+    : `${weeklyChange > 0 ? "+" : ""}${percentFormat.format(weeklyChange)}${PCT}`;
   $("#weekly-change").style.color = weeklyChange > 0
     ? "var(--red-dark)"
     : weeklyChange < 0
       ? "var(--green)"
       : "";
   $("#weekly-average").textContent = formatValue(average, "absolute");
-  $("#weekly-maximum").textContent = `${formatValue(maximum.value, "absolute")} · KW ${maximum.week}`;
-  $("#weekly-subtitle").textContent = `${weeklySelectionLabel()} · ${state.weeklyYear}${latest.provisional ? " · vorläufig" : " · endgültig"}`;
+  $("#weekly-maximum").textContent = `${formatValue(maximum.value, "absolute")} · ${WK} ${maximum.week}`;
+  $("#weekly-subtitle").textContent = `${weeklySelectionLabel()} · ${state.weeklyYear}${latest.provisional ? L(" · vorläufig", " · provisional") : L(" · endgültig", " · final")}`;
 
   const width = 1280;
   const height = 300;
@@ -1059,7 +1128,7 @@ function renderWeekly() {
   );
 
   chart.innerHTML = `
-    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Wöchentliche Sterbefälle ${state.weeklyYear}">
+    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${L("Wöchentliche Sterbefälle", "Weekly deaths")} ${state.weeklyYear}">
       <defs>
         <linearGradient id="weekly-area-gradient" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stop-color="#d62f2f" stop-opacity="0.16" />
@@ -1071,13 +1140,13 @@ function renderWeekly() {
         <text class="chart-axis-label" x="${margin.left - 10}" y="${tick.position + 3}" text-anchor="end">${escapeHtml(formatValue(tick.value, "absolute", true))}</text>
       `).join("")}
       ${weekTicks.map((week) => `
-        <text class="chart-axis-label" x="${x(week)}" y="${height - 12}" text-anchor="middle">KW ${week}</text>
+        <text class="chart-axis-label" x="${x(week)}" y="${height - 12}" text-anchor="middle">${WK} ${week}</text>
       `).join("")}
       <path class="weekly-area" d="${areaPath}" />
       <path class="chart-line" d="${linePath}" />
       ${values.filter((_, index) => index % 4 === 0 || index === values.length - 1).map((point) => `
         <circle class="chart-point" cx="${x(point.week)}" cy="${y(point.value)}" r="3">
-          <title>KW ${point.week}: ${escapeHtml(formatValue(point.value, "absolute"))}</title>
+          <title>${WK} ${point.week}: ${escapeHtml(formatValue(point.value, "absolute"))}</title>
         </circle>
       `).join("")}
       <circle cx="${x(latest.week)}" cy="${y(latest.value)}" r="5" fill="#171715" stroke="#fffefa" stroke-width="2" />
@@ -1107,7 +1176,7 @@ function rawTrendPointsForInsight() {
 
 function renderInsight() {
   const cause = causeById(state.selectedCause);
-  const name = state.selectedCause === "all" ? "Alle Todesursachen" : cause?.name || "Die Auswahl";
+  const name = state.selectedCause === "all" ? L("Alle Todesursachen", "All causes of death") : cause?.name || L("Die Auswahl", "The selection");
   const current = getValue(state.selectedCause) || 0;
   const total = getValue("all") || 0;
   const points = rawTrendPointsForInsight();
@@ -1116,28 +1185,51 @@ function renderInsight() {
   const previousChange = changePercent(current, previous?.value);
   const longChange = first && first.year !== state.year ? changePercent(current, first.value) : null;
   const previousSentence = previous
-    ? `Gegenüber ${previous.year} entspricht das einer Veränderung von ${signedPercent(previousChange)}.`
-    : "Ein direkter Vorjahresvergleich ist für diese Auswahl nicht verfügbar.";
+    ? L(
+      `Gegenüber ${previous.year} entspricht das einer Veränderung von ${signedPercent(previousChange)}.`,
+      `Compared with ${previous.year}, this represents a change of ${signedPercent(previousChange)}.`,
+    )
+    : L("Ein direkter Vorjahresvergleich ist für diese Auswahl nicht verfügbar.", "A direct year-on-year comparison is not available for this selection.");
   const longSentence = longChange === null
     ? ""
-    : `Seit ${first.year} beträgt die Veränderung ${signedPercent(longChange)}.`;
+    : L(`Seit ${first.year} beträgt die Veränderung ${signedPercent(longChange)}.`, `Since ${first.year}, the change amounts to ${signedPercent(longChange)}.`);
+  const lowerFirst = (text) => (IS_EN ? text.charAt(0).toLowerCase() + text.slice(1) : text);
+  const sharePercent = `${percentFormat.format(percent(current, total))}${PCT}`;
 
   let opening;
   if (isYllMetric()) {
-    const yllName = state.selectedCause === "all" ? "alle Todesursachen" : name;
+    const yllName = state.selectedCause === "all" ? L("alle Todesursachen", "all causes of death") : name;
     if (state.metric === "yllAsr") {
-      opening = `Für ${yllName} ergibt sich ${state.year} eine altersstandardisierte YLL-Rate von ${decimalFormat.format(current)} verlorenen Jahren je 100.000 Personen.`;
+      opening = L(
+        `Für ${yllName} ergibt sich ${state.year} eine altersstandardisierte YLL-Rate von ${decimalFormat.format(current)} verlorenen Jahren je 100.000 Personen.`,
+        `For ${yllName}, the age-standardised YLL rate in ${state.year} is ${decimalFormat.format(current)} years lost per 100,000 people.`,
+      );
     } else if (state.metric === "yllRate") {
-      opening = `Für ${yllName} ergeben sich ${state.year} ${decimalFormat.format(current)} verlorene Lebensjahre je 100.000 Personen.`;
+      opening = L(
+        `Für ${yllName} ergeben sich ${state.year} ${decimalFormat.format(current)} verlorene Lebensjahre je 100.000 Personen.`,
+        `For ${yllName}, ${decimalFormat.format(current)} years of life were lost per 100,000 people in ${state.year}.`,
+      );
     } else {
-      opening = `Für ${yllName} ergeben sich im Jahr ${state.year} schätzungsweise ${formatValue(current)} verlorene Lebensjahre${state.selectedCause === "all" ? "." : ` – ${percentFormat.format(percent(current, total))} % der geschätzten Summe.`}`;
+      opening = L(
+        `Für ${yllName} ergeben sich im Jahr ${state.year} schätzungsweise ${formatValue(current)} verlorene Lebensjahre${state.selectedCause === "all" ? "." : ` – ${sharePercent} der geschätzten Summe.`}`,
+        `For ${yllName}, an estimated ${formatValue(current)} years of life were lost in ${state.year}${state.selectedCause === "all" ? "." : ` – ${sharePercent} of the estimated total.`}`,
+      );
     }
   } else if (state.metric === "asr" && state.ageIndex === 0) {
-    opening = `${name} erreicht ${state.year} eine altersstandardisierte Rate von ${decimalFormat.format(current)} je 100.000 Einwohner:innen.`;
+    opening = L(
+      `${name} erreicht ${state.year} eine altersstandardisierte Rate von ${decimalFormat.format(current)} je 100.000 Einwohner:innen.`,
+      `${name} reached an age-standardised rate of ${decimalFormat.format(current)} per 100,000 population in ${state.year}.`,
+    );
   } else {
     opening = state.selectedCause === "all"
-      ? `Im Jahr ${state.year} wurden für ${sexLabel()} und ${currentAgeLabel()} insgesamt ${formatValue(current)} Todesfälle registriert.`
-      : `${name} umfasst ${state.year} ${formatValue(current)} Todesfälle – ${percentFormat.format(percent(current, total))} % aller Todesfälle dieser Auswahl.`;
+      ? L(
+        `Im Jahr ${state.year} wurden für ${sexLabel()} und ${currentAgeLabel()} insgesamt ${formatValue(current)} Todesfälle registriert.`,
+        `In ${state.year}, a total of ${formatValue(current)} deaths were registered for ${lowerFirst(sexLabel())} and ${lowerFirst(currentAgeText())}.`,
+      )
+      : L(
+        `${name} umfasst ${state.year} ${formatValue(current)} Todesfälle – ${sharePercent} aller Todesfälle dieser Auswahl.`,
+        `${name} accounted for ${formatValue(current)} deaths in ${state.year} – ${sharePercent} of all deaths in this selection.`,
+      );
   }
   $("#dynamic-insight").textContent = `${opening} ${previousSentence} ${longSentence}`.trim();
 }
@@ -1147,8 +1239,8 @@ function renderAgeProfile() {
   const profile = dataset.ageProfiles[String(state.year)];
   const cause = causeById(state.selectedCause);
   if (!profile) {
-    chart.innerHTML = `<div class="chart-empty">Für ${state.year} ist kein gemeinsames Alters- und Geschlechtsprofil veröffentlicht.</div>`;
-    $("#age-profile-subtitle").textContent = "Verfügbar für die Jahrgänge 2017–2025";
+    chart.innerHTML = `<div class="chart-empty">${L(`Für ${state.year} ist kein gemeinsames Alters- und Geschlechtsprofil veröffentlicht.`, `No combined age and sex profile has been published for ${state.year}.`)}</div>`;
+    $("#age-profile-subtitle").textContent = L("Verfügbar für die Jahrgänge 2017–2025", "Available for the years 2017–2025");
     return;
   }
 
@@ -1163,13 +1255,13 @@ function renderAgeProfile() {
     };
   });
   const maximum = Math.max(1, ...rows.flatMap((row) => [row.male, row.female]));
-  $("#age-profile-subtitle").textContent = `${cause?.name || "Alle Todesursachen"} · ${state.year} · ${metric === "yll" ? "verlorene Lebensjahre" : "Todesfälle"}`;
+  $("#age-profile-subtitle").textContent = `${cause?.name || L("Alle Todesursachen", "All causes of death")} · ${state.year} · ${metric === "yll" ? L("verlorene Lebensjahre", "years of life lost") : L("Todesfälle", "deaths")}`;
   chart.innerHTML = `
-    <div class="age-profile-axis" aria-hidden="true"><span>Männer</span><span>Alter</span><span>Frauen</span></div>
+    <div class="age-profile-axis" aria-hidden="true"><span>${sexLabel("male")}</span><span>${L("Alter", "Age")}</span><span>${sexLabel("female")}</span></div>
     ${rows.map((row) => `
-      <button class="age-profile-row ${row.ageIndex === state.ageIndex ? "selected" : ""}" type="button" data-age-index="${row.ageIndex}" aria-label="${escapeHtml(row.label)} auswählen">
+      <button class="age-profile-row ${row.ageIndex === state.ageIndex ? "selected" : ""}" type="button" data-age-index="${row.ageIndex}" aria-label="${L(`${escapeHtml(row.label)} auswählen`, `Select ${escapeHtml(ageText(row.label))}`)}">
         <span class="age-side male-side"><b>${escapeHtml(formatValue(row.male, metric, true))}</b><i style="--bar-size:${(row.male / maximum) * 100}%"></i></span>
-        <strong>${escapeHtml(row.label.replace(" Jahre", ""))}</strong>
+        <strong>${escapeHtml(ageShortText(row.label))}</strong>
         <span class="age-side female-side"><i style="--bar-size:${(row.female / maximum) * 100}%"></i><b>${escapeHtml(formatValue(row.female, metric, true))}</b></span>
       </button>
     `).join("")}`;
@@ -1214,7 +1306,7 @@ function renderComposition() {
   }));
   layers.push({
     id: "remainder",
-    label: "Übrige Hauptgruppen",
+    label: L("Übrige Hauptgruppen", "Other main groups"),
     className: "composition-remainder",
     values: years.map((_, yearIndex) => Math.max(0, 100 - layers.reduce((sum, layer) => sum + layer.values[yearIndex], 0))),
   });
@@ -1240,10 +1332,10 @@ function renderComposition() {
   }).join("");
   const xTicks = [1970, 1980, 1990, 2000, 2010, 2020, years.at(-1)];
   chart.innerHTML = `
-    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Anteile der Todesursachen-Hauptgruppen von ${years[0]} bis ${years.at(-1)}">
+    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${L(`Anteile der Todesursachen-Hauptgruppen von ${years[0]} bis ${years.at(-1)}`, `Shares of the main cause-of-death groups from ${years[0]} to ${years.at(-1)}`)}">
       ${[0, 25, 50, 75, 100].map((tick) => `
         <line class="chart-grid" x1="${margin.left}" x2="${width - margin.right}" y1="${y(tick)}" y2="${y(tick)}" />
-        <text class="chart-axis-label" x="${margin.left - 9}" y="${y(tick) + 3}" text-anchor="end">${tick} %</text>
+        <text class="chart-axis-label" x="${margin.left - 9}" y="${y(tick) + 3}" text-anchor="end">${tick}${PCT}</text>
       `).join("")}
       ${paths}
       ${xTicks.map((year) => `<text class="chart-axis-label" x="${x(year)}" y="${height - 12}" text-anchor="middle">${year}</text>`).join("")}
@@ -1251,19 +1343,22 @@ function renderComposition() {
     </svg>`;
   const selectedYearIndex = yearIndex(state.year);
   legend.innerHTML = layers.map((layer) => `
-    <span><i class="${layer.className}"></i><b>${escapeHtml(layer.label)}</b><small>${percentFormat.format(layer.values[selectedYearIndex])} %</small></span>
+    <span><i class="${layer.className}"></i><b>${escapeHtml(layer.label)}</b><small>${percentFormat.format(layer.values[selectedYearIndex])}${PCT}</small></span>
   `).join("");
-  $("#composition-subtitle").textContent = `${sexLabel()} · alle Altersgruppen · ${state.year} markiert`;
+  $("#composition-subtitle").textContent = L(
+    `${sexLabel()} · alle Altersgruppen · ${state.year} markiert`,
+    `${sexLabel()} · all age groups · ${state.year} highlighted`,
+  );
 }
 
 function renderStickySelection() {
   const cause = causeById(state.selectedCause);
-  $("#sticky-selection-text").textContent = `${state.year} · ${sexLabel()} · ${currentAgeLabel()} · ${cause?.name || "Alle Todesursachen"} · ${trendMetricLabel()}`;
+  $("#sticky-selection-text").textContent = `${state.year} · ${sexLabel()} · ${currentAgeText()} · ${cause?.name || L("Alle Todesursachen", "All causes of death")} · ${trendMetricLabel()}`;
 }
 
 function renderTable() {
   const total = getValue("all") || 0;
-  const search = state.search.trim().toLocaleLowerCase("de-AT");
+  const search = state.search.trim().toLocaleLowerCase(LOCALE);
   const group = selectedGroup();
   const groupCauseIds = group
     ? new Set([group.id, ...group.children.map((cause) => cause.id)])
@@ -1275,7 +1370,7 @@ function renderTable() {
   const rows = dataset.causes
     .filter((cause) => groupCauseIds.has(cause.id))
     .filter((cause) =>
-      !search || `${cause.name} ${cause.icd}`.toLocaleLowerCase("de-AT").includes(search),
+      !search || `${cause.name} ${cause.icd}`.toLocaleLowerCase(LOCALE).includes(search),
     )
     .map((cause) => {
       const value = getValue(cause.id) || 0;
@@ -1297,7 +1392,7 @@ function renderTable() {
   const direction = state.tableSortDirection === "asc" ? 1 : -1;
   rows.sort((a, b) => {
     if (state.tableSortKey === "name") {
-      return direction * a.name.localeCompare(b.name, "de");
+      return direction * a.name.localeCompare(b.name, IS_EN ? "en" : "de");
     }
     const aValue = a[state.tableSortKey] ?? Number.NEGATIVE_INFINITY;
     const bValue = b[state.tableSortKey] ?? Number.NEGATIVE_INFINITY;
@@ -1307,26 +1402,26 @@ function renderTable() {
   const body = $("#cause-table-body");
 
   $("#cause-table-title").textContent = group
-    ? "Ursachen der ausgewählten Gruppe"
-    : "Alle Hauptgruppen";
+    ? L("Ursachen der ausgewählten Gruppe", "Causes in the selected group")
+    : L("Alle Hauptgruppen", "All main groups");
   $("#cause-table-description").textContent = group
-    ? "Die Hauptgruppe und ihre veröffentlichten Untergruppen."
-    : "Überschneidungsfreie ICD-Hauptgruppen im direkten Vergleich.";
+    ? L("Die Hauptgruppe und ihre veröffentlichten Untergruppen.", "The main group and its published subgroups.")
+    : L("Überschneidungsfreie ICD-Hauptgruppen im direkten Vergleich.", "Non-overlapping ICD main groups side by side.");
 
   $("#value-column-label").textContent =
     state.metric === "yll"
-      ? "Verlorene Jahre"
+      ? L("Verlorene Jahre", "Years lost")
       : state.metric === "yllRate"
-        ? "YLL je 100.000"
+        ? L("YLL je 100.000", "YLL per 100,000")
         : state.metric === "yllAsr"
-          ? "YLL standardisiert"
+          ? L("YLL standardisiert", "YLL standardised")
       : state.metric === "asr" && state.ageIndex === 0
-        ? "Rate je 100.000"
-        : "Fälle";
+        ? L("Rate je 100.000", "Rate per 100,000")
+        : L("Fälle", "Deaths");
   $("#yll-average-column").classList.toggle("hidden-column", !isYllMetric());
   $("#share-column-label").textContent = state.metric === "asr" || state.metric === "yllAsr"
-    ? "Relation"
-    : "Anteil";
+    ? L("Relation", "Ratio")
+    : L("Anteil", "Share");
   $$(".sort-button").forEach((button) => {
     const active = button.dataset.sort === state.tableSortKey;
     button.classList.toggle("active", active);
@@ -1342,9 +1437,9 @@ function renderTable() {
           <td class="cause-name-cell"><strong>${escapeHtml(cause.name)}</strong></td>
           <td>${escapeHtml(cause.icd || "–")}</td>
           <td class="numeric">${escapeHtml(formatValue(cause.value))}</td>
-          <td class="numeric average-yll-cell ${isYllMetric() ? "" : "hidden-column"}">${cause.averageYll === null ? "–" : `${decimalFormat.format(cause.averageYll)} Jahre`}</td>
-          <td class="numeric">${percentFormat.format(cause.share)} %</td>
-          <td><span class="type-pill ${cause.isBroad ? "broad" : ""}">${cause.isBroad ? "Hauptgruppe" : "Detail"}</span></td>
+          <td class="numeric average-yll-cell ${isYllMetric() ? "" : "hidden-column"}">${cause.averageYll === null ? "–" : `${decimalFormat.format(cause.averageYll)} ${L("Jahre", "years")}`}</td>
+          <td class="numeric">${percentFormat.format(cause.share)}${PCT}</td>
+          <td><span class="type-pill ${cause.isBroad ? "broad" : ""}">${cause.isBroad ? L("Hauptgruppe", "Main group") : L("Detail", "Detail")}</span></td>
         </tr>`,
     )
     .join("");
@@ -1363,7 +1458,10 @@ function renderTable() {
     });
   });
 
-  $("#table-count").textContent = `${Math.min(rows.length, state.tableLimit)} von ${rows.length} Ursachen`;
+  $("#table-count").textContent = L(
+    `${Math.min(rows.length, state.tableLimit)} von ${rows.length} Ursachen`,
+    `${Math.min(rows.length, state.tableLimit)} of ${rows.length} ${rows.length === 1 ? "cause" : "causes"}`,
+  );
   $("#show-more").classList.toggle("hidden", state.tableLimit >= rows.length);
 }
 
@@ -1501,9 +1599,9 @@ function bindEvents() {
     const status = $("#copy-selection-status");
     try {
       await navigator.clipboard.writeText(location.href);
-      status.textContent = "Link kopiert";
+      status.textContent = L("Link kopiert", "Link copied");
     } catch {
-      status.textContent = "Link steht in der Adresszeile";
+      status.textContent = L("Link steht in der Adresszeile", "The link is in the address bar");
     }
     window.setTimeout(() => { status.textContent = ""; }, 2200);
   });
@@ -1532,9 +1630,15 @@ function bindEvents() {
 
 async function init() {
   try {
+    const labelsRequest = IS_EN
+      ? fetch(LABELS_EN_URL)
+        .then((labels) => (labels.ok ? labels.json() : null))
+        .catch(() => null)
+      : Promise.resolve(null);
     const response = await fetch(DATA_URL);
-    if (!response.ok) throw new Error(`Datendatei konnte nicht geladen werden (${response.status}).`);
+    if (!response.ok) throw new Error(L(`Datendatei konnte nicht geladen werden (${response.status}).`, `The data file could not be loaded (${response.status}).`));
     dataset = await response.json();
+    applyEnglishLabels(dataset, await labelsRequest);
     state.year = dataset.years.at(-1);
     applyUrlState();
     renderStaticMetadata();
@@ -1544,7 +1648,7 @@ async function init() {
     console.error(error);
     document.querySelector("main").innerHTML = `
       <div class="error-state">
-        <strong>Die Statistik konnte nicht geladen werden.</strong>
+        <strong>${L("Die Statistik konnte nicht geladen werden.", "The statistics could not be loaded.")}</strong>
         <p>${escapeHtml(error.message)}</p>
       </div>`;
   }

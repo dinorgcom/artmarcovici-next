@@ -3,7 +3,17 @@
    (Charts bleiben LTR). Analyse-Fliesstexte sind v1 nur Deutsch — Banner weist darauf hin. */
 (function () {
   const LANGS = ["de", "en", "ar", "he"];
-  const LANG = (localStorage.getItem("lang") || "de");
+  // Sprache: ?lang= (teilbar) → localStorage "lang" (gilt für alle biest.com-Dossiers) → Browsersprache
+  const LANG = (function () {
+    let p = null, s = null;
+    try { p = new URLSearchParams(location.search).get("lang"); } catch (e) {}
+    if (p && LANGS.includes(p)) { try { localStorage.setItem("lang", p); } catch (e) {} return p; }
+    try { s = localStorage.getItem("lang"); } catch (e) {}
+    if (s && LANGS.includes(s)) return s;
+    const list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+    for (const l of list) { const c = String(l).slice(0, 2).toLowerCase(); if (LANGS.includes(c)) return c; }
+    return "en";
+  })();
   const RTL = LANG === "ar" || LANG === "he";
   document.documentElement.lang = LANG;
   document.documentElement.dir = RTL ? "rtl" : "ltr";
@@ -149,7 +159,11 @@
     return s;
   };
   window.setLang = function (l) {
-    if (LANGS.includes(l)) { localStorage.setItem("lang", l); location.reload(); }
+    if (!LANGS.includes(l)) return;
+    try { localStorage.setItem("lang", l); } catch (e) {}
+    const u = new URL(location.href);
+    u.searchParams.set("lang", l);
+    location.href = u.toString();
   };
 
   document.addEventListener("DOMContentLoaded", () => {

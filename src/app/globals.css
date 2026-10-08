@@ -70,3 +70,13 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .dc-prompt { animation: none; }
 }
+
+/* German/English pages inside the Next app (e.g. /elements): paired markup
+   <span data-lang="de">…</span><span data-lang="en">…</span> under a
+   [data-biest-lang-root] wrapper — the inactive language is hidden.
+   Without JavaScript the page stays English. */
+[data-biest-lang="de"] [data-lang="en"],
+[data-biest-lang="en"] [data-lang="de"],
+[data-biest-lang-root]:not([data-biest-lang]) [data-lang="de"] {
+  display: none !important;
+}

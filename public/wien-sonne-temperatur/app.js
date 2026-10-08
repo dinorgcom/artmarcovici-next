@@ -19,6 +19,9 @@
   }
 
   const d3 = window.d3;
+  // Sprache: /shared/biest-lang.js stellt L("Deutsch", "English") und BIEST_LANG bereit
+  const L = typeof window.L === "function" ? window.L : (de) => de;
+  const numberLocale = window.BIEST_LANG === "en" ? "en-GB" : "de-AT";
   const temperatureSumByYear = new Map(window.VIENNA_ANNUAL_TEMPERATURE_SUMS);
   const co2ByYear = new Map(
     window.VIENNA_CO2_ROWS.map((row) => [row[0], { ppm: row[1], uncertainty: row[2] }])
@@ -85,20 +88,20 @@
   let co2TimelineRuntime = null;
   let correlationRuntime = null;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const integerFormat = new Intl.NumberFormat("de-AT", { maximumFractionDigits: 0 });
-  const decimalFormat = new Intl.NumberFormat("de-AT", {
+  const integerFormat = new Intl.NumberFormat(numberLocale, { maximumFractionDigits: 0 });
+  const decimalFormat = new Intl.NumberFormat(numberLocale, {
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
   });
-  const ratioFormat = new Intl.NumberFormat("de-AT", {
+  const ratioFormat = new Intl.NumberFormat(numberLocale, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
-  const ppmFormat = new Intl.NumberFormat("de-AT", {
+  const ppmFormat = new Intl.NumberFormat(numberLocale, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
-  const dateFormat = new Intl.DateTimeFormat("de-AT", {
+  const dateFormat = new Intl.DateTimeFormat(numberLocale, {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -131,13 +134,13 @@
     temperature: {
       field: "temperature",
       color: "#f06d4f",
-      label: "Temperaturspitze",
+      label: L("Temperaturspitze", "Temperature peak"),
       value: (number) => `${decimalFormat.format(number)} °C`,
     },
     sunshine: {
       field: "sunshine",
       color: "#d4a853",
-      label: "Sonnenscheindauer",
+      label: L("Sonnenscheindauer", "Sunshine duration"),
       value: (number) => `${integerFormat.format(number)} h`,
     },
   };
@@ -149,37 +152,47 @@
   function updateReader(item, source) {
     const combined = source === "combined";
     reader.year.textContent = item.year;
-    reader.temperatureLabel.textContent = combined ? "Summe Tagesmaxima" : "Höchster Tageswert";
-    reader.sunshineLabel.textContent = "Sonnenscheindauer";
+    reader.temperatureLabel.textContent = combined
+      ? L("Summe Tagesmaxima", "Sum of daily maxima")
+      : L("Höchster Tageswert", "Highest daily value");
+    reader.sunshineLabel.textContent = L("Sonnenscheindauer", "Sunshine duration");
 
     if (!item.complete) {
-      reader.temperature.textContent = "keine Angabe";
-      reader.date.textContent = `${integerFormat.format(item.days)} von ${integerFormat.format(item.expected)} Tagen vorhanden`;
-      reader.sunshine.textContent = "keine Angabe";
-      reader.status.textContent = "unvollständiges Kalenderjahr";
+      reader.temperature.textContent = L("keine Angabe", "no data");
+      reader.date.textContent = L(
+        `${integerFormat.format(item.days)} von ${integerFormat.format(item.expected)} Tagen vorhanden`,
+        `${integerFormat.format(item.days)} of ${integerFormat.format(item.expected)} days available`
+      );
+      reader.sunshine.textContent = L("keine Angabe", "no data");
+      reader.status.textContent = L("unvollständiges Kalenderjahr", "incomplete calendar year");
       return;
     }
 
     if (combined) {
-      reader.temperature.textContent = `${integerFormat.format(item.temperatureSum)} °C-Tage`;
-      reader.date.textContent = `Quotient ${ratioFormat.format(item.temperatureSunshineRatio)} °C-Tage/h`;
+      reader.temperature.textContent = `${integerFormat.format(item.temperatureSum)} ${L("°C-Tage", "°C-days")}`;
+      reader.date.textContent = L(
+        `Quotient ${ratioFormat.format(item.temperatureSunshineRatio)} °C-Tage/h`,
+        `Ratio ${ratioFormat.format(item.temperatureSunshineRatio)} °C-days/h`
+      );
     } else {
       reader.temperature.textContent = `${decimalFormat.format(item.temperature)} °C`;
       reader.date.textContent = dateFormat.format(new Date(`${item.maxDate}T12:00:00Z`));
     }
     reader.sunshine.textContent = `${integerFormat.format(item.sunshine)} h`;
-    reader.status.textContent = "vollständiges Kalenderjahr";
+    reader.status.textContent = L("vollständiges Kalenderjahr", "complete calendar year");
   }
 
   function updateCo2Selection(item) {
     if (co2Reader.year) co2Reader.year.textContent = item.year;
     if (co2Reader.value) {
-      co2Reader.value.textContent = item.co2 === null ? "keine direkte Messung" : `${ppmFormat.format(item.co2)} ppm`;
+      co2Reader.value.textContent = item.co2 === null
+        ? L("keine direkte Messung", "no direct measurement")
+        : `${ppmFormat.format(item.co2)} ppm`;
     }
     if (co2Reader.ratio) {
       co2Reader.ratio.textContent = item.complete
         ? ratioFormat.format(item.temperatureSunshineRatio)
-        : "keine Angabe";
+        : L("keine Angabe", "no data");
     }
 
     if (co2TimelineRuntime) {
@@ -413,7 +426,7 @@
         .attr("x", labelX)
         .attr("y", Math.max(margin.top + 8, peakY - 12))
         .attr("text-anchor", anchor)
-        .text(`REKORD · ${config.value(peak[config.field])} · ${peak.year}`);
+        .text(`${L("REKORD", "RECORD")} · ${config.value(peak[config.field])} · ${peak.year}`);
     }
 
     const guide = svg
@@ -652,7 +665,7 @@
       .attr("x", margin.left)
       .attr("y", 12)
       .attr("text-anchor", "start")
-      .text("Σ Tagesmaxima / °C-Tage");
+      .text(L("Σ Tagesmaxima / °C-Tage", "Σ daily maxima / °C-days"));
 
     svg
       .append("text")
@@ -661,7 +674,7 @@
       .attr("x", width - margin.right)
       .attr("y", 12)
       .attr("text-anchor", "end")
-      .text("Σ Sonne / h");
+      .text(L("Σ Sonne / h", "Σ sunshine / h"));
 
     svg
       .append("text")
@@ -670,7 +683,7 @@
       .attr("x", margin.left)
       .attr("y", ratioTop - 8)
       .attr("text-anchor", "start")
-      .text("Quotient / °C-Tage je h");
+      .text(L("Quotient / °C-Tage je h", "Ratio / °C-days per h"));
 
     const guide = svg
       .append("line")
@@ -929,7 +942,7 @@
       .attr("x", margin.left)
       .attr("y", 12)
       .attr("text-anchor", "start")
-      .text("Quotient / °C-Tage je h");
+      .text(L("Quotient / °C-Tage je h", "Ratio / °C-days per h"));
 
     svg
       .append("text")

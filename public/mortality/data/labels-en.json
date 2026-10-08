@@ -1,0 +1,129 @@
+{
+  "_comment": "English overlay for mortality.json (German stays the source of truth). Causes are keyed by id; 'de' must equal the German name in mortality.json, otherwise the app looks the entry up by its German name and finally falls back to German. Optional 'icd' overrides German text inside the ICD field. Names follow WHO ICD-10 / Eurostat European Shortlist terminology. Notes and source labels are matched by their exact German text; a changed German text simply shows German until an English entry is added here.",
+  "title": "Causes of death in Austria",
+  "causes": {
+    "all": { "de": "Alle Todesursachen", "en": "All causes of death" },
+    "cause-01": { "de": "Infektiöse/parasitäre Krankheiten", "en": "Certain infectious and parasitic diseases" },
+    "cause-02": { "de": "Tuberkulose", "en": "Tuberculosis" },
+    "cause-03": { "de": "AIDS (HIV-Krankheit)", "en": "AIDS (HIV disease)" },
+    "cause-04": { "de": "Virushepatitis", "en": "Viral hepatitis" },
+    "cause-05": { "de": "COVID-19", "en": "COVID-19" },
+    "cause-06": { "de": "Neubildungen", "en": "Neoplasms" },
+    "cause-07": { "de": "Bösartige Neubildungen", "en": "Malignant neoplasms" },
+    "cause-08": { "de": "Krebs von Lippe, Mundhöhle und Rachen", "en": "Malignant neoplasm of lip, oral cavity and pharynx" },
+    "cause-09": { "de": "Krebs der Speiseröhre", "en": "Malignant neoplasm of oesophagus" },
+    "cause-10": { "de": "Krebs des Magens", "en": "Malignant neoplasm of stomach" },
+    "cause-11": { "de": "Krebs des Dünndarms", "en": "Malignant neoplasm of small intestine" },
+    "cause-12": { "de": "Krebs des Colon, des Rektums und des Anus", "en": "Malignant neoplasm of colon, rectum and anus" },
+    "cause-13": { "de": "Krebs der Leber", "en": "Malignant neoplasm of liver" },
+    "cause-14": { "de": "Krebs der Gallenblase und -wege", "en": "Malignant neoplasm of gallbladder and biliary tract" },
+    "cause-15": { "de": "Krebs der Bauchspeicheldrüse", "en": "Malignant neoplasm of pancreas" },
+    "cause-16": { "de": "Krebs des Kehlkopfes", "en": "Malignant neoplasm of larynx" },
+    "cause-17": { "de": "Krebs der Luftröhre, Bronchien und Lunge", "en": "Malignant neoplasm of trachea, bronchus and lung" },
+    "cause-18": { "de": "Bösartiges Melanom der Haut", "en": "Malignant melanoma of skin" },
+    "cause-19": { "de": "Krebs der Brustdrüse", "en": "Malignant neoplasm of breast" },
+    "cause-20": { "de": "Krebs der Zervix uteri", "en": "Malignant neoplasm of cervix uteri" },
+    "cause-21": { "de": "Krebs der anderen Teile der Gebärmutter", "en": "Malignant neoplasm of other parts of uterus" },
+    "cause-22": { "de": "Krebs des Ovariums", "en": "Malignant neoplasm of ovary" },
+    "cause-23": { "de": "Krebs der Prostata", "en": "Malignant neoplasm of prostate" },
+    "cause-24": { "de": "Krebs der Niere", "en": "Malignant neoplasm of kidney" },
+    "cause-25": { "de": "Krebs der Harnblase", "en": "Malignant neoplasm of bladder" },
+    "cause-26": { "de": "Krebs des Gehirns und zentralen Nervensystems", "en": "Malignant neoplasm of brain and central nervous system" },
+    "cause-27": { "de": "Krebs der Schilddrüse", "en": "Malignant neoplasm of thyroid gland" },
+    "cause-28": { "de": "Morbus Hodgkin und Lymphome", "en": "Hodgkin disease and lymphomas" },
+    "cause-29": { "de": "Leukämie", "en": "Leukaemia" },
+    "cause-30": { "de": "Sonstiger Krebs des lymphatischen und blutbildenden Gewebes", "en": "Other malignant neoplasms of lymphoid and haematopoietic tissue" },
+    "cause-31": { "de": "Sonstige bösartige Neubildungen", "en": "Other malignant neoplasms", "icd": "Rest of C00–C97" },
+    "cause-32": { "de": "Nichtbösartige Neubildungen", "en": "Non-malignant neoplasms" },
+    "cause-33": { "de": "Krankheiten des Blutes und der blutbildenden Organe", "en": "Diseases of the blood and blood-forming organs" },
+    "cause-34": { "de": "Endokrine, Ernährungs- und Stoffwechselkrankheiten", "en": "Endocrine, nutritional and metabolic diseases" },
+    "cause-35": { "de": "Diabetes mellitus", "en": "Diabetes mellitus" },
+    "cause-36": { "de": "Psychische Krankheiten", "en": "Mental and behavioural disorders" },
+    "cause-37": { "de": "Demenz", "en": "Dementia" },
+    "cause-38": { "de": "Störungen durch Alkohol", "en": "Mental and behavioural disorders due to use of alcohol" },
+    "cause-39": { "de": "Drogenabhängigkeit, Toxikomanie", "en": "Drug dependence, toxicomania" },
+    "cause-40": { "de": "Krankheiten des Nervensystems und der Sinnesorgane", "en": "Diseases of the nervous system and the sense organs" },
+    "cause-41": { "de": "Morbus Parkinson", "en": "Parkinson disease" },
+    "cause-42": { "de": "Alzheimer Krankheit", "en": "Alzheimer disease" },
+    "cause-43": { "de": "Krankheiten des Herz-Kreislauf-Systems", "en": "Diseases of the circulatory system" },
+    "cause-44": { "de": "Ischämische Herzkrankheit", "en": "Ischaemic heart diseases" },
+    "cause-45": { "de": "Akuter Myokardinfarkt", "en": "Acute myocardial infarction" },
+    "cause-46": { "de": "Sonst. ischämische Herzkrankheiten", "en": "Other ischaemic heart diseases" },
+    "cause-47": { "de": "Andere Herzkrankheiten", "en": "Other heart diseases" },
+    "cause-48": { "de": "Zerebrovaskuläre Krankheiten", "en": "Cerebrovascular diseases" },
+    "cause-49": { "de": "Krankheiten der Atmungsorgane", "en": "Diseases of the respiratory system" },
+    "cause-50": { "de": "Influenza", "en": "Influenza" },
+    "cause-51": { "de": "Pneumonie", "en": "Pneumonia" },
+    "cause-52": { "de": "Chronische Krankheiten der unteren Atemwege", "en": "Chronic lower respiratory diseases" },
+    "cause-53": { "de": "Asthma", "en": "Asthma" },
+    "cause-54": { "de": "Sonstige chronische Krankheiten der unteren Atemwege", "en": "Other chronic lower respiratory diseases" },
+    "cause-55": { "de": "Krankheiten der Verdauungsorgane", "en": "Diseases of the digestive system" },
+    "cause-56": { "de": "Magen-, Duodenal- und Gastrojejunalgeschwür", "en": "Gastric, duodenal and gastrojejunal ulcer" },
+    "cause-57": { "de": "Chronische Leberkrankheit und -zirrhose", "en": "Chronic liver disease and cirrhosis" },
+    "cause-58": { "de": "Krankheiten der Haut und der Unterhaut", "en": "Diseases of the skin and subcutaneous tissue" },
+    "cause-59": { "de": "Krankheiten des Muskel-Skelett-Systems und des Bindegewebes", "en": "Diseases of the musculoskeletal system and connective tissue" },
+    "cause-60": { "de": "Chronische Polyarthritis und Arthrose", "en": "Rheumatoid arthritis and arthrosis" },
+    "cause-61": { "de": "Krankheiten des Urogenitalsystems", "en": "Diseases of the genitourinary system" },
+    "cause-62": { "de": "Krankheiten der Niere und des Ureters", "en": "Diseases of kidney and ureter" },
+    "cause-63": { "de": "Komplikationen in der Schwangerschaft, bei der Geburt und im Wochenbett", "en": "Complications of pregnancy, childbirth and the puerperium" },
+    "cause-64": { "de": "Perinatale Affektionen", "en": "Certain conditions originating in the perinatal period" },
+    "cause-65": { "de": "Angeborene Fehlbildungen, Deformitäten und Chromosomenanomalien", "en": "Congenital malformations, deformations and chromosomal abnormalities" },
+    "cause-66": { "de": "Symptome und schlecht bezeichnete Affektionen", "en": "Symptoms, signs and ill-defined conditions" },
+    "cause-67": { "de": "Plötzlicher Kindstod", "en": "Sudden infant death syndrome" },
+    "cause-68": { "de": "Ungenau bezeichnete und unbekannte Todesursachen", "en": "Ill-defined and unknown causes of mortality" },
+    "cause-69": { "de": "Verletzungen und Vergiftungen", "en": "Injury and poisoning" },
+    "cause-70": { "de": "Unfälle", "en": "Accidents" },
+    "cause-71": { "de": "Transportmittelunfälle", "en": "Transport accidents" },
+    "cause-72": { "de": "Unfälle durch Sturz", "en": "Accidental falls" },
+    "cause-73": { "de": "Unfall durch Ertrinken und Untergehen", "en": "Accidental drowning and submersion" },
+    "cause-74": { "de": "Unfälle durch Vergiftungen", "en": "Accidental poisoning by and exposure to noxious substances" },
+    "cause-75": { "de": "Selbsttötung und Selbstbeschädigung", "en": "Suicide and intentional self-harm" },
+    "cause-76": { "de": "Mord, tätlicher Angriff", "en": "Homicide, assault" },
+    "cause-77": { "de": "Ereignisse, dessen nähere Umstände unbestimmt sind", "en": "Events of undetermined intent" },
+    "cause-78": { "de": "Sonstige Krankheiten", "en": "Other diseases" }
+  },
+  "sources": {
+    "Todesursachen – Statistik Austria": "Causes of death – Statistik Austria",
+    "Zeitreihe 1970–2025 (ODS)": "Time series 1970–2025 (ODS)",
+    "Detailtabelle 2025 (ODS)": "Detailed table 2025 (ODS)",
+    "Gesundheitsjahrbücher 2017–2022 (PDF)": "Health yearbooks 2017–2022 (PDF)",
+    "Jährliche Sterbetafeln 2004–2025 (ODS)": "Annual life tables 2004–2025 (ODS)",
+    "Bevölkerung nach Alter und Geschlecht 2002–2026 (ODS)": "Population by age and sex 2002–2026 (ODS)",
+    "Wöchentliche Sterbefälle 2016–2026 (ODS)": "Weekly deaths 2016–2026 (ODS)",
+    "SPARTACUS-v3 Tageswetter – GeoSphere Austria": "SPARTACUS-v3 daily weather – GeoSphere Austria"
+  },
+  "notes": [
+    {
+      "de": "Ab 2009 besteht durch die vollständigere Erfassung von im Ausland verstorbenen Personen mit Wohnsitz in Österreich ein Zeitreihenbruch.",
+      "en": "From 2009 onwards there is a break in the time series, because deaths abroad of people resident in Austria are recorded more completely."
+    },
+    {
+      "de": "Die Klassifikation wechselte von ICD-8 (1970–1979) zu ICD-9 (1980–2001) und ab 2002 zu ICD-10. Langfristige Vergleiche einzelner Ursachen sind daher vorsichtig zu interpretieren.",
+      "en": "The classification changed from ICD-8 (1970–1979) to ICD-9 (1980–2001) and, from 2002, to ICD-10. Long-term comparisons of individual causes should therefore be interpreted with caution."
+    },
+    {
+      "de": "Altersstandardisierte Raten beziehen sich auf 100.000 Einwohner:innen und die Eurostat-Standardbevölkerung 2013.",
+      "en": "Age-standardised rates are per 100,000 population and refer to the Eurostat 2013 European Standard Population."
+    },
+    {
+      "de": "Hauptgruppen bilden alle Todesfälle überschneidungsfrei ab. Detailursachen können Teilmengen einer Hauptgruppe sein und dürfen nicht miteinander summiert werden.",
+      "en": "The main groups cover all deaths without overlap. Detailed causes may be subsets of a main group and must not be added together."
+    },
+    {
+      "de": "Die veröffentlichten Altersklassen unterscheiden sich nach Jahrbuch. Die Anwendung zeigt deshalb für jedes Jahr ausschließlich die dort tatsächlich ausgewiesenen Altersgruppen.",
+      "en": "The published age bands differ between yearbooks. For each year, the app therefore shows only the age groups actually reported there."
+    },
+    {
+      "de": "Verlorene Lebensjahre werden näherungsweise aus den Todesfällen je Altersgruppe und der ferneren Lebenserwartung e(x) der österreichischen Sterbetafel berechnet.",
+      "en": "Years of life lost are approximated from deaths per age group and the remaining life expectancy e(x) in the Austrian life table."
+    },
+    {
+      "de": "YLL-Raten verwenden die mittlere Jahresbevölkerung, angenähert als Mittel der Bevölkerungsstände am 1. Januar des Berichts- und Folgejahres. Die altersstandardisierte YLL-Rate wird direkt mit der Europäischen Standardbevölkerung 2013 berechnet; die verlorenen Jahre selbst bleiben österreichisch-sterbetafelbasiert.",
+      "en": "YLL rates use the mean annual population, approximated as the average of the populations on 1 January of the reference year and the following year. The age-standardised YLL rate is calculated directly with the 2013 European Standard Population; the years lost themselves remain based on the Austrian life table."
+    },
+    {
+      "de": "Wöchentliche Sterbefälle werden ohne Todesursache veröffentlicht und schließen im Ausland verstorbene Personen nicht ein. Die Werte für 2026 sind vorläufig.",
+      "en": "Weekly deaths are published without cause of death and do not include people who died abroad. The figures for 2026 are provisional."
+    }
+  ]
+}

@@ -11,28 +11,32 @@
   const svg = d3.select(".recent-chart svg");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const parseDate = d3.utcParse("%Y-%m-%d");
-  const numberOne = new Intl.NumberFormat("de-AT", {
+  // Sprache: /shared/biest-lang.js stellt L("Deutsch", "English") und BIEST_LANG bereit
+  const L = typeof window.L === "function" ? window.L : (de) => de;
+  const isEnglish = window.BIEST_LANG === "en";
+  const locale = isEnglish ? "en-GB" : "de-AT";
+  const numberOne = new Intl.NumberFormat(locale, {
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
   });
-  const numberZero = new Intl.NumberFormat("de-AT", { maximumFractionDigits: 0 });
-  const fullDate = new Intl.DateTimeFormat("de-AT", {
+  const numberZero = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
+  const fullDate = new Intl.DateTimeFormat(locale, {
     day: "numeric",
     month: "long",
     year: "numeric",
     timeZone: "UTC",
   });
-  const dayMonth = new Intl.DateTimeFormat("de-AT", {
+  const dayMonth = new Intl.DateTimeFormat(locale, {
     day: "numeric",
     month: "long",
     timeZone: "UTC",
   });
-  const monthYear = new Intl.DateTimeFormat("de-AT", {
+  const monthYear = new Intl.DateTimeFormat(locale, {
     month: "short",
     year: "numeric",
     timeZone: "UTC",
   });
-  const shortDate = new Intl.DateTimeFormat("de-AT", {
+  const shortDate = new Intl.DateTimeFormat(locale, {
     day: "numeric",
     month: "short",
     year: "numeric",
@@ -106,21 +110,27 @@
     const sameYear = start.getUTCFullYear() === end.getUTCFullYear();
 
     if (sameMonth) {
-      const month = new Intl.DateTimeFormat("de-AT", { month: "long", timeZone: "UTC" }).format(end);
-      return `${start.getUTCDate()}. bis ${end.getUTCDate()}. ${month} ${end.getUTCFullYear()}`;
+      const month = new Intl.DateTimeFormat(locale, { month: "long", timeZone: "UTC" }).format(end);
+      return isEnglish
+        ? `${start.getUTCDate()}–${end.getUTCDate()} ${month} ${end.getUTCFullYear()}`
+        : `${start.getUTCDate()}. bis ${end.getUTCDate()}. ${month} ${end.getUTCFullYear()}`;
     }
 
     if (sameYear) {
-      return `${dayMonth.format(start)} bis ${fullDate.format(end)}`;
+      return isEnglish
+        ? `${dayMonth.format(start)} – ${fullDate.format(end)}`
+        : `${dayMonth.format(start)} bis ${fullDate.format(end)}`;
     }
 
-    return `${fullDate.format(start)} bis ${fullDate.format(end)}`;
+    return isEnglish
+      ? `${fullDate.format(start)} – ${fullDate.format(end)}`
+      : `${fullDate.format(start)} bis ${fullDate.format(end)}`;
   }
 
   function availableText(count) {
-    if (count === 7) return "7 Tageswerte verfügbar";
-    if (count === 1) return "1 von 7 Tageswerten verfügbar";
-    return `${count} von 7 Tageswerten verfügbar`;
+    if (count === 7) return L("7 Tageswerte verfügbar", "7 daily values available");
+    if (count === 1) return L("1 von 7 Tageswerten verfügbar", "1 of 7 daily values available");
+    return L(`${count} von 7 Tageswerten verfügbar`, `${count} of 7 daily values available`);
   }
 
   function updateSummary() {
@@ -139,44 +149,47 @@
     elements.peakDate.textContent = fullDate.format(peak.date);
     elements.sun2025.textContent = `${numberZero.format(sun2025)} h`;
     elements.latestDate.textContent = shortDate.format(latest.date);
-    elements.freshness.textContent = `Temperatur bis ${fullDate.format(lastTemperature.date)}, Sonne bis ${fullDate.format(lastSunshine.date)}`;
+    elements.freshness.textContent = L(
+      `Temperatur bis ${fullDate.format(lastTemperature.date)}, Sonne bis ${fullDate.format(lastSunshine.date)}`,
+      `Temperature up to ${fullDate.format(lastTemperature.date)}, sunshine up to ${fullDate.format(lastSunshine.date)}`
+    );
   }
 
   function updateReader(item) {
     selectedDate = item.date;
 
     if (mode === "day") {
-      elements.periodLabel.textContent = "Ausgewählter Tag";
+      elements.periodLabel.textContent = L("Ausgewählter Tag", "Selected day");
       elements.period.textContent = fullDate.format(item.date);
-      elements.temperatureLabel.textContent = "Tagesmaximum";
+      elements.temperatureLabel.textContent = L("Tagesmaximum", "Daily maximum");
       elements.temperature.textContent = item.temperature === null
-        ? "in Prüfung"
+        ? L("in Prüfung", "under review")
         : `${numberOne.format(item.temperature)} °C`;
       elements.temperatureDetail.textContent = item.temperature === null
-        ? "noch nicht verfügbar"
-        : "Maximaltemperatur in 2 m Höhe";
-      elements.sunshineLabel.textContent = "Sonnenstunden";
+        ? L("noch nicht verfügbar", "not yet available")
+        : L("Maximaltemperatur in 2 m Höhe", "Maximum temperature at 2 m height");
+      elements.sunshineLabel.textContent = L("Sonnenstunden", "Sunshine hours");
       elements.sunshine.textContent = item.sunshine === null
-        ? "in Prüfung"
+        ? L("in Prüfung", "under review")
         : `${numberOne.format(item.sunshine)} h`;
       elements.sunshineDetail.textContent = item.sunshine === null
-        ? "noch nicht verfügbar"
-        : "Tagessumme";
+        ? L("noch nicht verfügbar", "not yet available")
+        : L("Tagessumme", "Daily total");
       return;
     }
 
-    elements.periodLabel.textContent = "Ausgewählte Woche";
+    elements.periodLabel.textContent = L("Ausgewählte Woche", "Selected week");
     elements.period.textContent = formatWeek(item.date, item.end);
-    elements.temperatureLabel.textContent = "Wochenmaximum";
+    elements.temperatureLabel.textContent = L("Wochenmaximum", "Weekly maximum");
     elements.temperature.textContent = item.temperature === null
-      ? "in Prüfung"
+      ? L("in Prüfung", "under review")
       : `${numberOne.format(item.temperature)} °C`;
     elements.temperatureDetail.textContent = item.temperatureDate
-      ? `am ${dayMonth.format(item.temperatureDate)}`
+      ? L(`am ${dayMonth.format(item.temperatureDate)}`, `on ${dayMonth.format(item.temperatureDate)}`)
       : availableText(item.temperatureCount);
-    elements.sunshineLabel.textContent = "Sonne in der Woche";
+    elements.sunshineLabel.textContent = L("Sonne in der Woche", "Weekly sunshine");
     elements.sunshine.textContent = item.sunshine === null
-      ? "in Prüfung"
+      ? L("in Prüfung", "under review")
       : `${numberOne.format(item.sunshine)} h`;
     elements.sunshineDetail.textContent = availableText(item.sunshineCount);
   }
@@ -337,7 +350,7 @@
       .attr("x", width - margin.right)
       .attr("y", 12)
       .attr("text-anchor", "end")
-      .text(mode === "day" ? "h pro Tag" : "h pro Woche");
+      .text(mode === "day" ? L("h pro Tag", "h per day") : L("h pro Woche", "h per week"));
 
     const guide = svg
       .append("line")
@@ -422,14 +435,14 @@
       const previousLatest = daily.at(-1).date;
       daily = refreshed;
       if (daily.at(-1).date > previousLatest) selectedDate = daily.at(-1).date;
-      elements.liveStatus.textContent = "aktuell aus GeoSphere geladen";
+      elements.liveStatus.textContent = L("aktuell aus GeoSphere geladen", "loaded live from GeoSphere");
       updateSummary();
       render();
     } catch {
       const updated = parseDate(window.VIENNA_RECENT_UPDATED);
       elements.liveStatus.textContent = updated
-        ? `Datenstand vom ${fullDate.format(updated)}`
-        : "eingebetteter Datenstand";
+        ? L(`Datenstand vom ${fullDate.format(updated)}`, `Data as of ${fullDate.format(updated)}`)
+        : L("eingebetteter Datenstand", "embedded data snapshot");
     }
   }
 

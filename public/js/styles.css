@@ -1967,3 +1967,12 @@ blockquote {
 .js-video video.is-portrait { width: auto; max-width: 100%; height: min(78vh, 760px); aspect-ratio: 9 / 16; margin-inline: auto; }
 .js-video figcaption { max-width: 900px; margin-top: 10px; color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
 .js-video figcaption a { color: var(--red-dark); font-weight: 600; }
+
+/* Sprachumschalter DE | EN im Header (/shared/biest-lang.js) */
+.site-header .back-link { margin-left: auto; }
+.site-header .lang-slot { display: flex; margin-left: 22px; color: var(--muted); }
+@media (max-width: 760px) {
+  .site-header .lang-slot { margin-left: 12px; }
+}
+/* englische Titelzeile umbrechen wie die deutsche (nicht über die Grafik laufen) */
+html[data-biest-lang="en"] h1 { max-width: 7.4em; }

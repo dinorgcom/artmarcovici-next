@@ -6,8 +6,9 @@
     <meta
       name="description"
       content="Interaktive Auswertung der österreichischen Todesursachenstatistik von Statistik Austria."
+      data-en-content="Interactive analysis of Austria's official cause-of-death statistics from Statistik Austria."
     />
-    <title>Mortalität in Österreich</title>
+    <title data-en-text="Mortality in Austria">Mortalität in Österreich</title>
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="biest.com">
     <meta property="og:locale" content="de_AT">
@@ -24,54 +25,60 @@
     <meta name="twitter:description" content="56 Jahre amtliche Todesursachen-Statistik (1970–2025) nach Ursache, Alter und Geschlecht – interaktiv, mit verlorenen Lebensjahren und Wochenanalyse.">
     <meta name="twitter:image" content="https://biest.com/og/og-mortality.jpg?v=20261004">
     <meta name="twitter:image:alt" content="Häufigste Todesursachen in Österreich 2025">
+    <script src="/shared/biest-lang.js"></script>
     <link rel="stylesheet" href="/shared/biest-brand.css">
-    <link rel="stylesheet" href="/mortality/styles.css?v=20261003-1" />
+    <link rel="stylesheet" href="/mortality/styles.css?v=20261008" />
   </head>
   <body>
     <div class="page-shell">
       <header class="site-header">
         <div class="brand-row">
-          <a class="biest-brand" href="/" aria-label="biest.com – Startseite"><span class="biest-brand__name">BIEST.COM</span><span class="biest-brand__tag">Dossier</span></a>
-          <a class="brand" href="#top" aria-label="Zur Übersicht">
+          <a class="biest-brand" href="/" aria-label="biest.com – Startseite" data-en-aria-label="biest.com – Home"><span class="biest-brand__name">BIEST.COM</span><span class="biest-brand__tag">Dossier</span></a>
+          <a class="brand" href="#top" aria-label="Zur Übersicht" data-en-aria-label="To the overview">
             <span>
-            <strong>Mortalität</strong>
-            <small>Österreich · 1970–2025</small>
+            <strong><span data-lang="de">Mortalität</span><span data-lang="en">Mortality</span></strong>
+            <small><span data-lang="de">Österreich · 1970–2025</span><span data-lang="en">Austria · 1970–2025</span></small>
             </span>
           </a>
         </div>
-        <nav class="site-nav" aria-label="Bereiche">
-          <a class="active" href="/mortality/" aria-current="page">Jahresanalyse</a>
-          <a href="/mortality/weekly.html">Wochen &amp; Wetter</a>
+        <nav class="site-nav" aria-label="Bereiche" data-en-aria-label="Sections">
+          <a class="active" href="/mortality/" aria-current="page"><span data-lang="de">Jahresanalyse</span><span data-lang="en">Annual analysis</span></a>
+          <a href="/mortality/weekly.html"><span data-lang="de">Wochen &amp; Wetter</span><span data-lang="en">Weeks &amp; weather</span></a>
         </nav>
         <div class="header-meta">
           <span class="status-dot"></span>
-          Offizielle Daten · aktualisiert 24.09.2026
+          <span data-lang="de">Offizielle Daten · aktualisiert 24.09.2026</span><span data-lang="en">Official data · updated 24 Sep 2026</span>
         </div>
+        <div class="lang-slot" data-biest-lang-switch></div>
       </header>
 
-      <div class="sticky-selection" id="sticky-selection" aria-label="Aktuelle Auswahl">
+      <div class="sticky-selection" id="sticky-selection" aria-label="Aktuelle Auswahl" data-en-aria-label="Current selection">
         <span id="sticky-selection-text">–</span>
         <div>
-          <button id="edit-selection" type="button">Auswahl ändern</button>
-          <button id="copy-selection-link" type="button">Link kopieren</button>
+          <button id="edit-selection" type="button"><span data-lang="de">Auswahl ändern</span><span data-lang="en">Change selection</span></button>
+          <button id="copy-selection-link" type="button"><span data-lang="de">Link kopieren</span><span data-lang="en">Copy link</span></button>
           <small id="copy-selection-status" role="status"></small>
         </div>
       </div>
 
       <main id="top">
         <section class="hero">
-          <div class="eyebrow">Todesursachenstatistik</div>
+          <div class="eyebrow"><span data-lang="de">Todesursachenstatistik</span><span data-lang="en">Cause-of-death statistics</span></div>
           <div class="hero-grid">
             <div>
-              <h1>Woran Österreich stirbt.</h1>
-              <p>
+              <h1><span data-lang="de">Woran Österreich stirbt.</span><span data-lang="en">What Austria dies of.</span></h1>
+              <p data-lang="de">
                 Todesfälle nach Jahr, Geschlecht, Altersgruppe und zugrundeliegender
                 Todesursache – auf Basis der veröffentlichten Daten von Statistik Austria.
               </p>
+              <p data-lang="en">
+                Deaths by year, sex, age group and underlying cause of death – based on
+                published data from Statistik Austria, Austria's national statistics office.
+              </p>
             </div>
-            <div class="hero-number" aria-label="Datenumfang">
+            <div class="hero-number" aria-label="Datenumfang" data-en-aria-label="Data coverage">
               <strong>56</strong>
-              <span>Beobachtungsjahre</span>
+              <span><span data-lang="de">Beobachtungsjahre</span><span data-lang="en">Years observed</span></span>
             </div>
           </div>
         </section>
@@ -80,87 +87,88 @@
           <div class="filter-head">
             <div>
               <span class="section-index">01</span>
-              <h2 id="filter-title">Auswahl</h2>
+              <h2 id="filter-title"><span data-lang="de">Auswahl</span><span data-lang="en">Selection</span></h2>
             </div>
-            <button id="reset-filters" class="text-button" type="button">Zurücksetzen</button>
+            <button id="reset-filters" class="text-button" type="button"><span data-lang="de">Zurücksetzen</span><span data-lang="en">Reset</span></button>
           </div>
 
           <div class="filter-grid filter-grid-primary">
             <label class="field cause-group-field">
-              <span>Hauptgruppe</span>
+              <span><span data-lang="de">Hauptgruppe</span><span data-lang="en">Main group</span></span>
               <select id="cause-group-select"></select>
-              <small>Übergeordnete ICD-Kategorie</small>
+              <small><span data-lang="de">Übergeordnete ICD-Kategorie</span><span data-lang="en">Top-level ICD category</span></small>
             </label>
 
             <label class="field cause-detail-field">
-              <span>Untergruppe</span>
+              <span><span data-lang="de">Untergruppe</span><span data-lang="en">Subgroup</span></span>
               <select id="cause-detail-select"></select>
-              <small id="cause-detail-help">Gesamte Hauptgruppe oder Detailursache</small>
+              <small id="cause-detail-help"><span data-lang="de">Gesamte Hauptgruppe oder Detailursache</span><span data-lang="en">Entire main group or detailed cause</span></small>
             </label>
 
             <label class="field">
-              <span>Geschlecht</span>
+              <span><span data-lang="de">Geschlecht</span><span data-lang="en">Sex</span></span>
               <select id="sex-select">
-                <option value="all">Alle Geschlechter</option>
-                <option value="male">Männer</option>
-                <option value="female">Frauen</option>
+                <option value="all" data-en-text="Both sexes">Alle Geschlechter</option>
+                <option value="male" data-en-text="Males">Männer</option>
+                <option value="female" data-en-text="Females">Frauen</option>
               </select>
             </label>
 
             <label class="field">
-              <span>Altersgruppe</span>
+              <span><span data-lang="de">Altersgruppe</span><span data-lang="en">Age group</span></span>
               <select id="age-select"></select>
-              <small id="age-help">Detaillierte Jahrbuchdaten ab 2017</small>
+              <small id="age-help"><span data-lang="de">Detaillierte Jahrbuchdaten ab 2017</span><span data-lang="en">Detailed yearbook data from 2017</span></small>
             </label>
 
             <fieldset class="field metric-field">
-              <legend>Kennzahl</legend>
+              <legend><span data-lang="de">Kennzahl</span><span data-lang="en">Measure</span></legend>
               <div class="segmented" id="metric-control">
-                <button type="button" data-metric="absolute" class="active">Fälle</button>
-                <button type="button" data-metric="asr">Standardisierte Rate</button>
-                <button type="button" data-metric="yll">Verlorene Jahre</button>
+                <button type="button" data-metric="absolute" class="active"><span data-lang="de">Fälle</span><span data-lang="en">Deaths</span></button>
+                <button type="button" data-metric="asr"><span data-lang="de">Standardisierte Rate</span><span data-lang="en">Age‑standardised rate</span></button>
+                <button type="button" data-metric="yll"><span data-lang="de">Verlorene Jahre</span><span data-lang="en">Years lost</span></button>
               </div>
-              <div class="segmented yll-mode-control hidden" id="yll-mode-control" aria-label="Darstellung der verlorenen Lebensjahre">
-                <button type="button" data-yll-metric="yll" class="active">Summe</button>
-                <button type="button" data-yll-metric="yllRate">Je 100.000</button>
-                <button type="button" data-yll-metric="yllAsr">Altersstandardisiert</button>
+              <div class="segmented yll-mode-control hidden" id="yll-mode-control" aria-label="Darstellung der verlorenen Lebensjahre" data-en-aria-label="Years of life lost: display">
+                <button type="button" data-yll-metric="yll" class="active"><span data-lang="de">Summe</span><span data-lang="en">Total</span></button>
+                <button type="button" data-yll-metric="yllRate"><span data-lang="de">Je 100.000</span><span data-lang="en">Per 100,000</span></button>
+                <button type="button" data-yll-metric="yllAsr"><span data-lang="de">Altersstandardisiert</span><span data-lang="en">Age‑standardised</span></button>
               </div>
-              <small id="metric-help">Rate je 100.000 Einwohner:innen</small>
+              <small id="metric-help"><span data-lang="de">Rate je 100.000 Einwohner:innen</span><span data-lang="en">Rate per 100,000 population</span></small>
             </fieldset>
           </div>
 
           <div class="comparison-config">
             <div>
-              <span class="comparison-label">Direkter Vergleich</span>
-              <p>Zweite Linie im Zeitverlauf nach Ursache, Geschlecht oder Altersgruppe.</p>
+              <span class="comparison-label"><span data-lang="de">Direkter Vergleich</span><span data-lang="en">Direct comparison</span></span>
+              <p data-lang="de">Zweite Linie im Zeitverlauf nach Ursache, Geschlecht oder Altersgruppe.</p>
+              <p data-lang="en">A second line in the trend chart, by cause, sex or age group.</p>
             </div>
             <button id="compare-toggle" class="compare-toggle" type="button" aria-pressed="false">
-              Vergleich hinzufügen
+              <span data-lang="de">Vergleich hinzufügen</span><span data-lang="en">Add comparison</span>
             </button>
             <div id="compare-controls" class="compare-controls hidden">
               <label>
-                <span>Vergleichen nach</span>
+                <span><span data-lang="de">Vergleichen nach</span><span data-lang="en">Compare by</span></span>
                 <select id="compare-dimension">
-                  <option value="sex">Geschlecht</option>
-                  <option value="cause">Todesursache</option>
-                  <option value="age">Altersgruppe</option>
+                  <option value="sex" data-en-text="Sex">Geschlecht</option>
+                  <option value="cause" data-en-text="Cause of death">Todesursache</option>
+                  <option value="age" data-en-text="Age group">Altersgruppe</option>
                 </select>
               </label>
               <label>
-                <span>Vergleichswert</span>
+                <span><span data-lang="de">Vergleichswert</span><span data-lang="en">Compare with</span></span>
                 <select id="compare-value"></select>
               </label>
             </div>
           </div>
 
           <label class="field timeline-field">
-            <span>Berichtsjahr</span>
+            <span><span data-lang="de">Berichtsjahr</span><span data-lang="en">Reference year</span></span>
             <div class="timeline-head">
               <div class="year-display">
                 <output id="year-output" for="year-range">2025</output>
-                <span id="year-detail-badge" class="mini-badge">Altersdaten verfügbar</span>
+                <span id="year-detail-badge" class="mini-badge"><span data-lang="de">Altersdaten verfügbar</span><span data-lang="en">Age data available</span></span>
               </div>
-              <span class="timeline-hint">Regler bewegen oder Pfeiltasten verwenden</span>
+              <span class="timeline-hint"><span data-lang="de">Regler bewegen oder Pfeiltasten verwenden</span><span data-lang="en">Move the slider or use the arrow keys</span></span>
             </div>
             <input id="year-range" type="range" min="1970" max="2025" value="2025" step="1" />
             <div id="year-ticks" class="range-labels" aria-hidden="true"></div>
@@ -169,37 +177,37 @@
           <div id="coverage-note" class="coverage-note" role="status"></div>
         </section>
 
-        <section class="kpi-grid" aria-label="Kennzahlen">
+        <section class="kpi-grid" aria-label="Kennzahlen" data-en-aria-label="Key figures">
           <article class="kpi-card">
-            <span id="total-kpi-label">Todesfälle der ausgewählten Ursache</span>
+            <span id="total-kpi-label"><span data-lang="de">Todesfälle der ausgewählten Ursache</span><span data-lang="en">Deaths from the selected cause</span></span>
             <strong id="total-kpi">–</strong>
             <small id="total-kpi-note">–</small>
           </article>
           <article class="kpi-card accent-card">
-            <span id="top-cause-label">Ausgewählte Todesursache</span>
+            <span id="top-cause-label"><span data-lang="de">Ausgewählte Todesursache</span><span data-lang="en">Selected cause of death</span></span>
             <strong id="top-cause-kpi">–</strong>
             <small id="top-cause-note">–</small>
           </article>
           <article class="kpi-card">
-            <span>Anteil an allen Todesfällen</span>
+            <span><span data-lang="de">Anteil an allen Todesfällen</span><span data-lang="en">Share of all deaths</span></span>
             <strong id="top-share-kpi">–</strong>
-            <small>an allen Todesfällen der Auswahl</small>
+            <small><span data-lang="de">an allen Todesfällen der Auswahl</span><span data-lang="en">of all deaths in the selection</span></small>
           </article>
           <article class="kpi-card">
-            <span id="change-kpi-label">Veränderung zum Vorjahr</span>
+            <span id="change-kpi-label"><span data-lang="de">Veränderung zum Vorjahr</span><span data-lang="en">Change from previous year</span></span>
             <strong id="change-kpi">–</strong>
-            <small id="change-kpi-note">für die ausgewählte Todesursache</small>
+            <small id="change-kpi-note"><span data-lang="de">für die ausgewählte Todesursache</span><span data-lang="en">for the selected cause of death</span></small>
           </article>
           <article id="yll-average-card" class="kpi-card yll-average-card hidden">
-            <span>Ø verlorene Jahre je verstorbener Person</span>
+            <span><span data-lang="de">Ø verlorene Jahre je verstorbener Person</span><span data-lang="en">Ø years lost per deceased person</span></span>
             <strong id="yll-average-kpi">–</strong>
             <small id="yll-average-note">–</small>
           </article>
         </section>
 
         <section class="insight-strip" aria-labelledby="insight-title">
-          <span class="section-index">Einordnung</span>
-          <h2 id="insight-title">Was sich in den Daten zeigt</h2>
+          <span class="section-index"><span data-lang="de">Einordnung</span><span data-lang="en">Context</span></span>
+          <h2 id="insight-title"><span data-lang="de">Was sich in den Daten zeigt</span><span data-lang="en">What the data show</span></h2>
           <p id="dynamic-insight">–</p>
         </section>
 
@@ -208,12 +216,12 @@
             <div class="panel-head">
               <div>
                 <span class="section-index">02</span>
-                <h2>Gruppen und Untergruppen</h2>
+                <h2><span data-lang="de">Gruppen und Untergruppen</span><span data-lang="en">Groups and subgroups</span></h2>
                 <p id="ranking-subtitle">–</p>
               </div>
               <div class="segmented compact" id="level-control">
-                <button type="button" data-level="broad">Hauptgruppen</button>
-                <button type="button" data-level="detail" class="active">Untergruppen</button>
+                <button type="button" data-level="broad"><span data-lang="de">Hauptgruppen</span><span data-lang="en">Main groups</span></button>
+                <button type="button" data-level="detail" class="active"><span data-lang="de">Untergruppen</span><span data-lang="en">Subgroups</span></button>
               </div>
             </div>
             <div id="ranking-chart" class="ranking-chart" aria-live="polite"></div>
@@ -224,23 +232,23 @@
             <div class="panel-head trend-head">
               <div>
                 <span class="section-index">03</span>
-                <h2>Zeitverlauf</h2>
+                <h2><span data-lang="de">Zeitverlauf</span><span data-lang="en">Trend over time</span></h2>
                 <p id="trend-subtitle">–</p>
               </div>
               <div class="trend-actions">
-                <div id="trend-mode-control" class="segmented compact trend-mode-control" aria-label="Darstellung des Zeitverlaufs">
-                  <button type="button" data-trend-mode="value" class="active">Wert</button>
-                  <button type="button" data-trend-mode="share">Anteil</button>
+                <div id="trend-mode-control" class="segmented compact trend-mode-control" aria-label="Darstellung des Zeitverlaufs" data-en-aria-label="Trend display">
+                  <button type="button" data-trend-mode="value" class="active"><span data-lang="de">Wert</span><span data-lang="en">Value</span></button>
+                  <button type="button" data-trend-mode="share"><span data-lang="de">Anteil</span><span data-lang="en">Share</span></button>
                   <button type="button" data-trend-mode="index">Index 100</button>
                 </div>
-                <div id="trend-selection" class="selection-summary" aria-label="Aktuelle Todesursache">–</div>
+                <div id="trend-selection" class="selection-summary" aria-label="Aktuelle Todesursache" data-en-aria-label="Current cause of death">–</div>
               </div>
             </div>
             <div id="trend-chart" class="trend-chart" aria-live="polite"></div>
             <div id="trend-legend" class="trend-legend">
-              <span><i class="legend-line"></i><b id="trend-primary-legend">Ausgewählte Ursache</b></span>
-              <span id="trend-compare-legend" class="hidden"><i class="legend-compare"></i><b>Vergleich</b></span>
-              <span><i class="legend-break"></i>Zeitreihenbruch 2009</span>
+              <span><i class="legend-line"></i><b id="trend-primary-legend"><span data-lang="de">Ausgewählte Ursache</span><span data-lang="en">Selected cause</span></b></span>
+              <span id="trend-compare-legend" class="hidden"><i class="legend-compare"></i><b><span data-lang="de">Vergleich</span><span data-lang="en">Comparison</span></b></span>
+              <span><i class="legend-break"></i><span data-lang="de">Zeitreihenbruch 2009</span><span data-lang="en">Series break 2009</span></span>
             </div>
             <p id="trend-footnote" class="chart-footnote"></p>
           </article>
@@ -251,29 +259,31 @@
             <div class="panel-head">
               <div>
                 <span class="section-index">04</span>
-                <h2 id="age-profile-title">Altersprofil nach Geschlecht</h2>
+                <h2 id="age-profile-title"><span data-lang="de">Altersprofil nach Geschlecht</span><span data-lang="en">Age profile by sex</span></h2>
                 <p id="age-profile-subtitle">–</p>
               </div>
-              <div class="age-profile-key" aria-label="Legende">
-                <span><i class="age-key-male"></i>Männer</span>
-                <span><i class="age-key-female"></i>Frauen</span>
+              <div class="age-profile-key" aria-label="Legende" data-en-aria-label="Legend">
+                <span><i class="age-key-male"></i><span data-lang="de">Männer</span><span data-lang="en">Males</span></span>
+                <span><i class="age-key-female"></i><span data-lang="de">Frauen</span><span data-lang="en">Females</span></span>
               </div>
             </div>
             <div id="age-profile-chart" class="age-profile-chart" aria-live="polite"></div>
-            <p class="chart-footnote">Eine Alterszeile anklicken, um sie als Filter zu übernehmen. Bei standardisierten Raten zeigt dieses Profil die veröffentlichten Fallzahlen.</p>
+            <p class="chart-footnote" data-lang="de">Eine Alterszeile anklicken, um sie als Filter zu übernehmen. Bei standardisierten Raten zeigt dieses Profil die veröffentlichten Fallzahlen.</p>
+            <p class="chart-footnote" data-lang="en">Click an age row to apply it as a filter. For standardised rates, this profile shows the published death counts.</p>
           </article>
 
           <article class="panel composition-panel" aria-labelledby="composition-title">
             <div class="panel-head">
               <div>
                 <span class="section-index">05</span>
-                <h2 id="composition-title">Wie sich die Ursachenstruktur verschiebt</h2>
-                <p id="composition-subtitle">Anteile der überschneidungsfreien Hauptgruppen · alle Altersgruppen</p>
+                <h2 id="composition-title"><span data-lang="de">Wie sich die Ursachenstruktur verschiebt</span><span data-lang="en">How the mix of causes is shifting</span></h2>
+                <p id="composition-subtitle"><span data-lang="de">Anteile der überschneidungsfreien Hauptgruppen · alle Altersgruppen</span><span data-lang="en">Shares of the non-overlapping main groups · all age groups</span></p>
               </div>
             </div>
             <div id="composition-chart" class="composition-chart" aria-live="polite"></div>
             <div id="composition-legend" class="composition-legend"></div>
-            <p class="chart-footnote">Die Flächen summieren sich in jedem Jahr zu 100 %. Dargestellt werden absolute Todesfälle, nicht standardisierte Raten.</p>
+            <p class="chart-footnote" data-lang="de">Die Flächen summieren sich in jedem Jahr zu 100 %. Dargestellt werden absolute Todesfälle, nicht standardisierte Raten.</p>
+            <p class="chart-footnote" data-lang="en">The areas add up to 100% in every year. They show absolute deaths, not standardised rates.</p>
           </article>
         </section>
 
@@ -281,25 +291,25 @@
           <div class="panel-head table-head">
             <div>
               <span class="section-index">06</span>
-              <h2 id="cause-table-title">Ursachen der ausgewählten Gruppe</h2>
-              <p id="cause-table-description">Die Hauptgruppe und ihre veröffentlichten Untergruppen.</p>
+              <h2 id="cause-table-title"><span data-lang="de">Ursachen der ausgewählten Gruppe</span><span data-lang="en">Causes in the selected group</span></h2>
+              <p id="cause-table-description"><span data-lang="de">Die Hauptgruppe und ihre veröffentlichten Untergruppen.</span><span data-lang="en">The main group and its published subgroups.</span></p>
             </div>
             <label class="search-field">
-              <span class="sr-only">Todesursache suchen</span>
+              <span class="sr-only"><span data-lang="de">Todesursache suchen</span><span data-lang="en">Search cause of death</span></span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
-              <input id="cause-search" type="search" placeholder="Ursache oder ICD-Code suchen …" />
+              <input id="cause-search" type="search" placeholder="Ursache oder ICD-Code suchen …" data-en-placeholder="Search cause or ICD code …" />
             </label>
           </div>
           <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th aria-sort="none"><button class="sort-button" type="button" data-sort="name">Todesursache</button></th>
-                  <th>ICD-Code</th>
+                  <th aria-sort="none"><button class="sort-button" type="button" data-sort="name" data-en-text="Cause of death">Todesursache</button></th>
+                  <th><span data-lang="de">ICD-Code</span><span data-lang="en">ICD code</span></th>
                   <th class="numeric-header" aria-sort="descending"><button id="value-column-label" class="sort-button active" type="button" data-sort="value">Fälle</button></th>
-                  <th id="yll-average-column" class="numeric-header hidden-column" aria-sort="none"><button class="sort-button" type="button" data-sort="averageYll">Jahre je Todesfall</button></th>
+                  <th id="yll-average-column" class="numeric-header hidden-column" aria-sort="none"><button class="sort-button" type="button" data-sort="averageYll" data-en-text="Years per death">Jahre je Todesfall</button></th>
                   <th class="numeric-header" aria-sort="none"><button id="share-column-label" class="sort-button" type="button" data-sort="share">Anteil</button></th>
-                  <th>Typ</th>
+                  <th><span data-lang="de">Typ</span><span data-lang="en">Type</span></th>
                 </tr>
               </thead>
               <tbody id="cause-table-body"></tbody>
@@ -307,19 +317,25 @@
           </div>
           <div class="table-footer">
             <span id="table-count">–</span>
-            <button id="show-more" class="outline-button" type="button">Mehr anzeigen</button>
+            <button id="show-more" class="outline-button" type="button"><span data-lang="de">Mehr anzeigen</span><span data-lang="en">Show more</span></button>
           </div>
         </section>
 
         <section class="method-grid">
           <article>
             <span class="section-index">07</span>
-            <h2>Daten richtig lesen</h2>
-            <p>
+            <h2><span data-lang="de">Daten richtig lesen</span><span data-lang="en">Reading the data</span></h2>
+            <p data-lang="de">
               Ein Todesfall wird hier nach dem Grundleiden eingeordnet, das die zum Tod
               führende Krankheits- oder Verletzungskette ausgelöst hat. Die Darstellung
               beschreibt registrierte Sterbefälle – sie erklärt keine individuellen Risiken
               oder Kausalzusammenhänge.
+            </p>
+            <p data-lang="en">
+              Each death is classified here by its underlying cause: the disease or injury
+              that set off the chain of events leading to death. The figures describe
+              registered deaths – they do not explain individual risks or causal
+              relationships.
             </p>
           </article>
           <div id="method-notes" class="method-notes"></div>
@@ -327,20 +343,20 @@
 
         <section class="source-strip">
           <div>
-            <strong>Quelle</strong>
-            <span>STATISTIK AUSTRIA, Todesursachenstatistik</span>
+            <strong data-lang="de">Quelle</strong><strong data-lang="en">Source</strong>
+            <span data-lang="de">STATISTIK AUSTRIA, Todesursachenstatistik</span><span data-lang="en">STATISTIK AUSTRIA, cause-of-death statistics</span>
           </div>
           <div id="source-links" class="source-links"></div>
         </section>
       </main>
 
       <footer>
-        <span>Unabhängige Visualisierung offizieller Daten</span>
-        <span>Stand der App: 04.10.2026</span>
+        <span><span data-lang="de">Unabhängige Visualisierung offizieller Daten</span><span data-lang="en">Independent visualisation of official data</span></span>
+        <span><span data-lang="de">Stand der App: 04.10.2026</span><span data-lang="en">App last updated: 4 Oct 2026</span></span>
       </footer>
     </div>
 
-    <noscript>Diese Anwendung benötigt JavaScript für die interaktive Auswertung.</noscript>
-    <script type="module" src="/mortality/app.js?v=20261004-1"></script>
+    <noscript><span data-lang="de">Diese Anwendung benötigt JavaScript für die interaktive Auswertung.</span><span data-lang="en">This application requires JavaScript for the interactive analysis.</span></noscript>
+    <script type="module" src="/mortality/app.js?v=20261008"></script>
   </body>
 </html>

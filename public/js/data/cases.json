@@ -8,12 +8,17 @@
   {
    "date": "2023-10-11",
    "place": "Qusra (Nablus)",
+   "place_en": "Qusra (Nablus)",
    "victims": "Abadah Abu Srur (17), Mus'ab Abu Ridah (18/20), Mu'ad 'Odeh (29)",
+   "victims_en": "Abadah Abu Srur (17), Mus'ab Abu Ridah (18/20), Mu'ad 'Odeh (29)",
    "n": 3,
    "shooter": "Siedler",
+   "shooter_en": "Settler",
    "cat": "K3",
    "context": "Siedler aus Außenposten Esh Kodesh überfallen Dorf, beschießen Haus; Jugendliche werfen aus ~20 m Steine zur Abwehr (B'Tselem), Schüsse in den Rücken. IDF: Vorfall „unter Prüfung“.",
+   "context_en": "Settlers from the Esh Kodesh outpost raid the village and fire at a house; youths throw stones from ~20 m to fend them off (B'Tselem), shots in the back. IDF: incident ‘under review’.",
    "legal": "keine Festnahme, keine Anklage",
+   "legal_en": "no arrest, no indictment",
    "src": "A",
    "links": [
     "https://reliefweb.int/report/occupied-palestinian-territory/two-days-settlers-killed-five-palestinians-qusrah-one-them-17-and-soldiers-killed-another",
@@ -24,12 +29,17 @@
   {
    "date": "2023-10-12",
    "place": "Qusra/Qabalan (Nablus)",
+   "place_en": "Qusra/Qabalan (Nablus)",
    "victims": "Ibrahim Wadi (62), Ahmad Wadi (25)",
+   "victims_en": "Ibrahim Wadi (62), Ahmad Wadi (25)",
    "n": 2,
    "shooter": "Siedler",
+   "shooter_en": "Settler",
    "cat": "K4",
    "context": "Siedler blockieren Trauerzug; Vater und Sohn auf Route 60 aus Auto mit israel. Kennzeichen erschossen (Video). Keine israelische Gegendarstellung.",
+   "context_en": "Settlers block a funeral procession; father and son shot dead on Route 60 from a car with Israeli plates (video). No Israeli counter-account.",
    "legal": "keine Anklage",
+   "legal_en": "no indictment",
    "src": "N",
    "links": [
     "https://english.wafa.ps/Pages/Details/138174",
@@ -40,12 +50,17 @@
   {
    "date": "2023-10-18",
    "place": "Dura al-Qara' (Ramallah)",
+   "place_en": "Dura al-Qara' (Ramallah)",
    "victims": "Mohammed Fawaqa (21)",
+   "victims_en": "Mohammed Fawaqa (21)",
    "n": 1,
    "shooter": "Siedler",
+   "shooter_en": "Settler",
    "cat": "K4",
    "context": "Bei Siedlerangriff nahe Quelle erschossen. Nur Ynet gibt Gesundheitsministerium wieder; keine IDF-Version.",
+   "context_en": "Shot dead during a settler attack near a spring. Only Ynet relays the Ministry of Health; no IDF version.",
    "legal": "keine bekannt",
+   "legal_en": "none known",
    "src": "M",
    "links": [
     "https://english.wafa.ps/Pages/Details/138431",
@@ -56,12 +71,17 @@
   {
    "date": "2023-10-24",
    "place": "Ras Karkar (Ramallah)",
+   "place_en": "Ras Karkar (Ramallah)",
    "victims": "Ahmad Noufal (23), † 30.10.",
+   "victims_en": "Ahmad Noufal (23), † 30 Oct",
    "n": 1,
    "shooter": "Siedler",
+   "shooter_en": "Settler",
    "cat": "K4",
    "context": "Siedler rammt Auto mit vier jungen Männern und schießt (WAFA). Keine israelische Quelle.",
+   "context_en": "Settler rams a car carrying four young men and opens fire (WAFA). No Israeli source.",
    "legal": "keine bekannt",
+   "legal_en": "none known",
    "src": "P",
    "links": [
     "https://english.wafa.ps/Pages/Details/138806",
@@ -71,12 +91,17 @@
   {
    "date": "2023-10-28",
    "place": "As-Sawiya (Nablus)",
+   "place_en": "As-Sawiya (Nablus)",
    "victims": "Bilal Saleh (40)",
+   "victims_en": "Bilal Saleh (40)",
    "n": 1,
    "shooter": "Siedler (Soldat auf Urlaub, Rehelim)",
+   "shooter_en": "Settler (soldier on leave, Rehelim)",
    "cat": "K3",
    "context": "Olivenernte. Palästinensisch: ging Telefon holen, erschossen. Anwälte des Schützen: Familie wurde mit Steinen beworfen.",
+   "context_en": "Olive harvest. Palestinian side: went to fetch a phone, shot dead. Shooter's lawyers: the family was pelted with stones.",
    "legal": "festgenommen, freigelassen; keine Anklage",
+   "legal_en": "arrested, released; no indictment",
    "src": "A",
    "links": [
     "https://www.aljazeera.com/features/2023/10/30/bilal-went-out-to-harvest-his-olives-an-israeli-settler-shot-him",
@@ -88,12 +113,17 @@
   {
    "date": "2023-12-02",
    "place": "Qarawat Bani Hassan (Salfit)",
+   "place_en": "Qarawat Bani Hassan (Salfit)",
    "victims": "Ahmad Assi (38)",
+   "victims_en": "Ahmad Assi (38)",
    "n": 1,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "Siedler mit Soldaten im Dorf; IDF: Warnschüsse gegen Steinewerfer. OCHA: Armee oder Siedler.",
+   "context_en": "Settlers with soldiers in the village; IDF: warning shots at stone-throwers. OCHA: army or settlers.",
    "legal": "keine Festnahme",
+   "legal_en": "no arrest",
    "src": "A",
    "links": [
     "https://english.wafa.ps/Pages/Details/139785",
@@ -104,12 +134,17 @@
   {
    "date": "2024-01-19",
    "place": "Route 60 bei al-Mazra'a ash-Sharqiya",
+   "place_en": "Route 60 near al-Mazra'a ash-Sharqiya",
    "victims": "Tawfic Abdel Jabbar (17, US-Bürger)",
+   "victims_en": "Tawfic Abdel Jabbar (17, US citizen)",
    "n": 1,
    "shooter": "unklar (Polizist außer Dienst, Soldat, Siedler)",
+   "shooter_en": "unclear (off-duty police officer, soldier, settler)",
    "cat": "U",
    "context": "Polizei: alle drei schossen wegen Steinwürfen; Familie und B'Tselem bestreiten Steinwürfe.",
+   "context_en": "Police: all three fired because of stone-throwing; family and B'Tselem deny there was stone-throwing.",
    "legal": "Akte bei Staatsanwaltschaft Jerusalem; keine Anklage",
+   "legal_en": "case file with the Jerusalem prosecution; no indictment",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/liveblog_entry/us-says-it-is-devastated-by-killing-of-palestinian-american-teen-near-ramallah/",
@@ -119,12 +154,17 @@
   {
    "date": "2024-02-22",
    "place": "Route 1 bei Ma'ale Adumim",
+   "place_en": "Route 1 near Ma'ale Adumim",
    "victims": "einer der Attentäter (Zawahra oder al-Wahsh)",
+   "victims_en": "one of the attackers (Zawahra or al-Wahsh)",
    "n": 1,
    "shooter": "Reservist außer Dienst, Wachmann",
+   "shooter_en": "Off-duty reservist, security guard",
    "cat": "K1",
    "context": "Schussanschlag auf Autos, Matan Elmaliah getötet. Ein Täter von Hananya Ben Shimon erschossen.",
+   "context_en": "Shooting attack on cars; Matan Elmaliah killed. One attacker shot dead by Hananya Ben Shimon.",
    "legal": "–",
+   "legal_en": "–",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/reservist-soldier-fresh-from-gaza-war-shot-maale-adumim-terrorist-attacker/",
@@ -134,12 +174,17 @@
   {
    "date": "2024-02-29",
    "place": "Tankstelle bei Eli",
+   "place_en": "Petrol station near Eli",
    "victims": "Mohammad Manasra (31)",
+   "victims_en": "Mohammad Manasra (31)",
    "n": 1,
    "shooter": "Zivilist (Reservist auf Urlaub)",
+   "shooter_en": "Civilian (reservist on leave)",
    "cat": "K1",
    "context": "Erschoss zuvor Uria Hartum (16) und Yitzhak Zeiger (57); am Tatort erschossen.",
+   "context_en": "Had earlier shot dead Uria Hartum (16) and Yitzhak Zeiger (57); shot dead at the scene.",
    "legal": "–",
+   "legal_en": "–",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/two-killed-in-terror-shooting-at-gas-station-near-west-bank-settlement-of-eli/",
@@ -149,12 +194,17 @@
   {
    "date": "2024-03-19",
    "place": "Tell al-Khashaba bei Aqraba",
+   "place_en": "Tell al-Khashaba near Aqraba",
    "victims": "Fakher Bani Jaber (43)",
+   "victims_en": "Fakher Bani Jaber (43)",
    "n": 1,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "Palästinensisch: Siedler in Uniform; Armeequelle: ein Soldat schoss.",
+   "context_en": "Palestinian side: settlers in uniform; army source: a soldier fired.",
    "legal": "–",
+   "legal_en": "–",
    "src": "P",
    "links": [
     "https://www.ochaopt.org/content/hostilities-gaza-strip-and-israel-flash-update-143"
@@ -163,12 +213,17 @@
   {
    "date": "2024-04-12",
    "place": "Al-Mughayyir (Ramallah)",
+   "place_en": "Al-Mughayyir (Ramallah)",
    "victims": "Jihad Abu Alia (25)",
+   "victims_en": "Jihad Abu Alia (25)",
    "n": 1,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "Massenangriff nach Mord an Binyamin Achimeir; IDF: Soldaten schossen auf Steinewerfer.",
+   "context_en": "Mass attack after the murder of Binyamin Achimeir; IDF: soldiers fired at stone-throwers.",
    "legal": "–",
+   "legal_en": "–",
    "src": "P",
    "links": [
     "https://www.ochaopt.org/content/hostilities-gaza-strip-and-israel-flash-update-154",
@@ -178,12 +233,17 @@
   {
    "date": "2024-04-13",
    "place": "Beitin (Ramallah)",
+   "place_en": "Beitin (Ramallah)",
    "victims": "Omar Hamed (17)",
+   "victims_en": "Omar Hamed (17)",
    "n": 1,
    "shooter": "Siedler",
+   "shooter_en": "Settler",
    "cat": "K3",
    "context": "Siedlerangriff; Bewohner verteidigen Häuser (B'Tselem: „residents defending themselves“).",
+   "context_en": "Settler attack; residents defend their homes (B'Tselem: ‘residents defending themselves’).",
    "legal": "keine Anklage bekannt",
+   "legal_en": "no known indictment",
    "src": "I",
    "links": [
     "https://www.ochaopt.org/content/hostilities-gaza-strip-and-israel-flash-update-154",
@@ -193,12 +253,17 @@
   {
    "date": "2024-04-15",
    "place": "Aqraba (Nablus)",
+   "place_en": "Aqraba (Nablus)",
    "victims": "Abdulrahman Bani Fadel (30), Mohammed Bani Jame' (21)",
+   "victims_en": "Abdulrahman Bani Fadel (30), Mohammed Bani Jame' (21)",
    "n": 2,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "Streit um Weideland, danach Schüsse von Siedlern und Armee; IDF: griff zur Beendigung von Zusammenstößen ein.",
+   "context_en": "Dispute over grazing land, followed by shots from settlers and the army; IDF: intervened to end clashes.",
    "legal": "–",
+   "legal_en": "–",
    "src": "I",
    "links": [
     "https://www.theguardian.com/world/2024/apr/16/israel-settlers-kill-palestinians-west-bank-gaza",
@@ -208,12 +273,17 @@
   {
    "date": "2024-04-20",
    "place": "As-Sawiya (Nablus)",
+   "place_en": "As-Sawiya (Nablus)",
    "victims": "Mohammad Musa (~50, Rettungsfahrer)",
+   "victims_en": "Mohammad Musa (~50, ambulance driver)",
    "n": 1,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "Beim Abtransport Verletzter erschossen. WAFA: Siedler; Ynet: IDF-Feuer.",
+   "context_en": "Shot dead while evacuating the wounded. WAFA: settlers; Ynet: IDF fire.",
    "legal": "IDF-Untersuchung",
+   "legal_en": "IDF investigation",
    "src": "I",
    "links": [
     "https://abc17news.com/news/national-world/cnn-world/2024/04/20/ambulance-driver-killed-while-aiding-palestinians-injured-in-attack-by-israeli-settlers-in-the-west-bank/",
@@ -223,12 +293,17 @@
   {
    "date": "2024-08-15",
    "place": "Jit (Qalqilya)",
+   "place_en": "Jit (Qalqilya)",
    "victims": "Rashid Sadda (23)",
+   "victims_en": "Rashid Sadda (23)",
    "n": 1,
    "shooter": "Siedler",
+   "shooter_en": "Settler",
    "cat": "K4",
    "context": "Rund 100 maskierte Siedler legen Feuer; Shin Bet und Polizei: Schüsse von Siedlern. IDF: „wir haben versagt“, Terrorakt.",
+   "context_en": "Around 100 masked settlers set fires; Shin Bet and police: shots fired by settlers. IDF: ‘we failed’, an act of terror.",
    "legal": "4 festgenommen, 3 Administrativhaft (von Katz aufgehoben); keine Anklage",
+   "legal_en": "4 arrested, 3 in administrative detention (lifted by Katz); no indictment",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/we-failed-idf-finds-it-didnt-act-sufficiently-to-prevent-deadly-settler-rampage/",
@@ -239,12 +314,17 @@
   {
    "date": "2024-08-26",
    "place": "Wadi Rahhal (Bethlehem)",
+   "place_en": "Wadi Rahhal (Bethlehem)",
    "victims": "Khalil Khalawi (40; Name umstritten)",
+   "victims_en": "Khalil Khalawi (40; name disputed)",
    "n": 1,
    "shooter": "Siedler in Reservisteneinheit (Efrat)",
+   "shooter_en": "Settler in a reservist unit (Efrat)",
    "cat": "K3",
    "context": "Siedler-Reservisten verließen laut IDF ihren Bereich; Steinwürfe zwischen Gruppen berichtet.",
+   "context_en": "According to the IDF, the settler reservists left their assigned area; stone-throwing between groups reported.",
    "legal": "IDF-Untersuchung; keine Anklage",
+   "legal_en": "IDF investigation; no indictment",
    "src": "P",
    "links": [
     "https://www.ochaopt.org/content/humanitarian-situation-update-210-west-bank",
@@ -254,12 +334,17 @@
   {
    "date": "2024-08-30",
    "place": "Karmei Tzur (Hebron)",
+   "place_en": "Karmei Tzur (Hebron)",
    "victims": "Autobomben-Attentäter (Marqa oder Afifa)",
+   "victims_en": "Car-bomb attacker (Marqa or Afifa)",
    "n": 1,
    "shooter": "Sicherheitskoordinator der Siedlung (lt. OCHA)",
+   "shooter_en": "Settlement security coordinator (per OCHA)",
    "cat": "K1",
    "context": "Drang mit Autobombe in Siedlung ein; Hamas bekannte sich. ToI: von Soldaten getötet.",
+   "context_en": "Broke into the settlement with a car bomb; Hamas claimed responsibility. ToI: killed by soldiers.",
    "legal": "–",
+   "legal_en": "–",
    "src": "M",
    "links": [
     "https://www.ochaopt.org/content/humanitarian-situation-update-213-west-bank",
@@ -269,12 +354,17 @@
   {
    "date": "2024-11-06",
    "place": "Kreuzung Shilo",
+   "place_en": "Shilo junction",
    "victims": "Harith Jabara",
+   "victims_en": "Harith Jabara",
    "n": 1,
    "shooter": "Siedler (lt. OCHA)",
+   "shooter_en": "Settler (per OCHA)",
    "cat": "K1",
    "context": "Ramming an Bushaltestelle, stieg mit Messer aus.",
+   "context_en": "Ramming at a bus stop, got out with a knife.",
    "legal": "–",
+   "legal_en": "–",
    "src": "M",
    "links": [
     "https://www.ynetnews.com/article/sjswljtbye",
@@ -285,12 +375,17 @@
   {
    "date": "2025-06-19",
    "place": "Surif (Hebron)",
+   "place_en": "Surif (Hebron)",
    "victims": "Mohammad al-Hour (48)",
+   "victims_en": "Mohammad al-Hour (48)",
    "n": 1,
    "shooter": "Siedler",
+   "shooter_en": "Settler",
    "cat": "K4",
    "context": "Siedler aus Beit Ayin überfallen Haus, schlagen alten Mann; Schüsse, als Angehörige kommen. Keine israelische Darstellung.",
+   "context_en": "Settlers from Beit Ayin raid a house and beat an elderly man; shots fired when relatives arrive. No Israeli account.",
    "legal": "keine bekannt",
+   "legal_en": "none known",
    "src": "P",
    "links": [
     "https://www.unocha.org/publications/report/occupied-palestinian-territory/humanitarian-situation-update-299-west-bank"
@@ -299,12 +394,17 @@
   {
    "date": "2025-07-11",
    "place": "Sinjil/al-Mazra'a ash-Sharqiya",
+   "place_en": "Sinjil/al-Mazra'a ash-Sharqiya",
    "victims": "Saif Musallet (20, US-Bürger)",
+   "victims_en": "Saif Musallet (20, US citizen)",
    "n": 1,
    "shooter": "Siedler",
+   "shooter_en": "Settler",
    "cat": "K3",
    "context": "Zu Tode geprügelt, Rettung stundenlang blockiert. IDF: Palästinenser warfen zuerst Steine, zwei Israelis leicht verletzt.",
+   "context_en": "Beaten to death; rescue blocked for hours. IDF: Palestinians threw stones first, two Israelis lightly injured.",
    "legal": "6 Festnahmen, wieder frei; keine Anklage",
+   "legal_en": "6 arrests, released again; no indictment",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/family-of-us-palestinian-man-allegedly-killed-by-settlers-urges-state-department-probe/",
@@ -314,12 +414,17 @@
   {
    "date": "2025-07-11",
    "place": "Sinjil (gleicher Vorfall)",
+   "place_en": "Sinjil (same incident)",
    "victims": "Mohammed al-Shalabi (23)",
+   "victims_en": "Mohammed al-Shalabi (23)",
    "n": 1,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "Brustschuss; Schütze nicht identifiziert.",
+   "context_en": "Shot in the chest; shooter not identified.",
    "legal": "–",
+   "legal_en": "–",
    "src": "M",
    "links": [
     "https://www.timesofisrael.com/family-of-us-palestinian-man-allegedly-killed-by-settlers-urges-state-department-probe/",
@@ -329,12 +434,17 @@
   {
    "date": "2025-07-25",
    "place": "Tor von Migdal Oz",
+   "place_en": "Gate of Migdal Oz",
    "victims": "Rabee' Taqatqah (30)",
+   "victims_en": "Rabee' Taqatqah (30)",
    "n": 1,
    "shooter": "Wachmann der Siedlung",
+   "shooter_en": "Settlement security guard",
    "cat": "K2",
    "context": "IDF: mit Messer, warf Steine aufs Tor. PCHR: von Armee getötet; Angriff nicht bestätigt.",
+   "context_en": "IDF: had a knife, threw stones at the gate. PCHR: killed by the army; attack not confirmed.",
    "legal": "–",
+   "legal_en": "–",
    "src": "A",
    "links": [
     "https://t.me/idf_telegram/18496",
@@ -344,12 +454,17 @@
   {
    "date": "2025-07-25",
    "place": "bei Shim'a (südl. Hebron)",
+   "place_en": "near Shim'a (south of Hebron)",
    "victims": "Wadee' Samamra (19)",
+   "victims_en": "Wadee' Samamra (19)",
    "n": 1,
    "shooter": "Regionalverteidigung (Hagmar)",
+   "shooter_en": "Regional defence (Hagmar)",
    "cat": "K2",
    "context": "IDF: Messerangriff versucht. PCHR: „Siedlermilizen“. OCHA zählt Armee.",
+   "context_en": "IDF: attempted stabbing. PCHR: ‘settler militias’. OCHA counts it as the army.",
    "legal": "–",
+   "legal_en": "–",
    "src": "A",
    "links": [
     "https://t.me/idf_telegram/18495"
@@ -358,12 +473,17 @@
   {
    "date": "2025-07-28",
    "place": "Umm al-Khair (Hebron)",
+   "place_en": "Umm al-Khair (Hebron)",
    "victims": "Awdah Hathaleen (31)",
+   "victims_en": "Awdah Hathaleen (31)",
    "n": 1,
    "shooter": "Siedler Yinon Levi",
+   "shooter_en": "Settler Yinon Levi",
    "cat": "K3",
    "context": "Konfrontation um Bagger auf palästinensischem Land; Opfer filmte. Levi: mit Steinen beworfen, Lebensgefahr.",
+   "context_en": "Confrontation over an excavator on Palestinian land; the victim was filming. Levi: pelted with stones, danger to life.",
    "legal": "angeklagt 6.8.2026 (fahrlässige Tötung) – einzige Tötungsanklage seit 7.10.2023",
+   "legal_en": "indicted 6 Aug 2026 (reckless homicide) – the only homicide indictment since 7 Oct 2023",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/extremist-settler-charged-with-reckless-homicide-over-death-of-palestinian-activist/",
@@ -374,12 +494,17 @@
   {
    "date": "2025-08-02",
    "place": "Aqraba (Nablus)",
+   "place_en": "Aqraba (Nablus)",
    "victims": "Mu'in al-Asfar (24)",
+   "victims_en": "Mu'in al-Asfar (24)",
    "n": 1,
    "shooter": "Siedler + Wachmann",
+   "shooter_en": "Settler + security guard",
    "cat": "K3",
    "context": "OCHA: ein Stein flog Richtung Siedler, dann Schüsse; 7–8 Verletzte.",
+   "context_en": "OCHA: a stone was thrown towards settlers, then shots; 7–8 injured.",
    "legal": "keine bekannt",
+   "legal_en": "none known",
    "src": "M",
    "links": [
     "https://www.timesofisrael.com/palestinian-reportedly-killed-seven-others-wounded-in-settler-attack-near-nablus/",
@@ -389,12 +514,17 @@
   {
    "date": "2025-08-13",
    "place": "Duma (Nablus)",
+   "place_en": "Duma (Nablus)",
    "victims": "Thameen Dawabsheh (35)",
+   "victims_en": "Thameen Dawabsheh (35)",
    "n": 1,
    "shooter": "Soldat außer Dienst",
+   "shooter_en": "Off-duty soldier",
    "cat": "K3",
    "context": "IDF: Steine auf Soldat außer Dienst und Zivilisten, Versuch, ihm die Waffe zu entreißen.",
+   "context_en": "IDF: stones thrown at an off-duty soldier and civilians, attempt to wrest his weapon from him.",
    "legal": "keine Festnahme",
+   "legal_en": "no arrest",
    "src": "A",
    "links": [
     "https://t.me/idf_telegram/18759",
@@ -405,12 +535,17 @@
   {
    "date": "2025-09-12",
    "place": "Deir Jarir–Silwad",
+   "place_en": "Deir Jarir–Silwad",
    "victims": "Mohammed 'Alawi (20)",
+   "victims_en": "Mohammed 'Alawi (20)",
    "n": 1,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "OCHA: „Armee zusammen mit Siedlern schossen“; Ortsvorsteher: Soldaten.",
+   "context_en": "OCHA: ‘army together with settlers fired’; village head: soldiers.",
    "legal": "–",
+   "legal_en": "–",
    "src": "P",
    "links": [
     "https://www.unocha.org/publications/report/occupied-palestinian-territory/humanitarian-situation-update-324-west-bank",
@@ -420,12 +555,17 @@
   {
    "date": "2025-09-23",
    "place": "Al-Mughayyir",
+   "place_en": "Al-Mughayyir",
    "victims": "Saeed Na'san (20/22)",
+   "victims_en": "Saeed Na'san (20/22)",
    "n": 1,
    "shooter": "Soldat auf Urlaub, Siedler (lt. IDF-Sprecher)",
+   "shooter_en": "Soldier on leave, settler (per IDF spokesperson)",
    "cat": "K3",
    "context": "Bewaffnete Siedler weiden Vieh nahe Häusern; junge Männer werfen Steine, um sie zu vertreiben; Schuss aus rund 60 m in die Brust (B'Tselem).",
+   "context_en": "Armed settlers graze livestock near homes; young men throw stones to drive them away; shot in the chest from about 60 m (B'Tselem).",
    "legal": "keine bekannt",
+   "legal_en": "none known",
    "src": "N",
    "links": [
     "https://www.btselem.org/settler_violence/20251120_a_settler_shot_and_killed_a_young_palestinian_who_tried_to_drive_him_away_in_al_mughayir_ramallah_district",
@@ -435,12 +575,17 @@
   {
    "date": "2025-10-08",
    "place": "Deir Jarir",
+   "place_en": "Deir Jarir",
    "victims": "Jihad 'Ajaj (26)",
+   "victims_en": "Jihad 'Ajaj (26)",
    "n": 1,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "Armee und Siedler schossen nach gegenseitigen Steinwürfen.",
+   "context_en": "Army and settlers fired after mutual stone-throwing.",
    "legal": "–",
+   "legal_en": "–",
    "src": "P",
    "links": [
     "https://www.arabnews.com/node/2618251/middle-east",
@@ -450,12 +595,17 @@
   {
    "date": "2025-11-03",
    "place": "Zayit-Kreuzung bei Kiryat Arba (OCHA: Ras al-Jora, Hebron)",
+   "place_en": "Zayit junction near Kiryat Arba (OCHA: Ras al-Jora, Hebron)",
    "victims": "Ahmad al-Atrash (32–36)",
+   "victims_en": "Ahmad al-Atrash (32–36)",
    "n": 1,
    "shooter": "Zivilist",
+   "shooter_en": "Civilian",
    "cat": "K2",
    "context": "Polizei: Zwei Israelis wollten Abschleppen ihres Autos verhindern und wurden angegriffen; einer schoss aus Angst um sein Leben. Palästinensisch bestritten.",
+   "context_en": "Police: two Israelis tried to stop their car from being towed and were attacked; one fired, fearing for his life. Disputed by the Palestinian side.",
    "legal": "keine Festnahme",
+   "legal_en": "no arrest",
    "src": "A",
    "links": [
     "https://www.jns.org/israel-news/palestinian-shot-dead-after-attack-car-theft-near-hebron",
@@ -465,12 +615,17 @@
   {
    "date": "2025-12-16",
    "place": "Tuqu' (Bethlehem)",
+   "place_en": "Tuqu' (Bethlehem)",
    "victims": "Moheeb Jabreen (16/18)",
+   "victims_en": "Moheeb Jabreen (16/18)",
    "n": 1,
    "shooter": "Siedler",
+   "shooter_en": "Settler",
    "cat": "K4",
    "context": "Siedler stieg nach Beerdigung aus dem Auto und schoss. Keine israelische Darstellung.",
+   "context_en": "Settler got out of his car after a funeral and fired. No Israeli account.",
    "legal": "keine bekannt",
+   "legal_en": "none known",
    "src": "M",
    "links": [
     "https://jpost.com/middle-east/article-880492",
@@ -480,12 +635,17 @@
   {
    "date": "2026-02-18",
    "place": "Mukhmas",
+   "place_en": "Mukhmas",
    "victims": "Nasrallah Abu Siyam (19, US-Bürger)",
+   "victims_en": "Nasrallah Abu Siyam (19, US citizen)",
    "n": 1,
    "shooter": "Siedler oder Regionalverteidigung",
+   "shooter_en": "Settler or regional defence",
    "cat": "K3",
    "context": "Siedler stehlen Schafe, Dorf stellt sich entgegen. IDF: Steinwürfe, Soldaten schossen nicht.",
+   "context_en": "Settlers steal sheep, the village confronts them. IDF: stone-throwing, soldiers did not fire.",
    "legal": "Polizei/MP ermitteln; keine Festnahme",
+   "legal_en": "police/military police investigating; no arrest",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/palestinian-american-19-shot-and-killed-in-settler-attack-in-west-bank-pa/",
@@ -496,12 +656,17 @@
   {
    "date": "2026-03-02",
    "place": "Qaryut (Nablus)",
+   "place_en": "Qaryut (Nablus)",
    "victims": "Muhammad Muammar (52), Fahim Muammar (47/48)",
+   "victims_en": "Muhammad Muammar (52), Fahim Muammar (47/48)",
    "n": 2,
    "shooter": "Siedler-Reservist in Uniform",
+   "shooter_en": "Settler reservist in uniform",
    "cat": "K4",
    "context": "Siedler planieren Olivenhain; Anwohner schauen zu und rufen; Schütze kniet und schießt. IDF verurteilt, nimmt Waffe ab.",
+   "context_en": "Settlers bulldoze an olive grove; residents watch and shout; the shooter kneels and fires. IDF condemns, confiscates his weapon.",
    "legal": "Strafermittlung; keine Anklage bekannt",
+   "legal_en": "criminal investigation; no known indictment",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/two-men-shot-dead-by-settlers-in-northern-west-bank-palestinian-authority-says/",
@@ -511,12 +676,17 @@
   {
    "date": "2026-03-07",
    "place": "Wadi ar-Rakhim (Masafer Yatta)",
+   "place_en": "Wadi ar-Rakhim (Masafer Yatta)",
    "victims": "Amir Shunnaran (27/28)",
+   "victims_en": "Amir Shunnaran (27/28)",
    "n": 1,
    "shooter": "Siedler-Reservist",
+   "shooter_en": "Settler reservist",
    "cat": "K3",
    "context": "Siedler treiben Vieh auf Land, schlagen Familie. IDF: Reservist eilte nach Meldung eines Angriffs herbei und schoss.",
+   "context_en": "Settlers drive livestock onto the land and beat a family. IDF: reservist rushed over after a report of an attack and fired.",
    "legal": "Waffe eingezogen; keine Festnahme",
+   "legal_en": "weapon confiscated; no arrest",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/liveblog_entry/palestinian-said-shot-dead-by-settlers-in-west-bank-no-comment-from-idf/",
@@ -527,12 +697,17 @@
   {
    "date": "2026-03-08",
    "place": "Khirbet Abu Falah",
+   "place_en": "Khirbet Abu Falah",
    "victims": "Fare' Hamayel (57)",
+   "victims_en": "Fare' Hamayel (57)",
    "n": 1,
    "shooter": "Siedler",
+   "shooter_en": "Settler",
    "cat": "K4",
    "context": "70–80 Siedler überfallen nachts das Dorf. IDF: Meldung über Israelis, die Palästinenser angreifen.",
+   "context_en": "70–80 settlers raid the village at night. IDF: report of Israelis attacking Palestinians.",
    "legal": "Polizeiermittlung; keine Festnahme",
+   "legal_en": "police investigation; no arrest",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/two-palestinians-reported-killed-in-fresh-settler-attack-in-west-bank/",
@@ -542,12 +717,17 @@
   {
    "date": "2026-03-08",
    "place": "Khirbet Abu Falah",
+   "place_en": "Khirbet Abu Falah",
    "victims": "Thaer Hamayel (24/30)",
+   "victims_en": "Thaer Hamayel (24/30)",
    "n": 1,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "Gesundheitsministerium: Siedler; OHCHR: Sicherheitskräfte.",
+   "context_en": "Ministry of Health: settlers; OHCHR: security forces.",
    "legal": "–",
+   "legal_en": "–",
    "src": "M",
    "links": [
     "https://www.timesofisrael.com/two-palestinians-reported-killed-in-fresh-settler-attack-in-west-bank/",
@@ -557,12 +737,17 @@
   {
    "date": "2026-03-14",
    "place": "Qusra",
+   "place_en": "Qusra",
    "victims": "Amir Odeh (28)",
+   "victims_en": "Amir Odeh (28)",
    "n": 1,
    "shooter": "Siedler-Reservist",
+   "shooter_en": "Settler reservist",
    "cat": "K4",
    "context": "Siedler aus neuem Außenposten steinigen Haus, schießen; Vater verletzt.",
+   "context_en": "Settlers from a new outpost stone a house and open fire; father injured.",
    "legal": "Reservist festgenommen (Haaretz 15.4.); Ausgang offen",
+   "legal_en": "reservist arrested (Haaretz, 15 Apr); outcome open",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/man-reported-killed-in-w-bank-settler-attack-separately-3-said-hurt-by-settler-gunfire/",
@@ -573,12 +758,17 @@
   {
    "date": "2026-03-26",
    "place": "Jannatah/Beit Falouh",
+   "place_en": "Jannatah/Beit Falouh",
    "victims": "Mohammad al-Malhi (37)",
+   "victims_en": "Mohammad al-Malhi (37)",
    "n": 1,
    "shooter": "Siedler",
+   "shooter_en": "Settler",
    "cat": "K3",
    "context": "Landbesitzer protestieren gegen Zaun; IDF: Zusammenstoß, israel. Zivilist schoss.",
+   "context_en": "Landowners protest against a fence; IDF: clash, an Israeli civilian fired.",
    "legal": "Verdächtiger festgenommen; Ausgang offen",
+   "legal_en": "suspect arrested; outcome open",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/liveblog_entry/palestinian-allegedly-shot-by-settlers-said-to-succumb-to-wounds-suspect-arrested/",
@@ -588,12 +778,17 @@
   {
    "date": "2026-04-08",
    "place": "Tayasir (Tubas)",
+   "place_en": "Tayasir (Tubas)",
    "victims": "Alaa Subeih (28)",
+   "victims_en": "Alaa Subeih (28)",
    "n": 1,
    "shooter": "Soldat außer Dienst",
+   "shooter_en": "Off-duty soldier",
    "cat": "K3",
    "context": "Gegenseitige Steinwürfe, ein Israeli verletzt; IDF: schoss auf Steinewerfer.",
+   "context_en": "Mutual stone-throwing, one Israeli injured; IDF: fired at stone-throwers.",
    "legal": "„unter Prüfung“",
+   "legal_en": "‘under review’",
    "src": "A",
    "links": [
     "https://www.bbc.com/news/articles/czrekrzzex1o",
@@ -603,12 +798,17 @@
   {
    "date": "2026-04-11",
    "place": "Deir Jarir",
+   "place_en": "Deir Jarir",
    "victims": "Ali Hamadneh (23)",
+   "victims_en": "Ali Hamadneh (23)",
    "n": 1,
    "shooter": "Siedler-Reservist",
+   "shooter_en": "Settler reservist",
    "cat": "K3",
    "context": "Gegenseitige Steinwürfe; IDF: Festnahmeverfahren, Schuss auf Steinewerfer. B'Tselem: in den Rücken getroffen, auf der Flucht.",
+   "context_en": "Mutual stone-throwing; IDF: suspect-arrest procedure, shot at stone-throwers. B'Tselem: hit in the back while fleeing.",
    "legal": "IDF-Untersuchung",
+   "legal_en": "IDF investigation",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/liveblog_entry/idf-opens-probe-after-reservist-shoots-dead-alleged-palestinian-stone-thrower/",
@@ -618,12 +818,17 @@
   {
    "date": "2026-04-15",
    "place": "Wadi Abbas (Salfit)",
+   "place_en": "Wadi Abbas (Salfit)",
    "victims": "Qusay Rayan (29), † 11.5.",
+   "victims_en": "Qusay Rayan (29), † 11 May",
    "n": 1,
    "shooter": "Zivilist",
+   "shooter_en": "Civilian",
    "cat": "K2",
    "context": "Israelisch: zog Messer an Farm. Palästinensisch: Messerangriff erfunden; psychisch krank (OCHA).",
+   "context_en": "Israeli side: drew a knife at a farm. Palestinian side: knife attack fabricated; mentally ill (OCHA).",
    "legal": "keine Ermittlung gegen Schützen",
+   "legal_en": "no investigation against the shooter",
    "src": "M",
    "links": [
     "https://www.israelnationalnews.com/news/425530",
@@ -634,12 +839,17 @@
   {
    "date": "2026-04-21",
    "place": "Al-Mughayyir, Jungenschule",
+   "place_en": "Al-Mughayyir, boys' school",
    "victims": "Aws al-Naasan (14), Jihad Abu Naim (32)",
+   "victims_en": "Aws al-Naasan (14), Jihad Abu Naim (32)",
    "n": 2,
    "shooter": "Siedler-Reservist",
+   "shooter_en": "Settler reservist",
    "cat": "K3",
    "context": "Mann in Uniform feuert mind. 8 Schüsse Richtung Schule (Video). IDF: Steine auf sein Auto.",
+   "context_en": "Man in uniform fires at least 8 shots towards the school (video). IDF: stones thrown at his car.",
    "legal": "vom Dienst suspendiert, nicht festgenommen",
+   "legal_en": "suspended from duty, not arrested",
    "src": "A",
    "links": [
     "https://edition.cnn.com/2026/04/22/middleeast/west-bank-settler-attack-school-intl",
@@ -650,12 +860,17 @@
   {
    "date": "2026-04-22",
    "place": "Deir Dibwan",
+   "place_en": "Deir Dibwan",
    "victims": "Odeh Awawdeh (25/29)",
+   "victims_en": "Odeh Awawdeh (25/29)",
    "n": 1,
    "shooter": "Siedler",
+   "shooter_en": "Settler",
    "cat": "K4",
    "context": "Bewaffnete Siedler überfallen Ortsrand, Schuss in den Rücken. IDF: Soldaten schossen nicht, brachten Siedler zur Polizei.",
+   "context_en": "Armed settlers raid the edge of the village; shot in the back. IDF: soldiers did not fire, took settlers to the police.",
    "legal": "unbekannt",
+   "legal_en": "unknown",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/liveblog-april-22-2026/",
@@ -666,12 +881,17 @@
   {
    "date": "2026-05-13",
    "place": "Jiljilya/Sinjil",
+   "place_en": "Jiljilya/Sinjil",
    "victims": "Yusuf Kaabneh (16)",
+   "victims_en": "Yusuf Kaabneh (16)",
    "n": 1,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "Schafdiebstahl; Familie: Soldaten; OCHA: Armee und Siedler.",
+   "context_en": "Sheep theft; family: soldiers; OCHA: army and settlers.",
    "legal": "–",
+   "legal_en": "–",
    "src": "M",
    "links": [
     "https://tps.co.il/articles/sheep-theft-sparks-israeli-palestinian-tensions/",
@@ -682,12 +902,17 @@
   {
    "date": "2026-07-23",
    "place": "Beit Furik (Nablus)",
+   "place_en": "Beit Furik (Nablus)",
    "victims": "2 Männer (Namen nicht veröffentlicht)",
+   "victims_en": "2 men (names not released)",
    "n": 2,
    "shooter": "Israelischer Zivilist",
+   "shooter_en": "Israeli civilian",
    "cat": "K2",
    "context": "Israelisch: zwei Palästinenser stachen 51-Jährigen nieder, anderer Israeli schoss. Palästinensisch: Löscharbeiten, Siedler legte Feuer (Video).",
+   "context_en": "Israeli side: two Palestinians stabbed a 51-year-old, another Israeli fired. Palestinian side: firefighting; a settler had set a fire (video).",
    "legal": "keine bekannt",
+   "legal_en": "none known",
    "src": "A",
    "links": [
     "https://www.ynetnews.com/article/rjnhjdkrgx",
@@ -697,12 +922,17 @@
   {
    "date": "2026-07-24",
    "place": "Tell (Nablus)",
+   "place_en": "Tell (Nablus)",
    "victims": "Farouq Ramadan (41)",
+   "victims_en": "Farouq Ramadan (41)",
    "n": 1,
    "shooter": "Bereitschaftsteam Havat Gilad",
+   "shooter_en": "Havat Gilad rapid-response team",
    "cat": "K1",
    "context": "Entriss Bereitschaftsmitglied Mellet das Gewehr; Ezra und Mellet getötet. (Drei weitere Tote durch Soldaten.)",
+   "context_en": "Wrested the rifle from response-team member Mellet; Ezra and Mellet killed. (Three more killed by soldiers.)",
    "legal": "–",
+   "legal_en": "–",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/idf-probe-of-deadly-clash-finds-tell-settler-hike-was-unauthorized-too-few-troops-responded/",
@@ -712,12 +942,17 @@
   {
    "date": "2026-08-21",
    "place": "Hamrush bei Sa'ir",
+   "place_en": "Hamrush near Sa'ir",
    "victims": "Karam al-Shalaldah (16/17)",
+   "victims_en": "Karam al-Shalaldah (16/17)",
    "n": 1,
    "shooter": "Wachmann der Siedlung",
+   "shooter_en": "Settlement security guard",
    "cat": "K4",
    "context": "Angriff von 50–100 Siedlern auf Häuser; Brustschuss. Keine israelische Darstellung.",
+   "context_en": "Attack by 50–100 settlers on homes; shot in the chest. No Israeli account.",
    "legal": "keine bekannt",
+   "legal_en": "none known",
    "src": "P",
    "links": [
     "https://pchrgaza.org/palestinian-child-killed-by-settler-gunfire-in-hebron-attack/",
@@ -727,12 +962,17 @@
   {
    "date": "2026-09-02",
    "place": "Al-Mughayyir",
+   "place_en": "Al-Mughayyir",
    "victims": "Omar al-Na'asan (19), Khalil Shehadah/Abu Alia",
+   "victims_en": "Omar al-Na'asan (19), Khalil Shehadah/Abu Alia",
    "n": 2,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "Streit um Vieh. IDF: Truppen sicherten Polizei und einen Israeli, der Vieh zurückholen wollte; Steinwürfe, Vorfall „unter Prüfung“. OCHA: Grenzpolizei schoss. CWRC: Siedler.",
+   "context_en": "Dispute over livestock. IDF: troops were securing police and an Israeli trying to retrieve livestock; stone-throwing, incident ‘under review’. OCHA: Border Police fired. CWRC: settlers.",
    "legal": "IDF-Prüfung",
+   "legal_en": "IDF review",
    "src": "A",
    "links": [
     "https://www.i24news.tv/en/news/middle-east/palestinian-territories/artc-two-palestinians-killed-during-clashes-with-israeli-forces-in-west-bank-village",
@@ -742,12 +982,17 @@
   {
    "date": "2026-09-06",
    "place": "Hajja (Qalqilya)",
+   "place_en": "Hajja (Qalqilya)",
    "victims": "Omar Tubasi (20)",
+   "victims_en": "Omar Tubasi (20)",
    "n": 1,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "PCHR: Siedler schoss; OCHA: Armee.",
+   "context_en": "PCHR: a settler fired; OCHA: army.",
    "legal": "–",
+   "legal_en": "–",
    "src": "P",
    "links": [
     "https://pchrgaza.org/palestinian-killed-and-five-others-injured-by-settler-fire-in-qalqiliya/",
@@ -757,12 +1002,17 @@
   {
    "date": "2026-10-01",
    "place": "Yasuf (Salfit)",
+   "place_en": "Yasuf (Salfit)",
    "victims": "Mashhour Yassin (51)",
+   "victims_en": "Mashhour Yassin (51)",
    "n": 1,
    "shooter": "unklar",
+   "shooter_en": "unclear",
    "cat": "U",
    "context": "Palästinensisch: Siedler aus Havat Anton. IDF: Soldaten schossen auf Steinewerfer.",
+   "context_en": "Palestinian side: settlers from Havat Anton. IDF: soldiers fired at stone-throwers.",
    "legal": "Ermittlung angekündigt (unbestätigt)",
+   "legal_en": "investigation announced (unconfirmed)",
    "src": "A",
    "links": [
     "https://www.timesofisrael.com/liveblog_entry/idf-on-shooting-of-51-year-old-palestinian-soldiers-opened-fire-at-stone-throwers",
@@ -773,12 +1023,17 @@
   {
    "date": "2026-10-02",
    "place": "Kobar (Ramallah)",
+   "place_en": "Kobar (Ramallah)",
    "victims": "Bahaa al-Natsheh (19)",
+   "victims_en": "Bahaa al-Natsheh (19)",
    "n": 1,
    "shooter": "Bewaffneter des Außenpostens",
+   "shooter_en": "Armed man from the outpost",
    "cat": "K2",
    "context": "Israelisch: Molotowcocktails auf Außenposten. Palästinensisch: Siedler griffen Jugendliche an, Armee schoss.",
+   "context_en": "Israeli side: Molotov cocktails thrown at the outpost. Palestinian side: settlers attacked youths, the army fired.",
    "legal": "–",
+   "legal_en": "–",
    "src": "M",
    "links": [
     "https://www.timesofisrael.com/liveblog_entry/pa-19-year-old-killed-by-settler-gunfire-in-west-bank-body-confiscated-by-idf",
@@ -792,6 +1047,7 @@
    "list": "A",
    "date": "2023-11-02",
    "place": "Route 557 bei Beit Lid (Bezirk Tulkarm), zw. Einav und Shavei Shomron",
+   "place_en": "Route 557 near Beit Lid (Tulkarm district), between Einav and Shavei Shomron",
    "victims": [
     {
      "name": "Elhanan (Elchanan) Ariel Klein",
@@ -801,9 +1057,13 @@
     }
    ],
    "type": "Schusswaffe (aus überholendem Fahrzeug)",
+   "type_en": "Firearm (from an overtaking vehicle)",
    "perp": "Zelle aus Shuweika (Tulkarm), u. a. Tamer Rajah (lt. JNS)",
+   "perp_en": "Cell from Shuweika (Tulkarm), incl. Tamer Rajah (per JNS)",
    "affiliation": "nicht bekannt/keine Bekennung gefunden",
+   "affiliation_en": "not known/no claim of responsibility found",
    "outcome": "unklar; Haus von T. Rajah im Jan. 2025 zerstört (Festnahme/Tod nicht belegt)",
+   "outcome_en": "unclear; T. Rajah's house demolished in Jan 2025 (arrest/death not documented)",
    "links": [
     "https://www.jns.org/idf-destroys-home-of-terrorist-who-killed-israeli-man-in-2023/",
     "https://www.jns.org/israel-news/israeli-seriously-wounded-in-samaria-shooting-attack",
@@ -811,6 +1071,9 @@
    ],
    "flags": [
     "Täter-Ausgang unklar"
+   ],
+   "flags_en": [
+    "Outcome for perpetrator unclear"
    ]
   },
   {
@@ -818,6 +1081,7 @@
    "list": "A",
    "date": "2023-11-16",
    "place": "„Tunnel-Checkpoint“, Route 60 südl. Jerusalem (bei Beit Jala/Al-Khader)",
+   "place_en": "‘Tunnel checkpoint’, Route 60 south of Jerusalem (near Beit Jala/Al-Khader)",
    "victims": [
     {
      "name": "Avraham Fetena",
@@ -827,21 +1091,27 @@
     }
    ],
    "type": "Schusswaffe",
+   "type_en": "Firearm",
    "perp": "3 Bewohner Hebrons (Nasrallah al-Qawasmeh [minderjährig], Hasan Qafisha, Abdallah al-Qawasmeh, lt. B'Tselem)",
+   "perp_en": "3 Hebron residents (Nasrallah al-Qawasmeh [minor], Hasan Qafisha, Abdallah al-Qawasmeh, per B'Tselem)",
    "affiliation": "Hamas (Bekennung; B'Tselem: Hamas-Militärflügel)",
+   "affiliation_en": "Hamas (claim of responsibility; B'Tselem: Hamas military wing)",
    "outcome": "alle 3 getötet",
+   "outcome_en": "all 3 killed",
    "links": [
     "https://www.timesofisrael.com/6-injured-1-critically-in-attack-by-3-gunmen-at-west-bank-checkpoint-near-jerusalem",
     "https://www.algemeiner.com/2023/11/16/six-israelis-injured-palestinian-terror-attack-near-jerusalem-police-say-massacre-prevented/",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "A03",
    "list": "A",
    "date": "2024-01-07",
    "place": "Route 60/465 bei Ein Yabrud (Wadi al-Haramiya), zw. Ofra und Eli",
+   "place_en": "Route 60/465 near Ein Yabrud (Wadi al-Haramiya), between Ofra and Eli",
    "victims": [
     {
      "name": "Amar (Ammar) Mansour",
@@ -857,9 +1127,13 @@
     }
    ],
    "type": "Schusswaffe (Drive-by)",
+   "type_en": "Firearm (drive-by)",
    "perp": "unbekannt; 3 Verdächtige in Ramallah/Jalazone festgenommen (JNS)",
+   "perp_en": "unknown; 3 suspects arrested in Ramallah/Jalazone (JNS)",
    "affiliation": "keine Bekennung gefunden",
+   "affiliation_en": "no claim of responsibility found",
    "outcome": "3 Verdächtige festgenommen",
+   "outcome_en": "3 suspects arrested",
    "links": [
     "https://www.jns.org/israel-news/3-palestinians-arrested-over-deadly-samaria-terror-shooting",
     "https://www.jewishpress.com/news/terrorism-news/israeli-arab-killed-in-pa-arab-terror-shooting-in-binyamin/2024/01/07/",
@@ -869,6 +1143,10 @@
    "flags": [
     "Grenzfall: Mansour lt. B'Tselem Palästinenser (OJ-Resident), nicht als Israeli gezählt",
     "Tannous: B'Tselem 'vermutlich palästinensisches Feuer'; palästinensische Lokalquellen (Sabeel) behaupteten Siedler-Täter"
+   ],
+   "flags_en": [
+    "Borderline case: Mansour a Palestinian per B'Tselem (East Jerusalem resident), not counted as Israeli",
+    "Tannous: B'Tselem 'probably Palestinian fire'; local Palestinian sources (Sabeel) claimed a settler perpetrator"
    ]
   },
   {
@@ -876,6 +1154,7 @@
    "list": "A",
    "date": "2024-02-22",
    "place": "Route 1 vor dem Az-Za'im-Checkpoint, bei Ma'ale Adumim",
+   "place_en": "Route 1 in front of the Az-Za'im checkpoint, near Ma'ale Adumim",
    "victims": [
     {
      "name": "Matan Elmaliah",
@@ -885,9 +1164,13 @@
     }
    ],
    "type": "Schusswaffe (auf wartende Autos)",
+   "type_en": "Firearm (at waiting cars)",
    "perp": "Muhammad & Kathem Zawahra (Ta'amra), Ahmed al-Wahsh (Za'atara), Raum Bethlehem",
+   "perp_en": "Muhammad & Kathem Zawahra (Ta'amra), Ahmed al-Wahsh (Za'atara), Bethlehem area",
    "affiliation": "keine formelle Bekennung; Hamas lobte Anschlag (ToI)",
+   "affiliation_en": "no formal claim; Hamas praised the attack (ToI)",
    "outcome": "2 vor Ort getötet; dritter lt. ToI später 'neutralisiert', lt. B'Tselem verletzt festgenommen",
+   "outcome_en": "2 killed at the scene; the third later 'neutralised' per ToI, arrested wounded per B'Tselem",
    "links": [
     "https://timesofisrael.com/one-killed-11-wounded-in-terror-shooting-attack-near-jerusalem-checkpoint/",
     "https://www.ynetnews.com/article/hy2r86vna",
@@ -895,6 +1178,9 @@
    ],
    "flags": [
     "Ausgang 3. Täter widersprüchlich"
+   ],
+   "flags_en": [
+    "Outcome for 3rd perpetrator contradictory"
    ]
   },
   {
@@ -902,6 +1188,7 @@
    "list": "A",
    "date": "2024-02-29",
    "place": "Tankstelle bei Eli (Binyamin)",
+   "place_en": "Petrol station near Eli (Binyamin)",
    "victims": [
     {
      "name": "Uria (Oriah) Hartum",
@@ -917,21 +1204,27 @@
     }
    ],
    "type": "Schusswaffe",
+   "type_en": "Firearm",
    "perp": "Muhammad Manasra, Offizier der PA-Polizei (Qalandiya-Lager)",
+   "perp_en": "Muhammad Manasra, PA police officer (Qalandiya camp)",
    "affiliation": "PA-Polizist; keine Organisationsbekennung gefunden",
+   "affiliation_en": "PA police officer; no claim by an organisation found",
    "outcome": "getötet (von bewaffnetem Zivilisten lt. israel. Medien; B'Tselem: Soldat)",
+   "outcome_en": "killed (by an armed civilian per Israeli media; B'Tselem: a soldier)",
    "links": [
     "https://www.israelhayom.com/2024/03/01/victims-of-eli-gas-station-terror-attack-named",
     "https://www.jns.org/idf-to-demolish-home-of-terrorist-who-killed-two-israelis-near-eli/",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "A06",
    "list": "A",
    "date": "2024-03-22",
    "place": "bei Dolev (Wadi a-Dilb, nahe Deir Ibzi'), Binyamin",
+   "place_en": "near Dolev (Wadi a-Dilb, near Deir Ibzi'), Binyamin",
    "victims": [
     {
      "name": "Ilay David Garfinkel",
@@ -941,20 +1234,26 @@
     }
    ],
    "type": "Schusswaffe (Scharfschütze auf Militär-Kleinbus)",
+   "type_en": "Firearm (sniper fire on a military minibus)",
    "perp": "Mujahid Barakat Mansour",
+   "perp_en": "Mujahid Barakat Mansour",
    "affiliation": "nicht bekannt",
+   "affiliation_en": "not known",
    "outcome": "nach stundenlangem Gefecht durch Raketenschlag getötet",
+   "outcome_en": "killed by a missile strike after an hours-long firefight",
    "links": [
     "https://www.jns.org/israel-news/idf-okays-dolev-bypass-road-after-deadly-terror-attack",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "A07",
    "list": "A",
    "date": "2024-04-12",
    "place": "beim Außenposten Malachei HaShalom (nahe al-Mughayyir), Binyamin",
+   "place_en": "near the Malachei HaShalom outpost (near al-Mughayyir), Binyamin",
    "victims": [
     {
      "name": "Binyamin Achimeir",
@@ -964,21 +1263,27 @@
     }
    ],
    "type": "Messer/Tötung",
+   "type_en": "Knife/killing",
    "perp": "Ahmed Dawabsheh (21, Duma)",
+   "perp_en": "Ahmed Dawabsheh (21, Duma)",
    "affiliation": "lt. Anklage IS-orientierte Zelle",
+   "affiliation_en": "IS-oriented cell, per the indictment",
    "outcome": "festgenommen, angeklagt",
+   "outcome_en": "arrested, indicted",
    "links": [
     "https://www.jns.org/indictment-filed-for-murder-of-14-year-old-israeli-shepherd/",
     "https://www.i24news.tv/en/news/israel/defense/artc-indictment-filed-against-isis-affiliated-terrorist-who-murdered-14-year-old-shepherd",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "A08",
    "list": "A",
    "date": "2024-05-29",
    "place": "Einfahrt Nablus beim Awarta-Checkpoint, nahe Itamar",
+   "place_en": "Nablus entrance at the Awarta checkpoint, near Itamar",
    "victims": [
     {
      "name": "Eliya Hillel",
@@ -994,21 +1299,27 @@
     }
    ],
    "type": "Fahrzeug-Ramming",
+   "type_en": "Vehicle ramming",
    "perp": "palästinensischer Fahrer (Lieferwagen)",
+   "perp_en": "Palestinian driver (delivery van)",
    "affiliation": "nicht bekannt",
+   "affiliation_en": "not known",
    "outcome": "stellte sich PA-Sicherheitskräften (Übergabe an Israel zunächst nicht erfolgt)",
+   "outcome_en": "surrendered to PA security forces (initially not handed over to Israel)",
    "links": [
     "https://www.israelhayom.com/2024/05/29/2-soldiers-killed-in-samaria-ramming-attack-1-fighter-killed-in-rafah-fighting/",
     "https://www.jns.org/israel-news/two-idf-soldiers-die-of-wounds-from-samaria-terror-attack",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "A09",
    "list": "A",
    "date": "2024-06-20",
    "place": "Qalqilya (Zone A)",
+   "place_en": "Qalqilya (Area A)",
    "victims": [
     {
      "name": "Moshe Dadush",
@@ -1018,15 +1329,23 @@
     }
    ],
    "type": "Raub/Schläge, anschl. Herzversagen",
+   "type_en": "Robbery/beating, followed by heart failure",
    "perp": "unbekannte Palästinenser",
+   "perp_en": "unknown Palestinians",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "unbekannt",
+   "outcome_en": "unknown",
    "links": [
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
    "flags": [
     "Grenzfall: Raubüberfall, Tod durch Herzereignis; Einstufung als Terror nicht belegt",
     "israelische Quelle nicht verifiziert"
+   ],
+   "flags_en": [
+    "Borderline case: robbery, death from a cardiac event; classification as terrorism not documented",
+    "Israeli source not verified"
    ]
   },
   {
@@ -1034,6 +1353,7 @@
    "list": "A",
    "date": "2024-06-22",
    "place": "Qalqilya (Zone A), Einkaufsfahrt",
+   "place_en": "Qalqilya (Area A), shopping trip",
    "victims": [
     {
      "name": "Amnon Muchtar",
@@ -1043,21 +1363,27 @@
     }
    ],
    "type": "Schusswaffe",
+   "type_en": "Firearm",
    "perp": "Zelle u. a. Khalil, Jamal Abu Haniyeh, Bushnak (IDF-Angaben)",
+   "perp_en": "Cell incl. Khalil, Jamal Abu Haniyeh, Bushnak (IDF information)",
    "affiliation": "Palästinensischer Islamischer Dschihad (lt. IDF)",
+   "affiliation_en": "Palestinian Islamic Jihad (per IDF)",
    "outcome": "2 Beteiligte im Aug. 2024 bei Drohnenangriffen (Raum Tulkarm) getötet; Häuser zerstört",
+   "outcome_en": "2 of those involved killed in drone strikes (Tulkarm area) in Aug 2024; houses demolished",
    "links": [
     "https://www.ynetnews.com/article/b1qa3jv8a",
     "https://www.jns.org/israel-news/idf-razes-home-of-terrorist-who-murdered-israeli-in-2024",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "A11",
    "list": "A",
    "date": "2024-07-08",
    "place": "Givon HaHadasha (nordwestl. Jerusalem), im eigenen Haus",
+   "place_en": "Givon HaHadasha (north-west of Jerusalem), in his own home",
    "victims": [
     {
      "name": "Yochai Avni",
@@ -1067,9 +1393,13 @@
     }
    ],
    "type": "Messer + Brandstiftung",
+   "type_en": "Knife + arson",
    "perp": "Ibrahim Mansur (Biddu)",
+   "perp_en": "Ibrahim Mansur (Biddu)",
    "affiliation": "Hamas-Mitglied (lt. JNS); Staatsanwaltschaft: Terror",
+   "affiliation_en": "Hamas member (per JNS); prosecution: terrorism",
    "outcome": "2 Tage später festgenommen",
+   "outcome_en": "arrested 2 days later",
    "links": [
     "https://www.jns.org/palestinian-arrested-in-murder-of-israel-prison-service-officer/",
     "https://www.jns.org/israeli-prison-guards-murder-ruled-an-act-of-terror/",
@@ -1077,6 +1407,9 @@
    ],
    "flags": [
     "außer Dienst – OCHA zählt vermutlich als Zivilist"
+   ],
+   "flags_en": [
+    "Off duty – OCHA probably counts him as a civilian"
    ]
   },
   {
@@ -1084,6 +1417,7 @@
    "list": "A",
    "date": "2024-08-11",
    "place": "Route 90 bei der Mehola-Kreuzung (nördl. Jordantal)",
+   "place_en": "Route 90 at the Mehola junction (northern Jordan Valley)",
    "victims": [
     {
      "name": "Yonatan Deutsch",
@@ -1093,9 +1427,13 @@
     }
    ],
    "type": "Schusswaffe (Drive-by)",
+   "type_en": "Firearm (drive-by)",
    "perp": "Wael Lahlouh (lt. IDF/ynet)",
+   "perp_en": "Wael Lahlouh (per IDF/ynet)",
    "affiliation": "Hamas übernahm Verantwortung (lt. Medien)",
+   "affiliation_en": "Hamas claimed responsibility (per media)",
    "outcome": "unklar; Haus zerstört",
+   "outcome_en": "unclear; house demolished",
    "links": [
     "https://www.timesofisrael.com/civilian-killed-another-hurt-in-jordan-valley-terror-attack-idf-hunting-for-shooters/",
     "https://www.ynetnews.com/article/bjrolwlq0",
@@ -1104,6 +1442,9 @@
    ],
    "flags": [
     "Täter-Ausgang unklar"
+   ],
+   "flags_en": [
+    "Outcome for perpetrator unclear"
    ]
   },
   {
@@ -1111,18 +1452,24 @@
    "list": "A",
    "date": "2024-08-18",
    "place": "Industriepark Bar-On bei Kedumim",
+   "place_en": "Bar-On industrial park near Kedumim",
    "victims": [
     {
      "name": "Gidon (Gideon) Peri",
      "age": "38 (ToI; JVL: 35)",
+     "age_en": "38 (ToI; JVL: 35)",
      "status": "Z",
      "role": "Wachmann lt. ToI / Fabrikleiter lt. TPS"
     }
    ],
    "type": "Hammer (Schlag), Waffe geraubt",
+   "type_en": "Hammer (blow), weapon stolen",
    "perp": "palästinensischer Arbeiter aus Raum Tulkarm (Name uneinheitlich: Sultan Abd al-Aziz u. a.)",
+   "perp_en": "Palestinian worker from the Tulkarm area (name inconsistent: Sultan Abd al-Aziz et al.)",
    "affiliation": "nicht bekannt",
+   "affiliation_en": "not known",
    "outcome": "später in Marka (bei Jenin) von IDF getötet (lt. Medien)",
+   "outcome_en": "later killed by the IDF in Marka (near Jenin) (per media)",
    "links": [
     "https://www.timesofisrael.com/israeli-civilian-security-guard-critically-wounded-in-west-bank-hammer-attack/",
     "https://tps.co.il/articles/kedumim-mourns-loss-of-true-friend-of-great-kindness-gidon-peri-identified-as-victim-of-sundays-terrorist-attack/",
@@ -1130,6 +1477,9 @@
    ],
    "flags": [
     "fehlt in B'Tselem-Datenbank"
+   ],
+   "flags_en": [
+    "Missing from the B'Tselem database"
    ]
   },
   {
@@ -1137,6 +1487,7 @@
    "list": "A",
    "date": "2024-09-01",
    "place": "Route 35, Idhna–Tarqumiya-Kreuzung (Bezirk Hebron)",
+   "place_en": "Route 35, Idhna–Tarqumiya junction (Hebron district)",
    "victims": [
     {
      "name": "Arik Ben Eliyahu",
@@ -1158,22 +1509,28 @@
     }
    ],
    "type": "Ramming + Schusswaffe",
+   "type_en": "Ramming + firearm",
    "perp": "Muhannad al-Asawda (Idhna, Ex-PA-Sicherheitsdienst)",
+   "perp_en": "Muhannad al-Asawda (Idhna, former PA security service member)",
    "affiliation": "Bekennung Khalil-al-Rahman-Brigade (Teil der Al-Aqsa-Märtyrerbrigaden/Fatah-Umfeld); Hamas lobte",
+   "affiliation_en": "Claimed by the Khalil al-Rahman Brigade (part of the Al-Aqsa Martyrs' Brigades/Fatah milieu); Hamas praised the attack",
    "outcome": "am selben Tag in Hebron getötet",
+   "outcome_en": "killed in Hebron the same day",
    "links": [
     "https://www.timesofisrael.com/3-killed-in-southern-west-bank-shooting-attack-idf-pursuing-gunmen/amp/",
     "https://www.algemeiner.com/2024/09/01/three-israeli-police-officers-killed-in-terror-shooting-near-hebron/",
     "https://en.wikipedia.org/wiki/Khalil_al-Rahman_Brigade",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "A15",
    "list": "A",
    "date": "2024-09-11",
    "place": "Givat-Asaf-Kreuzung (Route 60, nördl. Ramallah/Beit El)",
+   "place_en": "Givat Asaf junction (Route 60, north of Ramallah/Beit El)",
    "victims": [
     {
      "name": "Geri Gideon Hanghal",
@@ -1183,9 +1540,13 @@
     }
    ],
    "type": "Ramming (Gastanklaster)",
+   "type_en": "Ramming (gas tanker)",
    "perp": "Fahrer aus Rafat (58)",
+   "perp_en": "Driver from Rafat (58)",
    "affiliation": "nicht bekannt",
+   "affiliation_en": "not known",
    "outcome": "angeschossen, festgenommen (B'Tselem)",
+   "outcome_en": "shot and wounded, arrested (B'Tselem)",
    "links": [
     "https://www.timesofisrael.com/man-critically-injured-as-palestinian-tanker-rams-west-bank-bus-stop/",
     "https://tps.co.il/articles/truck-ramming-attack-victim-dies-identified-as-reservist/",
@@ -1193,6 +1554,9 @@
    ],
    "flags": [
     "B'Tselem nennt Todesdatum 23.9.2024, ToI Tod am selben Tag"
+   ],
+   "flags_en": [
+    "B'Tselem gives the date of death as 23 Sep 2024, ToI death on the same day"
    ]
   },
   {
@@ -1200,6 +1564,7 @@
    "list": "A",
    "date": "2024-12-11",
    "place": "Route 60 bei Al-Khader-Kreuzung (Bus Beitar Illit–Jerusalem), Gush Etzion",
+   "place_en": "Route 60 near the Al-Khader junction (Beitar Illit–Jerusalem bus), Gush Etzion",
    "victims": [
     {
      "name": "Yehoshua Aharon Tuvia Simcha",
@@ -1209,22 +1574,28 @@
     }
    ],
    "type": "Schusswaffe (auf Bus)",
+   "type_en": "Firearm (at a bus)",
    "perp": "Ezz al-Din Malluh (Beit Awwa, Hebron)",
+   "perp_en": "Ezz al-Din Malluh (Beit Awwa, Hebron)",
    "affiliation": "nicht bekannt",
+   "affiliation_en": "not known",
    "outcome": "stellte sich am Folgetag",
+   "outcome_en": "turned himself in the next day",
    "links": [
     "https://www.jns.org/multiple-people-injured-in-shooting-on-bus-south-of-jerusalem/",
     "https://www.jns.org/idf-to-demolish-home-of-terrorist-involved-in-killing-israeli-boy/",
     "https://thejc.com/news/israel/12-year-old-boy-killed-in-west-bank-bus-shooting-iobid2ip",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "A17",
    "list": "A",
    "date": "2025-01-06",
    "place": "Route 55 in al-Funduq (bei Kedumim)",
+   "place_en": "Route 55 in al-Funduq (near Kedumim)",
    "victims": [
     {
      "name": "Elad Yaakov Winkelstein",
@@ -1235,20 +1606,26 @@
     {
      "name": "Rachel Cohen",
      "age": "73 (Wiki: 70)",
+     "age_en": "73 (Wiki: 70)",
      "status": "Z",
      "role": "Zivilistin"
     },
     {
      "name": "Aliza Reiss",
      "age": "71 (JVL 69, Wiki 73)",
+     "age_en": "71 (JVL 69, Wiki 73)",
      "status": "Z",
      "role": "Zivilistin"
     }
    ],
    "type": "Schusswaffe (auf Bus und Autos)",
+   "type_en": "Firearm (at a bus and cars)",
    "perp": "3 Männer aus Raum Jenin: Qutaiba al-Shalabi, Muhammad Nazal (Hamas), Muhammad Zakarneh (PIJ)",
+   "perp_en": "3 men from the Jenin area: Qutaiba al-Shalabi, Muhammad Nazal (Hamas), Muhammad Zakarneh (PIJ)",
    "affiliation": "Hamas (Qassam-Brigaden) bekannte sich",
+   "affiliation_en": "Hamas (Qassam Brigades) claimed responsibility",
    "outcome": "al-Shalabi & Nazal am 22.1.2025, Zakarneh am 16.4.2025 getötet (lt. Wikipedia/ToI)",
+   "outcome_en": "al-Shalabi & Nazal killed on 22 Jan 2025, Zakarneh on 16 Apr 2025 (per Wikipedia/ToI)",
    "links": [
     "https://en.wikipedia.org/wiki/2025_al-Funduq_shooting",
     "https://www.ynetnews.com/article/dxp7cmc0v",
@@ -1256,6 +1633,9 @@
    ],
    "flags": [
     "Altersangaben abweichend"
+   ],
+   "flags_en": [
+    "Ages differ between sources"
    ]
   },
   {
@@ -1263,6 +1643,7 @@
    "list": "A",
    "date": "2025-02-04",
    "place": "Armeeposten am Tayasir-Checkpoint (Jordantal, bei Tubas)",
+   "place_en": "Army post at the Tayasir checkpoint (Jordan Valley, near Tubas)",
    "victims": [
     {
      "name": "Avraham Tzvi Tzvika Friedman",
@@ -1278,9 +1659,13 @@
     }
    ],
    "type": "Schusswaffe (Eindringen in Posten)",
+   "type_en": "Firearm (infiltration of the post)",
    "perp": "Einzeltäter",
+   "perp_en": "Lone attacker",
    "affiliation": "nicht bekannt",
+   "affiliation_en": "not known",
    "outcome": "im Gefecht getötet",
+   "outcome_en": "killed in the firefight",
    "links": [
     "https://jewishpress.com/news/terrorism-news/7-israelis-wounded-in-northern-samaria-terrorist-eliminated/2025/02/04",
     "https://tps.co.il/glance-post/terrorist-who-killed-two-soldiers-in-tuesday-morning-attack/",
@@ -1288,6 +1673,9 @@
    ],
    "flags": [
     "Zugehörigkeit nicht ermittelt"
+   ],
+   "flags_en": [
+    "Affiliation not established"
    ]
   },
   {
@@ -1295,6 +1683,7 @@
    "list": "A",
    "date": "2025-05-14",
    "place": "Route 446 bei Bruchin (Westsamaria)",
+   "place_en": "Route 446 near Bruchin (western Samaria)",
    "victims": [
     {
      "name": "Tzeela Gez",
@@ -1305,14 +1694,19 @@
     {
      "name": "Ravid Chaim Gez",
      "age": "Neugeborenes",
+     "age_en": "newborn",
      "status": "Z",
      "role": "per Notkaiserschnitt geboren, starb nach ~2 Wochen"
     }
    ],
    "type": "Schusswaffe (Hinterhalt)",
+   "type_en": "Firearm (ambush)",
    "perp": "Schütze Nael Samara; weitere Verdächtige",
+   "perp_en": "Gunman Nael Samara; further suspects",
    "affiliation": "Hamas-Umfeld (Anklagen gegen 3 Hamas-Mitglieder)",
+   "affiliation_en": "Hamas milieu (indictments against 3 Hamas members)",
    "outcome": "Samara später bei IDF-Einsatz in Bruqin getötet; Festnahmen/Anklagen",
+   "outcome_en": "Samara later killed in an IDF operation in Bruqin; arrests/indictments",
    "links": [
     "https://www.jns.org/terrorist-murderer-of-tzeela-gez-confirmed-eliminated-in-idf-raid/",
     "https://www.jns.org/indictments-in-murder-of-israeli-mother-newborn/",
@@ -1320,6 +1714,9 @@
    ],
    "flags": [
     "Ravid Gez wird nicht von allen Zählungen erfasst"
+   ],
+   "flags_en": [
+    "Ravid Gez is not included in all counts"
    ]
   },
   {
@@ -1327,31 +1724,39 @@
    "list": "A",
    "date": "2025-07-10",
    "place": "Einkaufszentrum an der Gush-Etzion-Kreuzung",
+   "place_en": "Shopping centre at the Gush Etzion junction",
    "victims": [
     {
      "name": "Shalev Zvuluny (Zevuloni)",
      "age": "22 (JVL: 20)",
+     "age_en": "22 (JVL: 20)",
      "status": "Z",
      "role": "ziviler Wachmann des Einkaufszentrums"
     }
    ],
    "type": "Schusswaffe + Messer (Waffe des Wachmanns geraubt)",
+   "type_en": "Firearm + knife (guard's weapon stolen)",
    "perp": "Mahmoud Abed (Halhul), Malik Salem (Raum Tulkarm) – beide PA-Polizisten",
+   "perp_en": "Mahmoud Abed (Halhul), Malik Salem (Tulkarm area) – both PA police officers",
    "affiliation": "PA-Polizisten; keine Organisationsbekennung gefunden",
+   "affiliation_en": "PA police officers; no claim by an organisation found",
    "outcome": "beide getötet",
+   "outcome_en": "both killed",
    "links": [
     "https://www.jns.org/idf-chief-urges-vigilance-at-site-of-deadly-terror-attack-in-judea/",
     "https://www.ynetnews.com/article/mq0yp5glh",
     "https://themedialine.org/?p=166271",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "A21",
    "list": "A",
    "date": "2025-09-28",
    "place": "Jit-Kreuzung bei Kedumim",
+   "place_en": "Jit junction near Kedumim",
    "victims": [
     {
      "name": "Inbar Avraham Kav",
@@ -1361,9 +1766,13 @@
     }
    ],
    "type": "Ramming (Lkw)",
+   "type_en": "Ramming (lorry)",
    "perp": "Fahrer aus Nablus",
+   "perp_en": "Driver from Nablus",
    "affiliation": "Hamas lobte, keine formelle Bekennung",
+   "affiliation_en": "Hamas praised the attack, no formal claim",
    "outcome": "getötet",
+   "outcome_en": "killed",
    "links": [
     "https://www.timesofisrael.com/liveblog-september-28-2025/amp/",
     "https://themedialine.org/?p=169226",
@@ -1372,6 +1781,9 @@
    ],
    "flags": [
     "Grenzfall: lt. IDF auch von Schüssen der eigenen Truppe getroffen; B'Tselem ordnet Tod IDF-Feuer zu"
+   ],
+   "flags_en": [
+    "Borderline case: per IDF also hit by fire from own troops; B'Tselem attributes the death to IDF fire"
    ]
   },
   {
@@ -1379,18 +1791,24 @@
    "list": "A",
    "date": "2025-11-18",
    "place": "Gush-Etzion-Kreuzung",
+   "place_en": "Gush Etzion junction",
    "victims": [
     {
      "name": "Aharon Cohen",
      "age": "71 (teils 60)",
+     "age_en": "71 (some sources: 60)",
      "status": "Z",
      "role": "Zivilist"
     }
    ],
    "type": "Ramming + Messer",
+   "type_en": "Ramming + knife",
    "perp": "Imran al-Atrash (Hebron), Walid Sabarneh (Beit Ummar), je 18",
+   "perp_en": "Imran al-Atrash (Hebron), Walid Sabarneh (Beit Ummar), both 18",
    "affiliation": "keine Bekennung; Hamas und PIJ lobten",
+   "affiliation_en": "no claim; Hamas and PIJ praised the attack",
    "outcome": "beide getötet",
+   "outcome_en": "both killed",
    "links": [
     "https://www.jns.org/idf-chief-visits-gush-etzion-after-deadly-terror-attack/",
     "https://tps.co.il/articles/60-year-old-aharon-cohen-identified-as-victim-of-terror-attack/",
@@ -1400,6 +1818,9 @@
    ],
    "flags": [
     "Alter widersprüchlich"
+   ],
+   "flags_en": [
+    "Age contradictory"
    ]
   },
   {
@@ -1407,6 +1828,7 @@
    "list": "A",
    "date": "2026-03-21",
    "place": "bei Homesh / Beit Imrin (nördl. Nablus)",
+   "place_en": "near Homesh / Beit Imrin (north of Nablus)",
    "victims": [
     {
      "name": "Yehuda Shmuel Sherman",
@@ -1416,9 +1838,13 @@
     }
    ],
    "type": "Ramming (Pickup gegen ATV)",
+   "type_en": "Ramming (pickup against ATV)",
    "perp": "Dawas Hassun (50er, Beit Imrin)",
+   "perp_en": "Dawas Hassun (in his 50s, Beit Imrin)",
    "affiliation": "nicht bekannt",
+   "affiliation_en": "not known",
    "outcome": "festgenommen, am 14.5.2026 wegen Mordes angeklagt",
+   "outcome_en": "arrested, indicted for murder on 14 May 2026",
    "links": [
     "https://www.ynetnews.com/article/gpcqi3vh2",
     "https://www.jns.org/news/israel-news/israeli-18-dies-in-samaria-car-ramming",
@@ -1427,6 +1853,9 @@
    ],
    "flags": [
     "Laut Anklage fuhren die Israelis zuvor durch Beit Imrin"
+   ],
+   "flags_en": [
+    "According to the indictment, the Israelis had previously driven through Beit Imrin"
    ]
   },
   {
@@ -1434,6 +1863,7 @@
    "list": "A",
    "date": "2026-07-24",
    "place": "Ortschaft Tell (Zone A, westl. Nablus), bei Havat Gilad",
+   "place_en": "Village of Tell (Area A, west of Nablus), near Havat Gilad",
    "victims": [
     {
      "name": "Maj. Yuval Ezra",
@@ -1449,9 +1879,13 @@
     }
    ],
    "type": "Schusswaffe (erbeutetes Gewehr) während Konfrontation",
+   "type_en": "Firearm (seized rifle) during a confrontation",
    "perp": "Farouq Ramadan (Tell)",
+   "perp_en": "Farouq Ramadan (Tell)",
    "affiliation": "nicht bekannt",
+   "affiliation_en": "not known",
    "outcome": "getötet; insgesamt 4 Palästinenser getötet, 2 Verletzte festgenommen; Haus am 11.8. zerstört",
+   "outcome_en": "killed; 4 Palestinians killed in total, 2 wounded arrested; house demolished on 11 Aug",
    "links": [
     "https://www.jns.org/news/israel-news/two-israelis-killed-in-samaria-terrorist-attack",
     "https://www.ynetnews.com/article/h1c3lkwsgl",
@@ -1461,6 +1895,10 @@
    "flags": [
     "Kontext: Israelische Gruppe (Wanderer/Siedler) betrat Zone A ohne Koordinierung; palästin. Angaben: Siedler griffen Häuser an",
     "liegt nach B'Tselem-Datenstand (29.6.2026)"
+   ],
+   "flags_en": [
+    "Context: Israeli group (hikers/settlers) entered Area A without coordination; Palestinian accounts: settlers attacked homes",
+    "Falls after the B'Tselem data cut-off (29 Jun 2026)"
    ]
   },
   {
@@ -1468,18 +1906,24 @@
    "list": "A",
    "date": "2026-09-20",
    "place": "Quelle Ein Riya bei Neve Tzuf (Halamish), Binyamin",
+   "place_en": "Ein Riya spring near Neve Tzuf (Halamish), Binyamin",
    "victims": [
     {
      "name": "Netanel Shukrun",
      "age": "30er (JVL: 36)",
+     "age_en": "30s (JVL: 36)",
      "status": "Z",
      "role": "Zivilist, Vater von 6"
     }
    ],
    "type": "Schusswaffe (aus Fahrzeug)",
+   "type_en": "Firearm (from a vehicle)",
    "perp": "palästinensischer Schütze (Name nicht veröffentlicht)",
+   "perp_en": "Palestinian gunman (name not released)",
    "affiliation": "nicht bekannt",
+   "affiliation_en": "not known",
    "outcome": "verletzt, in Klinik bei Ramallah von Duvdevan festgenommen",
+   "outcome_en": "wounded, arrested by Duvdevan in a clinic near Ramallah",
    "links": [
     "https://www.timesofisrael.com/man-shot-dead-in-west-bank-terror-attack-near-natural-spring-idf-captures-shooter/",
     "https://www.jpost.com/middle-east/iran-news/2026-09-20/live-updates-909139",
@@ -1487,6 +1931,9 @@
    ],
    "flags": [
     "nach OCHA-Stichtag 31.8.2026"
+   ],
+   "flags_en": [
+    "After the OCHA cut-off date of 31 Aug 2026"
    ]
   },
   {
@@ -1494,6 +1941,7 @@
    "list": "B",
    "date": "2023-10-19",
    "place": "Flüchtlingslager Nur Shams (Tulkarm)",
+   "place_en": "Nur Shams refugee camp (Tulkarm)",
    "victims": [
     {
      "name": "Maxim Rozinkov (B'Tselem: Rizhkov)",
@@ -1503,15 +1951,22 @@
     }
    ],
    "type": "geworfener Sprengsatz bei Razzia",
+   "type_en": "Thrown explosive device during a raid",
    "perp": "Verdächtiger: Muhammad Abu Atiya (lt. israel. Medien)",
+   "perp_en": "Suspect: Muhammad Abu Atiya (per Israeli media)",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "–",
+   "outcome_en": "–",
    "links": [
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview",
     "https://stgmobile.jpost.com/breaking-news/article-769177"
    ],
    "flags": [
     "israelische URL nur über Suchtreffer zugeordnet"
+   ],
+   "flags_en": [
+    "Israeli URL assigned only via a search result"
    ]
   },
   {
@@ -1519,6 +1974,7 @@
    "list": "B",
    "date": "2024-01-07",
    "place": "Jenin",
+   "place_en": "Jenin",
    "victims": [
     {
      "name": "Shai Garmai (Germay)",
@@ -1528,14 +1984,21 @@
     }
    ],
    "type": "Sprengfalle (IED) gegen Jeep",
+   "type_en": "Booby trap (IED) against a jeep",
    "perp": "–",
+   "perp_en": "–",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "–",
+   "outcome_en": "–",
    "links": [
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
    "flags": [
     "israelische Quelle nicht verifiziert"
+   ],
+   "flags_en": [
+    "Israeli source not verified"
    ]
   },
   {
@@ -1543,6 +2006,7 @@
    "list": "B",
    "date": "2024-06-27",
    "place": "Flüchtlingslager Jenin",
+   "place_en": "Jenin refugee camp",
    "victims": [
     {
      "name": "Alon Sacgiu",
@@ -1552,15 +2016,22 @@
     }
    ],
    "type": "IED (16 weitere verletzt)",
+   "type_en": "IED (16 others wounded)",
    "perp": "–",
+   "perp_en": "–",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "–",
+   "outcome_en": "–",
    "links": [
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview",
     "https://gulfnews.com/world/mena/israel-army-official-says-soldier-killed-16-hurt-in-west-bank-1.103321218"
    ],
    "flags": [
     "israelische Quelle nicht verifiziert"
+   ],
+   "flags_en": [
+    "Israeli source not verified"
    ]
   },
   {
@@ -1568,6 +2039,7 @@
    "list": "B",
    "date": "2024-07-01",
    "place": "Flüchtlingslager Nur Shams (Tulkarm)",
+   "place_en": "Nur Shams refugee camp (Tulkarm)",
    "victims": [
     {
      "name": "Yehuda Geto",
@@ -1577,20 +2049,26 @@
     }
    ],
    "type": "IED gegen Fahrzeug",
+   "type_en": "IED against a vehicle",
    "perp": "–",
+   "perp_en": "–",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "–",
+   "outcome_en": "–",
    "links": [
     "https://www.jns.org/israel-news/idf-soldier-killed-another-seriously-wounded-near-tulkarem",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "B05",
    "list": "B",
    "date": "2024-08-31",
    "place": "Flüchtlingslager Jenin (Op. „Sommerlager“)",
+   "place_en": "Jenin refugee camp (Operation ‘Summer Camps’)",
    "victims": [
     {
      "name": "Elkana Navon",
@@ -1600,20 +2078,26 @@
     }
    ],
    "type": "Feuergefecht",
+   "type_en": "Firefight",
    "perp": "2 Bewaffnete",
+   "perp_en": "2 gunmen",
    "affiliation": "Hamas (lt. ToI)",
+   "affiliation_en": "Hamas (per ToI)",
    "outcome": "beide getötet",
+   "outcome_en": "both killed",
    "links": [
     "https://www.timesofisrael.com/fierce-clashes-in-jenin-as-idf-continues-major-west-bank-operation/",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "B06",
    "list": "B",
    "date": "2025-01-20",
    "place": "Tammun (Tubas), Op. „Eiserne Mauer“",
+   "place_en": "Tammun (Tubas), Operation ‘Iron Wall’",
    "victims": [
     {
      "name": "Evyatar Ben Yehuda",
@@ -1623,15 +2107,22 @@
     }
    ],
    "type": "IED gegen Fahrzeug",
+   "type_en": "IED against a vehicle",
    "perp": "–",
+   "perp_en": "–",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "–",
+   "outcome_en": "–",
    "links": [
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview",
     "https://www.jns.org/israel-news/idf-soldier-killed-by-roadside-bomb-in-northern-samaria"
    ],
    "flags": [
     "JNS-URL über Suchtreffer zugeordnet"
+   ],
+   "flags_en": [
+    "JNS URL assigned via a search result"
    ]
   },
   {
@@ -1639,6 +2130,7 @@
    "list": "B",
    "date": "2025-01-30",
    "place": "Flüchtlingslager Jenin, Op. „Eiserne Mauer“",
+   "place_en": "Jenin refugee camp, Operation ‘Iron Wall’",
    "victims": [
     {
      "name": "Liam Hazi",
@@ -1648,20 +2140,26 @@
     }
    ],
    "type": "Feuergefecht in Gebäude",
+   "type_en": "Firefight in a building",
    "perp": "2 Bewaffnete",
+   "perp_en": "2 gunmen",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "später getötet (lt. B'Tselem/ToI)",
+   "outcome_en": "later killed (per B'Tselem/ToI)",
    "links": [
     "https://www.timesofisrael.com/idf-soldier-killed-in-jenin-gunbattle-amid-west-bank-crackdown/",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "C01",
    "list": "C",
    "date": "2023-11-06",
    "place": "Salah-al-Din-Str. / Herodestor, Ost-Jerusalem",
+   "place_en": "Salah al-Din St. / Herod's Gate, East Jerusalem",
    "victims": [
     {
      "name": "Elisheva Rose Ida Lubin",
@@ -1671,9 +2169,13 @@
     }
    ],
    "type": "Messer",
+   "type_en": "Knife",
    "perp": "16-Jähriger aus Issawiya (Ost-Jerusalem)",
+   "perp_en": "16-year-old from Issawiya (East Jerusalem)",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "getötet",
+   "outcome_en": "killed",
    "links": [
     "https://www.timesofisrael.com/2-Police-Officers-Hurt-One-Critically-In-Terror-Stabbing-Near-Jerusalems-Old-City/",
     "https://www.jewishpress.com/news/israel/jerusalem/border-police-sgt-elisheva-rose-ida-lubin-20-murdered-by-arab-teen-in-jerusalem/2023/11/06/",
@@ -1681,6 +2183,9 @@
    ],
    "flags": [
     "Täter OJ-Bewohner, nicht J&S"
+   ],
+   "flags_en": [
+    "Perpetrator an East Jerusalem resident, not J&S"
    ]
   },
   {
@@ -1688,6 +2193,7 @@
    "list": "C",
    "date": "2025-09-08",
    "place": "Ramot-Kreuzung, nördl. Stadteinfahrt Jerusalem (jenseits der Grünen Linie; B'Tselem verortet 'Jerusalem/Israel')",
+   "place_en": "Ramot junction, northern entrance to Jerusalem (beyond the Green Line; B'Tselem locates it as 'Jerusalem/Israel')",
    "victims": [
     {
      "name": "Yaakov Pinto",
@@ -1727,9 +2233,13 @@
     }
    ],
    "type": "Schusswaffe (Bus/Haltestelle)",
+   "type_en": "Firearm (bus/bus stop)",
    "perp": "Mohammad Taha (21, Qatanna), Muthanna Amro (20, al-Qubeiba) – Bewohner von Judäa und Samaria",
+   "perp_en": "Mohammad Taha (21, Qatanna), Muthanna Amro (20, al-Qubeiba) – residents of Judea and Samaria",
    "affiliation": "Hamas bekannte sich",
+   "affiliation_en": "Hamas claimed responsibility",
    "outcome": "beide getötet; Helfer aus OJ festgenommen",
+   "outcome_en": "both killed; accomplice(s) from East Jerusalem arrested",
    "links": [
     "https://en.wikipedia.org/wiki/2025_Ramot_Junction_shooting",
     "https://www.jns.org/israeli-forces-demolish-home-of-terrorist-who-killed-six-in-jerusalem/",
@@ -1738,6 +2248,9 @@
    ],
    "flags": [
     "Zuordnung OJ vs. Israel je nach Quelle verschieden"
+   ],
+   "flags_en": [
+    "Classification as East Jerusalem vs Israel differs by source"
    ]
   },
   {
@@ -1745,6 +2258,7 @@
    "list": "D",
    "date": "2024-09-08",
    "place": "Allenby-Grenzübergang (Jordantal)",
+   "place_en": "Allenby border crossing (Jordan Valley)",
    "victims": [
     {
      "name": "Yohanan Shchori",
@@ -1766,15 +2280,22 @@
     }
    ],
    "type": "Schusswaffe",
+   "type_en": "Firearm",
    "perp": "Maher al-Jazi, jordanischer Lkw-Fahrer",
+   "perp_en": "Maher al-Jazi, Jordanian lorry driver",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "getötet",
+   "outcome_en": "killed",
    "links": [
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview",
     "https://www.jewishvirtuallibrary.org/comprehensive-listing-of-terrorism-victims-in-israel"
    ],
    "flags": [
     "Täter Jordanier, kein Palästinenser; israelische Primärquelle nicht verifiziert"
+   ],
+   "flags_en": [
+    "Perpetrator Jordanian, not Palestinian; Israeli primary source not verified"
    ]
   },
   {
@@ -1782,6 +2303,7 @@
    "list": "D",
    "date": "2025-09-18",
    "place": "Allenby-Grenzübergang",
+   "place_en": "Allenby border crossing",
    "victims": [
     {
      "name": "Yitzhak Haroush",
@@ -1797,15 +2319,22 @@
     }
    ],
    "type": "Schusswaffe + Messer",
+   "type_en": "Firearm + knife",
    "perp": "jordanischer Fahrer eines Hilfsgüter-Lkw (B'Tselem: Abd al-Muttalib al-Qaysi)",
+   "perp_en": "Jordanian driver of an aid lorry (B'Tselem: Abd al-Muttalib al-Qaysi)",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "getötet",
+   "outcome_en": "killed",
    "links": [
     "https://www.terrorism-info.org.il/en/spotlight-on-terrorism-and-the-israeli-palestinian-conflict-september-16-29-2025/",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
    "flags": [
     "Täter Jordanier"
+   ],
+   "flags_en": [
+    "Perpetrator Jordanian"
    ]
   },
   {
@@ -1813,6 +2342,7 @@
    "list": "E",
    "date": "2024-01-15",
    "place": "Ra'anana",
+   "place_en": "Ra'anana",
    "victims": [
     {
      "name": "Edna Bluestein",
@@ -1822,20 +2352,26 @@
     }
    ],
    "type": "Ramming + Messer",
+   "type_en": "Ramming + knife",
    "perp": "2 Männer aus Bani Na'im (Hebron)",
+   "perp_en": "2 men from Bani Na'im (Hebron)",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "festgenommen",
+   "outcome_en": "arrested",
    "links": [
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview",
     "https://www.jewishvirtuallibrary.org/comprehensive-listing-of-terrorism-victims-in-israel"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "E02",
    "list": "E",
    "date": "2024-03-31",
    "place": "Einkaufszentrum Gan Yavne",
+   "place_en": "Gan Yavne shopping centre",
    "victims": [
     {
      "name": "Lidor Levy",
@@ -1845,20 +2381,26 @@
     }
    ],
    "type": "Messer",
+   "type_en": "Knife",
    "perp": "Bewohner von Dura (Hebron)",
+   "perp_en": "Resident of Dura (Hebron)",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "getötet",
+   "outcome_en": "killed",
    "links": [
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview",
     "https://www.jewishvirtuallibrary.org/comprehensive-listing-of-terrorism-victims-in-israel"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "E03",
    "list": "E",
    "date": "2024-08-04",
    "place": "Holon",
+   "place_en": "Holon",
    "victims": [
     {
      "name": "Rina Daniv",
@@ -1874,20 +2416,26 @@
     }
    ],
    "type": "Messer",
+   "type_en": "Knife",
    "perp": "Amar Odeh (35, Salfit), ohne Aufenthaltserlaubnis",
+   "perp_en": "Amar Odeh (35, Salfit), without a residence permit",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "angeschossen, verstorben",
+   "outcome_en": "shot and wounded, died",
    "links": [
     "https://www.timesofisrael.com/one-dead-3-hurt-in-terror-stabbing-spree-in-holon-palestinian-attacker-shot-by-police/",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "E04",
    "list": "E",
    "date": "2024-10-01",
    "place": "Jaffa (Stadtbahn)",
+   "place_en": "Jaffa (light rail)",
    "victims": [
     {
      "name": "Revital Bronstein",
@@ -1915,6 +2463,7 @@
     },
     {
      "name": "Ilia Nozadze (georg. Staatsbürger lt. B'Tselem)",
+     "name_en": "Ilia Nozadze (Georgian citizen per B'Tselem)",
      "age": 42,
      "status": "Z",
      "role": ""
@@ -1933,21 +2482,27 @@
     }
    ],
    "type": "Schusswaffe + Messer",
+   "type_en": "Firearm + knife",
    "perp": "2 Bewohner Hebrons (u. a. Muhammad Misk)",
+   "perp_en": "2 Hebron residents (incl. Muhammad Misk)",
    "affiliation": "nicht geprüft",
+   "affiliation_en": "not checked",
    "outcome": "1 getötet, 1 festgenommen",
+   "outcome_en": "1 killed, 1 arrested",
    "links": [
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview",
     "https://www.jewishvirtuallibrary.org/comprehensive-listing-of-terrorism-victims-in-israel",
     "https://en.wikipedia.org/wiki/2024_Jaffa_shooting"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "E05",
    "list": "E",
    "date": "2024-12-27",
    "place": "Herzliya",
+   "place_en": "Herzliya",
    "victims": [
     {
      "name": "Ludmila Lipovsky",
@@ -1957,15 +2512,22 @@
     }
    ],
    "type": "Messer",
+   "type_en": "Knife",
    "perp": "früherer Bewohner von Judäa und Samaria, lebte in Israel (lt. B'Tselem Ex-Shin-Bet-Informant)",
+   "perp_en": "Former resident of Judea and Samaria, lived in Israel (per B'Tselem a former Shin Bet informant)",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "festgenommen",
+   "outcome_en": "arrested",
    "links": [
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview",
     "https://www.jewishvirtuallibrary.org/comprehensive-listing-of-terrorism-victims-in-israel"
    ],
    "flags": [
     "Grenzfall Herkunft"
+   ],
+   "flags_en": [
+    "Borderline case: origin"
    ]
   },
   {
@@ -1973,6 +2535,7 @@
    "list": "E",
    "date": "2025-02-27",
    "place": "Karkur-Kreuzung (Pardes Hanna)",
+   "place_en": "Karkur junction (Pardes Hanna)",
    "victims": [
     {
      "name": "Yaheli Gur",
@@ -1982,21 +2545,27 @@
     }
    ],
    "type": "Ramming + Messer",
+   "type_en": "Ramming + knife",
    "perp": "53-Jähriger aus Raum Jenin, illegal in Israel",
+   "perp_en": "53-year-old from the Jenin area, illegally in Israel",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "getötet",
+   "outcome_en": "killed",
    "links": [
     "https://en.wikipedia.org/wiki/2025_Karkur_junction_ramming_attack",
     "https://www.jns.org/17-year-old-israeli-dies-of-injuries-from-feb-27-terror-car-ramming/",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   },
   {
    "id": "E07",
    "list": "E",
    "date": "2025-12-26",
    "place": "Beit She'an / Ein Harod (Harod-Tal)",
+   "place_en": "Beit She'an / Ein Harod (Harod Valley)",
    "victims": [
     {
      "name": "Shimshon Mordechai",
@@ -2012,15 +2581,20 @@
     }
    ],
    "type": "Ramming + Messer",
+   "type_en": "Ramming + knife",
    "perp": "37-Jähriger aus Qabatiya (Jenin), illegal beschäftigt",
+   "perp_en": "37-year-old from Qabatiya (Jenin), illegally employed",
    "affiliation": "–",
+   "affiliation_en": "–",
    "outcome": "angeschossen, festgenommen",
+   "outcome_en": "shot and wounded, arrested",
    "links": [
     "https://www.jns.org/two-killed-in-suspected-terror-attacks-in-northern-israel",
     "https://statistics.btselem.org/en/all-fatalities/by-date-of-incident/wb-gaza/israelis-killed?section=overall&tab=overview",
     "https://www.jewishvirtuallibrary.org/comprehensive-listing-of-terrorism-victims-in-israel"
    ],
-   "flags": []
+   "flags": [],
+   "flags_en": []
   }
  ]
 }

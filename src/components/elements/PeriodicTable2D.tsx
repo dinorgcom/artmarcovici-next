@@ -7,6 +7,8 @@ import {
   textColorOn,
   type ElementDatum,
 } from "@/data/elements";
+import type { BiestLang } from "@/lib/biestLang";
+import { elementName } from "./i18n";
 
 export type ElementCell = {
   el: ElementDatum;
@@ -18,9 +20,10 @@ type Props = {
   data: ElementCell[];
   selectedZ: number | null;
   onSelect: (z: number) => void;
+  lang?: BiestLang;
 };
 
-export default function PeriodicTable2D({ data, selectedZ, onSelect }: Props) {
+export default function PeriodicTable2D({ data, selectedZ, onSelect, lang = "en" }: Props) {
   return (
     <div className="overflow-x-auto pb-2">
       <div
@@ -49,7 +52,7 @@ export default function PeriodicTable2D({ data, selectedZ, onSelect }: Props) {
               className={`relative flex aspect-square flex-col items-center justify-center rounded-[3px] leading-none transition-transform hover:z-10 hover:scale-110 ${
                 selected ? "z-10 ring-2 ring-white" : ""
               }`}
-              title={el.name}
+              title={elementName(el, lang)}
             >
               <span className="text-[8px] opacity-70">{el.z}</span>
               <span className="text-[11px] font-bold">{el.symbol}</span>

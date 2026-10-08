@@ -13,8 +13,12 @@ import {
 import PeriodicTable2D, { type ElementCell } from "./PeriodicTable2D";
 import PeriodicTable3D from "./PeriodicTable3D";
 import RankingView from "./RankingView";
+import { useBiestLang } from "@/lib/biestLang";
+import { elementName, elementNote, metricDescription, metricDivisor, metricLabel } from "./i18n";
+import { formatNumber } from "@/data/elements";
 
 export default function EconomicTable() {
+  const { lang, L } = useBiestLang();
   const [metric, setMetric] = useState<MetricKey>("kg");
   const [view, setView] = useState<"2d" | "3d" | "rank">("2d");
   const [selectedZ, setSelectedZ] = useState<number | null>(79); // gold
@@ -57,23 +61,23 @@ export default function EconomicTable() {
             <button
               key={m.key}
               onClick={() => setMetric(m.key)}
-              title={m.description}
+              title={metricDescription(m, lang)}
               className={`rounded-full border px-3 py-1.5 text-xs tracking-wide transition-colors ${
                 metric === m.key
                   ? "border-accent bg-accent text-black"
                   : "border-white/15 text-gray-400 hover:border-white/40 hover:text-white"
               }`}
             >
-              {m.label}
+              {metricLabel(m, lang)}
             </button>
           ))}
         </div>
         <div className="ml-auto flex gap-1.5">
           {(
             [
-              ["2d", "2D — Color"],
-              ["3d", "3D — Height"],
-              ["rank", "Ranking"],
+              ["2d", L("2D — Farbe", "2D — Color")],
+              ["3d", L("3D — Höhe", "3D — Height")],
+              ["rank", L("Rangliste", "Ranking")],
             ] as const
           ).map(([key, label]) => (
             <button
@@ -94,29 +98,46 @@ export default function EconomicTable() {
       {/* Legend */}
       <div className="flex items-center gap-3 text-xs text-muted">
         <span className="whitespace-nowrap">
-          {formatUSD(min)} <span className="text-gray-600">({cheapest.name})</span>
+          {formatUSD(min, lang)} <span className="text-gray-600">({elementName(cheapest, lang)})</span>
         </span>
         <div className="h-2 min-w-24 flex-1 rounded-full" style={{ background: legendGradient }} />
         <span className="whitespace-nowrap">
-          {formatUSD(max)} <span className="text-gray-600">({dearest.name})</span>
+          {formatUSD(max, lang)} <span className="text-gray-600">({elementName(dearest, lang)})</span>
         </span>
-        <span className="hidden whitespace-nowrap text-gray-600 sm:inline">log scale</span>
+        <span className="hidden whitespace-nowrap text-gray-600 sm:inline">
+          {L("logarithmische Skala", "log scale")}
+        </span>
       </div>
 
       {/* Table */}
       {view === "2d" ? (
-        <PeriodicTable2D data={cells} selectedZ={selectedZ} onSelect={setSelectedZ} />
+        <PeriodicTable2D data={cells} selectedZ={selectedZ} onSelect={setSelectedZ} lang={lang} />
       ) : view === "3d" ? (
         <PeriodicTable3D data={cells} selectedZ={selectedZ} onSelect={setSelectedZ} />
       ) : (
         <div className="space-y-2">
           {metric !== "kg" && (
             <p className="text-xs text-gray-500">
-              ▲▼ = places gained/lost versus the $ / kg ranking — this is what dividing by{" "}
-              {activeMetric.description.replace("price per ", "")} actually changes.
+              {lang === "de" ? (
+                <>
+                  ▲▼ = gewonnene/verlorene Plätze gegenüber der Rangliste nach $ / kg — genau das
+                  verändert die Division durch {metricDivisor(activeMetric, lang)}.
+                </>
+              ) : (
+                <>
+                  ▲▼ = places gained/lost versus the $ / kg ranking — this is what dividing by{" "}
+                  {metricDivisor(activeMetric, lang)} actually changes.
+                </>
+              )}
             </p>
           )}
-          <RankingView data={cells} metric={metric} selectedZ={selectedZ} onSelect={setSelectedZ} />
+          <RankingView
+            data={cells}
+            metric={metric}
+            selectedZ={selectedZ}
+            onSelect={setSelectedZ}
+            lang={lang}
+          />
         </div>
       )}
 
@@ -125,17 +146,23 @@ export default function EconomicTable() {
         <div className="rounded-lg border border-white/10 bg-surface p-5">
           <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
             <h2 className="font-serif text-2xl text-accent">
-              {selected.name} <span className="text-gray-500">({selected.symbol})</span>
+              {elementName(selected, lang)}{" "}
+              <span className="text-gray-500">({selected.symbol})</span>
             </h2>
             <span className="text-sm text-muted">
-              Z = {selected.z} · {selected.mass} g/mol
-              {selected.density !== null && ` · ${selected.density} g/cm³`}
+              Z = {selected.z} · {formatNumber(selected.mass, lang)} g/mol
+              {selected.density !== null && ` · ${formatNumber(selected.density, lang)} g/cm³`}
             </span>
-            {selected.note && <span className="text-xs italic text-gray-500">{selected.note}</span>}
+            {selected.note && (
+              <span className="text-xs italic text-gray-500">{elementNote(selected, lang)}</span>
+            )}
           </div>
           {selected.price === null ? (
             <p className="mt-3 text-sm text-muted">
-              No market price — this element has never been traded in weighable quantities.
+              {L(
+                "Kein Marktpreis — dieses Element wurde nie in wägbaren Mengen gehandelt.",
+                "No market price — this element has never been traded in weighable quantities."
+              )}
             </p>
           ) : (
             <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-4">
@@ -146,8 +173,12 @@ export default function EconomicTable() {
                     key={m.key}
                     className={`rounded-md px-2 py-1.5 ${m.key === metric ? "bg-white/10" : ""}`}
                   >
-                    <dt className="text-[10px] uppercase tracking-wider text-gray-500">{m.label}</dt>
-                    <dd className="mt-0.5 text-sm text-white">{v === null ? "—" : formatUSD(v)}</dd>
+                    <dt className="text-[10px] uppercase tracking-wider text-gray-500">
+                      {metricLabel(m, lang)}
+                    </dt>
+                    <dd className="mt-0.5 text-sm text-white">
+                      {v === null ? "—" : formatUSD(v, lang)}
+                    </dd>
                   </div>
                 );
               })}
@@ -157,11 +188,23 @@ export default function EconomicTable() {
       )}
 
       <p className="text-xs leading-relaxed text-gray-600">
-        Prices are approximate USD per kilogram of the pure element, compiled from public market
-        data and literature (2019–2025). Synthetic and radioactive elements carry
-        order-of-magnitude estimates for research quantities. Gray cells have no market at all.
-        Per-liter prices use densities at standard conditions — gases as gas at STP, bromine and
-        mercury as liquids.
+        {lang === "de" ? (
+          <>
+            Die Preise sind ungefähre US-Dollar pro Kilogramm des reinen Elements, zusammengestellt
+            aus öffentlichen Marktdaten und Literatur (2019–2025). Für synthetische und radioaktive
+            Elemente gelten Schätzungen der Größenordnung für Forschungsmengen. Graue Felder haben
+            überhaupt keinen Markt. Literpreise beruhen auf der Dichte bei Normbedingungen — Gase
+            als Gas, Brom und Quecksilber als Flüssigkeiten.
+          </>
+        ) : (
+          <>
+            Prices are approximate USD per kilogram of the pure element, compiled from public market
+            data and literature (2019–2025). Synthetic and radioactive elements carry
+            order-of-magnitude estimates for research quantities. Gray cells have no market at all.
+            Per-liter prices use densities at standard conditions — gases as gas at STP, bromine and
+            mercury as liquids.
+          </>
+        )}
       </p>
     </div>
   );

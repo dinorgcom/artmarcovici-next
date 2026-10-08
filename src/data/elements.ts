@@ -254,7 +254,8 @@ const SUPERSCRIPTS: Record<string, string> = {
 // Prices are written out in full digits so the magnitudes are felt, not
 // abbreviated away ($49,000,000,000,000 instead of $49T). Only values
 // below a millionth of a dollar fall back to scientific notation.
-export function formatUSD(v: number): string {
+export function formatUSD(v: number, lang: "de" | "en" = "en"): string {
+  const dec = (s: string) => (lang === "de" ? s.replace(".", ",") : s);
   if (v === 0) return "$0";
   if (v < 1e-6) {
     const [mantissa, exponent] = v.toExponential(2).split("e");
@@ -262,12 +263,17 @@ export function formatUSD(v: number): string {
       .split("")
       .map((c) => SUPERSCRIPTS[c] ?? c)
       .join("");
-    return `$${mantissa} × 10${sup}`;
+    return `$${dec(mantissa)} × 10${sup}`;
   }
-  if (v < 1) return `$${parseFloat(v.toPrecision(2))}`;
+  if (v < 1) return `$${dec(String(parseFloat(v.toPrecision(2))))}`;
   // three significant digits, written out with thousands separators
   const exp = Math.floor(Math.log10(v));
   const step = Math.pow(10, Math.max(0, exp - 2));
   const rounded = Math.round(v / step) * step;
-  return `$${rounded.toLocaleString("en-US", { maximumFractionDigits: 2 })}`;
+  return `$${rounded.toLocaleString(lang === "de" ? "de-DE" : "en-US", { maximumFractionDigits: 2 })}`;
+}
+
+/** Plain number in the page language (masses, densities). */
+export function formatNumber(v: number, lang: "de" | "en" = "en"): string {
+  return lang === "de" ? String(v).replace(".", ",") : String(v);
 }

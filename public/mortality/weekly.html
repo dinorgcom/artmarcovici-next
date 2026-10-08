@@ -6,8 +6,9 @@
     <meta
       name="description"
       content="Wöchentliche Sterbefälle in Österreich im Vergleich mit Temperatur, Niederschlag und Sonnenschein."
+      data-en-content="Weekly deaths in Austria compared with temperature, precipitation and sunshine."
     />
-    <title>Wochen &amp; Wetter · Mortalität in Österreich</title>
+    <title data-en-text="Weeks &amp; Weather · Mortality in Austria">Wochen &amp; Wetter · Mortalität in Österreich</title>
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="biest.com">
     <meta property="og:locale" content="de_AT">
@@ -24,45 +25,51 @@
     <meta name="twitter:description" content="Jede Kalenderwoche seit 2016: Sterbefälle in Österreich neben Temperatur, Niederschlag und Sonnenschein der neun Landeshauptstädte.">
     <meta name="twitter:image" content="https://biest.com/og/og-mortality-weekly.jpg?v=20261004">
     <meta name="twitter:image:alt" content="Wöchentliche Sterbefälle in Österreich seit 2016 mit Wochentemperaturen">
+    <script src="/shared/biest-lang.js"></script>
     <link rel="stylesheet" href="/shared/biest-brand.css">
-    <link rel="stylesheet" href="/mortality/styles.css?v=20261003-1" />
+    <link rel="stylesheet" href="/mortality/styles.css?v=20261008" />
   </head>
   <body class="weekly-page">
     <div class="page-shell">
       <header class="site-header">
         <div class="brand-row">
-          <a class="biest-brand" href="/" aria-label="biest.com – Startseite"><span class="biest-brand__name">BIEST.COM</span><span class="biest-brand__tag">Dossier</span></a>
-          <a class="brand" href="/mortality/" aria-label="Zur Jahresanalyse">
+          <a class="biest-brand" href="/" aria-label="biest.com – Startseite" data-en-aria-label="biest.com – Home"><span class="biest-brand__name">BIEST.COM</span><span class="biest-brand__tag">Dossier</span></a>
+          <a class="brand" href="/mortality/" aria-label="Zur Jahresanalyse" data-en-aria-label="To the annual analysis">
             <span>
-            <strong>Mortalität</strong>
-            <small>Österreich · Wochenanalyse</small>
+            <strong><span data-lang="de">Mortalität</span><span data-lang="en">Mortality</span></strong>
+            <small><span data-lang="de">Österreich · Wochenanalyse</span><span data-lang="en">Austria · weekly analysis</span></small>
             </span>
           </a>
         </div>
-        <nav class="site-nav" aria-label="Bereiche">
-          <a href="/mortality/">Jahresanalyse</a>
-          <a class="active" href="/mortality/weekly.html" aria-current="page">Wochen &amp; Wetter</a>
+        <nav class="site-nav" aria-label="Bereiche" data-en-aria-label="Sections">
+          <a href="/mortality/"><span data-lang="de">Jahresanalyse</span><span data-lang="en">Annual analysis</span></a>
+          <a class="active" href="/mortality/weekly.html" aria-current="page"><span data-lang="de">Wochen &amp; Wetter</span><span data-lang="en">Weeks &amp; weather</span></a>
         </nav>
         <div class="header-meta">
           <span class="status-dot"></span>
           Statistik Austria × GeoSphere Austria
         </div>
+        <div class="lang-slot" data-biest-lang-switch></div>
       </header>
 
       <main id="top">
         <section class="hero weekly-hero">
-          <div class="eyebrow">Wochenanalyse</div>
+          <div class="eyebrow"><span data-lang="de">Wochenanalyse</span><span data-lang="en">Weekly analysis</span></div>
           <div class="hero-grid">
             <div>
-              <h1>Sterblichkeit trifft Wetter.</h1>
-              <p>
+              <h1><span data-lang="de">Sterblichkeit trifft Wetter.</span><span data-lang="en">Mortality meets weather.</span></h1>
+              <p data-lang="de">
                 Jede Kalenderwoche im Vergleich: registrierte Sterbefälle sowie Temperatur,
                 Niederschlag und Sonnenschein im Mittel der neun Landeshauptstädte.
               </p>
+              <p data-lang="en">
+                Every calendar week compared: registered deaths alongside temperature,
+                precipitation and sunshine, averaged across the nine state capitals.
+              </p>
             </div>
-            <div class="hero-number" aria-label="Datenumfang">
+            <div class="hero-number" aria-label="Datenumfang" data-en-aria-label="Data coverage">
               <strong id="weekly-count-display">–</strong>
-              <span>beobachtete Wochen</span>
+              <span><span data-lang="de">beobachtete Wochen</span><span data-lang="en">weeks observed</span></span>
             </div>
           </div>
         </section>
@@ -71,67 +78,69 @@
           <div class="filter-head">
             <div>
               <span class="section-index">01</span>
-              <h2 id="weekly-filter-title">Wochen auswählen</h2>
+              <h2 id="weekly-filter-title"><span data-lang="de">Wochen auswählen</span><span data-lang="en">Select weeks</span></h2>
             </div>
-            <button id="weekly-reset" class="text-button" type="button">Zurücksetzen</button>
+            <button id="weekly-reset" class="text-button" type="button"><span data-lang="de">Zurücksetzen</span><span data-lang="en">Reset</span></button>
           </div>
           <div class="weekly-filter-grid">
             <label class="field">
-              <span>Jahr</span>
+              <span><span data-lang="de">Jahr</span><span data-lang="en">Year</span></span>
               <select id="weekly-year-select"></select>
               <small id="weekly-year-help">–</small>
             </label>
             <label class="field">
-              <span>Geschlecht</span>
+              <span><span data-lang="de">Geschlecht</span><span data-lang="en">Sex</span></span>
               <select id="weekly-sex-select">
-                <option value="all">Alle Geschlechter</option>
-                <option value="male">Männer</option>
-                <option value="female">Frauen</option>
+                <option value="all" data-en-text="Both sexes">Alle Geschlechter</option>
+                <option value="male" data-en-text="Males">Männer</option>
+                <option value="female" data-en-text="Females">Frauen</option>
               </select>
-              <small>Statistik Austria, Wochensterbefälle</small>
+              <small><span data-lang="de">Statistik Austria, Wochensterbefälle</span><span data-lang="en">Statistik Austria, weekly deaths</span></small>
             </label>
             <fieldset class="field">
-              <legend>Altersgruppe</legend>
+              <legend><span data-lang="de">Altersgruppe</span><span data-lang="en">Age group</span></legend>
               <div class="segmented weekly-age-segment" id="weekly-age-control">
-                <button type="button" data-weekly-age="total" class="active">Alle</button>
+                <button type="button" data-weekly-age="total" class="active"><span data-lang="de">Alle</span><span data-lang="en">All</span></button>
                 <button type="button" data-weekly-age="under65">0–64</button>
                 <button type="button" data-weekly-age="over65">65+</button>
               </div>
-              <small>Die Wochenquelle veröffentlicht zwei Altersklassen</small>
+              <small><span data-lang="de">Die Wochenquelle veröffentlicht zwei Altersklassen</span><span data-lang="en">The weekly source publishes two age bands</span></small>
             </fieldset>
             <label class="field weekly-week-field">
-              <span>Kalenderwoche</span>
+              <span><span data-lang="de">Kalenderwoche</span><span data-lang="en">Calendar week</span></span>
               <div class="week-output-row">
-                <output id="weekly-week-output" for="weekly-week-range">KW –</output>
+                <output id="weekly-week-output" for="weekly-week-range"><span data-lang="de">KW –</span><span data-lang="en">Week –</span></output>
                 <small id="weekly-week-dates">–</small>
               </div>
               <input id="weekly-week-range" type="range" min="1" max="52" value="52" step="1" />
             </label>
           </div>
           <div class="coverage-note" role="status">
-            <strong>Getrennte Datenquellen:</strong> Die Wochensterbefälle enthalten keine Todesursachen.
-            Das Wetter ist ein ungewichteter Indikator aus neun SPARTACUS-Gitterpunkten bei den Landeshauptstädten.
+            <span data-lang="de"><strong>Getrennte Datenquellen:</strong> Die Wochensterbefälle enthalten keine Todesursachen.
+            Das Wetter ist ein ungewichteter Indikator aus neun SPARTACUS-Gitterpunkten bei den Landeshauptstädten.</span>
+            <span data-lang="en"><strong>Separate data sources:</strong> the weekly death counts contain no causes of death.
+            The weather is an unweighted indicator from nine SPARTACUS grid points near the state capitals.</span>
           </div>
         </section>
 
-        <section class="kpi-grid weekly-kpi-grid" aria-label="Ausgewählte Kalenderwoche">
+        <section class="kpi-grid weekly-kpi-grid" aria-label="Ausgewählte Kalenderwoche" data-en-aria-label="Selected calendar week">
           <article class="kpi-card">
-            <span id="weekly-selected-label">Sterbefälle</span>
+            <span id="weekly-selected-label"><span data-lang="de">Sterbefälle</span><span data-lang="en">Deaths</span></span>
             <strong id="weekly-selected-deaths">–</strong>
             <small id="weekly-selected-note">–</small>
           </article>
           <article class="kpi-card accent-card">
-            <span>Zur gleichen Woche im Vorjahr</span>
+            <span><span data-lang="de">Zur gleichen Woche im Vorjahr</span><span data-lang="en">Vs. the same week last year</span></span>
             <strong id="weekly-selected-change">–</strong>
             <small id="weekly-change-note">–</small>
           </article>
           <article class="kpi-card">
-            <span>Mittlere Temperatur</span>
+            <span><span data-lang="de">Mittlere Temperatur</span><span data-lang="en">Mean temperature</span></span>
             <strong id="weekly-temperature">–</strong>
-            <small>Mittel der neun Landeshauptstädte</small>
+            <small><span data-lang="de">Mittel der neun Landeshauptstädte</span><span data-lang="en">Mean of the nine state capitals</span></small>
           </article>
           <article class="kpi-card">
-            <span>Wetterspanne</span>
+            <span><span data-lang="de">Wetterspanne</span><span data-lang="en">Temperature range</span></span>
             <strong id="weekly-temperature-range">–</strong>
             <small id="weekly-weather-note">–</small>
           </article>
@@ -141,40 +150,46 @@
           <div class="panel-head">
             <div>
               <span class="section-index">02</span>
-              <h2 id="deaths-chart-title">Sterbefälle nach Kalenderwoche</h2>
+              <h2 id="deaths-chart-title"><span data-lang="de">Sterbefälle nach Kalenderwoche</span><span data-lang="en">Deaths by calendar week</span></h2>
               <p id="weekly-chart-subtitle">–</p>
             </div>
-            <div class="chart-key" aria-label="Legende">
-              <span><i class="key-current"></i>Ausgewähltes Jahr</span>
-              <span><i class="key-reference"></i>5-Jahres-Mittel</span>
-              <span><i class="key-reference-band"></i>Spannweite</span>
+            <div class="chart-key" aria-label="Legende" data-en-aria-label="Legend">
+              <span><i class="key-current"></i><span data-lang="de">Ausgewähltes Jahr</span><span data-lang="en">Selected year</span></span>
+              <span><i class="key-reference"></i><span data-lang="de">5-Jahres-Mittel</span><span data-lang="en">5-year average</span></span>
+              <span><i class="key-reference-band"></i><span data-lang="de">Spannweite</span><span data-lang="en">Range</span></span>
             </div>
           </div>
           <div id="weekly-deaths-chart" class="weekly-deaths-chart" aria-live="polite"></div>
-          <div class="reference-summary" aria-label="Einordnung zur historischen Referenz">
+          <div class="reference-summary" aria-label="Einordnung zur historischen Referenz" data-en-aria-label="Comparison with the historical reference">
             <div>
-              <span>Erwartungswert · KW</span>
+              <span><span data-lang="de">Erwartungswert · KW</span><span data-lang="en">Expected value · week</span></span>
               <strong id="reference-expected">–</strong>
               <small id="reference-expected-note">–</small>
             </div>
             <div>
-              <span>Abweichung · KW</span>
+              <span><span data-lang="de">Abweichung · KW</span><span data-lang="en">Deviation · week</span></span>
               <strong id="reference-weekly-balance">–</strong>
               <small id="reference-weekly-note">–</small>
             </div>
             <div>
-              <span>Kumulierte Bilanz</span>
+              <span><span data-lang="de">Kumulierte Bilanz</span><span data-lang="en">Cumulative balance</span></span>
               <strong id="reference-cumulative">–</strong>
               <small id="reference-cumulative-note">–</small>
             </div>
           </div>
           <p id="weekly-chart-footnote" class="chart-footnote">
-            Jeder Punkt entspricht einer veröffentlichten Kalenderwoche. Punkt anklicken oder den Regler oben bewegen.
+            <span data-lang="de">Jeder Punkt entspricht einer veröffentlichten Kalenderwoche. Punkt anklicken oder den Regler oben bewegen.</span>
+            <span data-lang="en">Each point is one published calendar week. Click a point or move the slider above.</span>
           </p>
-          <p class="reference-method">
+          <p class="reference-method" data-lang="de">
             Die kumulierte Bilanz ist wichtig für die Einordnung: Ein kurzfristiger Anstieg kann
             durch unterdurchschnittliche Folgewochen teilweise wieder ausgeglichen werden
             (Mortality Displacement). Die Darstellung beschreibt Abweichungen, keine Ursache.
+          </p>
+          <p class="reference-method" data-lang="en">
+            The cumulative balance matters for interpretation: a short-term rise can be partly
+            offset by below-average weeks that follow (mortality displacement). The chart
+            describes deviations, not causes.
           </p>
         </section>
 
@@ -183,30 +198,35 @@
             <div class="panel-head">
               <div>
                 <span class="section-index">03</span>
-                <h2 id="weather-chart-title">Temperatur und Niederschlag</h2>
-                <p>Tagesmittel und Tagesspanne · Niederschlag als Wochensumme</p>
+                <h2 id="weather-chart-title"><span data-lang="de">Temperatur und Niederschlag</span><span data-lang="en">Temperature and precipitation</span></h2>
+                <p><span data-lang="de">Tagesmittel und Tagesspanne · Niederschlag als Wochensumme</span><span data-lang="en">Daily mean and daily range · precipitation as weekly total</span></p>
               </div>
             </div>
             <div id="weekly-weather-chart" class="weekly-weather-chart" aria-live="polite"></div>
           </article>
 
           <aside class="weather-detail" aria-labelledby="weather-detail-title">
-            <span class="section-index">Ausgewählte Woche</span>
-            <h2 id="weather-detail-title">KW –</h2>
+            <span class="section-index"><span data-lang="de">Ausgewählte Woche</span><span data-lang="en">Selected week</span></span>
+            <h2 id="weather-detail-title"><span data-lang="de">KW –</span><span data-lang="en">Week –</span></h2>
             <p id="weather-detail-dates">–</p>
             <dl>
-              <div><dt>Sterbefälle</dt><dd id="weather-deaths">–</dd></div>
-              <div><dt>5-Jahres-Erwartung</dt><dd id="weather-reference">–</dd></div>
-              <div><dt>Abweichung</dt><dd id="weather-balance">–</dd></div>
-              <div><dt>Niederschlag</dt><dd id="weather-rain">–</dd></div>
-              <div><dt>Sonnenschein</dt><dd id="weather-sun">–</dd></div>
-              <div><dt>Tiefster Tageswert</dt><dd id="weather-min">–</dd></div>
-              <div><dt>Höchster Tageswert</dt><dd id="weather-max">–</dd></div>
+              <div><dt><span data-lang="de">Sterbefälle</span><span data-lang="en">Deaths</span></dt><dd id="weather-deaths">–</dd></div>
+              <div><dt><span data-lang="de">5-Jahres-Erwartung</span><span data-lang="en">5-year expected</span></dt><dd id="weather-reference">–</dd></div>
+              <div><dt><span data-lang="de">Abweichung</span><span data-lang="en">Deviation</span></dt><dd id="weather-balance">–</dd></div>
+              <div><dt><span data-lang="de">Niederschlag</span><span data-lang="en">Precipitation</span></dt><dd id="weather-rain">–</dd></div>
+              <div><dt><span data-lang="de">Sonnenschein</span><span data-lang="en">Sunshine</span></dt><dd id="weather-sun">–</dd></div>
+              <div><dt><span data-lang="de">Tiefster Tageswert</span><span data-lang="en">Lowest daily value</span></dt><dd id="weather-min">–</dd></div>
+              <div><dt><span data-lang="de">Höchster Tageswert</span><span data-lang="en">Highest daily value</span></dt><dd id="weather-max">–</dd></div>
             </dl>
-            <p class="weather-method">
+            <p class="weather-method" data-lang="de">
               Temperaturmittel und Wetterwerte sind nicht bevölkerungsgewichtet. Sie beschreiben
               die neun Landeshauptstädte und keine individuelle Wetterexposition. Die gemeinsame
               Darstellung belegt keinen ursächlichen Zusammenhang zwischen Wetter und Sterblichkeit.
+            </p>
+            <p class="weather-method" data-lang="en">
+              Mean temperatures and weather values are not population-weighted. They describe
+              the nine state capitals, not individual exposure to weather. Showing the two
+              together does not demonstrate a causal link between weather and mortality.
             </p>
           </aside>
         </section>
@@ -215,21 +235,21 @@
           <div class="panel-head">
             <div>
               <span class="section-index">04</span>
-              <h2>Alle Wochenwerte</h2>
-              <p>Sterbefälle und Wetterindikatoren in einer gemeinsamen Tabelle.</p>
+              <h2><span data-lang="de">Alle Wochenwerte</span><span data-lang="en">All weekly values</span></h2>
+              <p><span data-lang="de">Sterbefälle und Wetterindikatoren in einer gemeinsamen Tabelle.</span><span data-lang="en">Deaths and weather indicators in a single table.</span></p>
             </div>
           </div>
           <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>Woche</th>
-                  <th>Zeitraum</th>
-                  <th>Sterbefälle</th>
-                  <th>Temperatur</th>
-                  <th>Min.–Max.</th>
-                  <th>Niederschlag</th>
-                  <th>Sonne</th>
+                  <th><span data-lang="de">Woche</span><span data-lang="en">Week</span></th>
+                  <th><span data-lang="de">Zeitraum</span><span data-lang="en">Period</span></th>
+                  <th><span data-lang="de">Sterbefälle</span><span data-lang="en">Deaths</span></th>
+                  <th><span data-lang="de">Temperatur</span><span data-lang="en">Temperature</span></th>
+                  <th><span data-lang="de">Min.–Max.</span><span data-lang="en">Min–max</span></th>
+                  <th><span data-lang="de">Niederschlag</span><span data-lang="en">Precipitation</span></th>
+                  <th><span data-lang="de">Sonne</span><span data-lang="en">Sunshine</span></th>
                 </tr>
               </thead>
               <tbody id="weekly-table-body"></tbody>
@@ -240,23 +260,24 @@
 
         <section class="source-strip weekly-source-strip">
           <div>
-            <strong>Quellen</strong>
-            <span>STATISTIK AUSTRIA · GeoSphere Austria SPARTACUS-v3</span>
+            <strong data-lang="de">Quellen</strong><strong data-lang="en">Sources</strong>
+            <span data-lang="de">STATISTIK AUSTRIA · GeoSphere Austria SPARTACUS-v3</span><span data-lang="en">STATISTIK AUSTRIA (Austria's national statistics office) · GeoSphere Austria (national meteorological and geological service), SPARTACUS-v3</span>
           </div>
           <div class="source-links">
-            <a href="https://www.statistik.at/statistiken/bevoelkerung-und-soziales/bevoelkerung/gestorbene/demographische-merkmale-von-gestorbenen" target="_blank" rel="noreferrer">Wochensterbefälle ↗</a>
+            <a data-lang="de" href="https://www.statistik.at/statistiken/bevoelkerung-und-soziales/bevoelkerung/gestorbene/demographische-merkmale-von-gestorbenen" target="_blank" rel="noreferrer">Wochensterbefälle ↗</a>
+            <a data-lang="en" href="https://www.statistik.at/statistiken/bevoelkerung-und-soziales/bevoelkerung/gestorbene/demographische-merkmale-von-gestorbenen" target="_blank" rel="noreferrer">Weekly deaths ↗</a>
             <a href="https://data.hub.geosphere.at/de/dataset/spartacus-v3-1d-1km" target="_blank" rel="noreferrer">SPARTACUS-v3 ↗</a>
           </div>
         </section>
       </main>
 
       <footer>
-        <span>Unabhängige Visualisierung offizieller Daten</span>
-        <span>Wetter: CC BY 4.0 · GeoSphere Austria</span>
+        <span><span data-lang="de">Unabhängige Visualisierung offizieller Daten</span><span data-lang="en">Independent visualisation of official data</span></span>
+        <span><span data-lang="de">Wetter: CC BY 4.0 · GeoSphere Austria</span><span data-lang="en">Weather: CC BY 4.0 · GeoSphere Austria</span></span>
       </footer>
     </div>
 
-    <noscript>Diese Anwendung benötigt JavaScript für die interaktive Auswertung.</noscript>
-    <script type="module" src="/mortality/weekly.js?v=20261004-1"></script>
+    <noscript><span data-lang="de">Diese Anwendung benötigt JavaScript für die interaktive Auswertung.</span><span data-lang="en">This application requires JavaScript for the interactive analysis.</span></noscript>
+    <script type="module" src="/mortality/weekly.js?v=20261008"></script>
   </body>
 </html>

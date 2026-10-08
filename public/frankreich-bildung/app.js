@@ -1,6 +1,10 @@
 (() => {
   "use strict";
 
+  // Sprache (DE/EN) kommt aus /shared/biest-lang.js; ohne das Skript bleibt alles deutsch.
+  const EN = window.BIEST_LANG === "en";
+  const L = (de, en) => (EN && en != null ? en : de);
+
   // ---------------------------------------------------------------- data
   // DEPP NI 26.42 (Sept. 2026), "Figure 7": Ausgaben pro Kopf, konstante Euro (Preise 2025)
   const YEARS = Array.from({ length: 46 }, (_, i) => 1980 + i);
@@ -21,10 +25,10 @@
   const GDP = [6.6,6.7,6.9,6.9,6.9,7.0,6.8,6.7,6.6,6.6,6.7,7.0,7.4,7.7,7.7,7.8,7.8,7.7,7.6,7.5,7.3,7.2,7.2,7.2,7.0,6.9,6.8,6.7,6.7,7.1,7.0,6.8,6.7,6.8,6.8,6.7,6.7,6.7,6.7,6.6,6.9,6.8,6.8,6.7,6.7,6.7];
 
   const LEVELS = [
-    { key: "ter", label: "Hochschule", color: "var(--s5)" },
-    { key: "p2", label: "Sekundarstufe", color: "var(--s2)" },
-    { key: "all", label: "Alle Stufen", color: "var(--ink)" },
-    { key: "p1", label: "Grundschule", color: "var(--s1)" },
+    { key: "ter", label: L("Hochschule", "Higher education"), short: L(undefined, "Higher ed."), color: "var(--s5)" },
+    { key: "p2", label: L("Sekundarstufe", "Secondary"), color: "var(--s2)" },
+    { key: "all", label: L("Alle Stufen", "All levels"), color: "var(--ink)" },
+    { key: "p1", label: L("Grundschule", "Primary"), color: "var(--s1)" },
   ];
 
   // PISA: Frankreich / OECD-Schnitt wie im jeweiligen Zyklus publiziert
@@ -36,11 +40,11 @@
 
   // Rohwerte + Standardabweichung der Skala -> Veränderung in SD seit erster Messung
   const EFFECT = [
-    { key: "calc", label: "Rechnen CM2 (DEPP)", short: "Rechnen CM2", color: "var(--s1)", sd: 50, raw: [[1987,250],[1999,210],[2007,202],[2017,176]] },
-    { key: "timss", label: "TIMSS Mathe 8. Klasse", short: "TIMSS 8. Kl.", color: "var(--s5)", sd: 100, raw: [[1995,530],[2019,483],[2023,479]] },
-    { key: "pmath", label: "PISA Mathematik", short: "PISA Mathe", color: "var(--s2)", sd: 100, raw: PISA.math.fr },
-    { key: "pread", label: "PISA Lesen", short: "PISA Lesen", color: "var(--s3)", sd: 100, raw: PISA.read.fr },
-    { key: "psci", label: "PISA Naturwissenschaften", short: "PISA Nawi", color: "var(--s4)", sd: 100, raw: PISA.sci.fr },
+    { key: "calc", label: L("Rechnen CM2 (DEPP)", "Arithmetic CM2 (DEPP)"), short: L("Rechnen CM2", "Arithm. CM2"), color: "var(--s1)", sd: 50, raw: [[1987,250],[1999,210],[2007,202],[2017,176]] },
+    { key: "timss", label: L("TIMSS Mathe 8. Klasse", "TIMSS maths grade 8"), short: L("TIMSS 8. Kl.", "TIMSS gr. 8"), color: "var(--s5)", sd: 100, raw: [[1995,530],[2019,483],[2023,479]] },
+    { key: "pmath", label: L("PISA Mathematik", "PISA mathematics"), short: L("PISA Mathe", "PISA maths"), color: "var(--s2)", sd: 100, raw: PISA.math.fr },
+    { key: "pread", label: L("PISA Lesen", "PISA reading"), short: L("PISA Lesen", "PISA reading"), color: "var(--s3)", sd: 100, raw: PISA.read.fr },
+    { key: "psci", label: L("PISA Naturwissenschaften", "PISA science"), short: L("PISA Nawi", "PISA science"), color: "var(--s4)", sd: 100, raw: PISA.sci.fr },
   ];
   EFFECT.forEach((s) => {
     const base = s.raw[0][1];
@@ -48,11 +52,14 @@
   });
 
   // ---------------------------------------------------------------- helpers
-  const de0 = (v) => v.toLocaleString("de-DE", { maximumFractionDigits: 0 });
-  const de1 = (v) => v.toLocaleString("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-  const de2 = (v) => v.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  const euro = (v) => `${de0(v)} €`;
-  const pct = (v) => `${v > 0 ? "+" : v < 0 ? "−" : "±"}${de0(Math.abs(v))} %`;
+  // Zahlenformat: Deutsch wie bisher (de-DE), Englisch en-GB
+  const NUM = EN ? "en-GB" : "de-DE";
+  const de0 = (v) => v.toLocaleString(NUM, { maximumFractionDigits: 0 });
+  const de1 = (v) => v.toLocaleString(NUM, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const de2 = (v) => v.toLocaleString(NUM, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const euro = (v) => (EN ? `€${de0(v)}` : `${de0(v)} €`);
+  const pctSign = EN ? "%" : " %";
+  const pct = (v) => `${v > 0 ? "+" : v < 0 ? "−" : "±"}${de0(Math.abs(v))}${pctSign}`;
   const sdFmt = (v) => (Math.abs(v) < 0.005 ? "0" : `${v > 0 ? "+" : "−"}${de2(Math.abs(v))}`);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
@@ -185,15 +192,15 @@
       yTicks: [0, 3000, 6000, 9000, 12000, 15000],
       xTicks: [1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025],
       xTicksMobile: [1980, 1990, 2000, 2010, 2025],
-      fmtAxis: (t) => (t ? `${de0(t / 1000)} Tsd.` : "0"),
+      fmtAxis: (t) => (t ? (EN ? `${de0(t / 1000)}k` : `${de0(t / 1000)} Tsd.`) : "0"),
       left: 56,
       fmtTip: (v) => euro(v),
       marks: [{ x: 1990, label: "1990" }],
       endLabels: true,
-      aria: "Bildungsausgaben pro Kopf in Frankreich 1980 bis 2025 nach Bildungsstufe",
+      aria: L("Bildungsausgaben pro Kopf in Frankreich 1980 bis 2025 nach Bildungsstufe", "Education spending per head in France, 1980 to 2025, by level of education"),
     });
     document.getElementById("spend-sub").textContent =
-      basis === "real" ? "Konstante Euro, Preise 2025" : "Laufende Euro (bis 2023 abgeleitet)";
+      basis === "real" ? L("Konstante Euro, Preise 2025", "Constant euros, 2025 prices") : L("Laufende Euro (bis 2023 abgeleitet)", "Current euros (derived up to 2023)");
   }
   document.getElementById("spend-legend").innerHTML = LEVELS.slice().reverse()
     .map((l) => `<li style="color:${l.color}"><i></i><span>${l.label}</span></li>`).join("");
@@ -207,15 +214,15 @@
 
   function drawGdp() {
     lineChart(document.getElementById("gdp-chart"), {
-      series: [{ key: "gdp", label: "DIE / BIP", color: "var(--s2)", data: YEARS.map((y, i) => [y, GDP[i]]) }],
+      series: [{ key: "gdp", label: L("DIE / BIP", "DIE / GDP"), color: "var(--s2)", data: YEARS.map((y, i) => [y, GDP[i]]) }],
       x: [1980, 2025], y: [6, 8],
       yTicks: [6, 6.5, 7, 7.5, 8],
       xTicks: [1980, 1990, 2000, 2010, 2025],
-      fmtAxis: (t) => `${de1(t)} %`,
-      fmtTip: (v) => `${de1(v)} %`,
+      fmtAxis: (t) => `${de1(t)}${pctSign}`,
+      fmtTip: (v) => `${de1(v)}${pctSign}`,
       height: (w) => Math.round(Math.min(260, Math.max(200, w * 0.42))),
       left: 52,
-      aria: "Bildungsausgaben in Prozent des BIP, 1980 bis 2025",
+      aria: L("Bildungsausgaben in Prozent des BIP, 1980 bis 2025", "Education spending as a percentage of GDP, 1980 to 2025"),
     });
   }
 
@@ -223,14 +230,14 @@
   (function changeBars() {
     const i90 = YEARS.indexOf(1990), i10 = YEARS.indexOf(2010), iL = YEARS.length - 1;
     const rows = [
-      ["Grundschule", "p1"], ["Sekundarstufe", "p2"], ["Hochschule", "ter"], ["Alle Stufen", "all"],
+      [L("Grundschule", "Primary"), "p1"], [L("Sekundarstufe", "Secondary"), "p2"], [L("Hochschule", "Higher education"), "ter"], [L("Alle Stufen", "All levels"), "all"],
     ];
     const max = 100;
     document.getElementById("change-bars").innerHTML = rows.map(([lab, k]) => {
       const a = (REAL[k][iL] / REAL[k][i90] - 1) * 100;
       const b = (REAL[k][iL] / REAL[k][i10] - 1) * 100;
       const w = (v) => `${Math.max(0, (v / max) * 100)}%`;
-      return `<li style="grid-template-columns:96px minmax(0,1fr)">
+      return `<li style="grid-template-columns:${EN ? 116 : 96}px minmax(0,1fr)">
         <span>${lab}</span>
         <span>
           <span class="bars-line"><span class="track"><span class="fill alt" style="width:${w(a)}"></span></span><span class="val">${pct(a)}</span></span>
@@ -241,9 +248,10 @@
 
   // spend table
   (function spendTable() {
-    let h = "<table><thead><tr><th>Jahr</th><th>Grundschule</th><th>Sekundar</th><th>Hochschule</th><th>Alle</th><th>Alle, laufende €</th><th>DIE % BIP</th></tr></thead><tbody>";
+    let h = L("<table><thead><tr><th>Jahr</th><th>Grundschule</th><th>Sekundar</th><th>Hochschule</th><th>Alle</th><th>Alle, laufende €</th><th>DIE % BIP</th></tr></thead><tbody>",
+      "<table><thead><tr><th>Year</th><th>Primary</th><th>Secondary</th><th>Higher ed.</th><th>All</th><th>All, current €</th><th>DIE % of GDP</th></tr></thead><tbody>");
     YEARS.forEach((y, i) => {
-      h += `<tr${y === 1990 ? ' class="hl"' : ""}><td>${y}${y === 2025 ? " (vorl.)" : ""}</td><td>${de0(REAL.p1[i])}</td><td>${de0(REAL.p2[i])}</td><td>${de0(REAL.ter[i])}</td><td>${de0(REAL.all[i])}</td><td>${de0(NOMINAL.all[i])}</td><td>${de1(GDP[i])}</td></tr>`;
+      h += `<tr${y === 1990 ? ' class="hl"' : ""}><td>${y}${y === 2025 ? L(" (vorl.)", " (prov.)") : ""}</td><td>${de0(REAL.p1[i])}</td><td>${de0(REAL.p2[i])}</td><td>${de0(REAL.ter[i])}</td><td>${de0(REAL.all[i])}</td><td>${de0(NOMINAL.all[i])}</td><td>${de1(GDP[i])}</td></tr>`;
     });
     document.getElementById("spend-table").innerHTML = h + "</tbody></table>";
   })();
@@ -255,12 +263,12 @@
   const P3 = [[1980,1181.1],[1990,1717.1],[2000,2160.3],[2010,2349.2],[2015,2569.9],[2016,2617.3],[2017,2689.8],[2019,2807.0],[2020,2895.5],[2021,2979.2],[2022,2937.1],[2023,2971.7],[2024,3017.6],[2025,3049.6]];
   const PTOT = P1.map(([y, v]) => [y, +(v + P2.find((d) => d[0] === y)[1]).toFixed(1)]);
   const PUPILS = [
-    { key: "tot", label: "Schule gesamt", color: "var(--ink)", dots: true, data: PTOT },
-    { key: "p1", label: "Grundschule inkl. Vorschule", short: "Grundschule", color: "var(--s1)", dots: true, data: P1 },
-    { key: "p2", label: "Sekundarstufe", color: "var(--s2)", data: P2 },
-    { key: "p3", label: "Hochschule", color: "var(--s5)", dots: true, data: P3 },
+    { key: "tot", label: L("Schule gesamt", "Schools total"), color: "var(--ink)", dots: true, data: PTOT },
+    { key: "p1", label: L("Grundschule inkl. Vorschule", "Primary incl. pre-primary"), short: L("Grundschule", "Primary"), color: "var(--s1)", dots: true, data: P1 },
+    { key: "p2", label: L("Sekundarstufe", "Secondary"), color: "var(--s2)", data: P2 },
+    { key: "p3", label: L("Hochschule", "Higher education"), short: L(undefined, "Higher ed."), color: "var(--s5)", dots: true, data: P3 },
   ];
-  const mio = (v) => `${de2(v / 1000)} Mio.`;
+  const mio = (v) => (EN ? `${de2(v / 1000)}m` : `${de2(v / 1000)} Mio.`);
   function drawPupils() {
     lineChart(document.getElementById("pup-chart"), {
       series: PUPILS.map((s) => ({ ...s, data: s.data.map(([y, v]) => [y, v]) })),
@@ -268,11 +276,11 @@
       yTicks: [0, 2000, 4000, 6000, 8000, 10000, 12000, 14000],
       xTicks: [1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025],
       xTicksMobile: [1980, 1990, 2000, 2010, 2025],
-      fmtAxis: (t) => (t ? `${de0(t / 1000)} Mio.` : "0"),
+      fmtAxis: (t) => (t ? (EN ? `${de0(t / 1000)}m` : `${de0(t / 1000)} Mio.`) : "0"),
       fmtTip: (v) => mio(v),
       marks: [{ x: 1990, label: "1990" }],
       endLabels: true, left: 54,
-      aria: "Schüler und Studierende in Frankreich 1980 bis 2025",
+      aria: L("Schüler und Studierende in Frankreich 1980 bis 2025", "Pupils and students in France, 1980 to 2025"),
     });
   }
   document.getElementById("pup-legend").innerHTML = PUPILS
@@ -280,7 +288,8 @@
   (function pupilTable() {
     const years = [...new Set([...P2, ...P3].map((d) => d[0]))].sort((a, b) => a - b);
     const get = (arr, y) => { const p = arr.find((d) => d[0] === y); return p ? de0(p[1] * 1000) : "–"; };
-    let h = "<table><thead><tr><th>Schuljahr ab</th><th>Grundschule</th><th>Sekundarstufe</th><th>Schule gesamt</th><th>Hochschule</th></tr></thead><tbody>";
+    let h = L("<table><thead><tr><th>Schuljahr ab</th><th>Grundschule</th><th>Sekundarstufe</th><th>Schule gesamt</th><th>Hochschule</th></tr></thead><tbody>",
+      "<table><thead><tr><th>School year from</th><th>Primary</th><th>Secondary</th><th>Schools total</th><th>Higher education</th></tr></thead><tbody>");
     years.forEach((y) => {
       h += `<tr${y === 1990 ? ' class="hl"' : ""}><td>${y}</td><td>${get(P1, y)}</td><td>${get(P2, y)}</td><td>${get(PTOT, y)}</td><td>${get(P3, y)}</td></tr>`;
     });
@@ -291,15 +300,15 @@
   const BIRTHS = [[2007,818.7],[2008,828.4],[2009,824.6],[2010,832.8],[2011,823.4],[2012,821.0],[2013,811.5],[2014,818.6],[2015,798.9],[2016,783.6],[2017,769.6],[2018,758.6],[2019,753.4],[2020,735.2],[2021,742.1],[2022,726.0],[2023,677.8]];
   function drawBirths() {
     lineChart(document.getElementById("birth-chart"), {
-      series: [{ key: "b", label: "Geburten", color: "var(--s3)", dots: true, data: BIRTHS }],
+      series: [{ key: "b", label: L("Geburten", "Births"), color: "var(--s3)", dots: true, data: BIRTHS }],
       x: [2006.5, 2023.5], y: [600, 860],
       yTicks: [600, 650, 700, 750, 800, 850],
       xTicks: [2007, 2011, 2015, 2019, 2023],
       fmtAxis: (t) => String(t),
-      fmtTip: (v) => `${de1(v)} Tsd.`,
+      fmtTip: (v) => (EN ? `${de1(v)}k` : `${de1(v)} Tsd.`),
       height: (w) => Math.round(Math.min(260, Math.max(200, w * 0.45))),
       left: 40,
-      aria: "Geburten in Frankreich 2007 bis 2023",
+      aria: L("Geburten in Frankreich 2007 bis 2023", "Births in France, 2007 to 2023"),
     });
   }
 
@@ -316,10 +325,10 @@
     p2: [12.07,12.17,12.25,12.52,12.67,12.67,12.68,12.71,12.68,12.64,12.63,12.78,12.77,12.91,12.92,12.90,12.8,12.8],
   };
   const RATIO_SERIES = [
-    { key: "p1old", label: "Grundschule (Köpfe)", color: "var(--s1)", dashed: true, dots: true, noLabel: true, data: RATIO_OLD.p1 },
-    { key: "p2old", label: "Sekundarstufe (Köpfe)", color: "var(--s2)", dashed: true, dots: true, noLabel: true, data: RATIO_OLD.p2 },
-    { key: "p1", label: "Grundschule", color: "var(--s1)", data: FTE_YEARS.map((y, i) => [y, RATIO_FTE.p1[i]]) },
-    { key: "p2", label: "Sekundarstufe", color: "var(--s2)", data: FTE_YEARS.map((y, i) => [y, RATIO_FTE.p2[i]]) },
+    { key: "p1old", label: L("Grundschule (Köpfe)", "Primary (headcount)"), color: "var(--s1)", dashed: true, dots: true, noLabel: true, data: RATIO_OLD.p1 },
+    { key: "p2old", label: L("Sekundarstufe (Köpfe)", "Secondary (headcount)"), color: "var(--s2)", dashed: true, dots: true, noLabel: true, data: RATIO_OLD.p2 },
+    { key: "p1", label: L("Grundschule", "Primary"), color: "var(--s1)", data: FTE_YEARS.map((y, i) => [y, RATIO_FTE.p1[i]]) },
+    { key: "p2", label: L("Sekundarstufe", "Secondary"), color: "var(--s2)", data: FTE_YEARS.map((y, i) => [y, RATIO_FTE.p2[i]]) },
   ];
   function drawRatio() {
     lineChart(document.getElementById("ratio-chart"), {
@@ -330,37 +339,38 @@
       xTicksMobile: [1970, 1990, 2008, 2025],
       fmtAxis: (t) => String(t),
       fmtTip: (v) => de1(v),
-      marks: [{ x: 2008, label: "Vollzeit-Zählung" }],
+      marks: [{ x: 2008, label: L("Vollzeit-Zählung", "FTE count") }],
       endLabels: true, left: 36,
       height: (w) => Math.round(Math.min(380, Math.max(240, w * 0.4))),
-      aria: "Schüler pro Lehrkraft in Frankreich 1970 bis 2025, Grund- und Sekundarstufe",
+      aria: L("Schüler pro Lehrkraft in Frankreich 1970 bis 2025, Grund- und Sekundarstufe", "Pupils per teacher in France, 1970 to 2025, primary and secondary"),
     });
   }
   (function ratioTable() {
-    let h = "<table><thead><tr><th>Jahr</th><th>Grundschule</th><th>Sekundarstufe</th><th>Zählweise</th></tr></thead><tbody>";
+    let h = L("<table><thead><tr><th>Jahr</th><th>Grundschule</th><th>Sekundarstufe</th><th>Zählweise</th></tr></thead><tbody>",
+      "<table><thead><tr><th>Year</th><th>Primary</th><th>Secondary</th><th>Counting method</th></tr></thead><tbody>");
     RATIO_OLD.p1.forEach(([y, v], i) => {
-      h += `<tr><td>${y}</td><td>${de1(v)}</td><td>${de1(RATIO_OLD.p2[i][1])}</td><td>Köpfe, öff. + privat</td></tr>`;
+      h += `<tr><td>${y}</td><td>${de1(v)}</td><td>${de1(RATIO_OLD.p2[i][1])}</td><td>${L("Köpfe, öff. + privat", "Headcount, public + private")}</td></tr>`;
     });
     FTE_YEARS.forEach((y, i) => {
-      h += `<tr${y === 2008 ? ' class="hl"' : ""}><td>${y}</td><td>${de1(RATIO_FTE.p1[i])}</td><td>${de1(RATIO_FTE.p2[i])}</td><td>Vollzeit, öffentlich</td></tr>`;
+      h += `<tr${y === 2008 ? ' class="hl"' : ""}><td>${y}</td><td>${de1(RATIO_FTE.p1[i])}</td><td>${de1(RATIO_FTE.p2[i])}</td><td>${L("Vollzeit, öffentlich", "FTE, public")}</td></tr>`;
     });
     document.getElementById("ratio-table").innerHTML = h + "</tbody></table>";
   })();
 
   // Klassengrößen: RERS 2013 (2.2) bis 2012, RERS 2026 (2.02, 2.05) ab 2013
   const CLASS = [
-    { key: "pre", label: "Vorschule", color: "var(--s3)", parts: [
+    { key: "pre", label: L("Vorschule", "Pre-primary"), color: "var(--s3)", parts: [
       [[1980,30.1],[1990,27.8],[1999,25.5],[2006,26.1],[2007,25.9],[2008,25.9],[2009,25.7],[2010,25.8],[2011,26.0],[2012,25.9]],
       [[2013,24.8],[2015,24.7],[2017,24.3],[2019,24.0],[2020,23.2],[2022,22.4],[2023,22.1],[2024,21.9],[2025,21.7]],
     ] },
-    { key: "ele", label: "Grundschule", color: "var(--s1)", parts: [
+    { key: "ele", label: L("Grundschule", "Primary"), color: "var(--s1)", parts: [
       [[1980,23.9],[1990,22.8],[1999,22.5],[2006,22.6],[2007,22.7],[2008,22.7],[2009,22.7],[2010,22.7],[2011,22.8],[2012,22.9]],
       [[2013,23.5],[2015,23.7],[2017,23.3],[2019,22.1],[2020,21.9],[2022,21.6],[2023,21.4],[2024,21.3],[2025,21.1]],
     ] },
     { key: "col", label: "Collège", color: "var(--s2)", parts: [
       [[1994,24.6],[1995,24.6],[2000,24.3],[2005,24.2],[2010,24.5],[2015,25.2],[2020,25.8],[2022,25.9],[2024,25.8],[2025,25.7]],
     ] },
-    { key: "lgt", label: "Lycée (allg./techn.)", short: "Lycée", color: "var(--s5)", parts: [
+    { key: "lgt", label: L("Lycée (allg./techn.)", "Lycée (gen./tech.)"), short: "Lycée", color: "var(--s5)", parts: [
       [[1994,28.9],[1995,28.8],[2000,27.9],[2005,28.1],[2010,27.9],[2015,29.4],[2020,30.3],[2022,30.3],[2024,30.1],[2025,30.2]],
     ] },
   ];
@@ -379,17 +389,17 @@
       marks: [{ x: 2012.5, label: "" }],
       endLabels: true, left: 30,
       height: (w) => Math.round(Math.min(330, Math.max(240, w * 0.62))),
-      aria: "Durchschnittliche Klassengröße nach Schulform, 1980 bis 2025",
+      aria: L("Durchschnittliche Klassengröße nach Schulform, 1980 bis 2025", "Average class size by type of school, 1980 to 2025"),
     });
   }
   document.getElementById("class-legend").innerHTML = CLASS
     .map((c) => `<li style="color:${c.color}"><i></i><span>${c.label}</span></li>`).join("");
   (function oecdRatio() {
-    const d = [["Vorschule", 21.6, 13.1], ["Grundschule", 17.9, 13.9], ["Sekundarstufe I (collège)", 14.7, 12.8], ["Sekundarstufe II (lycée)", 11.5, 12.9]];
+    const d = [[L("Vorschule", "Pre-primary"), 21.6, 13.1], [L("Grundschule", "Primary"), 17.9, 13.9], [L("Sekundarstufe I (collège)", "Lower secondary (collège)"), 14.7, 12.8], [L("Sekundarstufe II (lycée)", "Upper secondary (lycée)"), 11.5, 12.9]];
     document.getElementById("oecd-ratio-rows").innerHTML = d.map(([lab, fr, oe]) => {
       const diff = fr - oe;
-      return `<li><div class="lbl"><span>${lab}</span><b>${diff > 0 ? "+" : "−"}${de1(Math.abs(diff))} ggü. OECD</b></div>
-        <div class="line"><span class="k">Frankreich</span><span class="track"><span class="fill" style="width:${(fr / 24) * 100}%;background:var(--s1)"></span></span><span>${de1(fr)}</span></div>
+      return `<li><div class="lbl"><span>${lab}</span><b>${diff > 0 ? "+" : "−"}${de1(Math.abs(diff))} ${L("ggü. OECD", "vs OECD")}</b></div>
+        <div class="line"><span class="k">${L("Frankreich", "France")}</span><span class="track"><span class="fill" style="width:${(fr / 24) * 100}%;background:var(--s1)"></span></span><span>${de1(fr)}</span></div>
         <div class="line"><span class="k">OECD</span><span class="track"><span class="fill" style="width:${(oe / 24) * 100}%;background:var(--s2)"></span></span><span>${de1(oe)}</span></div>
       </li>`;
     }).join("");
@@ -397,12 +407,12 @@
 
   // ---------------------------------------------------------------- PISA small multiples
   function drawPisa() {
-    const panels = [["pisa-read", "read", "Lesen"], ["pisa-math", "math", "Mathematik"], ["pisa-sci", "sci", "Naturwissenschaften"]];
+    const panels = [["pisa-read", "read", L("Lesen", "reading")], ["pisa-math", "math", L("Mathematik", "mathematics")], ["pisa-sci", "sci", L("Naturwissenschaften", "science")]];
     panels.forEach(([id, k, name]) => {
       lineChart(document.getElementById(id), {
         series: [
           { key: "oecd", label: "OECD", color: "var(--muted)", dashed: true, dots: true, data: PISA[k].oecd },
-          { key: "fr", label: "Frankreich", color: "var(--s1)", dots: true, data: PISA[k].fr },
+          { key: "fr", label: L("Frankreich", "France"), color: "var(--s1)", dots: true, data: PISA[k].fr },
         ],
         x: [1999, 2026], y: [440, 530],
         yTicks: [440, 460, 480, 500, 520],
@@ -411,18 +421,20 @@
         fmtTip: (v) => String(v),
         height: (w) => Math.round(Math.min(300, Math.max(220, w * 0.72))),
         left: 38,
-        aria: `PISA ${name}: Frankreich und OECD-Durchschnitt`,
+        aria: L(`PISA ${name}: Frankreich und OECD-Durchschnitt`, `PISA ${name}: France and OECD average`),
       });
     });
   }
   (function pisaTable() {
     const cycles = [2000, 2003, 2006, 2009, 2012, 2015, 2018, 2022, 2025];
     const get = (arr, y) => { const p = arr.find((d) => d[0] === y); return p ? p[1] : "–"; };
-    let h = "<table><thead><tr><th>Zyklus</th><th>Lesen FR</th><th>OECD</th><th>Mathe FR</th><th>OECD</th><th>Nawi FR</th><th>OECD</th></tr></thead><tbody>";
+    let h = L("<table><thead><tr><th>Zyklus</th><th>Lesen FR</th><th>OECD</th><th>Mathe FR</th><th>OECD</th><th>Nawi FR</th><th>OECD</th></tr></thead><tbody>",
+      "<table><thead><tr><th>Cycle</th><th>Reading FR</th><th>OECD</th><th>Maths FR</th><th>OECD</th><th>Science FR</th><th>OECD</th></tr></thead><tbody>");
     cycles.forEach((y) => {
       h += `<tr><td>${y}</td><td>${get(PISA.read.fr, y)}</td><td>${get(PISA.read.oecd, y)}</td><td>${get(PISA.math.fr, y)}</td><td>${get(PISA.math.oecd, y)}</td><td>${get(PISA.sci.fr, y)}</td><td>${get(PISA.sci.oecd, y)}</td></tr>`;
     });
-    h += "</tbody></table><p class='chart-note'>Mathematik 2000 (517) und Naturwissenschaften 2000/2003 (500/511) nicht trendfähig und daher nicht dargestellt.</p>";
+    h += "</tbody></table><p class='chart-note'>" + L("Mathematik 2000 (517) und Naturwissenschaften 2000/2003 (500/511) nicht trendfähig und daher nicht dargestellt.",
+      "Mathematics 2000 (517) and science 2000/2003 (500/511) are not comparable for trends and are therefore not shown.") + "</p>";
     document.getElementById("pisa-table").innerHTML = h;
   })();
 
@@ -441,13 +453,14 @@
         return `${raw ? raw[1] : ""} · ${sdFmt(v)} SD`;
       },
       zero: true, endLabels: true, left: 44,
-      aria: "Leistungsveränderung französischer Schüler seit der ersten Messung in Standardabweichungen",
+      aria: L("Leistungsveränderung französischer Schüler seit der ersten Messung in Standardabweichungen", "Change in performance of French pupils since the first measurement, in standard deviations"),
     });
   }
   document.getElementById("effect-legend").innerHTML = EFFECT
     .map((s) => `<li style="color:${s.color}"><i></i><span>${s.label}</span></li>`).join("");
   (function effectTable() {
-    let h = "<table><thead><tr><th>Studie</th><th>Jahr</th><th>Wert</th><th>Skala-SD</th><th>Veränderung (SD)</th></tr></thead><tbody>";
+    let h = L("<table><thead><tr><th>Studie</th><th>Jahr</th><th>Wert</th><th>Skala-SD</th><th>Veränderung (SD)</th></tr></thead><tbody>",
+      "<table><thead><tr><th>Study</th><th>Year</th><th>Score</th><th>Scale SD</th><th>Change (SD)</th></tr></thead><tbody>");
     EFFECT.forEach((s) => s.raw.forEach(([y, v], i) => {
       h += `<tr><td>${i ? "" : s.label}</td><td>${y}</td><td>${v}</td><td>${s.sd}</td><td>${sdFmt(s.data[i][1])}</td></tr>`;
     }));
@@ -470,10 +483,10 @@
       `<li class="bars-key" style="grid-template-columns:76px minmax(0,1fr) 54px"><span></span><span class="axis-row"><span style="left:0">150</span><span style="left:${pos(200)}%">200</span><span style="left:${pos(250)}%">250</span></span><span></span></li>`;
   })();
   (function gaps() {
-    const d = [["Lesen", 91, 77], ["Mathematik", 95, 83], ["Naturwissenschaften", 100, 85]];
+    const d = [[L("Lesen", "Reading"), 91, 77], [L("Mathematik", "Mathematics"), 95, 83], [L("Naturwissenschaften", "Science"), 100, 85]];
     document.getElementById("gap-rows").innerHTML = d.map(([lab, fr, oe]) => `
-      <li><div class="lbl"><span>${lab}</span><b>+${fr - oe} Punkte mehr als OECD</b></div>
-        <div class="line"><span class="k">Frankreich</span><span class="track"><span class="fill" style="width:${(fr / 110) * 100}%;background:var(--s1)"></span></span><span>${fr}</span></div>
+      <li><div class="lbl"><span>${lab}</span><b>+${fr - oe} ${L("Punkte mehr als OECD", "points more than OECD")}</b></div>
+        <div class="line"><span class="k">${L("Frankreich", "France")}</span><span class="track"><span class="fill" style="width:${(fr / 110) * 100}%;background:var(--s1)"></span></span><span>${fr}</span></div>
         <div class="line"><span class="k">OECD</span><span class="track"><span class="fill" style="width:${(oe / 110) * 100}%;background:var(--s2)"></span></span><span>${oe}</span></div>
       </li>`).join("");
   })();

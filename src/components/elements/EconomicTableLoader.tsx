@@ -7,7 +7,8 @@ const EconomicTable = dynamic(() => import("./EconomicTable"), {
   loading: () => (
     <div className="flex h-[50vh] items-center justify-center">
       <p className="font-serif tracking-widest text-accent animate-pulse">
-        WEIGHING THE ELEMENTS…
+        <span data-lang="de">DIE ELEMENTE WERDEN GEWOGEN…</span>
+        <span data-lang="en">WEIGHING THE ELEMENTS…</span>
       </p>
     </div>
   ),

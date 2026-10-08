@@ -221,3 +221,11 @@ tr.hl td { background: #f6e3e0; }
 table.text th, table.text td { text-align: left; white-space: normal; min-width: 110px; }
 .fact-rows dd { white-space: nowrap; }
 @media (max-width: 560px) { .fact-rows div { flex-direction: column; gap: 2px; } .fact-rows dd { text-align: left; } }
+
+/* Zweisprachigkeit (DE/EN via /shared/biest-lang.js) */
+/* Sprachumschalter rechts neben "Alle Projekte" */
+.site-header .back-link { margin-left: auto; }
+.lang-slot { display: flex; flex: none; margin-left: 18px; }
+@media (max-width: 560px) { .lang-slot { margin-left: 12px; } }
+/* Sprach-Spans in den Kennzahlen dürfen nicht die Label-Regel ".metric span" erben */
+.metric [data-lang] { display: inline; margin: 0; color: inherit; font: inherit; letter-spacing: inherit; text-transform: inherit; }
