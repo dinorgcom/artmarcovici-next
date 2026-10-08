@@ -16,6 +16,7 @@ export default function Footer() {
               <Link href="/gallery/mosaic" className="block text-sm text-gray-500 hover:text-white transition-colors">Mosaic</Link>
               <Link href="/gallery/cado" className="block text-sm text-gray-500 hover:text-white transition-colors">CADO</Link>
               <Link href="/gallery/projects" className="block text-sm text-gray-500 hover:text-white transition-colors">Projects</Link>
+              <Link href="/gallery/data" className="block text-sm text-gray-500 hover:text-white transition-colors">Data</Link>
             </div>
           </div>
           <div>

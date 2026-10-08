@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import siteData from "@/data/siteData.json";
 import { projectItems } from "@/data/projects";
+import { dataItems } from "@/data/dataProjects";
 
 const navCategories = [
   {
@@ -38,13 +39,18 @@ const navCategories = [
   {
     label: "Projects",
     href: "/gallery/projects",
-    submenu: [
-      ...projectItems.map((item) => ({
-        href: item.href ?? `/work/${item.slug}`,
-        label: item.title,
-      })),
-      { href: "/elements", label: "Elements" },
-    ].sort((a, b) => a.label.localeCompare(b.label)),
+    submenu: projectItems.map((item) => ({
+      href: item.href ?? `/work/${item.slug}`,
+      label: item.title,
+    })),
+  },
+  {
+    label: "Data",
+    href: "/gallery/data",
+    submenu: dataItems.map((item) => ({
+      href: item.href ?? `/work/${item.slug}`,
+      label: item.title,
+    })),
   },
   {
     label: "Book",
@@ -55,8 +61,6 @@ const navCategories = [
     ],
   },
   { label: "Biography", href: "/work/BIOGRAPHY" },
-  { label: "News", href: "/work/in-the-news" },
-  { label: "Contact", href: "/work/about" },
 ];
 
 export default function Navigation() {
@@ -80,7 +84,7 @@ export default function Navigation() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-1">
-            {navCategories.map((cat) => (
+            {navCategories.map((cat, i) => (
               <div
                 key={cat.label}
                 className="relative"
@@ -94,7 +98,7 @@ export default function Navigation() {
                   {cat.label}
                 </Link>
                 {cat.submenu && activeDropdown === cat.label && (
-                  <div className="absolute top-full left-0 w-64 bg-surface border border-white/10 rounded-lg shadow-2xl py-2 max-h-96 overflow-y-auto">
+                  <div className={`absolute top-full ${i >= navCategories.length - 3 ? "right-0" : "left-0"} w-64 bg-surface border border-white/10 rounded-lg shadow-2xl py-2 max-h-96 overflow-y-auto`}>
                     {cat.submenu.map((item) => (
                       <Link
                         key={item.href}

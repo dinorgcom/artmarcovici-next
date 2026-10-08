@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import siteData from "@/data/siteData.json";
 import { projectItems } from "@/data/projects";
+import { dataItems } from "@/data/dataProjects";
 
 type NavItem = {
   slug: string;
@@ -32,12 +33,19 @@ function getNav(category: string): NavCategory | null {
   if (category === "projects") {
     return { label: "Projects", items: projectItems };
   }
+  if (category === "data") {
+    return { label: "Data", items: dataItems };
+  }
   const navKey = categoryMap[category];
   return navKey ? navigation[navKey] ?? null : null;
 }
 
+const intros: Record<string, string> = {
+  data: "Statistical dossiers on current affairs — official figures, case databases and sources, made explorable.",
+};
+
 export function generateStaticParams() {
-  return [...Object.keys(categoryMap), "projects"].map((category) => ({ category }));
+  return [...Object.keys(categoryMap), "projects", "data"].map((category) => ({ category }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
@@ -65,7 +73,12 @@ export default async function GalleryPage({ params }: { params: Promise<{ catego
         <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-wide">
           {nav.label}
         </h1>
-        <p className="text-gray-500 mt-2">{nav.items.length} collections</p>
+        {intros[category] && (
+          <p className="text-gray-400 mt-4 max-w-2xl leading-relaxed">{intros[category]}</p>
+        )}
+        <p className="text-gray-500 mt-2">
+          {nav.items.length} {category === "data" ? "dossiers" : "collections"}
+        </p>
       </div>
 
       {/* Grid */}
@@ -94,7 +107,7 @@ export default async function GalleryPage({ params }: { params: Promise<{ catego
                   {item.title}
                 </div>
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="font-serif text-xl text-white tracking-wide">
                   {item.title}

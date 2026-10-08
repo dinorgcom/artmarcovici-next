@@ -132,8 +132,24 @@ function PieceFigure({
     []
   );
   const wasSliding = useRef(false);
+  const ring = useRef<THREE.MeshBasicMaterial>(null);
+  const reducedMotion = useMemo(
+    () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    []
+  );
 
   useFrame(({ clock }, delta) => {
+    // figures the commander may call breathe softly so they read as clickable
+    if (ring.current) {
+      const t = clock.elapsedTime;
+      ring.current.opacity = selected
+        ? 0.95
+        : hovered
+          ? 0.9
+          : reducedMotion
+            ? 0.45
+            : 0.3 + 0.3 * (0.5 + 0.5 * Math.sin(t * 2.6 + phase));
+    }
     if (!group.current || piece.square === null) return;
     const [x, z] = squareToWorld(piece.square);
     // glide across the board to the current square (frame-rate independent)
@@ -238,12 +254,8 @@ function PieceFigure({
       {/* selection ring for the commander */}
       {(selectable || selected) && (
         <mesh position={[0, 0.015, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-          <ringGeometry args={[0.3, 0.38, 32]} />
-          <meshBasicMaterial
-            color="#d4a853"
-            transparent
-            opacity={selected ? 0.95 : hovered ? 0.85 : 0.35}
-          />
+          <ringGeometry args={[0.3, 0.38, 40]} />
+          <meshBasicMaterial ref={ring} color="#d4a853" transparent opacity={0.4} toneMapped={false} />
         </mesh>
       )}
     </group>
@@ -253,7 +265,6 @@ function PieceFigure({
 /* ---------- board ---------- */
 
 const FILES = "abcdefgh";
-
 function Board({
   targetSquares,
   onSquarePick,
@@ -267,7 +278,7 @@ function Board({
       for (let r = 1; r <= 8; r++) {
         const square = `${FILES[f]}${r}`;
         const [x, z] = squareToWorld(square);
-        list.push({ square, x, z, dark: (f + r) % 2 === 0 });
+        list.push({ square, x, z, dark: (f + r) % 2 === 1 }); // a1 dark, h1 light
       }
     }
     return list;
@@ -304,10 +315,11 @@ function Board({
           />
         </mesh>
       ))}
-      {/* frame */}
+      {/* like the installation: just the glossy tiles on the floor — no frame,
+          no coordinates. A black base exactly under the tiles fills the seams. */}
       <mesh position={[0, -0.06, 0]} receiveShadow>
-        <boxGeometry args={[8.6, 0.06, 8.6]} />
-        <meshStandardMaterial color="#0b0b0b" roughness={0.4} />
+        <boxGeometry args={[7.98, 0.03, 7.98]} />
+        <meshStandardMaterial color="#030303" roughness={0.4} />
       </mesh>
       {/* target markers: glowing square + light pillar so they read in first person */}
       {targetSquares.map((square) => {
@@ -441,19 +453,42 @@ export default function ChessScene({
     <Canvas
       shadows
       camera={{ position: [0, 6, 10], fov: 55, near: 0.05 }}
-      style={{ background: "#000000" }}
+      gl={{ alpha: true, antialias: true }}
+      style={{
+        // a dim gallery: the pool of light under the spot fades into black
+        background: "radial-gradient(ellipse 70% 60% at 50% 45%, #17140f 0%, #070605 55%, #000 100%)",
+      }}
     >
-      <fog attach="fog" args={["#000000", 14, 30]} />
-      <ambientLight intensity={0.7} />
-      <hemisphereLight args={["#3a3a45", "#0a0a0a", 0.5]} />
+      <fog attach="fog" args={["#040403", 13, 32]} />
+      <ambientLight intensity={0.5} />
+      <hemisphereLight args={["#3a3a45", "#0a0a0a", 0.45]} />
       <directionalLight
         position={[6, 10, 4]}
-        intensity={1.6}
+        intensity={1.5}
         castShadow
         shadow-mapSize={[2048, 2048]}
+        shadow-camera-left={-9}
+        shadow-camera-right={9}
+        shadow-camera-top={9}
+        shadow-camera-bottom={-9}
+        shadow-bias={-0.0004}
       />
-      <directionalLight position={[-6, 8, -6]} intensity={0.5} />
-      <pointLight position={[0, 7, 0]} intensity={0.6} />
+      <directionalLight position={[-6, 8, -6]} intensity={0.45} />
+      {/* warm overhead spot: the board as an exhibit */}
+      <spotLight
+        position={[0, 12, 1.5]}
+        angle={0.5}
+        penumbra={0.85}
+        intensity={140}
+        distance={40}
+        decay={2}
+        color="#fff1d6"
+      />
+      {/* gallery floor */}
+      <mesh position={[0, -0.076, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+        <circleGeometry args={[40, 64]} />
+        <meshStandardMaterial color="#0b0a09" roughness={0.75} metalness={0.1} />
+      </mesh>
       {/* studio-style environment for reflections on lenses and board */}
       <Environment resolution={64} frames={1}>
         <Lightformer position={[0, 6, 0]} rotation={[Math.PI / 2, 0, 0]} scale={[8, 8, 1]} intensity={1.6} color="#ffffff" />
