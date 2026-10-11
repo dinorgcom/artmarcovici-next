@@ -98,7 +98,7 @@ export default function Navigation() {
                   {cat.label}
                 </Link>
                 {cat.submenu && activeDropdown === cat.label && (
-                  <div className={`absolute top-full ${i >= navCategories.length - 3 ? "right-0" : "left-0"} w-64 bg-surface border border-white/10 rounded-lg shadow-2xl py-2 max-h-96 overflow-y-auto`}>
+                  <div className={`absolute top-full ${i >= navCategories.length - 3 ? "right-0" : "left-0"} w-64 bg-surface border border-white/10 rounded-lg shadow-2xl py-2 max-h-[75vh] overflow-y-auto`}>
                     {cat.submenu.map((item) => (
                       <Link
                         key={item.href}
