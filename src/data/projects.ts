@@ -4,7 +4,8 @@ import siteData from "@/data/siteData.json";
 // elsewhere in the navigation — everything else is a standalone art project.
 // Statistical / current-affairs data dossiers are NOT projects: they live in
 // src/data/dataProjects.ts and get their own "Data" menu.
-const EXCLUDED_SLUGS = new Set(["home", "about", "BIOGRAPHY", "in-the-news", "manifesto"]);
+// "blog" (VIDEOS) is an empty page without any videos, so it is not listed either.
+const EXCLUDED_SLUGS = new Set(["home", "about", "BIOGRAPHY", "in-the-news", "manifesto", "blog"]);
 
 export type ProjectNavItem = {
   slug: string;
@@ -16,8 +17,8 @@ export type ProjectNavItem = {
 };
 
 // Projects that are not part of the original site export (siteData.json) and
-// have their own route instead of a /work/<slug> page. They are merged with
-// the siteData items and sorted alphabetically together with them.
+// have their own route instead of a /work/<slug> page. They are listed first
+// (newest work on top); the siteData projects follow in alphabetical order.
 const ADDITIONAL_PROJECTS: ProjectNavItem[] = [
   {
     slug: "yuki",
@@ -30,6 +31,8 @@ const ADDITIONAL_PROJECTS: ProjectNavItem[] = [
 ];
 
 export const projectItems: ProjectNavItem[] = [
-  ...siteData.navigation.other.items.filter((item) => !EXCLUDED_SLUGS.has(item.slug)),
   ...ADDITIONAL_PROJECTS,
-].sort((a, b) => a.title.localeCompare(b.title));
+  ...siteData.navigation.other.items
+    .filter((item) => !EXCLUDED_SLUGS.has(item.slug))
+    .sort((a, b) => a.title.localeCompare(b.title)),
+];
