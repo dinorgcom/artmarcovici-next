@@ -162,7 +162,7 @@ const dossiers: Dossier[] = [
   },
   {
     href: "/wien-sonne-temperatur",
-    updated: "2026-10-04",
+    updated: "2026-10-14",
     kicker: "Interactive data project · Vienna 1880–2026",
     title: "146 YEARS OF SUN & TEMPERATURE",
     body: (
