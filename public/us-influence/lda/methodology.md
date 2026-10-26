@@ -24,6 +24,8 @@ Die Rechenmethoden A (LDA), B (IRC 6033(b)(8)) und C (IRC 162(e)) bleiben getren
 
 ## Herkunft und ausländische Beteiligte
 
+Die Länderansicht führt gesondert gemeldete US-Gebiete wie Puerto Rico ausdrücklich als US-Gebiet, nicht als ausländischen Staat. Die US-Hauptkategorie steht im eigenen Organisationsvergleich.
+
 Die Länderansicht verwendet den angegebenen Hauptgeschäftssitz des Auftraggebers, ersatzweise die angegebene Anschrift. Bei Eigenmeldungen wird der Sitz des Registranten verwendet. **Diese Zuordnung sagt nichts über staatliche Finanzierung, Staatsangehörigkeit des Kapitals oder politischen Erfolg aus.**
 
 64 historische Codevarianten wurden redaktionell anhand der Ortsangaben in Originalmeldungen abgeglichen. `country-code-map.json` enthält Beispiele und Fundstellen; dies ist keine amtlich gelieferte Codeliste. Sechs widersprüchliche Codes (IRI, ISV, MRI, MTN, SUD, COD) bleiben ohne automatische Zuordnung. Auch erkennbare Fehler des Melders werden nicht stillschweigend in bewiesene Herkunft umgedeutet.
