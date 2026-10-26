@@ -50,6 +50,10 @@ const nextConfig: NextConfig = {
       ],
       afterFiles: [
         {
+          source: "/us-aid",
+          destination: "/us-aid/index.html",
+        },
+        {
           source: "/us-influence",
           destination: "/us-influence/index.html",
         },
@@ -82,7 +86,7 @@ const nextConfig: NextConfig = {
   // Chapter pages check for the MP3s with fs at build time (SSG), so the
   // exclusion does not affect rendering.
   outputFileTracingExcludes: {
-    "*": ["./public/book/audio/**", "./public/book/audio-de/**", "./public/us-influence/data/**"],
+    "*": ["./public/book/audio/**", "./public/book/audio-de/**", "./public/us-influence/data/**", "./public/us-influence/statistics/**", "./public/us-aid/data/**"],
   },
   images: {
     remotePatterns: [

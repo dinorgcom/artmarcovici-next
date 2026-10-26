@@ -2,6 +2,24 @@
 
 Datenstand / retrieval: 2026-10-26. Untersuchungsfenster / target: 2006–2025.
 
+## Erweiterung: Ranglisten und Branchen
+
+Die neue Statistikansicht enthält acht getrennte Ranglisten, vollständige Tabellen, Suche, Länderhervorhebung, Empfängeraufschlüsselungen und CSV-Export. Kein Gesamtbetrag über die Kanäle. Rangfolgen gelten ausschließlich unter bezifferten Ländern und gesonderten Gebieten; USA und regionale Aggregate sind ausgeschlossen. Gleiche Beträge teilen den Rang. Fehlende oder unterdrückte Werte erhalten weder null noch einen letzten Rang. Geheimhaltung kann die tatsächliche Rangfolge verändern. Die Länderhervorhebung ist standardmäßig Israel, jedes andere Land ist gleichwertig auswählbar.
+
+FARA wird zusätzlich als **Bruttovolumen erfasster Einnahmemeldungen** je Leistungskategorie dargestellt. Dies sind ausdrücklich keine konsolidierten Länderausgaben: identische markierte Wiederholungen sind entfernt, Unteraufträge, Weiterleitungen und überlappende Perioden sind jedoch nicht vollständig bereinigt. Es ist weder eine Untergrenze noch eine Obergrenze des tatsächlichen Landesbudgets. Lobby/political/policy hat bei gemischten Leistungen Vorrang vor Medien/PR. Unbezifferte Zeilen bleiben als Lücke in der Abdeckung sichtbar. Eine niedrige Zahl kann auf lückenhafte Erfassung zurückgehen. Die Rangliste ist kein Rang politischer Wirkung. Der Zeitraum folgt dem Ende der Sechsmonatsperiode; die Zuordnung 2006 kann Teile von 2005 enthalten.
+
+Hochschulranglisten bieten eine Sensitivitätsansicht, in der vollständig identische Originalzeilen einmal zählen. Diese Ansicht ist keine gesicherte Korrektur, denn identische Zeilen können wiederholte reale Vorgänge enthalten. Summen nach Vertragsbeginn bleiben Vertragsvolumen; mehrjährige Verträge werden nicht in vermeintliche Jahreszahlungen aufgeteilt. Größte Empfänger werden innerhalb derselben Messgröße und Zeitspanne berechnet.
+
+Zusätzliche Branchenauswertung: 8.676 amtliche Tabellenzellen aus drei BEA-Arbeitsmappen, neun oberste Branchen, 2006–2025. 2.146 Zellen sind unterdrückt oder nicht exakt bezifferbar. Die Branchentabellen veröffentlichen nur ausgewählte Herkünfte; sie ersetzen keine vollständige Branchenbilanz für alle Staaten. Unterbranchen des verarbeitenden Gewerbes werden nicht nochmals addiert. UBO: letztlicher Eigentümer. Bestand zu historischen Kosten, originale Mio. USD in USD umgerechnet. Negative Bestände werden erhalten. Geografische Sammelzeilen ohne eindeutige Zuordnung werden im Zusatz-Prüfprotokoll dokumentiert und nicht als Länder eingestuft.
+
+Anteile verwenden das offizielle BEA-Gesamttotal bzw. Branchentotal einschließlich letztlich US-amerikanischer Eigentümer mit ausländischer Zwischenholding. Die Rangliste selbst schließt die USA aus. Es handelt sich nicht um Anteile an sämtlichen US-Vermögenswerten. Direktinvestitionen umfassen nicht das gesamte Portfolio-, Anleihe- oder Einzelimmobilienvermögen.
+
+Thinktank-Listen zeigen Original-Spendenklassen je Empfänger und Berichtsjahr, geordnet nach Untergrenze ohne vorgetäuschten exakten Rang. Überlappende Bandbreiten erlauben keine genaue Reihenfolge. Die 71 geprüften Originaleinträge bleiben ein ausgewählter Ausschnitt. Sekundärtracker werden nicht für eine Geldrangliste verwendet. FEC-Zahlen vergleichen nur die vier ausgewählten US-Komitees; unabhängige Ausgaben sind eine enthaltene Untergröße, kein Zusatzbetrag. Der IRS-Organisationsaufwand wird davon getrennt gezeigt.
+
+Zusatzdateien: `statistics/rankings.json`, `annual-aggregates.csv`, `industry-cells.csv`, `sources.json`, `audit.json`. Die drei zusätzlichen BEA-Quellen werden auch im gemeinsamen Quellenregister angezeigt. Die 153.344 Zeilen des ursprünglichen Länderatlas werden nicht um abgeleitete Ranglistenaggregate erhöht; 8.676 neue Original-Branchenzellen stehen separat. Das ursprüngliche Archiv `data/evidence.zip` und das Statistikpaket haben unterschiedliche, ausdrücklich dokumentierte Umfänge.
+
+Reproduktion: `scripts/us-influence/build_rankings.py --raw <Originalkorpus>`. Zusatzquellen und Hashes: `ranking-sources.json`. Die BEA-Originale werden vor dem Einlesen gegen diese Hashes geprüft.
+
 Diese Ausgabe ist ein Quellenatlas mit belegten Ausschnitten und einer globalen Kontrollliste. Sie ist **keine vollständige Bilanz ausländischer Zahlungen oder politischen Einflusses**. Die Zahl der Datenzeilen ist kein Ausgabenmaß. Fehlende Beträge sind unbekannt, nicht null Dollar.
 
 ## Umfang und Quellenhierarchie

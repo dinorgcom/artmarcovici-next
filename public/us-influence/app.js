@@ -193,8 +193,8 @@ function bind(){
 }
 async function init(){
  try{
-  const [cc,ss,meta]=await Promise.all(['countries','sources','meta'].map(async n=>{const res=await fetch('/us-influence/data/'+n+'.json');if(!res.ok)throw Error(n+': HTTP '+res.status);return res.json();}));
-  countries=cc;sources=ss;sourceMap=new Map(ss.map(s=>[s.id,s]));
+  const [cc,ss,meta,extra]=await Promise.all(['/us-influence/data/countries.json','/us-influence/data/sources.json','/us-influence/data/meta.json','/us-influence/statistics/sources.json'].map(async url=>{const res=await fetch(url);if(!res.ok)throw Error(url+': HTTP '+res.status);return res.json();}));
+  countries=cc;sources=[...ss,...extra];sourceMap=new Map(sources.map(s=>[s.id,s]));
   $('stat-rows').textContent=integer(meta.records);
   const opts=Array.from({length:20},(_,i)=>'<option value="'+(2006+i)+'">'+(2006+i)+'</option>').join('');
   for(const id of ['compare-year','year-from','year-to'])$(id).innerHTML=opts;

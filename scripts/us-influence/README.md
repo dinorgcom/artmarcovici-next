@@ -11,6 +11,12 @@ Run from this directory in order:
 4. python build_dataset.py
 5. python verify_data.py
 
+6. Download the three additional industry workbooks listed in ranking-sources.json into raw/ (or pass their directory with --raw).
+7. python build_rankings.py --raw raw
+8. python verify_extensions.py --raw raw
+
+The additional output is public/us-influence/statistics. This adds separately labelled gross FARA receipt rankings, university gift/contract rankings, BEA stocks/flows, nine industry rankings and domestic/thinktank comparison panels. It does not consolidate FARA subcontracts or claim political influence scores. The website's shared source search loads the three additional sources from statistics/sources.json.
+
 The downloader checks SHA-256 before accepting each original. A changed upstream document requires editorial review, not silently accepting a new hash. Some source hosts may block requests; do not bypass access controls. The preserved dataset and corpus-manifest remain usable for review.
 
 The public output is ../../public/us-influence/data. These scripts overwrite only generated dossier data, never other dossiers. Raw files and parsed intermediates are ignored by Git. Original acquisition manifests include failed and unused exploratory sources for transparency; corpus-manifest identifies the required files.
