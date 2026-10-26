@@ -50,6 +50,10 @@ const nextConfig: NextConfig = {
       ],
       afterFiles: [
         {
+          source: "/us-influence",
+          destination: "/us-influence/index.html",
+        },
+        {
           // CADO Builder: eigenständige 3D-App, gebaut im CADO-Projekt (npm run build:site)
           source: "/cado-builder",
           destination: "/cado-builder/index.html",
@@ -78,7 +82,7 @@ const nextConfig: NextConfig = {
   // Chapter pages check for the MP3s with fs at build time (SSG), so the
   // exclusion does not affect rendering.
   outputFileTracingExcludes: {
-    "*": ["./public/book/audio/**", "./public/book/audio-de/**"],
+    "*": ["./public/book/audio/**", "./public/book/audio-de/**", "./public/us-influence/data/**"],
   },
   images: {
     remotePatterns: [

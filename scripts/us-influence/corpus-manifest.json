@@ -1,0 +1,952 @@
+[
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2010/webk10.zip",
+    "file": "fec-committee-summary-2010.zip",
+    "bytes": 290597,
+    "sha256": "884fc1ebd3d4c791ed7b7087fd6f3c94bdeaa93a6897990c62cee874745b6853",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2008/webk08.zip",
+    "file": "fec-committee-summary-2008.zip",
+    "bytes": 276328,
+    "sha256": "12c69ebc1503f211c3a20a6350ca78ebd1261d1b549acea8d28f155ca4c3649e",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2006/webk06.zip",
+    "file": "fec-committee-summary-2006.zip",
+    "bytes": 261750,
+    "sha256": "ccb0db34c51f741bb99c981b398b6c7bfc2a5203fe15e7a1cd45b225f0c933c0",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2012/webk12.zip",
+    "file": "fec-committee-summary-2012.zip",
+    "bytes": 343620,
+    "sha256": "c72396d037b46488f134fa357c7421278e8239b341ae35a834d9718631ff0b4c",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2014/webk14.zip",
+    "file": "fec-committee-summary-2014.zip",
+    "bytes": 350878,
+    "sha256": "b7424e75ddadbea1b6599f7d31e7cde203c1d7e01b0b9429e283ed1900a4008b",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2016/webk16.zip",
+    "file": "fec-committee-summary-2016.zip",
+    "bytes": 397557,
+    "sha256": "806a73ddfe42b22209feb9a99d2305755653cfc58bc079335ae5f3466bb696bf",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2020/webk20.zip",
+    "file": "fec-committee-summary-2020.zip",
+    "bytes": 431820,
+    "sha256": "e236e8ad9ff74f83dc9d8b0f512300d33d45994530f2cc00cd3296cd838e99da",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2018/webk18.zip",
+    "file": "fec-committee-summary-2018.zip",
+    "bytes": 422588,
+    "sha256": "3695126f91634b4d2956ff8babcaf85e1b0e53f145e017abc57e6e47b642fdf2",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202542169349301719/IRS990",
+    "file": "irs-render-202542169349301719.html",
+    "bytes": 655512,
+    "sha256": "3cd80537449414e639f82dae24f9c6aae4fb8e1c8081d3f2031d2ba600bc7fc6",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202442219349301469/IRS990",
+    "file": "irs-render-202442219349301469.html",
+    "bytes": 691553,
+    "sha256": "c64c512586a1b2660ee1662559ca5ac86666c901fb4533305a84b15c642229c0",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/201802259349300515/IRS990",
+    "file": "irs-render-201802259349300515.html",
+    "bytes": 722097,
+    "sha256": "0cb3b5dabd8551e7182f89f98868b021b0dade08aaa04610f9f1beda37621588",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202102219349300105/IRS990",
+    "file": "irs-render-202102219349300105.html",
+    "bytes": 742019,
+    "sha256": "f520ce7178273091e9d8627ca3eb0d32bc617b46300e4719e322d446f27a78a3",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202302219349301405/IRS990",
+    "file": "irs-render-202302219349301405.html",
+    "bytes": 669997,
+    "sha256": "2c73e8bdcbd268c36b84f6d9a4d413854a9df33c0733313f1e0643aa72dd280a",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202622329349301312/IRS990",
+    "file": "irs-render-202622329349301312.html",
+    "bytes": 654497,
+    "sha256": "e233e7c45a400f5535b42df7ce17203c721d3efe051442787968244b9fc74d3b",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/201602089349301080/IRS990",
+    "file": "irs-render-201602089349301080.html",
+    "bytes": 702089,
+    "sha256": "c1b05488712e40cad17a29bf35b7e1c2aa512067fc58cdba9fa04cd131c678fe",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/201732219349301108/IRS990",
+    "file": "irs-render-201732219349301108.html",
+    "bytes": 707945,
+    "sha256": "eb08341b439e9f686bdb220cfabee32264177739d812b2fcde9a473d1146997b",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/201902079349300840/IRS990",
+    "file": "irs-render-201902079349300840.html",
+    "bytes": 734596,
+    "sha256": "dfb9aaa40a7c842622e67a8996349f4b575edb83af2fa732fbeb95652b376040",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202222249349301582/IRS990",
+    "file": "irs-render-202222249349301582.html",
+    "bytes": 679147,
+    "sha256": "9290b4d5f84a9c22e992eba6654c1e9a9647a6335e9cc8d45336e7ca82c3f139",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202022269349300102/IRS990",
+    "file": "irs-render-202022269349300102.html",
+    "bytes": 739799,
+    "sha256": "8dc4bed833d76627693267e4694a3ee2f56241fc4241b71026f548613f6a72a0",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/201502179349300625/IRS990",
+    "file": "irs-render-201502179349300625.html",
+    "bytes": 655697,
+    "sha256": "ef04de57bdc97b2ddd782a941fa736f57938264de311d9ae6aeb154e8295eff9",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "file": "think-norway.html",
+    "url": "https://thinktankfundingtracker.org/donor/norway/",
+    "sha256": "29cabe8b9d61df1d68f9ebe9ae1eefe50c2bb04e5fb53f0e0ef4e5d79a0bd514",
+    "bytes": 167351,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-detailed-country-2020-2025.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-detailed-country-2020-2025.xlsx",
+    "sha256": "fa8bcee3e52efb0c5cee7a74145afceb93bbae05eaae51636dc516d5b1e76cc3",
+    "bytes": 60005,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-aruba.html",
+    "url": "https://thinktankfundingtracker.org/donor/aruba/",
+    "sha256": "16282b5b013a16f4d45ac5cd21711965bc495394616c1f1b9b61598e76c515b9",
+    "bytes": 154835,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-finland.html",
+    "url": "https://thinktankfundingtracker.org/donor/finland/",
+    "sha256": "e2781930b30a82033489462c5afe17c3d0d43a2f5b45e7b47215763a1fae3cee",
+    "bytes": 161530,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-ukraine.html",
+    "url": "https://thinktankfundingtracker.org/donor/ukraine/",
+    "sha256": "42e280cc13209b5cae025abf7298a9b6e36c46d6d95cf2ade480006d2802aa4c",
+    "bytes": 154898,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-FDIUS%20Detailed%20Country%201980-2007.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-historical/FDIUS%20Detailed%20Country%201980-2007.xlsx",
+    "sha256": "814634437aad46ef2b7ebe5f89eb2e3dbb22e5c77a30ad557fd9f959a86d44ac",
+    "bytes": 134788,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-oman.html",
+    "url": "https://thinktankfundingtracker.org/donor/oman/",
+    "sha256": "9f633f5957874823a8d72181614cd928ad3cba2ce1cd2079452ef6706e512899",
+    "bytes": 154825,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-organization-for-security-and-co-operation-in-europe.html",
+    "url": "https://thinktankfundingtracker.org/donor/organization-for-security-and-co-operation-in-europe/",
+    "sha256": "347f494217e3cb23e4ed33784a6db89c45c521027be0d8f885f8b0fdbc93e755",
+    "bytes": 156124,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-kuwait.html",
+    "url": "https://thinktankfundingtracker.org/donor/kuwait/",
+    "sha256": "2fb4b7993e33e2b4ad5c83d61d421c51b47ffe8ac62c0f4cae7b249b262af2ac",
+    "bytes": 154876,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-italy.html",
+    "url": "https://thinktankfundingtracker.org/donor/italy/",
+    "sha256": "8db83320cc494edc8f0d7710d4e3241f5cea763a9c46a18f1c56703e6699e479",
+    "bytes": 154833,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-saudi-arabia.html",
+    "url": "https://thinktankfundingtracker.org/donor/saudi-arabia/",
+    "sha256": "cd74e1c582c1c0e6266326cc417f4949fb842b69413e48add48ce8b951fb6c24",
+    "bytes": 160498,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-bahrain.html",
+    "url": "https://thinktankfundingtracker.org/donor/bahrain/",
+    "sha256": "0d8411ff06fd11709b3655ddade2520b69dd331b4eaf39c93ce1ac6c2878f819",
+    "bytes": 156479,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-thailand.html",
+    "url": "https://thinktankfundingtracker.org/donor/thailand/",
+    "sha256": "677228d64f3f5ad41a5e28c96fd55a72bdca069e41a92e592d0197e370cfd505",
+    "bytes": 154976,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-estonia.html",
+    "url": "https://thinktankfundingtracker.org/donor/estonia/",
+    "sha256": "9ab920a1024ffe985441559b38d0b6c7ec5730dc8da22d46ed74d45357357d96",
+    "bytes": 159332,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-australia.html",
+    "url": "https://thinktankfundingtracker.org/donor/australia/",
+    "sha256": "5bc7810b4f66fc77caa76e9715956b1f88d5b8f22a229de2213876cc570a9a9a",
+    "bytes": 170347,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-south-korea.html",
+    "url": "https://thinktankfundingtracker.org/donor/south-korea/",
+    "sha256": "3c23dd567656ccde0cea5f2ac73a0a456ad4938fbc6933f1cb03a69e719f332c",
+    "bytes": 177569,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-lithuania.html",
+    "url": "https://thinktankfundingtracker.org/donor/lithuania/",
+    "sha256": "bf7d9aa652bab3730b43a38cdb4fb78f0cb256cf95c9d30428ed0274591eded9",
+    "bytes": 158662,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-detailed-country-2008-2019.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-detailed-country-2008-2019.xlsx",
+    "sha256": "9118ee53b284563267b826efc1eac8f92c045f868d65a10d839920d624a09084",
+    "bytes": 85682,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-switzerland.html",
+    "url": "https://thinktankfundingtracker.org/donor/switzerland/",
+    "sha256": "dbc2d47595bb75bcfff37d84e4c05751682c0872747c2a0d67b01429e59da19c",
+    "bytes": 162612,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-nato.html",
+    "url": "https://thinktankfundingtracker.org/donor/nato/",
+    "sha256": "e1f9d9b3e0f0784eabd6cae9658ea54ba27c00072cc35244ff186bb0e053310e",
+    "bytes": 161129,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-taiwan.html",
+    "url": "https://thinktankfundingtracker.org/donor/taiwan/",
+    "sha256": "477c3df39f9531456bb337c37fba9b34ef767bbf13fe7c9a9b5321ff1eb67d94",
+    "bytes": 168282,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-romania.html",
+    "url": "https://thinktankfundingtracker.org/donor/romania/",
+    "sha256": "b97dd0be27b4db14a898142f65a2c8e014a40fcc71f3e4f667f7b87774a8cf9d",
+    "bytes": 155885,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-brazil.html",
+    "url": "https://thinktankfundingtracker.org/donor/brazil/",
+    "sha256": "dad7d392f8d2acee0ac35a3a3e591eb071b38b4bfb3eb9a382517df847d0a2e0",
+    "bytes": 154854,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-slovakia.html",
+    "url": "https://thinktankfundingtracker.org/donor/slovakia/",
+    "sha256": "2fc6e4e51bc48c6f3f76dcb6d5f26bd864295335b906b900d5834c27c84a1cbc",
+    "bytes": 156534,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-poland.html",
+    "url": "https://thinktankfundingtracker.org/donor/poland/",
+    "sha256": "2cc281c2a1548ec4e45ecead0956c2501be97bb7711cb5a1862c731c41fb4fa2",
+    "bytes": 157563,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-dominican-republic.html",
+    "url": "https://thinktankfundingtracker.org/donor/dominican-republic/",
+    "sha256": "e202cb82ef83663e340fcfc10a83e1e1f6d2c0206e9bafd67b9363112657908f",
+    "bytes": 155244,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-libya.html",
+    "url": "https://thinktankfundingtracker.org/donor/libya/",
+    "sha256": "c34a6b92dde6a670f574b8c26b97cfd5ff2cdac7130f33c70cf026406acbf54f",
+    "bytes": 154844,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-qatar.html",
+    "url": "https://thinktankfundingtracker.org/donor/qatar/",
+    "sha256": "56f2a31710705220025e4437ed7e8045d9360f0bc5e1b73ebe2ddd7d024a5250",
+    "bytes": 158917,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-france.html",
+    "url": "https://thinktankfundingtracker.org/donor/france/",
+    "sha256": "16cb40e0694add7e5e140e5792797f464ee83acefd64342df10e67ac60a6f530",
+    "bytes": 159751,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-latvia.html",
+    "url": "https://thinktankfundingtracker.org/donor/latvia/",
+    "sha256": "ea732063f3984578098b547b852070a1174dfb0c59ec8ae86917bf8d4abba3b6",
+    "bytes": 155961,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-germany.html",
+    "url": "https://thinktankfundingtracker.org/donor/germany/",
+    "sha256": "14032ea7ffcde89769cb7c9423fde7d7294dd33fbe262ead02313f7103230f46",
+    "bytes": 167039,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-bangladesh.html",
+    "url": "https://thinktankfundingtracker.org/donor/bangladesh/",
+    "sha256": "5a8b307722480618ec6539fa85b97ff026205dde0e5c7c80bfda1b4e05da96ef",
+    "bytes": 155019,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-liechtenstein.html",
+    "url": "https://thinktankfundingtracker.org/donor/liechtenstein/",
+    "sha256": "2e5c63d58648332d08ccc1d7715d1e73df393b331fb890c2295b4b38f0f9ae35",
+    "bytes": 156203,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-belgium.html",
+    "url": "https://thinktankfundingtracker.org/donor/belgium/",
+    "sha256": "e0930a1a4601001acbc203a6fb1d97ac48d8fd830bc6ce2b1ddc6ca2f8b9ce70",
+    "bytes": 156595,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-european-union.html",
+    "url": "https://thinktankfundingtracker.org/donor/european-union/",
+    "sha256": "b48024ed097cf9132703389ce15f6fe7a3608f3b0bc12026da98897a7914c9c6",
+    "bytes": 172748,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-iceland.html",
+    "url": "https://thinktankfundingtracker.org/donor/iceland/",
+    "sha256": "eddae144a23e581bb4db00ca65632e38c8fb4d8ccac99366009aca30855c7a23",
+    "bytes": 154889,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-china.html",
+    "url": "https://thinktankfundingtracker.org/donor/china/",
+    "sha256": "b79c201570e2cc8891368d1af4d3020480f24f193743ce88ac105abafeeee68a",
+    "bytes": 155419,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-japan.html",
+    "url": "https://thinktankfundingtracker.org/donor/japan/",
+    "sha256": "a23194a74db5eec5291b3d4155668f4dbaa68f0cd730466806515c694c25ac2d",
+    "bytes": 186675,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-ivory-coast.html",
+    "url": "https://thinktankfundingtracker.org/donor/ivory-coast/",
+    "sha256": "6863722df123a43677c132ef7619bb23ce0af80e02894273345a4e5600944638",
+    "bytes": 155048,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-luxembourg.html",
+    "url": "https://thinktankfundingtracker.org/donor/luxembourg/",
+    "sha256": "9c1a5f87856e80827578d0c6a9c6c0bab3475ea630f684dcdb7b255c536334a7",
+    "bytes": 156554,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-colombia.html",
+    "url": "https://thinktankfundingtracker.org/donor/colombia/",
+    "sha256": "ba0dc52c89eb1fcb9e77f60c10edbbe82acfaf6e66ee3f4a4861d43857367a3a",
+    "bytes": 154925,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-ireland.html",
+    "url": "https://thinktankfundingtracker.org/donor/ireland/",
+    "sha256": "db3ff34a0b0921e6009e203b4f3153a26d8cb2f87f2051f4348b815ede86d54f",
+    "bytes": 156009,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-mexico.html",
+    "url": "https://thinktankfundingtracker.org/donor/mexico/",
+    "sha256": "abc423e8740c31fbf64cc656146d33adfc6724bd143f77c58033a45bbbe230f4",
+    "bytes": 154867,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-sweden.html",
+    "url": "https://thinktankfundingtracker.org/donor/sweden/",
+    "sha256": "4972cf14b1dd165a2f8f89b45fccd54f9e7e7dbade2bbd39f9f58ea0b2192e76",
+    "bytes": 161515,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-singapore.html",
+    "url": "https://thinktankfundingtracker.org/donor/singapore/",
+    "sha256": "b4f8f5443133429a0b59730f8cee84c4cf4a158ef5e74e41d9324dd71d05641e",
+    "bytes": 160608,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-malta.html",
+    "url": "https://thinktankfundingtracker.org/donor/malta/",
+    "sha256": "5a712cc95c93875544c016d7949b9eb6cb7391937cc51b8ef9b59aa7dc88ef20",
+    "bytes": 154881,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-nigeria.html",
+    "url": "https://thinktankfundingtracker.org/donor/nigeria/",
+    "sha256": "ceea069f04a14393b6ea325f8733619c8cd7fb2c1c19d5809c0f711673b891fa",
+    "bytes": 154917,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-timor-leste.html",
+    "url": "https://thinktankfundingtracker.org/donor/timor-leste/",
+    "sha256": "749d7335ccfb53f591bfa1fe1b421a9e425434306cd3427a67cf345de5376074",
+    "bytes": 155018,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-united-nations.html",
+    "url": "https://thinktankfundingtracker.org/donor/united-nations/",
+    "sha256": "92c7968477189f9b4a2308257c2ec6a47c37c9dec765da7a3a398659e047b98f",
+    "bytes": 162879,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-turkey.html",
+    "url": "https://thinktankfundingtracker.org/donor/turkey/",
+    "sha256": "1fb952f6cc69550acdeefc6da2fb2b7afed5158d1a4ce34d1bb92b16e5c4871b",
+    "bytes": 154909,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-lebanon.html",
+    "url": "https://thinktankfundingtracker.org/donor/lebanon/",
+    "sha256": "7cdfc397c243b92ab1d8dfb057391f64e08eec64ab923f1198c529ea3693924b",
+    "bytes": 155004,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-commonwealth-of-nations.html",
+    "url": "https://thinktankfundingtracker.org/donor/commonwealth-of-nations/",
+    "sha256": "1bf5059e79d33363435924cf5d96bf2ecb5e17cfaf499641a98de8ed9042841c",
+    "bytes": 155372,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-northern-ireland.html",
+    "url": "https://thinktankfundingtracker.org/donor/northern-ireland/",
+    "sha256": "de0016a67d085188e96dd26462fec15a29662fa03cd8e6125c44a13ec1cd2f76",
+    "bytes": 155178,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-united-kingdom.html",
+    "url": "https://thinktankfundingtracker.org/donor/united-kingdom/",
+    "sha256": "cce7572d7edaabcffcfab8093d23be5c7fc45585273ce1d02f2e61d39393826e",
+    "bytes": 182464,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-vietnam.html",
+    "url": "https://thinktankfundingtracker.org/donor/vietnam/",
+    "sha256": "8f331d4c6419db2bbc571ac05c28db4b7a5fa9558706ce767f15617d5f074417",
+    "bytes": 155476,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-united-arab-emirates.html",
+    "url": "https://thinktankfundingtracker.org/donor/united-arab-emirates/",
+    "sha256": "75466bc048e833da69d72e4bdac289a0ef26dd6541cb8899eabfabcf4082936f",
+    "bytes": 165297,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-netherlands.html",
+    "url": "https://thinktankfundingtracker.org/donor/netherlands/",
+    "sha256": "17fdda5026d5a86bea6da578dbd82aab00bf2d6eacfbf4ac0848170b44560f7e",
+    "bytes": 163635,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-india.html",
+    "url": "https://thinktankfundingtracker.org/donor/india/",
+    "sha256": "3f1f4bc2426d24cb0d7d9f21bdea2f75005be887ea95fb22ac26c3c304155d82",
+    "bytes": 156130,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-iraq.html",
+    "url": "https://thinktankfundingtracker.org/donor/iraq/",
+    "sha256": "3fc020369a88249f27610c4ad1879ecf298bb332c9736452a10f90153c8ff095",
+    "bytes": 154787,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-spain.html",
+    "url": "https://thinktankfundingtracker.org/donor/spain/",
+    "sha256": "df3fdbfea5c6487d611799396f6b053fe346ab22fa47bb91cea92f38996e2fdd",
+    "bytes": 154830,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-czechia.html",
+    "url": "https://thinktankfundingtracker.org/donor/czechia/",
+    "sha256": "6538830b34e22c4153c397abaa04fdaa6ad1f289ea70059298b77be779bea8c9",
+    "bytes": 155441,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-new-zealand.html",
+    "url": "https://thinktankfundingtracker.org/donor/new-zealand/",
+    "sha256": "4ff4609e6bc41edc85e96a84dd8d43260526ba88668ad1a77a2fb891629c8866",
+    "bytes": 155090,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-denmark.html",
+    "url": "https://thinktankfundingtracker.org/donor/denmark/",
+    "sha256": "e65af84a88c5d0adce9d85e27202161d95e45f34231c0dfc49e3728918bd31a5",
+    "bytes": 161922,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-canada.html",
+    "url": "https://thinktankfundingtracker.org/donor/canada/",
+    "sha256": "9e251d23fdff4a5472fddf36c4eacbb02c98c7deaf7a4115ec3c609e7c1b8ea9",
+    "bytes": 170397,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "un-members.html",
+    "url": "https://www.un.org/en/about-us/member-states",
+    "sha256": "24f221fdb0afe0dff0551b0c1c8ec81e8114f75e3e8ba67d7393a67b49e15a22",
+    "bytes": 200748,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fec-committee-summary-2022.zip",
+    "url": "https://www.fec.gov/files/bulk-downloads/2022/webk22.zip",
+    "sha256": "564077cf58edfe3f38218a5a7a7d66939d69dd97a62e543adbeda5183b87a179",
+    "bytes": 445839,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fec-committee-summary-2024.zip",
+    "url": "https://www.fec.gov/files/bulk-downloads/2024/webk24.zip",
+    "sha256": "efba39e9c4380fed6094e22d487de06204f8de538a6663098036f347abdf7fb4",
+    "bytes": 469640,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.brookings.edu/wp-content/uploads/2026/03/Brookings-Intitution-Honor-Roll-2025-Fiscal-Year.pdf",
+    "file": "think-primary-Brookings-Intitution-Honor-Roll-2025-Fiscal-Year.pdf",
+    "bytes": 198422,
+    "sha256": "6e46a4f22986bdb110713a7dc73b994a17e434ad82f54d652586d1212119b93c",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.brookings.edu/wp-content/uploads/2025/01/2021-annual-report.pdf",
+    "file": "think-primary-2021-annual-report.pdf",
+    "bytes": 3788094,
+    "sha256": "1c28f7fc3254cafc06069948fdfb41c0fdb725e2e44ccdc00b54d9a2f2a9107d",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.atlanticcouncil.org/wp-content/uploads/2020/11/Annual-Report-2019_20.pdf",
+    "file": "think-primary-atlantic-2019.pdf",
+    "bytes": 5557732,
+    "sha256": "e5db92a4888e3f9a8459d0b43f66a52d08f76a24c785587f3e310559d006976e",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-primary-atlantic-2024.html",
+    "url": "https://www.atlanticcouncil.org/in-depth-research-reports/report/2024-annual-report-honor-roll/",
+    "sha256": "f03b6a6b407c2571407c065dea6808d09bde4921c219f929b7f52f8b8505ca39",
+    "retrieved": "2026-10-26",
+    "bytes": 479690
+  },
+  {
+    "file": "fara-2025-2.pdf",
+    "url": "https://www.justice.gov/media/1467011/dl?inline",
+    "sha256": "d272a4603bb3b7d100ee0b7301caf66d1f9056d1566930215870cc2193ff70ac",
+    "bytes": 3503386,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2024-2.pdf",
+    "url": "https://www.justice.gov/media/1406631/dl?inline",
+    "sha256": "8d1cf8c257d3208c4273f068bd0a31220ad3ca0ee67d4f302676502d13f97157",
+    "bytes": 3080037,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2024-1.pdf",
+    "url": "https://www.justice.gov/media/1406626/dl?inline",
+    "sha256": "0b0b5f3a366c49e7607c04a463bf1358b05de2f6a6168210bd6e745aaebdfe74",
+    "bytes": 3956631,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2025-1.pdf",
+    "url": "https://www.justice.gov/media/1467001/dl?inline",
+    "sha256": "755565d9b7dd4eefe6691d27c208197e1ad3a9fe29adb7e763318a1ca214f7c0",
+    "bytes": 3639093,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2023-1.pdf",
+    "url": "https://www.justice.gov/media/1406586/dl?inline",
+    "sha256": "35943f1ec7f32ef1ddadc116e94e911769049426e4a30e1365cb44df85e7f35f",
+    "bytes": 2388238,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2023-2.pdf",
+    "url": "https://www.justice.gov/media/1406616/dl?inline",
+    "sha256": "8c1e3304ebf330dbbebe92a997f5b26feec4ec11369ab1833d3a8be9d9ff3cb7",
+    "bytes": 3670965,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2021-2.pdf",
+    "url": "https://www.justice.gov/media/1289591/dl?inline",
+    "sha256": "865a95c31fd8633344c24199ae0929d33e64366b05e2ce07f78f8dfd178447e3",
+    "bytes": 1089224,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2021-1.pdf",
+    "url": "https://www.justice.gov/media/1289586/dl?inline",
+    "sha256": "f5b7505f7e42e02d488f098f2c6b28ea0d350f3107f0b96d594e7485618dacdd",
+    "bytes": 1065255,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2022-2.pdf",
+    "url": "https://www.justice.gov/media/1406576/dl?inline",
+    "sha256": "562ece7313a55ece0c512f6920f317f84b39ae20496c0eb38b63aef81625433e",
+    "bytes": 3506564,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2022-1.pdf",
+    "url": "https://www.justice.gov/media/1406561/dl?inline",
+    "sha256": "49fe5cea0ea43b3955ec11ba799bbe2b57698361f1522c223bdef9d05b837a98",
+    "bytes": 3896189,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2019-2.pdf",
+    "url": "https://www.justice.gov/media/1176056/dl?inline",
+    "sha256": "98b2020841d94de51d30de5f7d4019b59b25c0de26687bc3a065bdd02bd47f10",
+    "bytes": 1045731,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2019-1.pdf",
+    "url": "https://www.justice.gov/media/1122671/dl?inline",
+    "sha256": "ae25d54d36402a84a548ce1425e11148da931d2f3922ba9f15da3dfdd32cc14d",
+    "bytes": 2154711,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2018-2.pdf",
+    "url": "https://www.justice.gov/media/1111361/dl?inline",
+    "sha256": "7b08a0c944001222894f77fab85861cd4f81df659fcb65bad3a61aadd2804711",
+    "bytes": 2103260,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2018-1.pdf",
+    "url": "https://www.justice.gov/media/1019731/dl?inline",
+    "sha256": "879ee73092045523ba1034e4d64d6a57fd64f542e479bfcd9b535d866b350373",
+    "bytes": 1625048,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2017-2.pdf",
+    "url": "https://www.justice.gov/media/964601/dl?inline",
+    "sha256": "b364469fe2b5235677029d80209c5de7e0d33427367856b6ebe4a985d8269790",
+    "bytes": 1252077,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2016-2.pdf",
+    "url": "https://www.justice.gov/media/909816/dl?inline",
+    "sha256": "410a92b3a9cb6481d865b8efce69b1c4b651984f792e461cf693bb42a2cb8fca",
+    "bytes": 830306,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2017-1.pdf",
+    "url": "https://www.justice.gov/media/927181/dl?inline",
+    "sha256": "02dcff80a9795ca0294be292463062870b541760270b48e2eaa0b5d14d0b0252",
+    "bytes": 1123046,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2020-2.pdf",
+    "url": "https://www.justice.gov/media/1227926/dl?inline",
+    "sha256": "7e15f7b513923555d0f365a972ef722aa162435915e1627c8e740ce9223fb9f2",
+    "bytes": 7063672,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2020-1.pdf",
+    "url": "https://www.justice.gov/media/1227931/dl?inline",
+    "sha256": "a99ff4d1f4845d328df40084de6ef23480aa56257c9ba8570741de2efff15c9e",
+    "bytes": 7042516,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2015-1.pdf",
+    "url": "https://www.justice.gov/media/909831/dl?inline",
+    "sha256": "ca87c527aff4db9316341b941846dc811aecf6faa9cc01d91104e9e4fb708f8d",
+    "bytes": 771595,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2016-1.pdf",
+    "url": "https://www.justice.gov/media/1238361/dl?inline",
+    "sha256": "56563afe0807059c259ce25893443d442e208a3b7ad0232231c9175225b83404",
+    "bytes": 802820,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2014-2.pdf",
+    "url": "https://www.justice.gov/media/1238351/dl?inline",
+    "sha256": "678f537edf6d4c48ca7f3ce8f309576435638cc5a85cd511db416857bd7c931b",
+    "bytes": 812028,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2015-2.pdf",
+    "url": "https://www.justice.gov/media/1238356/dl?inline",
+    "sha256": "740581aef48d1e5ee47ea51e48d93de412355e045af132d6d98bcd926914008a",
+    "bytes": 804977,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2014-1.pdf",
+    "url": "https://www.justice.gov/media/909841/dl?inline",
+    "sha256": "5325d20904d0af8b4b1a1a4731fc70af37ec39f04b1d828a9c949aeed7deacfc",
+    "bytes": 1159339,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2013-2.pdf",
+    "url": "https://www.justice.gov/media/909846/dl?inline",
+    "sha256": "646a8f515316c64b99e552e42c30aacdd432285f366ecb07e35a0eab75d131c5",
+    "bytes": 1447431,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2013-1.pdf",
+    "url": "https://www.justice.gov/media/909801/dl?inline",
+    "sha256": "56dfa95edb4bed4d60084b7c0c148b635965ebf9d5c09e87459e125cbf8f685c",
+    "bytes": 803624,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2012-2.pdf",
+    "url": "https://www.justice.gov/media/909806/dl?inline",
+    "sha256": "2af7a4de1e48a60198b02fad3e7b2c63ce5d515ac088f64ea2325cd31e304747",
+    "bytes": 1262370,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2011-2.pdf",
+    "url": "https://www.justice.gov/media/909876/dl?inline",
+    "sha256": "932a49b865f34c6dc7fa624eb9c4b5279ec9bb387b1f9e8f61950f662d89d1c8",
+    "bytes": 821750,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2011-1.pdf",
+    "url": "https://www.justice.gov/media/909881/dl?inline",
+    "sha256": "6d8ff3d29bc290f8431a7b0be269b4cfaa0599bb64f1f2548b1a1500ab43952c",
+    "bytes": 809412,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2010-1.pdf",
+    "url": "https://www.justice.gov/media/909896/dl?inline",
+    "sha256": "d4fa503bef902177ff606fc6de0ec6994cd0b1f5d7ee594666ba147f0bfdf59d",
+    "bytes": 807215,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2012-1.pdf",
+    "url": "https://www.justice.gov/media/909811/dl?inline",
+    "sha256": "0eb2051bc1bcb4a9f6181715efabe077ec29e723cae653bef604cb8b5507d240",
+    "bytes": 1432259,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2010-2.pdf",
+    "url": "https://www.justice.gov/media/909886/dl?inline",
+    "sha256": "0d4aa92107db3503819f54da2696e0184d8ac0e912aa3a7dc328b4415a4d1086",
+    "bytes": 862729,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2009-2.pdf",
+    "url": "https://www.justice.gov/media/909911/dl?inline",
+    "sha256": "758b304a40134be47c1edbcbcd51326c889450bc9ca69b8177b11bb529680c71",
+    "bytes": 1141697,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2008-1.pdf",
+    "url": "https://www.justice.gov/media/909856/dl?inline",
+    "sha256": "47a2a5f93ab2bcfdc2774e8a89973dfa15d25e5c2d8468bff9ea1f588197e655",
+    "bytes": 881965,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2008-2.pdf",
+    "url": "https://www.justice.gov/media/909966/dl?inline",
+    "sha256": "dbfebc90b9dd552d4d4de80e9886c36bef91ea033381e219e1f0147c6cffdf29",
+    "bytes": 812491,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2007-2.pdf",
+    "url": "https://www.justice.gov/media/909936/dl?inline",
+    "sha256": "22a0ecd58b6207ee13960afed3cd3bdfe7c39775b382beef33f55285554c63fa",
+    "bytes": 875835,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2007-1.pdf",
+    "url": "https://www.justice.gov/media/909861/dl?inline",
+    "sha256": "cfe48e9ba6344f8a2245aacdc364168a21a7c0afd2583c7b513defa84e13eb56",
+    "bytes": 927022,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2009-1.pdf",
+    "url": "https://www.justice.gov/media/909851/dl?inline",
+    "sha256": "69785540133eda6a644e16f0f7e012cd235a54b2affe23ad0746c3324676bfae",
+    "bytes": 883273,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2006-2.pdf",
+    "url": "https://www.justice.gov/media/909941/dl?inline",
+    "sha256": "b85bb3328fd2604c588fee6333e198b746b8846886640e5e2e01f0ab5391d948",
+    "bytes": 916572,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2006-1.pdf",
+    "url": "https://www.justice.gov/media/909866/dl?inline",
+    "sha256": "be48c91f3cefd76e72976c6189331800a98dbb56532cd9efba99123e0fc6d506",
+    "bytes": 881722,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ubo-detailed-country-position-2008-2019.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ubo-detailed-country-position-2008-2019.xlsx",
+    "sha256": "e241e9f1a9f678c72405e1ea9430663d4dde10a6df86fc149f968993d59fc2f6",
+    "bytes": 46561,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ubo-detailed-country-position-2020-2025.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ubo-detailed-country-position-2020-2025.xlsx",
+    "sha256": "be995fe3fc448a84e10c9b1852b86939be2d454c010bb7cee5599332da2df56e",
+    "bytes": 33145,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "section117-2025-02-28.xlsx",
+    "url": "https://fsapartners.ed.gov/sites/default/files/2025-05/Sec117PublicRecordsCompleteFeb2025.xlsx",
+    "sha256": "a4e70dab99b1e7ab113bf3b701ac9cd00838e490a853d163a7135b46e4402949",
+    "bytes": 9337605,
+    "retrieved": "2026-10-26"
+  }
+]

@@ -1,0 +1,286 @@
+{
+  "reports": [
+    {
+      "source": "fara-2006-1",
+      "pages": 326,
+      "parsedRows": 620,
+      "sixMonthAmountsInSection": 368,
+      "sixMonthAmountsExtracted": 368
+    },
+    {
+      "source": "fara-2006-2",
+      "pages": 315,
+      "parsedRows": 572,
+      "sixMonthAmountsInSection": 350,
+      "sixMonthAmountsExtracted": 349
+    },
+    {
+      "source": "fara-2007-1",
+      "pages": 310,
+      "parsedRows": 570,
+      "sixMonthAmountsInSection": 334,
+      "sixMonthAmountsExtracted": 333
+    },
+    {
+      "source": "fara-2007-2",
+      "pages": 307,
+      "parsedRows": 561,
+      "sixMonthAmountsInSection": 365,
+      "sixMonthAmountsExtracted": 364
+    },
+    {
+      "source": "fara-2008-1",
+      "pages": 299,
+      "parsedRows": 557,
+      "sixMonthAmountsInSection": 368,
+      "sixMonthAmountsExtracted": 367
+    },
+    {
+      "source": "fara-2008-2",
+      "pages": 298,
+      "parsedRows": 541,
+      "sixMonthAmountsInSection": 355,
+      "sixMonthAmountsExtracted": 355
+    },
+    {
+      "source": "fara-2009-1",
+      "pages": 317,
+      "parsedRows": 582,
+      "sixMonthAmountsInSection": 383,
+      "sixMonthAmountsExtracted": 383
+    },
+    {
+      "source": "fara-2009-2",
+      "pages": 308,
+      "parsedRows": 558,
+      "sixMonthAmountsInSection": 396,
+      "sixMonthAmountsExtracted": 394
+    },
+    {
+      "source": "fara-2010-1",
+      "pages": 308,
+      "parsedRows": 555,
+      "sixMonthAmountsInSection": 395,
+      "sixMonthAmountsExtracted": 394
+    },
+    {
+      "source": "fara-2010-2",
+      "pages": 304,
+      "parsedRows": 546,
+      "sixMonthAmountsInSection": 361,
+      "sixMonthAmountsExtracted": 360
+    },
+    {
+      "source": "fara-2011-1",
+      "pages": 302,
+      "parsedRows": 545,
+      "sixMonthAmountsInSection": 345,
+      "sixMonthAmountsExtracted": 345
+    },
+    {
+      "source": "fara-2011-2",
+      "pages": 300,
+      "parsedRows": 542,
+      "sixMonthAmountsInSection": 344,
+      "sixMonthAmountsExtracted": 344
+    },
+    {
+      "source": "fara-2012-1",
+      "pages": 299,
+      "parsedRows": 550,
+      "sixMonthAmountsInSection": 358,
+      "sixMonthAmountsExtracted": 358
+    },
+    {
+      "source": "fara-2012-2",
+      "pages": 295,
+      "parsedRows": 534,
+      "sixMonthAmountsInSection": 343,
+      "sixMonthAmountsExtracted": 343
+    },
+    {
+      "source": "fara-2013-1",
+      "pages": 287,
+      "parsedRows": 525,
+      "sixMonthAmountsInSection": 338,
+      "sixMonthAmountsExtracted": 338
+    },
+    {
+      "source": "fara-2013-2",
+      "pages": 284,
+      "parsedRows": 511,
+      "sixMonthAmountsInSection": 338,
+      "sixMonthAmountsExtracted": 338
+    },
+    {
+      "source": "fara-2014-1",
+      "pages": 285,
+      "parsedRows": 520,
+      "sixMonthAmountsInSection": 316,
+      "sixMonthAmountsExtracted": 316
+    },
+    {
+      "source": "fara-2014-2",
+      "pages": 287,
+      "parsedRows": 513,
+      "sixMonthAmountsInSection": 343,
+      "sixMonthAmountsExtracted": 343
+    },
+    {
+      "source": "fara-2015-1",
+      "pages": 290,
+      "parsedRows": 538,
+      "sixMonthAmountsInSection": 323,
+      "sixMonthAmountsExtracted": 322
+    },
+    {
+      "source": "fara-2015-2",
+      "pages": 290,
+      "parsedRows": 516,
+      "sixMonthAmountsInSection": 363,
+      "sixMonthAmountsExtracted": 362
+    },
+    {
+      "source": "fara-2016-1",
+      "pages": 291,
+      "parsedRows": 531,
+      "sixMonthAmountsInSection": 328,
+      "sixMonthAmountsExtracted": 328
+    },
+    {
+      "source": "fara-2016-2",
+      "pages": 296,
+      "parsedRows": 532,
+      "sixMonthAmountsInSection": 326,
+      "sixMonthAmountsExtracted": 326
+    },
+    {
+      "source": "fara-2017-1",
+      "pages": 299,
+      "parsedRows": 560,
+      "sixMonthAmountsInSection": 359,
+      "sixMonthAmountsExtracted": 359
+    },
+    {
+      "source": "fara-2017-2",
+      "pages": 327,
+      "parsedRows": 595,
+      "sixMonthAmountsInSection": 374,
+      "sixMonthAmountsExtracted": 374
+    },
+    {
+      "source": "fara-2018-1",
+      "pages": 366,
+      "parsedRows": 663,
+      "sixMonthAmountsInSection": 410,
+      "sixMonthAmountsExtracted": 410
+    },
+    {
+      "source": "fara-2018-2",
+      "pages": 364,
+      "parsedRows": 673,
+      "sixMonthAmountsInSection": 444,
+      "sixMonthAmountsExtracted": 444
+    },
+    {
+      "source": "fara-2019-1",
+      "pages": 379,
+      "parsedRows": 709,
+      "sixMonthAmountsInSection": 453,
+      "sixMonthAmountsExtracted": 453
+    },
+    {
+      "source": "fara-2019-2",
+      "pages": 389,
+      "parsedRows": 730,
+      "sixMonthAmountsInSection": 475,
+      "sixMonthAmountsExtracted": 475
+    },
+    {
+      "source": "fara-2020-1",
+      "pages": 379,
+      "parsedRows": 664,
+      "sixMonthAmountsInSection": 318,
+      "sixMonthAmountsExtracted": 318
+    },
+    {
+      "source": "fara-2020-2",
+      "pages": 383,
+      "parsedRows": 678,
+      "sixMonthAmountsInSection": 299,
+      "sixMonthAmountsExtracted": 299
+    },
+    {
+      "source": "fara-2021-1",
+      "pages": 387,
+      "parsedRows": 740,
+      "sixMonthAmountsInSection": 468,
+      "sixMonthAmountsExtracted": 468
+    },
+    {
+      "source": "fara-2021-2",
+      "pages": 400,
+      "parsedRows": 765,
+      "sixMonthAmountsInSection": 471,
+      "sixMonthAmountsExtracted": 471
+    },
+    {
+      "source": "fara-2022-1",
+      "pages": 422,
+      "parsedRows": 826,
+      "sixMonthAmountsInSection": 514,
+      "sixMonthAmountsExtracted": 514
+    },
+    {
+      "source": "fara-2022-2",
+      "pages": 417,
+      "parsedRows": 809,
+      "sixMonthAmountsInSection": 475,
+      "sixMonthAmountsExtracted": 475
+    },
+    {
+      "source": "fara-2023-1",
+      "pages": 425,
+      "parsedRows": 821,
+      "sixMonthAmountsInSection": 485,
+      "sixMonthAmountsExtracted": 485
+    },
+    {
+      "source": "fara-2023-2",
+      "pages": 418,
+      "parsedRows": 806,
+      "sixMonthAmountsInSection": 488,
+      "sixMonthAmountsExtracted": 488
+    },
+    {
+      "source": "fara-2024-1",
+      "pages": 411,
+      "parsedRows": 796,
+      "sixMonthAmountsInSection": 462,
+      "sixMonthAmountsExtracted": 461
+    },
+    {
+      "source": "fara-2024-2",
+      "pages": 411,
+      "parsedRows": 801,
+      "sixMonthAmountsInSection": 455,
+      "sixMonthAmountsExtracted": 455
+    },
+    {
+      "source": "fara-2025-1",
+      "pages": 440,
+      "parsedRows": 887,
+      "sixMonthAmountsInSection": 473,
+      "sixMonthAmountsExtracted": 473
+    },
+    {
+      "source": "fara-2025-2",
+      "pages": 436,
+      "parsedRows": 879,
+      "sixMonthAmountsInSection": 462,
+      "sixMonthAmountsExtracted": 462
+    }
+  ],
+  "rows": 25421,
+  "duplicateRows": 31
+}

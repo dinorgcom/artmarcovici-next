@@ -1,0 +1,106 @@
+[
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202542169349301719/IRS990",
+    "file": "irs-render-202542169349301719.html",
+    "bytes": 655512,
+    "sha256": "3cd80537449414e639f82dae24f9c6aae4fb8e1c8081d3f2031d2ba600bc7fc6",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202442219349301469/IRS990",
+    "file": "irs-render-202442219349301469.html",
+    "bytes": 691553,
+    "sha256": "c64c512586a1b2660ee1662559ca5ac86666c901fb4533305a84b15c642229c0",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/201403019349300220/IRS990",
+    "file": "irs-render-201403019349300220.html",
+    "bytes": 602752,
+    "sha256": "3670d71e8979910d6ff637c846ddbf7f68e7aad33eb05110a46a6038525884cb",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/201802259349300515/IRS990",
+    "file": "irs-render-201802259349300515.html",
+    "bytes": 722097,
+    "sha256": "0cb3b5dabd8551e7182f89f98868b021b0dade08aaa04610f9f1beda37621588",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202102219349300105/IRS990",
+    "file": "irs-render-202102219349300105.html",
+    "bytes": 742019,
+    "sha256": "f520ce7178273091e9d8627ca3eb0d32bc617b46300e4719e322d446f27a78a3",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202302219349301405/IRS990",
+    "file": "irs-render-202302219349301405.html",
+    "bytes": 669997,
+    "sha256": "2c73e8bdcbd268c36b84f6d9a4d413854a9df33c0733313f1e0643aa72dd280a",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202622329349301312/IRS990",
+    "file": "irs-render-202622329349301312.html",
+    "bytes": 654497,
+    "sha256": "e233e7c45a400f5535b42df7ce17203c721d3efe051442787968244b9fc74d3b",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/201602089349301080/IRS990",
+    "file": "irs-render-201602089349301080.html",
+    "bytes": 702089,
+    "sha256": "c1b05488712e40cad17a29bf35b7e1c2aa512067fc58cdba9fa04cd131c678fe",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/201732219349301108/IRS990",
+    "file": "irs-render-201732219349301108.html",
+    "bytes": 707945,
+    "sha256": "eb08341b439e9f686bdb220cfabee32264177739d812b2fcde9a473d1146997b",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/201902079349300840/IRS990",
+    "file": "irs-render-201902079349300840.html",
+    "bytes": 734596,
+    "sha256": "dfb9aaa40a7c842622e67a8996349f4b575edb83af2fa732fbeb95652b376040",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202222249349301582/IRS990",
+    "file": "irs-render-202222249349301582.html",
+    "bytes": 679147,
+    "sha256": "9290b4d5f84a9c22e992eba6654c1e9a9647a6335e9cc8d45336e7ca82c3f139",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/202022269349300102/IRS990",
+    "file": "irs-render-202022269349300102.html",
+    "bytes": 739799,
+    "sha256": "8dc4bed833d76627693267e4694a3ee2f56241fc4241b71026f548613f6a72a0",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/full_text/201502179349300625/IRS990",
+    "file": "irs-render-201502179349300625.html",
+    "bytes": 655697,
+    "sha256": "ef04de57bdc97b2ddd782a941fa736f57938264de311d9ae6aeb154e8295eff9",
+    "retrieved": "2026-10-26",
+    "hostNote": "IRS filing reproduced by ProPublica; no direct IRS retrieval"
+  }
+]

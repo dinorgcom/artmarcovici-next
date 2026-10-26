@@ -5,6 +5,14 @@ import type { ProjectNavItem } from "@/data/projects";
 // New data dossiers belong here, not in projects.ts.
 export const dataItems: ProjectNavItem[] = [
   {
+    slug: "us-influence",
+    title: "MONEY, NETWORKS, AMERICA",
+    image_count: 1,
+    href: "/us-influence",
+    image: "/us-influence/cover.svg",
+    meta: "Source atlas · United States 2006–2025",
+  },
+  {
     slug: "gaza",
     title: "GAZA — MAKE UP YOUR MIND",
     image_count: 1,

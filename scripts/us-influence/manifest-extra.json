@@ -1,0 +1,154 @@
+[
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=202622329349301312",
+    "file": "irs-aipac-202622329349301312.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=202622329349301312"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=202542169349301719",
+    "file": "irs-aipac-202542169349301719.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=202542169349301719"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=202442219349301469",
+    "file": "irs-aipac-202442219349301469.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=202442219349301469"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=202302219349301405",
+    "file": "irs-aipac-202302219349301405.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=202302219349301405"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=202222249349301582",
+    "file": "irs-aipac-202222249349301582.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=202222249349301582"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=202102219349300105",
+    "file": "irs-aipac-202102219349300105.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=202102219349300105"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=202022269349300102",
+    "file": "irs-aipac-202022269349300102.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=202022269349300102"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=201902079349300840",
+    "file": "irs-aipac-201902079349300840.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=201902079349300840"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=201732219349301108",
+    "file": "irs-aipac-201732219349301108.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=201732219349301108"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=201802259349300515",
+    "file": "irs-aipac-201802259349300515.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=201802259349300515"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=201602089349301080",
+    "file": "irs-aipac-201602089349301080.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=201602089349301080"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=201502179349300625",
+    "file": "irs-aipac-201502179349300625.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=201502179349300625"
+  },
+  {
+    "url": "https://projects.propublica.org/nonprofits/download-xml?object_id=201403019349300220",
+    "file": "irs-aipac-201403019349300220.xml",
+    "error": "403 Client Error: Forbidden for url: https://projects.propublica.org/nonprofits/download-xml?object_id=201403019349300220"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2010/webk10.zip",
+    "file": "fec-committee-summary-2010.zip",
+    "bytes": 290597,
+    "sha256": "884fc1ebd3d4c791ed7b7087fd6f3c94bdeaa93a6897990c62cee874745b6853",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2008/webk08.zip",
+    "file": "fec-committee-summary-2008.zip",
+    "bytes": 276328,
+    "sha256": "12c69ebc1503f211c3a20a6350ca78ebd1261d1b549acea8d28f155ca4c3649e",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2006/webk06.zip",
+    "file": "fec-committee-summary-2006.zip",
+    "bytes": 261750,
+    "sha256": "ccb0db34c51f741bb99c981b398b6c7bfc2a5203fe15e7a1cd45b225f0c933c0",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2012/webk12.zip",
+    "file": "fec-committee-summary-2012.zip",
+    "bytes": 343620,
+    "sha256": "c72396d037b46488f134fa357c7421278e8239b341ae35a834d9718631ff0b4c",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2014/webk14.zip",
+    "file": "fec-committee-summary-2014.zip",
+    "bytes": 350878,
+    "sha256": "b7424e75ddadbea1b6599f7d31e7cde203c1d7e01b0b9429e283ed1900a4008b",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.brookings.edu/faqs-about-brookings-approach-to-foreign-funding/",
+    "file": "brookings-faq.html",
+    "bytes": 110247,
+    "sha256": "78eee6dc933e73f38344201a556a8185c7a352728c8cb03e98fb63f284b02b9b",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2016/webk16.zip",
+    "file": "fec-committee-summary-2016.zip",
+    "bytes": 397557,
+    "sha256": "806a73ddfe42b22209feb9a99d2305755653cfc58bc079335ae5f3466bb696bf",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.brookings.edu/about-us/annual-report/",
+    "file": "brookings-annual.html",
+    "bytes": 127747,
+    "sha256": "92fb3a420cca3e7021ca27dca86d41c73a77d6f1960a76e83ab122e7a3b98bf3",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2020/webk20.zip",
+    "file": "fec-committee-summary-2020.zip",
+    "bytes": 431820,
+    "sha256": "e236e8ad9ff74f83dc9d8b0f512300d33d45994530f2cc00cd3296cd838e99da",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.stimson.org/about/transparency-and-funding/",
+    "file": "stimson-funding.html",
+    "error": "403 Client Error: Forbidden for url: https://www.stimson.org/about/transparency-and-funding/"
+  },
+  {
+    "url": "https://www.fec.gov/files/bulk-downloads/2018/webk18.zip",
+    "file": "fec-committee-summary-2018.zip",
+    "bytes": 422588,
+    "sha256": "3695126f91634b4d2956ff8babcaf85e1b0e53f145e017abc57e6e47b642fdf2",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.senate.gov/legislative/Public_Disclosure/database_download.htm",
+    "file": "lda-bulk-index.html",
+    "error": "403 Client Error: Forbidden for url: https://www.senate.gov/legislative/Public_Disclosure/database_download.htm"
+  },
+  {
+    "url": "https://www.atlanticcouncil.org/about/annual-report/",
+    "file": "atlantic-annual.html",
+    "bytes": 337789,
+    "sha256": "4010b68621533bffb2b8735964ccfc89b2e00f3e6076195236d4d6dcb5a81f78",
+    "retrieved": "2026-10-26"
+  }
+]

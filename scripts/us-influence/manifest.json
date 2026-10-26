@@ -1,0 +1,534 @@
+[
+  {
+    "file": "fara-index.html",
+    "url": "https://www.justice.gov/nsd-fara/fara-reports-congress",
+    "sha256": "460c51ebf019b06d4b4dd6a85aa5a20d0fbb2d6e6b30ec72afeda20d361336f4",
+    "bytes": 75324,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "ed-index.html",
+    "url": "https://fsapartners.ed.gov/knowledge-center/topics/section-117-foreign-gift-and-contract-reporting/section-117-foreign-gift-and-contract-data",
+    "sha256": "a80b57af6bdafcfacb0706dc441d799edd0f0804c7f4d36f10576a11dd7991cb",
+    "bytes": 28862,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-index.html",
+    "url": "https://www.bea.gov/international/di1fdibal",
+    "sha256": "d792b608bd45e945f3f982d753fc0295d62874acaddcb3da435a7384fece7a51",
+    "bytes": 48606,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-donors.html",
+    "url": "https://thinktankfundingtracker.org/donor-type/foreign-government/",
+    "sha256": "2d27023be88bc82c178596752ba46aa531c6512f3f57c717d17505780aded1f3",
+    "bytes": 187251,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "aipac-propublica.json",
+    "url": "https://projects.propublica.org/nonprofits/api/v2/organizations/530217164.json",
+    "sha256": "f40644f37a517a70dd72a994a6d4c7a383f0fd1e0c7d6ad44136341b27583484",
+    "bytes": 21391,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2025-2.pdf",
+    "url": "https://www.justice.gov/media/1467011/dl?inline",
+    "sha256": "d272a4603bb3b7d100ee0b7301caf66d1f9056d1566930215870cc2193ff70ac",
+    "bytes": 3503386,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2024-2.pdf",
+    "url": "https://www.justice.gov/media/1406631/dl?inline",
+    "sha256": "8d1cf8c257d3208c4273f068bd0a31220ad3ca0ee67d4f302676502d13f97157",
+    "bytes": 3080037,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2024-1.pdf",
+    "url": "https://www.justice.gov/media/1406626/dl?inline",
+    "sha256": "0b0b5f3a366c49e7607c04a463bf1358b05de2f6a6168210bd6e745aaebdfe74",
+    "bytes": 3956631,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2025-1.pdf",
+    "url": "https://www.justice.gov/media/1467001/dl?inline",
+    "sha256": "755565d9b7dd4eefe6691d27c208197e1ad3a9fe29adb7e763318a1ca214f7c0",
+    "bytes": 3639093,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2023-1.pdf",
+    "url": "https://www.justice.gov/media/1406586/dl?inline",
+    "sha256": "35943f1ec7f32ef1ddadc116e94e911769049426e4a30e1365cb44df85e7f35f",
+    "bytes": 2388238,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2023-2.pdf",
+    "url": "https://www.justice.gov/media/1406616/dl?inline",
+    "sha256": "8c1e3304ebf330dbbebe92a997f5b26feec4ec11369ab1833d3a8be9d9ff3cb7",
+    "bytes": 3670965,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2021-2.pdf",
+    "url": "https://www.justice.gov/media/1289591/dl?inline",
+    "sha256": "865a95c31fd8633344c24199ae0929d33e64366b05e2ce07f78f8dfd178447e3",
+    "bytes": 1089224,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2021-1.pdf",
+    "url": "https://www.justice.gov/media/1289586/dl?inline",
+    "sha256": "f5b7505f7e42e02d488f098f2c6b28ea0d350f3107f0b96d594e7485618dacdd",
+    "bytes": 1065255,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2022-2.pdf",
+    "url": "https://www.justice.gov/media/1406576/dl?inline",
+    "sha256": "562ece7313a55ece0c512f6920f317f84b39ae20496c0eb38b63aef81625433e",
+    "bytes": 3506564,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2022-1.pdf",
+    "url": "https://www.justice.gov/media/1406561/dl?inline",
+    "sha256": "49fe5cea0ea43b3955ec11ba799bbe2b57698361f1522c223bdef9d05b837a98",
+    "bytes": 3896189,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2019-2.pdf",
+    "url": "https://www.justice.gov/media/1176056/dl?inline",
+    "sha256": "98b2020841d94de51d30de5f7d4019b59b25c0de26687bc3a065bdd02bd47f10",
+    "bytes": 1045731,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2019-1.pdf",
+    "url": "https://www.justice.gov/media/1122671/dl?inline",
+    "sha256": "ae25d54d36402a84a548ce1425e11148da931d2f3922ba9f15da3dfdd32cc14d",
+    "bytes": 2154711,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2018-2.pdf",
+    "url": "https://www.justice.gov/media/1111361/dl?inline",
+    "sha256": "7b08a0c944001222894f77fab85861cd4f81df659fcb65bad3a61aadd2804711",
+    "bytes": 2103260,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2018-1.pdf",
+    "url": "https://www.justice.gov/media/1019731/dl?inline",
+    "sha256": "879ee73092045523ba1034e4d64d6a57fd64f542e479bfcd9b535d866b350373",
+    "bytes": 1625048,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2017-2.pdf",
+    "url": "https://www.justice.gov/media/964601/dl?inline",
+    "sha256": "b364469fe2b5235677029d80209c5de7e0d33427367856b6ebe4a985d8269790",
+    "bytes": 1252077,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2016-2.pdf",
+    "url": "https://www.justice.gov/media/909816/dl?inline",
+    "sha256": "410a92b3a9cb6481d865b8efce69b1c4b651984f792e461cf693bb42a2cb8fca",
+    "bytes": 830306,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2017-1.pdf",
+    "url": "https://www.justice.gov/media/927181/dl?inline",
+    "sha256": "02dcff80a9795ca0294be292463062870b541760270b48e2eaa0b5d14d0b0252",
+    "bytes": 1123046,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2020-2.pdf",
+    "url": "https://www.justice.gov/media/1227926/dl?inline",
+    "sha256": "7e15f7b513923555d0f365a972ef722aa162435915e1627c8e740ce9223fb9f2",
+    "bytes": 7063672,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2020-1.pdf",
+    "url": "https://www.justice.gov/media/1227931/dl?inline",
+    "sha256": "a99ff4d1f4845d328df40084de6ef23480aa56257c9ba8570741de2efff15c9e",
+    "bytes": 7042516,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2015-1.pdf",
+    "url": "https://www.justice.gov/media/909831/dl?inline",
+    "sha256": "ca87c527aff4db9316341b941846dc811aecf6faa9cc01d91104e9e4fb708f8d",
+    "bytes": 771595,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2016-1.pdf",
+    "url": "https://www.justice.gov/media/1238361/dl?inline",
+    "sha256": "56563afe0807059c259ce25893443d442e208a3b7ad0232231c9175225b83404",
+    "bytes": 802820,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2014-2.pdf",
+    "url": "https://www.justice.gov/media/1238351/dl?inline",
+    "sha256": "678f537edf6d4c48ca7f3ce8f309576435638cc5a85cd511db416857bd7c931b",
+    "bytes": 812028,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2015-2.pdf",
+    "url": "https://www.justice.gov/media/1238356/dl?inline",
+    "sha256": "740581aef48d1e5ee47ea51e48d93de412355e045af132d6d98bcd926914008a",
+    "bytes": 804977,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2014-1.pdf",
+    "url": "https://www.justice.gov/media/909841/dl?inline",
+    "sha256": "5325d20904d0af8b4b1a1a4731fc70af37ec39f04b1d828a9c949aeed7deacfc",
+    "bytes": 1159339,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2013-2.pdf",
+    "url": "https://www.justice.gov/media/909846/dl?inline",
+    "sha256": "646a8f515316c64b99e552e42c30aacdd432285f366ecb07e35a0eab75d131c5",
+    "bytes": 1447431,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2013-1.pdf",
+    "url": "https://www.justice.gov/media/909801/dl?inline",
+    "sha256": "56dfa95edb4bed4d60084b7c0c148b635965ebf9d5c09e87459e125cbf8f685c",
+    "bytes": 803624,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2012-2.pdf",
+    "url": "https://www.justice.gov/media/909806/dl?inline",
+    "sha256": "2af7a4de1e48a60198b02fad3e7b2c63ce5d515ac088f64ea2325cd31e304747",
+    "bytes": 1262370,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2011-2.pdf",
+    "url": "https://www.justice.gov/media/909876/dl?inline",
+    "sha256": "932a49b865f34c6dc7fa624eb9c4b5279ec9bb387b1f9e8f61950f662d89d1c8",
+    "bytes": 821750,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2011-1.pdf",
+    "url": "https://www.justice.gov/media/909881/dl?inline",
+    "sha256": "6d8ff3d29bc290f8431a7b0be269b4cfaa0599bb64f1f2548b1a1500ab43952c",
+    "bytes": 809412,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2010-1.pdf",
+    "url": "https://www.justice.gov/media/909896/dl?inline",
+    "sha256": "d4fa503bef902177ff606fc6de0ec6994cd0b1f5d7ee594666ba147f0bfdf59d",
+    "bytes": 807215,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2012-1.pdf",
+    "url": "https://www.justice.gov/media/909811/dl?inline",
+    "sha256": "0eb2051bc1bcb4a9f6181715efabe077ec29e723cae653bef604cb8b5507d240",
+    "bytes": 1432259,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2010-2.pdf",
+    "url": "https://www.justice.gov/media/909886/dl?inline",
+    "sha256": "0d4aa92107db3503819f54da2696e0184d8ac0e912aa3a7dc328b4415a4d1086",
+    "bytes": 862729,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2009-2.pdf",
+    "url": "https://www.justice.gov/media/909911/dl?inline",
+    "sha256": "758b304a40134be47c1edbcbcd51326c889450bc9ca69b8177b11bb529680c71",
+    "bytes": 1141697,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2008-1.pdf",
+    "url": "https://www.justice.gov/media/909856/dl?inline",
+    "sha256": "47a2a5f93ab2bcfdc2774e8a89973dfa15d25e5c2d8468bff9ea1f588197e655",
+    "bytes": 881965,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2008-2.pdf",
+    "url": "https://www.justice.gov/media/909966/dl?inline",
+    "sha256": "dbfebc90b9dd552d4d4de80e9886c36bef91ea033381e219e1f0147c6cffdf29",
+    "bytes": 812491,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2007-2.pdf",
+    "url": "https://www.justice.gov/media/909936/dl?inline",
+    "sha256": "22a0ecd58b6207ee13960afed3cd3bdfe7c39775b382beef33f55285554c63fa",
+    "bytes": 875835,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2007-1.pdf",
+    "url": "https://www.justice.gov/media/909861/dl?inline",
+    "sha256": "cfe48e9ba6344f8a2245aacdc364168a21a7c0afd2583c7b513defa84e13eb56",
+    "bytes": 927022,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2009-1.pdf",
+    "url": "https://www.justice.gov/media/909851/dl?inline",
+    "sha256": "69785540133eda6a644e16f0f7e012cd235a54b2affe23ad0746c3324676bfae",
+    "bytes": 883273,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2006-2.pdf",
+    "url": "https://www.justice.gov/media/909941/dl?inline",
+    "sha256": "b85bb3328fd2604c588fee6333e198b746b8846886640e5e2e01f0ab5391d948",
+    "bytes": 916572,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-FDIUS%20ctry%20by%20ind%20Financial%20Transactions%201980-1989.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-historical/FDIUS%20ctry%20by%20ind%20Financial%20Transactions%201980-1989.xlsx",
+    "sha256": "c92fde5fae853ac08ec5fceb4cf0e210614d0295bd971ec077b88c12a57288db",
+    "bytes": 74213,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-FDIUS%20ctry%20by%20ind%20Financial%20Transactions%201990-1999.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-historical/FDIUS%20ctry%20by%20ind%20Financial%20Transactions%201990-1999.xlsx",
+    "sha256": "2256ce4b5416e6beb7f1478323d0dce22219abea8e71ac5d8490571f8a52b9c4",
+    "bytes": 97329,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-FDIUS%20ctry%20by%20ind%20Financial%20Transactions%202000-2009.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-historical/FDIUS%20ctry%20by%20ind%20Financial%20Transactions%202000-2009.xlsx",
+    "sha256": "a2eeab069357518c92dc9826cb51b981562e4561fbe9c3e5aab61bcbe00f92b5",
+    "bytes": 106073,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "fara-2006-1.pdf",
+    "url": "https://www.justice.gov/media/909866/dl?inline",
+    "sha256": "be48c91f3cefd76e72976c6189331800a98dbb56532cd9efba99123e0fc6d506",
+    "bytes": 881722,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ctry-by-ind-financial-transactions-2010-2019.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ctry-by-ind-financial-transactions-2010-2019.xlsx",
+    "sha256": "12725f4a7ac40b32da5d4d3181421af10f75ca0bc7a2b20df1073738e8b0da40",
+    "bytes": 139896,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-FDIUS%20ctry%20by%20ind%20Income%201980-1989.xlsx",
+    "url": "https://apps.bea.gov/international/xls/FDIUS%20ctry%20by%20ind%20Income%201980-1989.xlsx",
+    "sha256": "9bbf007b9f9bf873038e602066be07b980b9cd624484076d6edad3fe3f54a6e6",
+    "bytes": 78680,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-FDIUS%20ctry%20by%20ind%20Income%201990-1999.xlsx",
+    "url": "https://apps.bea.gov/international/xls/FDIUS%20ctry%20by%20ind%20Income%201990-1999.xlsx",
+    "sha256": "d37c373ef881ebff20803027a41cfa08d96966dfc676e5d7f91e6ceffa2c0e36",
+    "bytes": 103446,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ctry-by-ind-financial-transactions-2020-2025.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ctry-by-ind-financial-transactions-2020-2025.xlsx",
+    "sha256": "1fb1592705dcadcfa962fc0bcd32afd35c7cda7baab6c4583ab44f29d54d84b0",
+    "bytes": 82221,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-FDIUS%20ctry%20by%20ind%20Income%202000-2009.xlsx",
+    "url": "https://apps.bea.gov/international/xls/FDIUS%20ctry%20by%20ind%20Income%202000-2009.xlsx",
+    "sha256": "901b6e9b1f695e119e75bb658d192545dcb967be74ba9efc07d85172fb6ff42b",
+    "bytes": 102751,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ctry-by-ind-income-2010-2019.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ctry-by-ind-income-2010-2019.xlsx",
+    "sha256": "b42d1eb70f9ecdf1998b5aa0fad4500fed60dc447b2e5eb2b815dbb357f9f364",
+    "bytes": 105394,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ctry-by-ind-income-2020-2025.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ctry-by-ind-income-2020-2025.xlsx",
+    "sha256": "42f6eccb3b2fb3c22097400ce9ffee0ff70476c1934aa596c5abc78ff9ed60e1",
+    "bytes": 84778,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-FDIUS%20ctry%20by%20ind%20Position%201980-1989.xlsx",
+    "url": "https://apps.bea.gov/international/xls/FDIUS%20ctry%20by%20ind%20Position%201980-1989.xlsx",
+    "sha256": "b0deed12a4453df1448a8c89e3b72f5af634ca94a1437fc804c46daf3ac6260c",
+    "bytes": 79025,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-FDIUS%20ctry%20by%20ind%20Position%202000-2009.xlsx",
+    "url": "https://apps.bea.gov/international/xls/FDIUS%20ctry%20by%20ind%20Position%202000-2009.xlsx",
+    "sha256": "b6ab8a191203100d21ae84d1a5f5d7a3dceedc29c8210e8131ee2acb6e39039b",
+    "bytes": 110825,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-FDIUS%20ctry%20by%20ind%20Position%201990-1999.xlsx",
+    "url": "https://apps.bea.gov/international/xls/FDIUS%20ctry%20by%20ind%20Position%201990-1999.xlsx",
+    "sha256": "3f37d09e309922c9cb94f2a064a2694404d7d62899302ee1aa820fb364c8666b",
+    "bytes": 99924,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ctry-by-ind-position-2020-2025.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ctry-by-ind-position-2020-2025.xlsx",
+    "sha256": "f82ccf0131e7aa110e3811b368bec976035ac92848787440dbfda91639c7122c",
+    "bytes": 84223,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-UBOCountry_2002_2007.xls",
+    "url": "https://apps.bea.gov/international/xls/UBOCountry_2002_2007.xls",
+    "sha256": "bc5874d03103bb51a2f74abf001842d9b3247963d80042496789d3b38600218c",
+    "bytes": 48640,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ctry-by-ind-position-2010-2019.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ctry-by-ind-position-2010-2019.xlsx",
+    "sha256": "92d14079a4f65ff1f7f2f968da69478c60e4d6703e09ad03c5f22d98690fc891",
+    "bytes": 113020,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ubo-detailed-country-position-2008-2019.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ubo-detailed-country-position-2008-2019.xlsx",
+    "sha256": "e241e9f1a9f678c72405e1ea9430663d4dde10a6df86fc149f968993d59fc2f6",
+    "bytes": 46561,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ubo-fp-country-2020-2025.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ubo-fp-country-2020-2025.xlsx",
+    "sha256": "8c7ba5b1596bdd8a10a58ddc5b5aa0d6928e37c2abcc9b0eb3aa5b6565d76600",
+    "bytes": 28845,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ubo-fp-country-2008-2019.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ubo-fp-country-2008-2019.xlsx",
+    "sha256": "770d606ed2818321f7ff865d083a10a4fe8f80a503ed0b7559be1bb04ab12c00",
+    "bytes": 40335,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ubo-detailed-country-position-2020-2025.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ubo-detailed-country-position-2020-2025.xlsx",
+    "sha256": "be995fe3fc448a84e10c9b1852b86939be2d454c010bb7cee5599332da2df56e",
+    "bytes": 33145,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-UBO%20Position%20by%20industry%201987-1989.xls",
+    "url": "https://apps.bea.gov/international/xls/UBO%20Position%20by%20industry%201987-1989.xls",
+    "sha256": "3e2a0df38291600498ea5c42785663b96d42396ad6e26c1a8c2dc939e888af45",
+    "bytes": 76288,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-UBO%20Position%20by%20industry%201990-1999.xls",
+    "url": "https://apps.bea.gov/international/xls/UBO%20Position%20by%20industry%201990-1999.xls",
+    "sha256": "88c76c3bed84f341f131e5907a80043fbcdc945b3a812390eb5f82c764a3fd65",
+    "bytes": 184832,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-UBO%20Position%20by%20industry%202000-2009.xls",
+    "url": "https://apps.bea.gov/international/xls/UBO%20Position%20by%20industry%202000-2009.xls",
+    "sha256": "6b5a2f3a2481531c3a175c8dcf37ebe12c2ae79275161dde7a3d9d963c29c056",
+    "bytes": 235008,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ubo-ctry-by-ind-position-2020-2025.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ubo-ctry-by-ind-position-2020-2025.xlsx",
+    "sha256": "3a03402f9cd7931f6f116e6eedf7e645c7d927011ec236cdfbc796130929df5c",
+    "bytes": 70219,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ubo-ctry-by-ind-position-2010-2019.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ubo-ctry-by-ind-position-2010-2019.xlsx",
+    "sha256": "5731a7c763ce906b09dd72e6c31b05536917e464c860109cfbec2d559474bf0f",
+    "bytes": 111686,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-UBO%20Income%20by%20industry%201987-1989.xls",
+    "url": "https://apps.bea.gov/international/xls/UBO%20Income%20by%20industry%201987-1989.xls",
+    "sha256": "f580ba7a6241b7155ce394289d38dfaa61f4affe92dbc6e3ba46d4f55e32566e",
+    "bytes": 82432,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-UBO%20Income%20by%20industry%201990-1999.xls",
+    "url": "https://apps.bea.gov/international/xls/UBO%20Income%20by%20industry%201990-1999.xls",
+    "sha256": "5d46b1c2ed76c1da16cadd520a4b9bba41a5e69c34aa8d2329c4d5866fc5e134",
+    "bytes": 186880,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ubo-ctry-by-ind-income-2010-2019.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ubo-ctry-by-ind-income-2010-2019.xlsx",
+    "sha256": "4b4e5d47ab492f5c3252fe217f153c9f719067fe8a9f96aba79ee634c3b62ca8",
+    "bytes": 113454,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-UBO%20Income%20by%20industry%202000-2009.xls",
+    "url": "https://apps.bea.gov/international/xls/UBO%20Income%20by%20industry%202000-2009.xls",
+    "sha256": "6f27c35922c7fc8b3b9ae0a29f5b6c64ae24c5376dc35854348cf073f4f133b6",
+    "bytes": 226304,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "bea-fdius-ubo-ctry-by-ind-income-2020-2025.xlsx",
+    "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-ubo-ctry-by-ind-income-2020-2025.xlsx",
+    "sha256": "c682f6bbcb136d28008a7041dce469e9ab5025c9e4eb140fa7d88be366bec5a6",
+    "bytes": 87182,
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "section117-2025-02-28.xlsx",
+    "url": "https://fsapartners.ed.gov/sites/default/files/2025-05/Sec117PublicRecordsCompleteFeb2025.xlsx",
+    "sha256": "a4e70dab99b1e7ab113bf3b701ac9cd00838e490a853d163a7135b46e4402949",
+    "bytes": 9337605,
+    "retrieved": "2026-10-26"
+  }
+]

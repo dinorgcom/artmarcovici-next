@@ -1,0 +1,58 @@
+[
+  {
+    "url": "https://www.brookings.edu/wp-content/uploads/2026/03/Brookings-Intitution-Honor-Roll-2025-Fiscal-Year.pdf",
+    "file": "think-primary-Brookings-Intitution-Honor-Roll-2025-Fiscal-Year.pdf",
+    "bytes": 198422,
+    "sha256": "6e46a4f22986bdb110713a7dc73b994a17e434ad82f54d652586d1212119b93c",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.brookings.edu/wp-content/uploads/2022/12/2022-annual-report.pdf",
+    "file": "think-primary-2022-annual-report.pdf",
+    "bytes": 9355661,
+    "sha256": "3162a366b1f802a1528c17006f6e6ead0705379804810d9ea5d8b62228778f2d",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.brookings.edu/wp-content/uploads/2025/01/2021-annual-report.pdf",
+    "file": "think-primary-2021-annual-report.pdf",
+    "bytes": 3788094,
+    "sha256": "1c28f7fc3254cafc06069948fdfb41c0fdb725e2e44ccdc00b54d9a2f2a9107d",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.brookings.edu/wp-content/uploads/2025/02/Brookings-Institution-2024-Annual-Report.pdf",
+    "file": "think-primary-Brookings-Institution-2024-Annual-Report.pdf",
+    "bytes": 6301651,
+    "sha256": "4e66c55487fb44cf7fe6aff573a2d1b453ab0025cdd4477bd2875b268d5ef2f3",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.atlanticcouncil.org/wp-content/uploads/2020/11/Annual-Report-2019_20.pdf",
+    "file": "think-primary-atlantic-2019.pdf",
+    "bytes": 5557732,
+    "sha256": "e5db92a4888e3f9a8459d0b43f66a52d08f76a24c785587f3e310559d006976e",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.brookings.edu/wp-content/uploads/2026/03/Brookings-Institution-2025-Annual-Report.pdf",
+    "file": "think-primary-Brookings-Institution-2025-Annual-Report.pdf",
+    "bytes": 11414873,
+    "sha256": "036b548a4153a22a53e71e28715678058226c5ec444f163e1b42fc16006c2840",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "url": "https://www.brookings.edu/wp-content/uploads/2026/04/Brookings_FY23_Annual_Report.pdf",
+    "file": "think-primary-Brookings_FY23_Annual_Report.pdf",
+    "bytes": 14523355,
+    "sha256": "e625510289e4c95cbe30bbe44c9ba318146e2fdb48523071a2e859b005faf4c9",
+    "retrieved": "2026-10-26"
+  },
+  {
+    "file": "think-primary-atlantic-2024.html",
+    "url": "https://www.atlanticcouncil.org/in-depth-research-reports/report/2024-annual-report-honor-roll/",
+    "sha256": "f03b6a6b407c2571407c065dea6808d09bde4921c219f929b7f52f8b8505ca39",
+    "retrieved": "2026-10-26",
+    "bytes": 479690
+  }
+]

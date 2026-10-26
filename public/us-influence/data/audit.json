@@ -1,0 +1,19 @@
+{
+  "runDate": "2026-10-26",
+  "records": 153344,
+  "sourcesHashed": 133,
+  "edRowsComparedToOriginal": 114015,
+  "faraAmountPageComparisons": 15614,
+  "chartInputsRecomputed": true,
+  "coverageCountryCategoryRows": 2352,
+  "coverageCountryCategoryYearRows": 49392,
+  "failures": [],
+  "limitations": [
+    "Automated consistency checks are not independent verification of actual payments.",
+    "FARA originals and amended filings are not exhaustively manually reconciled.",
+    "Donor lists are a selected subset; secondary tracker remains unverified.",
+    "LDA not ingested.",
+    "ED 2025 incomplete.",
+    "No consolidated spending total."
+  ]
+}
