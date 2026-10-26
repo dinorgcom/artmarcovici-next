@@ -1,0 +1,3161 @@
+{
+  "retrieved": "2026-10-27",
+  "method": "ISO alpha-2/alpha-3 and explicit names, supplemented by these source-checked legacy aliases. Codes with conflicting locations are withheld from automatic attribution. Country codes are disclosed locations, not funding nationality.",
+  "aliases": [
+    {
+      "raw": "SUI",
+      "country": "CH",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300880318",
+          "archive": "LD-2008_Registrations_XML.zip",
+          "member": "300880318.xml",
+          "field": "clientCountry",
+          "registrant": "The Washington Tax & Public Policy Group (formerly The Washington Tax Group)",
+          "client": "Swiss Reinsurance Company Ltd.",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "8022 Zurich",
+            "clientCountry": "SUI",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300880318",
+          "archive": "LD-2008_Registrations_XML.zip",
+          "member": "300880318.xml",
+          "field": "country",
+          "name": "Swiss Reinsurance Company, LTD.",
+          "locationFields": {
+            "city": "8022 Zurich",
+            "country": "SUI",
+            "prinCity": "Zurich, SUI, CH-8022",
+            "prinCountry": "SUI"
+          }
+        },
+        {
+          "id": "300880318",
+          "archive": "LD-2008_Registrations_XML.zip",
+          "member": "300880318.xml",
+          "field": "prinCountry",
+          "name": "Swiss Reinsurance Company, LTD.",
+          "locationFields": {
+            "city": "8022 Zurich",
+            "country": "SUI",
+            "prinCity": "Zurich, SUI, CH-8022",
+            "prinCountry": "SUI"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "CAY",
+      "country": "KY",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300528212",
+          "archive": "LD-2012_Registrations_XML.zip",
+          "member": "300528212.xml",
+          "field": "country",
+          "name": "Leaf Clean Energy Company",
+          "locationFields": {
+            "city": "Grand Cayman ",
+            "country": "CAY",
+            "prinCity": "Grand Cayman",
+            "prinCountry": "CAY"
+          }
+        },
+        {
+          "id": "300528212",
+          "archive": "LD-2012_Registrations_XML.zip",
+          "member": "300528212.xml",
+          "field": "prinCountry",
+          "name": "Leaf Clean Energy Company",
+          "locationFields": {
+            "city": "Grand Cayman ",
+            "country": "CAY",
+            "prinCity": "Grand Cayman",
+            "prinCountry": "CAY"
+          }
+        },
+        {
+          "id": "300528212",
+          "archive": "LD-2012_Registrations_XML.zip",
+          "member": "300528212.xml",
+          "field": "country",
+          "name": "Leaf Biomass Company",
+          "locationFields": {
+            "city": "Grand Cayman",
+            "country": "CAY",
+            "prinCity": "Grand Cayman",
+            "prinCountry": "CAY"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "GER",
+      "country": "DE",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300538839",
+          "archive": "LD-2009_Registrations_XML.zip",
+          "member": "300538839.xml",
+          "field": "clientCountry",
+          "registrant": "Republic Consultants LLC",
+          "client": "Krauss-Maffei Wegmann GmbH & Co. KG",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Munchen",
+            "clientCountry": "GER",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300541275",
+          "archive": "LD-2009_Registrations_XML.zip",
+          "member": "300541275.xml",
+          "field": "country",
+          "name": "Krauss-Maffei Wegmann GmbH & Co. KG",
+          "locationFields": {
+            "city": "Munchen",
+            "country": "GER",
+            "prinCity": null,
+            "prinCountry": null
+          }
+        },
+        {
+          "id": "300691393",
+          "archive": "LD-2011_Registrations_XML.zip",
+          "member": "300691393.xml",
+          "field": "country",
+          "name": "Kay Rieck",
+          "locationFields": {
+            "city": "Stuttgart",
+            "country": "GER",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "ROM",
+      "country": "RO",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300527662",
+          "archive": "LD-2012_Registrations_XML.zip",
+          "member": "300527662.xml",
+          "field": "country",
+          "name": "Rosia Montana Gold Corporation",
+          "locationFields": {
+            "city": "Postal Code 517615",
+            "country": "ROM",
+            "prinCity": "Alba County, Bucharest",
+            "prinCountry": "ROM"
+          }
+        },
+        {
+          "id": "300527662",
+          "archive": "LD-2012_Registrations_XML.zip",
+          "member": "300527662.xml",
+          "field": "prinCountry",
+          "name": "Rosia Montana Gold Corporation",
+          "locationFields": {
+            "city": "Postal Code 517615",
+            "country": "ROM",
+            "prinCity": "Alba County, Bucharest",
+            "prinCountry": "ROM"
+          }
+        },
+        {
+          "id": "300673027",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300673027.xml",
+          "field": "clientCountry",
+          "registrant": "Qorvis MSL LLC",
+          "client": "Dan Adamescu",
+          "name": null,
+          "locationFields": {
+            "city": "WASHINGTON",
+            "country": "USA",
+            "clientCity": "Bucharest",
+            "clientCountry": "ROM",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        }
+      ]
+    },
+    {
+      "raw": "NED",
+      "country": "NL",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300547922",
+          "archive": "LD-2007_Registrations_XML.zip",
+          "member": "300547922.xml",
+          "field": "country",
+          "name": "InBev Services B.V.",
+          "locationFields": {
+            "city": "4811 CA Breda",
+            "country": "NED",
+            "prinCity": "Breda",
+            "prinCountry": "NED"
+          }
+        },
+        {
+          "id": "300547922",
+          "archive": "LD-2007_Registrations_XML.zip",
+          "member": "300547922.xml",
+          "field": "prinCountry",
+          "name": "InBev Services B.V.",
+          "locationFields": {
+            "city": "4811 CA Breda",
+            "country": "NED",
+            "prinCity": "Breda",
+            "prinCountry": "NED"
+          }
+        },
+        {
+          "id": "300548676",
+          "archive": "LD-2007_Registrations_XML.zip",
+          "member": "300548676.xml",
+          "field": "country",
+          "name": "InBev Services B.V.",
+          "locationFields": {
+            "city": "4811 CA Breda",
+            "country": "NED",
+            "prinCity": "Breda",
+            "prinCountry": "NED"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "SIN",
+      "country": "SG",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300551087",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300551087.xml",
+          "field": "country",
+          "name": "Flextronics International Ltd.",
+          "locationFields": {
+            "city": "Singapore",
+            "country": "SIN",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "300672111",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300672111.xml",
+          "field": "country",
+          "name": "SunEdison Semiconductor",
+          "locationFields": {
+            "city": "Toa Payoh",
+            "country": "SIN",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "300680790",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300680790.xml",
+          "field": "clientCountry",
+          "registrant": "O'Neill and Associates",
+          "client": "Stratech Systems Limited",
+          "name": null,
+          "locationFields": {
+            "city": "Washington ",
+            "country": "USA",
+            "clientCity": "Singapore",
+            "clientCountry": "SIN",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        }
+      ]
+    },
+    {
+      "raw": "GUA",
+      "country": "GT",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300610561",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300610561.xml",
+          "field": "clientCountry",
+          "registrant": "Western Hemisphere Strategies, LLC",
+          "client": "Asociacion de la Industria de Vestuario y Textiles - VESTEX",
+          "name": null,
+          "locationFields": {
+            "city": "Miami",
+            "country": "USA",
+            "clientCity": "Guatemala City",
+            "clientCountry": "GUA",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300610561",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300610561.xml",
+          "field": "country",
+          "name": "Asociacion de la Industria de Vestuario y Textiles - VESTEX",
+          "locationFields": {
+            "city": "Guatemala",
+            "country": "GUA",
+            "prinCity": null,
+            "prinCountry": null
+          }
+        },
+        {
+          "id": "300630823",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300630823.xml",
+          "field": "clientCountry",
+          "registrant": "Gephardt Group Government Affairs",
+          "client": "Jaguar Energy Guatemala, LLC",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Guatemala City",
+            "clientCountry": "GUA",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        }
+      ]
+    },
+    {
+      "raw": "LAT",
+      "country": "LV",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300546512",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300546512.xml",
+          "field": "clientCountry",
+          "registrant": "Blue Star Strategies",
+          "client": "Association of Latvian Private Banks",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Riga",
+            "clientCountry": "LAT",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300940198",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "300940198.xml",
+          "field": "country",
+          "name": "ABLV Bank, AS",
+          "locationFields": {
+            "city": "Riga",
+            "country": "LAT",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "300940262",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "300940262.xml",
+          "field": "country",
+          "name": "ABLV Bank, AS",
+          "locationFields": {
+            "city": "Riga",
+            "country": "LAT",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "BER",
+      "country": "BM",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301294845",
+          "archive": "LD-2003_Registrations_XML.zip",
+          "member": "301294845.xml",
+          "field": "country",
+          "name": "Bunge, Ltd.",
+          "locationFields": {
+            "city": "Hamilton",
+            "country": "BER",
+            "prinCity": "St. Louis",
+            "prinCountry": "USA"
+          }
+        },
+        {
+          "id": "300568344",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300568344.xml",
+          "field": "country",
+          "name": "Essent Group Ltd.",
+          "locationFields": {
+            "city": "Hamilton HM 11",
+            "country": "BER",
+            "prinCity": "Hamilton HM 11",
+            "prinCountry": "BER"
+          }
+        },
+        {
+          "id": "300568344",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300568344.xml",
+          "field": "prinCountry",
+          "name": "Essent Group Ltd.",
+          "locationFields": {
+            "city": "Hamilton HM 11",
+            "country": "BER",
+            "prinCity": "Hamilton HM 11",
+            "prinCountry": "BER"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "CRO",
+      "country": "HR",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300919664",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300919664.xml",
+          "field": "clientCountry",
+          "registrant": "Pillsbury Winthrop Shaw Pittman LLP",
+          "client": "Bosnia & Herzegovina Democracy Initiative",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Podstrana",
+            "clientCountry": "CRO",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "300919664",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300919664.xml",
+          "field": "country",
+          "name": "Fors Fortis d.o.o.",
+          "locationFields": {
+            "city": "Podstrana",
+            "country": "CRO",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "301343308",
+          "archive": "LD-2022_Registrations_XML.zip",
+          "member": "301343308.xml",
+          "field": "clientCountry",
+          "registrant": "AKIN GUMP STRAUSS HAUER & FELD",
+          "client": "Fortenova Grupa d.d.",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Zagreb",
+            "clientCountry": "CRO",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "MYA",
+      "country": "MM",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301638156",
+          "archive": "LD-2024_Registrations_XML.zip",
+          "member": "301638156.xml",
+          "field": "clientCountry",
+          "registrant": "Mercury Public Affairs, LLC",
+          "client": "American Chamber of Commerce in Myanmar",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Pabedan Township, Yangon",
+            "clientCountry": "MYA",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "BUL",
+      "country": "BG",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300920861",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300920861.xml",
+          "field": "clientCountry",
+          "registrant": "Schmitz Global Partners LLP",
+          "client": "Tzvetan Vassilev",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Sofia",
+            "clientCountry": "BUL",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "300983531",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "300983531.xml",
+          "field": "clientCountry",
+          "registrant": "CHARTWELL STRATEGY GROUP LLC",
+          "client": "RTB One Ltd",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Sofia",
+            "clientCountry": "BUL",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "301019419",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "301019419.xml",
+          "field": "country",
+          "name": "AES-3C Maritza East 1",
+          "locationFields": {
+            "city": "Sofia",
+            "country": "BUL",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "DEN",
+      "country": "DK",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300900784",
+          "archive": "LD-2009_Registrations_XML.zip",
+          "member": "300900784.xml",
+          "field": "country",
+          "name": "Novo Nordisk US, wholly-owned by Novo Nordisk A/S",
+          "locationFields": {
+            "city": "2900 Hellerup",
+            "country": "DEN",
+            "prinCity": null,
+            "prinCountry": null
+          }
+        },
+        {
+          "id": "300900784",
+          "archive": "LD-2009_Registrations_XML.zip",
+          "member": "300900784.xml",
+          "field": "country",
+          "name": "Novo A/S (owns 26.5% of NN A/S)",
+          "locationFields": {
+            "city": "2900 Hellerup",
+            "country": "DEN",
+            "prinCity": null,
+            "prinCountry": null
+          }
+        },
+        {
+          "id": "300425968",
+          "archive": "LD-2011_Registrations_XML.zip",
+          "member": "300425968.xml",
+          "field": "country",
+          "name": "A.P. Moller Maersk Group",
+          "locationFields": {
+            "city": "1098 Copenhagen K",
+            "country": "DEN",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "VIE",
+      "country": "VN",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300919066",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300919066.xml",
+          "field": "clientCountry",
+          "registrant": "McLarty Inbound LLC",
+          "client": "Sun Group, Inc.",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Hanoi",
+            "clientCountry": "VIE",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "301227498",
+          "archive": "LD-2020_Registrations_XML.zip",
+          "member": "301227498.xml",
+          "field": "country",
+          "name": "Spencer Damian White",
+          "locationFields": {
+            "city": "Hanoi",
+            "country": "VIE",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "301472176",
+          "archive": "LD-2023_Registrations_XML.zip",
+          "member": "301472176.xml",
+          "field": "clientCountry",
+          "registrant": "McLarty Inbound LLC",
+          "client": "VNG Limited",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Ho Chi Minh City",
+            "clientCountry": "VIE",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "BAH",
+      "country": "BS",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300573445",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300573445.xml",
+          "field": "country",
+          "name": "Cruise Associates",
+          "locationFields": {
+            "city": "P.O. Box N-3933",
+            "country": "BAH",
+            "prinCity": "Nassau",
+            "prinCountry": "BAH"
+          }
+        },
+        {
+          "id": "300573445",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300573445.xml",
+          "field": "prinCountry",
+          "name": "Cruise Associates",
+          "locationFields": {
+            "city": "P.O. Box N-3933",
+            "country": "BAH",
+            "prinCity": "Nassau",
+            "prinCountry": "BAH"
+          }
+        },
+        {
+          "id": "300674068",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300674068.xml",
+          "field": "country",
+          "name": "Cruise Associates",
+          "locationFields": {
+            "city": "P.O. Box N-3933",
+            "country": "BAH",
+            "prinCity": "Nassau",
+            "prinCountry": "BAH"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "KUW",
+      "country": "KW",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300732036",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300732036.xml",
+          "field": "clientCountry",
+          "registrant": "Crowell & Moring LLP",
+          "client": "KGL Logistics",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Safat",
+            "clientCountry": "KUW",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "300981220",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "300981220.xml",
+          "field": "country",
+          "name": "Kuwait Ports Authority (showing investment in The Port Fund LP)",
+          "locationFields": {
+            "city": "Safat 13039",
+            "country": "KUW",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "300981220",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "300981220.xml",
+          "field": "country",
+          "name": "Kuwait Public Institution for Social Security (showing investment in The Port Fund LP)",
+          "locationFields": {
+            "city": "Safat 13104",
+            "country": "KUW",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "INA",
+      "country": "ID",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300546117",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300546117.xml",
+          "field": "clientCountry",
+          "registrant": "Williams Mullen",
+          "client": "Arsari Djojohadikusumo Foundation",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Jakarta",
+            "clientCountry": "INA",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300668067",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300668067.xml",
+          "field": "clientCountry",
+          "registrant": "Clark Hill, PLC",
+          "client": "Arsari Djojohadikusumo Foundation",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Jakarta",
+            "clientCountry": "INA",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "300719534",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300719534.xml",
+          "field": "clientCountry",
+          "registrant": "THE ICKES AND ENRIGHT GROUP, INC.",
+          "client": "PT Sekolah Tinggi Sampoerna Internasional",
+          "name": null,
+          "locationFields": {
+            "city": "WASHINGTON",
+            "country": "USA",
+            "clientCity": "Jakarta",
+            "clientCountry": "INA",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "PUR",
+      "country": "PR",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300589738",
+          "archive": "LD-2010_Registrations_XML.zip",
+          "member": "300589738.xml",
+          "field": "clientCountry",
+          "registrant": "THE LAW OFFICE OF MANUEL RIVERA, ESQ. & ASSOC. P.C.",
+          "client": "Pro-ELA",
+          "name": null,
+          "locationFields": {
+            "city": "Arlington",
+            "country": "USA",
+            "clientCity": "Aguas Buenas",
+            "clientCountry": "PUR",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300544611",
+          "archive": "LD-2012_Registrations_XML.zip",
+          "member": "300544611.xml",
+          "field": "clientCountry",
+          "registrant": "Oldaker Law Group, LLC",
+          "client": "Medicaid and Medicare Advantage Products Association",
+          "name": null,
+          "locationFields": {
+            "city": "WASHINGTON",
+            "country": "USA",
+            "clientCity": "San Juan",
+            "clientCountry": "PUR",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300589375",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300589375.xml",
+          "field": "clientCountry",
+          "registrant": "MILLER & CHEVALIER, CHTD",
+          "client": "GOVERNMENT OF PUERTO RICO",
+          "name": null,
+          "locationFields": {
+            "city": "WASHINGTON",
+            "country": "USA",
+            "clientCity": "San Juan",
+            "clientCountry": "PUR",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        }
+      ]
+    },
+    {
+      "raw": "RSA",
+      "country": "ZA",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300634635",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300634635.xml",
+          "field": "clientCountry",
+          "registrant": "Stinson Leonard Street LLP",
+          "client": "South African Sugar Association",
+          "name": null,
+          "locationFields": {
+            "city": "Kansas City",
+            "country": "USA",
+            "clientCity": "Mount Edgecombe, Kwa Zulu 4300",
+            "clientCountry": "RSA",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300634635",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300634635.xml",
+          "field": "country",
+          "name": "South African Sugar Association",
+          "locationFields": {
+            "city": "Mt. Edgecombe ",
+            "country": "RSA",
+            "prinCity": null,
+            "prinCountry": null
+          }
+        },
+        {
+          "id": "300672598",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300672598.xml",
+          "field": "clientCountry",
+          "registrant": "Federal Strategies Group, Inc.",
+          "client": "SAAGA",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Tzaneen",
+            "clientCountry": "RSA",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "KSA",
+      "country": "SA",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300730310",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300730310.xml",
+          "field": "clientCountry",
+          "registrant": "Grieboski Global Strategies, LLC",
+          "client": "Organization of Islamic Cooperation",
+          "name": null,
+          "locationFields": {
+            "city": "Alexandria",
+            "country": "USA",
+            "clientCity": " Jeddah",
+            "clientCountry": "KSA",
+            "prinClientCity": "Jeddah",
+            "prinClientCountry": "KSA"
+          }
+        },
+        {
+          "id": "300730310",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300730310.xml",
+          "field": "prinClientCountry",
+          "registrant": "Grieboski Global Strategies, LLC",
+          "client": "Organization of Islamic Cooperation",
+          "name": null,
+          "locationFields": {
+            "city": "Alexandria",
+            "country": "USA",
+            "clientCity": " Jeddah",
+            "clientCountry": "KSA",
+            "prinClientCity": "Jeddah",
+            "prinClientCountry": "KSA"
+          }
+        },
+        {
+          "id": "300861499",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300861499.xml",
+          "field": "clientCountry",
+          "registrant": "Grieboski Global Strategies, LLC",
+          "client": "Organization of Islamic Cooperation",
+          "name": null,
+          "locationFields": {
+            "city": "Alexandria",
+            "country": "USA",
+            "clientCity": " Jeddah",
+            "clientCountry": "KSA",
+            "prinClientCity": "Jeddah",
+            "prinClientCountry": "KSA"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "NGR",
+      "country": "NG",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300565519",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300565519.xml",
+          "field": "clientCountry",
+          "registrant": "New World Group Public Affairs LLC (Formerly New World Group LLC)",
+          "client": "The Udemba Group",
+          "name": null,
+          "locationFields": {
+            "city": "West Palm Beach",
+            "country": "USA",
+            "clientCity": "Victoria Island - Lagos",
+            "clientCountry": "NGR",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300565519",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300565519.xml",
+          "field": "country",
+          "name": "The Udemba Group",
+          "locationFields": {
+            "city": "Lagos",
+            "country": "NGR",
+            "prinCity": "Lagos",
+            "prinCountry": "NGR"
+          }
+        },
+        {
+          "id": "300565519",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300565519.xml",
+          "field": "prinCountry",
+          "name": "The Udemba Group",
+          "locationFields": {
+            "city": "Lagos",
+            "country": "NGR",
+            "prinCity": "Lagos",
+            "prinCountry": "NGR"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "IVB",
+      "country": "VG",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300524724",
+          "archive": "LD-2011_Registrations_XML.zip",
+          "member": "300524724.xml",
+          "field": "country",
+          "name": "Marcus Wide at Grant Thornton\nBVI Limited",
+          "locationFields": {
+            "city": "Tortola",
+            "country": "IVB",
+            "prinCity": "Tortola",
+            "prinCountry": "IVB"
+          }
+        },
+        {
+          "id": "300524724",
+          "archive": "LD-2011_Registrations_XML.zip",
+          "member": "300524724.xml",
+          "field": "prinCountry",
+          "name": "Marcus Wide at Grant Thornton\nBVI Limited",
+          "locationFields": {
+            "city": "Tortola",
+            "country": "IVB",
+            "prinCity": "Tortola",
+            "prinCountry": "IVB"
+          }
+        },
+        {
+          "id": "300630590",
+          "archive": "LD-2012_Registrations_XML.zip",
+          "member": "300630590.xml",
+          "field": "country",
+          "name": "TALCO Management Ltd. ",
+          "locationFields": {
+            "city": "Tortola",
+            "country": "IVB",
+            "prinCity": null,
+            "prinCountry": null
+          }
+        }
+      ]
+    },
+    {
+      "raw": "ZIM",
+      "country": "ZW",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301378451",
+          "archive": "LD-2022_Registrations_XML.zip",
+          "member": "301378451.xml",
+          "field": "clientCountry",
+          "registrant": "ArentFox Schiff LLP",
+          "client": "Africa South Business Group",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Harare",
+            "clientCountry": "ZIM",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "301378451",
+          "archive": "LD-2022_Registrations_XML.zip",
+          "member": "301378451.xml",
+          "field": "country",
+          "name": "Old Mutual Limited",
+          "locationFields": {
+            "city": "Harare",
+            "country": "ZIM",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "301378451",
+          "archive": "LD-2022_Registrations_XML.zip",
+          "member": "301378451.xml",
+          "field": "country",
+          "name": "Edward Cross",
+          "locationFields": {
+            "city": "Harare",
+            "country": "ZIM",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "SEY",
+      "country": "SC",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300783601",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300783601.xml",
+          "field": "clientCountry",
+          "registrant": "Ben Barnes Group LP",
+          "client": "Asoupir Limited",
+          "name": null,
+          "locationFields": {
+            "city": "Austin",
+            "country": "USA",
+            "clientCity": "Mahe",
+            "clientCountry": "SEY",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "300783601",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300783601.xml",
+          "field": "country",
+          "name": "Asoupir Limited",
+          "locationFields": {
+            "city": "Mahe",
+            "country": "SEY",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "301741212",
+          "archive": "LD-2025_Registrations_XML.zip",
+          "member": "301741212.xml",
+          "field": "clientCountry",
+          "registrant": "PERSPECTIVE STRATEGIES",
+          "client": "Nest Services Limited (Binance)",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Ile Du Port,",
+            "clientCountry": "SEY",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "TRE",
+      "country": "TW",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300608737",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300608737.xml",
+          "field": "clientCountry",
+          "registrant": "Prime Policy Group",
+          "client": "Taiwan Status Action Coalition (care of: Lai, Yu-Kun)",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Nantou County",
+            "clientCountry": "TRE",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300608741",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300608741.xml",
+          "field": "clientCountry",
+          "registrant": "Lisa Colangelo",
+          "client": "Prime Policy Group (for their client the Taiwan Status Action Coalition)",
+          "name": null,
+          "locationFields": {
+            "city": "Richmond",
+            "country": "USA",
+            "clientCity": "Nantou County",
+            "clientCountry": "TRE",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300622957",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300622957.xml",
+          "field": "country",
+          "name": "HTC Corporation",
+          "locationFields": {
+            "city": "Taoyuan County 330",
+            "country": "TRE",
+            "prinCity": null,
+            "prinCountry": null
+          }
+        }
+      ]
+    },
+    {
+      "raw": "CHI",
+      "country": "CL",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300672344",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300672344.xml",
+          "field": "clientCountry",
+          "registrant": "Federal Strategies Group, Inc.",
+          "client": "Comite de Palta Hass de Chile",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Santiago",
+            "clientCountry": "CHI",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "300876165",
+          "archive": "LD-2016_Registrations_XML.zip",
+          "member": "300876165.xml",
+          "field": "country",
+          "name": "Antofagasta Minerals S.A.",
+          "locationFields": {
+            "city": "Santiago, Region Metropolitana",
+            "country": "CHI",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "300876165",
+          "archive": "LD-2016_Registrations_XML.zip",
+          "member": "300876165.xml",
+          "field": "country",
+          "name": "Inversiones Los Pelambres Chile Limitada ",
+          "locationFields": {
+            "city": "Santiago, Region Metropolitana",
+            "country": "CHI",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "TRI",
+      "country": "TT",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300608675",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300608675.xml",
+          "field": "clientCountry",
+          "registrant": "Podesta Group, Inc.",
+          "client": "NiQuan Energy LLC",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "El Socorro",
+            "clientCountry": "TRI",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300941457",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "300941457.xml",
+          "field": "country",
+          "name": "Trinity SVG LTD ",
+          "locationFields": {
+            "city": "SAN FERNANDO",
+            "country": "TRI",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "301500116",
+          "archive": "LD-2023_Registrations_XML.zip",
+          "member": "301500116.xml",
+          "field": "country",
+          "name": "  NiQuan Energy Trinidad Limited",
+          "locationFields": {
+            "city": "Trinidad and Tobago",
+            "country": "TRI",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "BRU",
+      "country": "BN",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300691587",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300691587.xml",
+          "field": "country",
+          "name": "Brunei Investment Agency",
+          "locationFields": {
+            "city": "BB3913",
+            "country": "BRU",
+            "prinCity": "Bandar Seri Begawan",
+            "prinCountry": "BRU"
+          }
+        },
+        {
+          "id": "300691587",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300691587.xml",
+          "field": "prinCountry",
+          "name": "Brunei Investment Agency",
+          "locationFields": {
+            "city": "BB3913",
+            "country": "BRU",
+            "prinCity": "Bandar Seri Begawan",
+            "prinCountry": "BRU"
+          }
+        },
+        {
+          "id": "300691596",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300691596.xml",
+          "field": "country",
+          "name": "Brunei Investment Agency",
+          "locationFields": {
+            "city": " BB3913",
+            "country": "BRU",
+            "prinCity": "Bandar Seri Begawan",
+            "prinCountry": "BRU"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "BAN",
+      "country": "BD",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300568233",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300568233.xml",
+          "field": "clientCountry",
+          "registrant": "Dana Contratto",
+          "client": "Islami Bank Bangladesh Limited",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Dhaka",
+            "clientCountry": "BAN",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300568370",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300568370.xml",
+          "field": "clientCountry",
+          "registrant": "Powell Moore",
+          "client": "Islami Bank Bangladesh Limited",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Dhaka",
+            "clientCountry": "BAN",
+            "prinClientCity": "Dhaka",
+            "prinClientCountry": "BAN"
+          }
+        },
+        {
+          "id": "300568370",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300568370.xml",
+          "field": "prinClientCountry",
+          "registrant": "Powell Moore",
+          "client": "Islami Bank Bangladesh Limited",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Dhaka",
+            "clientCountry": "BAN",
+            "prinClientCity": "Dhaka",
+            "prinClientCountry": "BAN"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "NCA",
+      "country": "NI",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300900864",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300900864.xml",
+          "field": "clientCountry",
+          "registrant": "Carmen Group Incorporated",
+          "client": "AMERICAN CHAMBER OF COMMERCE OF NICARAGUA",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Managua",
+            "clientCountry": "NCA",
+            "prinClientCity": "Managua",
+            "prinClientCountry": "NCA"
+          }
+        },
+        {
+          "id": "300900864",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300900864.xml",
+          "field": "prinClientCountry",
+          "registrant": "Carmen Group Incorporated",
+          "client": "AMERICAN CHAMBER OF COMMERCE OF NICARAGUA",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Managua",
+            "clientCountry": "NCA",
+            "prinClientCity": "Managua",
+            "prinClientCountry": "NCA"
+          }
+        },
+        {
+          "id": "301424143",
+          "archive": "LD-2022_Registrations_XML.zip",
+          "member": "301424143.xml",
+          "field": "clientCountry",
+          "registrant": "Mayer Brown LLP",
+          "client": "Asociacion Nacional de Avicultores y Productores de Alimentos",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Managua",
+            "clientCountry": "NCA",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "GRE",
+      "country": "GR",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300409978",
+          "archive": "LD-2011_Registrations_XML.zip",
+          "member": "300409978.xml",
+          "field": "clientCountry",
+          "registrant": "cdm holdings new york",
+          "client": "Andreas Pliatsikas",
+          "name": null,
+          "locationFields": {
+            "city": "New York",
+            "country": "USA",
+            "clientCity": "Athens, Greece",
+            "clientCountry": "GRE",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "300709675",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300709675.xml",
+          "field": "country",
+          "name": "Consolidated Contractors Company",
+          "locationFields": {
+            "city": "Athens",
+            "country": "GRE",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "300864581",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300864581.xml",
+          "field": "clientCountry",
+          "registrant": "The McKeon Group, Inc.",
+          "client": "Dorelita Limited",
+          "name": null,
+          "locationFields": {
+            "city": "Alexandria",
+            "country": "USA",
+            "clientCity": "Athens",
+            "clientCountry": "GRE",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "MAS",
+      "country": "MY",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300612150",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300612150.xml",
+          "field": "country",
+          "name": "Genting Malaysia Berhad ",
+          "locationFields": {
+            "city": "50250Kuala Lumpur",
+            "country": "MAS",
+            "prinCity": "Kuala Lumpur",
+            "prinCountry": "MAS"
+          }
+        },
+        {
+          "id": "300612150",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300612150.xml",
+          "field": "prinCountry",
+          "name": "Genting Malaysia Berhad ",
+          "locationFields": {
+            "city": "50250Kuala Lumpur",
+            "country": "MAS",
+            "prinCity": "Kuala Lumpur",
+            "prinCountry": "MAS"
+          }
+        },
+        {
+          "id": "300787337",
+          "archive": "LD-2016_Registrations_XML.zip",
+          "member": "300787337.xml",
+          "field": "country",
+          "name": "Genting Berhad",
+          "locationFields": {
+            "city": "50250 Kuala Lumpur",
+            "country": "MAS",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "LIB",
+      "country": "LB",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300546040",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300546040.xml",
+          "field": "country",
+          "name": "Merit Corporation SAL",
+          "locationFields": {
+            "city": "Beirut",
+            "country": "LIB",
+            "prinCity": "Beirut",
+            "prinCountry": "LIB"
+          }
+        },
+        {
+          "id": "300546040",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300546040.xml",
+          "field": "prinCountry",
+          "name": "Merit Corporation SAL",
+          "locationFields": {
+            "city": "Beirut",
+            "country": "LIB",
+            "prinCity": "Beirut",
+            "prinCountry": "LIB"
+          }
+        },
+        {
+          "id": "300568519",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300568519.xml",
+          "field": "clientCountry",
+          "registrant": "Levick Strategic Communications",
+          "client": "Association of Banks in Lebanon",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Beirut",
+            "clientCountry": "LIB",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        }
+      ]
+    },
+    {
+      "raw": "KOS",
+      "country": "XK",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301508174",
+          "archive": "LD-2023_Registrations_XML.zip",
+          "member": "301508174.xml",
+          "field": "clientCountry",
+          "registrant": "BGR Government Affairs",
+          "client": "Devolli Corporation",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Peje",
+            "clientCountry": "KOS",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "ESA",
+      "country": "SV",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300631573",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300631573.xml",
+          "field": "clientCountry",
+          "registrant": "Western Hemisphere Strategies, LLC",
+          "client": "Camara de la Industria Textil, Confeccion y Zonas Francas de El Salvador CAMTEX",
+          "name": null,
+          "locationFields": {
+            "city": "Miami",
+            "country": "USA",
+            "clientCity": "San Salvador",
+            "clientCountry": "ESA",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300631573",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300631573.xml",
+          "field": "country",
+          "name": "CAMTEX",
+          "locationFields": {
+            "city": "San Salvador",
+            "country": "ESA",
+            "prinCity": null,
+            "prinCountry": null
+          }
+        },
+        {
+          "id": "300758042",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300758042.xml",
+          "field": "clientCountry",
+          "registrant": "Public Strategies Washington, Inc.",
+          "client": "Camara de la Industria Textil, Confeccion y Zonas Francas de El Salvador(CAMTEX)",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "San Salvador",
+            "clientCountry": "ESA",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "OMA",
+      "country": "OM",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301228303",
+          "archive": "LD-2020_Registrations_XML.zip",
+          "member": "301228303.xml",
+          "field": "country",
+          "name": "Suhail Bahwan",
+          "locationFields": {
+            "city": "Sultanate of Oman",
+            "country": "OMA",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "301228908",
+          "archive": "LD-2020_Registrations_XML.zip",
+          "member": "301228908.xml",
+          "field": "country",
+          "name": "Suhail Bahwan",
+          "locationFields": {
+            "city": "Sultanate of Oman",
+            "country": "OMA",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "301845839",
+          "archive": "LD-2025_Registrations_XML.zip",
+          "member": "301845839.xml",
+          "field": "clientCountry",
+          "registrant": "AKIN GUMP STRAUSS HAUER & FELD",
+          "client": "United Solar Polysilicon (FZC) SPC",
+          "name": null,
+          "locationFields": {
+            "city": "WASHINGTON",
+            "country": "USA",
+            "clientCity": "Sohar",
+            "clientCountry": "OMA",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "PHI",
+      "country": "PH",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300627745",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300627745.xml",
+          "field": "country",
+          "name": "Queensberry Mining and Development Corp.",
+          "locationFields": {
+            "city": "Alabang Zapote Rd.",
+            "country": "PHI",
+            "prinCity": "Talon Las Pinas City",
+            "prinCountry": "PHI"
+          }
+        },
+        {
+          "id": "300627745",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300627745.xml",
+          "field": "prinCountry",
+          "name": "Queensberry Mining and Development Corp.",
+          "locationFields": {
+            "city": "Alabang Zapote Rd.",
+            "country": "PHI",
+            "prinCity": "Talon Las Pinas City",
+            "prinCountry": "PHI"
+          }
+        },
+        {
+          "id": "300920388",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300920388.xml",
+          "field": "country",
+          "name": "Industrial Maintenance International Manpower Inc",
+          "locationFields": {
+            "city": "Malate, Manila 1004",
+            "country": "PHI",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "HON",
+      "country": "HN",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300880160",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300880160.xml",
+          "field": "clientCountry",
+          "registrant": "The Cashman Group d.b.a.",
+          "client": "Jose Gerardo Ochoa",
+          "name": null,
+          "locationFields": {
+            "city": "Ipswich",
+            "country": "USA",
+            "clientCity": "Tegucigalpa",
+            "clientCountry": "HON",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "300880719",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300880719.xml",
+          "field": "clientCountry",
+          "registrant": "The Cashman Group d.b.a.",
+          "client": "Jose Gerardo Ochoa",
+          "name": null,
+          "locationFields": {
+            "city": "Ipswich",
+            "country": "USA",
+            "clientCity": "Tegucigalpa",
+            "clientCountry": "HON",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "300979303",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "300979303.xml",
+          "field": "clientCountry",
+          "registrant": "Amsterdam & Partners LLP",
+          "client": "Desarrollos Energeticos S.A.",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Lomas del Guijarro,Tegucigalpa",
+            "clientCountry": "HON",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "BOT",
+      "country": "BW",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301498122",
+          "archive": "LD-2023_Registrations_XML.zip",
+          "member": "301498122.xml",
+          "field": "country",
+          "name": "Minerals Development Company Botswana",
+          "locationFields": {
+            "city": "Gaborone",
+            "country": "BOT",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "GUI",
+      "country": "GN",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301520545",
+          "archive": "LD-2023_Registrations_XML.zip",
+          "member": "301520545.xml",
+          "field": "country",
+          "name": "Societe des Mines de Fer de Guinee (SMFG) ",
+          "locationFields": {
+            "city": "Conakry",
+            "country": "GUI",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "ANG",
+      "country": "AO",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301496642",
+          "archive": "LD-2023_Registrations_XML.zip",
+          "member": "301496642.xml",
+          "field": "country",
+          "name": "Angostone LTDA",
+          "locationFields": {
+            "city": "Lubango - Huila",
+            "country": "ANG",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "301604277",
+          "archive": "LD-2024_Registrations_XML.zip",
+          "member": "301604277.xml",
+          "field": "clientCountry",
+          "registrant": "Brownstein Hyatt Farber Schreck, LLP",
+          "client": "Grupo Carrinho",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Lobito",
+            "clientCountry": "ANG",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "301741740",
+          "archive": "LD-2025_Registrations_XML.zip",
+          "member": "301741740.xml",
+          "field": "clientCountry",
+          "registrant": "Squire Patton Boggs",
+          "client": "Banco Angolano de Investimentos, S.A.",
+          "name": null,
+          "locationFields": {
+            "city": "WASHINGTON",
+            "country": "USA",
+            "clientCity": "Maianga Urban District",
+            "clientCountry": "ANG",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        }
+      ]
+    },
+    {
+      "raw": "Jap",
+      "country": "JP",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300693319",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300693319.xml",
+          "field": "country",
+          "name": "Takata Corporation",
+          "locationFields": {
+            "city": "Tokyo",
+            "country": "Jap",
+            "prinCity": "Tokyo",
+            "prinCountry": "Jap"
+          }
+        },
+        {
+          "id": "300693319",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300693319.xml",
+          "field": "prinCountry",
+          "name": "Takata Corporation",
+          "locationFields": {
+            "city": "Tokyo",
+            "country": "Jap",
+            "prinCity": "Tokyo",
+            "prinCountry": "Jap"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "GRN",
+      "country": "GD",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300766845",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300766845.xml",
+          "field": "prinClientCountry",
+          "registrant": "DLA Piper LLP (US)",
+          "client": "St. George's Group LP",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Great River",
+            "clientCountry": "USA",
+            "prinClientCity": "St. George's",
+            "prinClientCountry": "GRN"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "URU",
+      "country": "UY",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300589853",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300589853.xml",
+          "field": "country",
+          "name": "ConaProle",
+          "locationFields": {
+            "city": "Montevideo",
+            "country": "URU",
+            "prinCity": "Montevideo",
+            "prinCountry": "URU"
+          }
+        },
+        {
+          "id": "300589853",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300589853.xml",
+          "field": "prinCountry",
+          "name": "ConaProle",
+          "locationFields": {
+            "city": "Montevideo",
+            "country": "URU",
+            "prinCity": "Montevideo",
+            "prinCountry": "URU"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "SAM",
+      "country": "WS",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300631071",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300631071.xml",
+          "field": "country",
+          "name": "Newport Brain Research Laboratory Global LTD",
+          "locationFields": {
+            "city": "Saleufi, P.O. Box 1868, Apia",
+            "country": "SAM",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "SKN",
+      "country": "KN",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301359673",
+          "archive": "LD-2020_Registrations_XML.zip",
+          "member": "301359673.xml",
+          "field": "country",
+          "name": "Wonderheart Investments Limited",
+          "locationFields": {
+            "city": "Charlestown",
+            "country": "SKN",
+            "prinCity": "Charlestown",
+            "prinCountry": "SKN"
+          }
+        },
+        {
+          "id": "301359673",
+          "archive": "LD-2020_Registrations_XML.zip",
+          "member": "301359673.xml",
+          "field": "prinCountry",
+          "name": "Wonderheart Investments Limited",
+          "locationFields": {
+            "city": "Charlestown",
+            "country": "SKN",
+            "prinCity": "Charlestown",
+            "prinCountry": "SKN"
+          }
+        },
+        {
+          "id": "301359673",
+          "archive": "LD-2020_Registrations_XML.zip",
+          "member": "301359673.xml",
+          "field": "country",
+          "name": "Homestead Trust ",
+          "locationFields": {
+            "city": "Charlestown",
+            "country": "SKN",
+            "prinCity": "Charlestown",
+            "prinCountry": "SKN"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "BAR",
+      "country": "BB",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300691837",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300691837.xml",
+          "field": "clientCountry",
+          "registrant": "BUCHANAN INGERSOLL & ROONEY PC",
+          "client": "Concordia Pharmaceuticals, Inc.",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "St. Michael",
+            "clientCountry": "BAR",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "301022824",
+          "archive": "LD-2019_Registrations_XML.zip",
+          "member": "301022824.xml",
+          "field": "country",
+          "name": "Tenor KRY SRL ",
+          "locationFields": {
+            "city": "St. Michael",
+            "country": "BAR",
+            "prinCity": "New York",
+            "prinCountry": "USA"
+          }
+        },
+        {
+          "id": "301269649",
+          "archive": "LD-2019_Registrations_XML.zip",
+          "member": "301269649.xml",
+          "field": "country",
+          "name": "​Tenor KRY SRL",
+          "locationFields": {
+            "city": "​St. Michael",
+            "country": "BAR",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "POR",
+      "country": "PT",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300999581",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "300999581.xml",
+          "field": "country",
+          "name": "Energias de Portugal, S.A. ",
+          "locationFields": {
+            "city": "Porto",
+            "country": "POR",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "301207639",
+          "archive": "LD-2020_Registrations_XML.zip",
+          "member": "301207639.xml",
+          "field": "country",
+          "name": "Cleanwatts, LDA.",
+          "locationFields": {
+            "city": "Cidade de Coimba, 3030-320",
+            "country": "POR",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "301181495",
+          "archive": "LD-2020_Registrations_XML.zip",
+          "member": "301181495.xml",
+          "field": "country",
+          "name": "A-to-Be, Mobility Technology, SA",
+          "locationFields": {
+            "city": "Porto Salvo",
+            "country": "POR",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "HAI",
+      "country": "HT",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300652397",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300652397.xml",
+          "field": "clientCountry",
+          "registrant": "Sorini, Samet, & Associates, LLC",
+          "client": "Association des Industries d'Haiti",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Petionville",
+            "clientCountry": "HAI",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300724900",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300724900.xml",
+          "field": "clientCountry",
+          "registrant": "Vision Americas",
+          "client": "The GB Group",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Chancerelles Port-au-Prince",
+            "clientCountry": "HAI",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "300724900",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300724900.xml",
+          "field": "country",
+          "name": "The GB Group",
+          "locationFields": {
+            "city": "Chancerelles, Port-au-Prince",
+            "country": "HAI",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "CAM",
+      "country": "KH",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300918561",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300918561.xml",
+          "field": "clientCountry",
+          "registrant": "Sorini, Samet & Associates, LLC",
+          "client": "Garment Manufacturers Association in Cambodia",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Phnom Penh",
+            "clientCountry": "CAM",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "301191088",
+          "archive": "LD-2020_Registrations_XML.zip",
+          "member": "301191088.xml",
+          "field": "clientCountry",
+          "registrant": "Sorini, Samet & Associates, LLC",
+          "client": "Cambodia Footwear Association",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Phnom Penh ",
+            "clientCountry": "CAM",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "301551285",
+          "archive": "LD-2024_Registrations_XML.zip",
+          "member": "301551285.xml",
+          "field": "clientCountry",
+          "registrant": "Sorini, Samet, & Associates, LLC",
+          "client": "Textile Apparel Footwear & Travel Goods Assoc CBDA f/k/a Garment Manu Assoc CBDA",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Phnom Penh",
+            "clientCountry": "CAM",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "MON",
+      "country": "MC",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300729033",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300729033.xml",
+          "field": "clientCountry",
+          "registrant": "Capitoline Consulting, LLC",
+          "client": "MARSS SAM",
+          "name": null,
+          "locationFields": {
+            "city": "Alexandria",
+            "country": "USA",
+            "clientCity": "Principality of Monaco",
+            "clientCountry": "MON",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "300729033",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300729033.xml",
+          "field": "country",
+          "name": "MARSS SAM",
+          "locationFields": {
+            "city": "Principality of Monaco",
+            "country": "MON",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "300729054",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300729054.xml",
+          "field": "country",
+          "name": "MARSS SAM",
+          "locationFields": {
+            "city": "Monte Carlo",
+            "country": "MON",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "LBA",
+      "country": "LY",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300730879",
+          "archive": "LD-2015_Registrations_XML.zip",
+          "member": "300730879.xml",
+          "field": "country",
+          "name": "Shaab Abdassalam",
+          "locationFields": {
+            "city": "Tripoli",
+            "country": "LBA",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "301045944",
+          "archive": "LD-2019_Registrations_XML.zip",
+          "member": "301045944.xml",
+          "field": "clientCountry",
+          "registrant": "LINDEN GOVERNMENT SOLUTIONS, LLC",
+          "client": "Decision Support Center of Libya (on behalf of the Libyan National Army)",
+          "name": null,
+          "locationFields": {
+            "city": "Houston",
+            "country": "USA",
+            "clientCity": "Benghazi",
+            "clientCountry": "LBA",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "301816573",
+          "archive": "LD-2025_Registrations_XML.zip",
+          "member": "301816573.xml",
+          "field": "prinClientCountry",
+          "registrant": "SAUNDERS GLOBAL DIPLOMACY",
+          "client": "AED Global Energy",
+          "name": null,
+          "locationFields": {
+            "city": "Phoenix",
+            "country": "USA",
+            "clientCity": "Washington",
+            "clientCountry": "USA",
+            "prinClientCity": "Sirte Basin",
+            "prinClientCountry": "LBA"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "ANT",
+      "country": "AG",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301102444",
+          "archive": "LD-2019_Registrations_XML.zip",
+          "member": "301102444.xml",
+          "field": "clientCountry",
+          "registrant": "Cozen O'Connor Public Strategies",
+          "client": "Bitcoin Association",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "St. John's",
+            "clientCountry": "ANT",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "301102444",
+          "archive": "LD-2019_Registrations_XML.zip",
+          "member": "301102444.xml",
+          "field": "country",
+          "name": "Calvin Ayre",
+          "locationFields": {
+            "city": "St. John's ",
+            "country": "ANT",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "PAR",
+      "country": "PY",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301397180",
+          "archive": "LD-2022_Registrations_XML.zip",
+          "member": "301397180.xml",
+          "field": "clientCountry",
+          "registrant": "OCAL LOBBYING GROUP",
+          "client": "SAMERA S.A.",
+          "name": null,
+          "locationFields": {
+            "city": "Cedartown",
+            "country": "USA",
+            "clientCity": "Asuncion",
+            "clientCountry": "PAR",
+            "prinClientCity": "Asuncion",
+            "prinClientCountry": "PAR"
+          }
+        },
+        {
+          "id": "301397180",
+          "archive": "LD-2022_Registrations_XML.zip",
+          "member": "301397180.xml",
+          "field": "prinClientCountry",
+          "registrant": "OCAL LOBBYING GROUP",
+          "client": "SAMERA S.A.",
+          "name": null,
+          "locationFields": {
+            "city": "Cedartown",
+            "country": "USA",
+            "clientCity": "Asuncion",
+            "clientCountry": "PAR",
+            "prinClientCity": "Asuncion",
+            "prinClientCountry": "PAR"
+          }
+        },
+        {
+          "id": "301588881",
+          "archive": "LD-2024_Registrations_XML.zip",
+          "member": "301588881.xml",
+          "field": "clientCountry",
+          "registrant": "PRIME POLICY GROUP",
+          "client": "Paraguayan Meats Chamber",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Asuncion",
+            "clientCountry": "PAR",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "ASA",
+      "country": "AS",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301376224",
+          "archive": "LD-2022_Registrations_XML.zip",
+          "member": "301376224.xml",
+          "field": "clientCountry",
+          "registrant": "Mr. David Cohen",
+          "client": "American Samoa Economic Development Authority",
+          "name": null,
+          "locationFields": {
+            "city": "Redondo Beach",
+            "country": "USA",
+            "clientCity": "Pago Pago",
+            "clientCountry": "ASA",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "VIN",
+      "country": "VC",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300941457",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "300941457.xml",
+          "field": "prinClientCountry",
+          "registrant": "Foresight Law + Policy PLLC",
+          "client": "Trinity Medical Sciences University",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Roswell",
+            "clientCountry": "USA",
+            "prinClientCity": "Saint Vincent",
+            "prinClientCountry": "VIN"
+          }
+        },
+        {
+          "id": "300941457",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "300941457.xml",
+          "field": "prinCountry",
+          "name": "Trinity Medical Sciences University",
+          "locationFields": {
+            "city": "Roswell",
+            "country": "USA",
+            "prinCity": "Saint Vincent",
+            "prinCountry": "VIN"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "MGL",
+      "country": "MN",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301742002",
+          "archive": "LD-2025_Registrations_XML.zip",
+          "member": "301742002.xml",
+          "field": "clientCountry",
+          "registrant": "BALLARD PARTNERS",
+          "client": "Unet Production, LLC",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Bayanzurkh, Ulaanbaatar",
+            "clientCountry": "MGL",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "PLE",
+      "country": "PS",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300919443",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300919443.xml",
+          "field": "clientCountry",
+          "registrant": "Tere International",
+          "client": "The Palestine Institute for Public Diplomacy",
+          "name": null,
+          "locationFields": {
+            "city": "Cambridge",
+            "country": "USA",
+            "clientCity": "Ramallah",
+            "clientCountry": "PLE",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "300919443",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300919443.xml",
+          "field": "country",
+          "name": "The Arab Palestine Investment Company",
+          "locationFields": {
+            "city": "Al-Bireh",
+            "country": "PLE",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "300919443",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300919443.xml",
+          "field": "country",
+          "name": "Bank of Palestine",
+          "locationFields": {
+            "city": "Ramallah",
+            "country": "PLE",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "BIZ",
+      "country": "BZ",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301844369",
+          "archive": "LD-2025_Registrations_XML.zip",
+          "member": "301844369.xml",
+          "field": "country",
+          "name": "The Feinstein Group",
+          "locationFields": {
+            "city": "Belize City",
+            "country": "BIZ",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "ALG",
+      "country": "DZ",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301377162",
+          "archive": "LD-2022_Registrations_XML.zip",
+          "member": "301377162.xml",
+          "field": "country",
+          "registrant": "hamza benalleg",
+          "client": "Mr. hamza benalleg",
+          "name": null,
+          "locationFields": {
+            "city": "boudouaou",
+            "country": "ALG",
+            "clientCity": "\n  ",
+            "clientCountry": "\n  ",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "SLO",
+      "country": "SI",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301803592",
+          "archive": "LD-2025_Registrations_XML.zip",
+          "member": "301803592.xml",
+          "field": "country",
+          "name": "CosyLab",
+          "locationFields": {
+            "city": "Ljubljana",
+            "country": "SLO",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "BRN",
+      "country": "BH",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300691272",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300691272.xml",
+          "field": "clientCountry",
+          "registrant": "SANDLER, TRAVIS & ROSENBERG, P.A.",
+          "client": "MRS Fashions W.L.L.",
+          "name": null,
+          "locationFields": {
+            "city": "WASHINGTON",
+            "country": "USA",
+            "clientCity": "Riffa",
+            "clientCountry": "BRN",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "301603066",
+          "archive": "LD-2024_Registrations_XML.zip",
+          "member": "301603066.xml",
+          "field": "clientCountry",
+          "registrant": "KRL International LLC",
+          "client": "IIB Group Holdings W.L.L.",
+          "name": null,
+          "locationFields": {
+            "city": "Falls Church",
+            "country": "USA",
+            "clientCity": "Kingdom of Bahrain",
+            "clientCountry": "BRN",
+            "prinClientCity": "Seef District",
+            "prinClientCountry": "BRN"
+          }
+        },
+        {
+          "id": "301603066",
+          "archive": "LD-2024_Registrations_XML.zip",
+          "member": "301603066.xml",
+          "field": "prinClientCountry",
+          "registrant": "KRL International LLC",
+          "client": "IIB Group Holdings W.L.L.",
+          "name": null,
+          "locationFields": {
+            "city": "Falls Church",
+            "country": "USA",
+            "clientCity": "Kingdom of Bahrain",
+            "clientCountry": "BRN",
+            "prinClientCity": "Seef District",
+            "prinClientCountry": "BRN"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "AHO",
+      "country": "extra-netherlands-antilles",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "300568439",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300568439.xml",
+          "field": "clientCountry",
+          "registrant": "Covington & Burling LLP",
+          "client": "HAL Holding N.V.",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Willemstad, Curacao",
+            "clientCountry": "AHO",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "301321601",
+          "archive": "LD-2022_Registrations_XML.zip",
+          "member": "301321601.xml",
+          "field": "country",
+          "name": "DTEK ENERGY B.V.",
+          "locationFields": {
+            "city": "Amsterdam",
+            "country": "AHO",
+            "prinCity": "Kiev",
+            "prinCountry": "UKR"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "YUG",
+      "country": "extra-yugoslavia",
+      "basis": "Editorial normalization, checked against locations in original House XML filings; not an official code-table export.",
+      "examples": [
+        {
+          "id": "301017367",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "301017367.xml",
+          "field": "country",
+          "name": "Alexander Karadordevic ",
+          "locationFields": {
+            "city": "Belgrade, Serbia",
+            "country": "YUG",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    }
+  ],
+  "withheld": [
+    {
+      "raw": "IRI",
+      "country": null,
+      "reason": "Conflicting or ambiguous locations in original filings; requires document-by-document review.",
+      "examples": [
+        {
+          "id": "300574556",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300574556.xml",
+          "field": "prinCountry",
+          "name": "Glanbia plc",
+          "locationFields": {
+            "city": "Kilkenny",
+            "country": "IRL",
+            "prinCity": "Kilkenny",
+            "prinCountry": "IRI"
+          }
+        },
+        {
+          "id": "300618178",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300618178.xml",
+          "field": "prinCountry",
+          "name": "Glanbia plc",
+          "locationFields": {
+            "city": "Kilkenny",
+            "country": "IRL",
+            "prinCity": "Kilkenny",
+            "prinCountry": "IRI"
+          }
+        },
+        {
+          "id": "300942407",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "300942407.xml",
+          "field": "country",
+          "name": "Kurdistan Regional Government, Ministry of Interior",
+          "locationFields": {
+            "city": "Erbil",
+            "country": "IRI",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "ISV",
+      "country": null,
+      "reason": "Conflicting or ambiguous locations in original filings; requires document-by-document review.",
+      "examples": [
+        {
+          "id": "300546435",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300546435.xml",
+          "field": "clientCountry",
+          "registrant": "Podesta Group, Inc.",
+          "client": "Hitomi Financial Ltd.",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Road Town, Tortola",
+            "clientCountry": "ISV",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300691272",
+          "archive": "LD-2014_Registrations_XML.zip",
+          "member": "300691272.xml",
+          "field": "country",
+          "name": "Lazare Company Inc",
+          "locationFields": {
+            "city": "BVI",
+            "country": "ISV",
+            "prinCity": null,
+            "prinCountry": null
+          }
+        },
+        {
+          "id": "300786685",
+          "archive": "LD-2016_Registrations_XML.zip",
+          "member": "300786685.xml",
+          "field": "clientCountry",
+          "registrant": "PRIME POLICY GROUP",
+          "client": "Coral World (V.I.), Inc.",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "St. Thomas",
+            "clientCountry": "ISV",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "MRI",
+      "country": null,
+      "reason": "Conflicting or ambiguous locations in original filings; requires document-by-document review.",
+      "examples": [
+        {
+          "id": "300868382",
+          "archive": "LD-2017_Registrations_XML.zip",
+          "member": "300868382.xml",
+          "field": "clientCountry",
+          "registrant": "Prime Policy Group",
+          "client": "Bridge Investment Group",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Tinian",
+            "clientCountry": "MRI",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "301044354",
+          "archive": "LD-2019_Registrations_XML.zip",
+          "member": "301044354.xml",
+          "field": "country",
+          "name": "Twin Star Overseas, Ltd.",
+          "locationFields": {
+            "city": "Port Louis, 11324",
+            "country": "MRI",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        },
+        {
+          "id": "301153160",
+          "archive": "LD-2020_Registrations_XML.zip",
+          "member": "301153160.xml",
+          "field": "clientCountry",
+          "registrant": "ACG ANALYTICS",
+          "client": "IHS Holding Limited",
+          "name": null,
+          "locationFields": {
+            "city": "Washington",
+            "country": "USA",
+            "clientCity": "Port Louis",
+            "clientCountry": "MRI",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "MTN",
+      "country": null,
+      "reason": "Conflicting or ambiguous locations in original filings; requires document-by-document review.",
+      "examples": [
+        {
+          "id": "301446673",
+          "archive": "LD-2023_Registrations_XML.zip",
+          "member": "301446673.xml",
+          "field": "country",
+          "name": "UPL Corporation Limited ",
+          "locationFields": {
+            "city": "Port Louis",
+            "country": "MTN",
+            "prinCity": "\n      ",
+            "prinCountry": "\n      "
+          }
+        }
+      ]
+    },
+    {
+      "raw": "SUD",
+      "country": null,
+      "reason": "Conflicting or ambiguous locations in original filings; requires document-by-document review.",
+      "examples": [
+        {
+          "id": "300524384",
+          "archive": "LD-2012_Registrations_XML.zip",
+          "member": "300524384.xml",
+          "field": "clientCountry",
+          "registrant": "CAPT PRASHANTH BASAVARAJ",
+          "client": "Government of South Sudan",
+          "name": null,
+          "locationFields": {
+            "city": "WASHINGTON DC",
+            "country": "USA",
+            "clientCity": "Juba",
+            "clientCountry": "SUD",
+            "prinClientCity": "Washington",
+            "prinClientCountry": "USA"
+          }
+        },
+        {
+          "id": "300589909",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300589909.xml",
+          "field": "clientCountry",
+          "registrant": "Patton Boggs LLP",
+          "client": "Sudatel Telecom Group Ltd.",
+          "name": null,
+          "locationFields": {
+            "city": "WASHINGTON",
+            "country": "USA",
+            "clientCity": "Khartoum",
+            "clientCountry": "SUD",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "300589909",
+          "archive": "LD-2013_Registrations_XML.zip",
+          "member": "300589909.xml",
+          "field": "country",
+          "name": "Government of Sudan",
+          "locationFields": {
+            "city": "Khartoum",
+            "country": "SUD",
+            "prinCity": "Khartoum",
+            "prinCountry": "SUD"
+          }
+        }
+      ]
+    },
+    {
+      "raw": "COD",
+      "country": null,
+      "reason": "Conflicting or ambiguous locations in original filings; requires document-by-document review.",
+      "examples": [
+        {
+          "id": "300806216",
+          "archive": "LD-2016_Registrations_XML.zip",
+          "member": "300806216.xml",
+          "field": "clientCountry",
+          "registrant": "Squire Patton Boggs",
+          "client": "Fondation Perspectives DAvenir",
+          "name": null,
+          "locationFields": {
+            "city": "WASHINGTON",
+            "country": "USA",
+            "clientCity": "Brazzaville",
+            "clientCountry": "COD",
+            "prinClientCity": null,
+            "prinClientCountry": null
+          }
+        },
+        {
+          "id": "301001596",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "301001596.xml",
+          "field": "clientCountry",
+          "registrant": "Manchester Trade Limited, Inc.",
+          "client": "Presidential Election Campaign-Felix Tshisekedi",
+          "name": null,
+          "locationFields": {
+            "city": "Washington D.C",
+            "country": "USA",
+            "clientCity": "Kinshasa",
+            "clientCountry": "COD",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        },
+        {
+          "id": "301020462",
+          "archive": "LD-2018_Registrations_XML.zip",
+          "member": "301020462.xml",
+          "field": "clientCountry",
+          "registrant": "Manchester Trade Limited, Inc.",
+          "client": "Presidential Election Campaign-Felix Tshisekedi",
+          "name": null,
+          "locationFields": {
+            "city": "Washington D.C",
+            "country": "USA",
+            "clientCity": "Kinshasa",
+            "clientCountry": "COD",
+            "prinClientCity": "\n  ",
+            "prinClientCountry": "\n  "
+          }
+        }
+      ]
+    }
+  ]
+}

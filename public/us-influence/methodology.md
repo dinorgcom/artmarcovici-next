@@ -31,7 +31,7 @@ Diese Ausgabe ist ein Quellenatlas mit belegten Ausschnitten und einer globalen 
 - BEA: US-Direktinvestitionsbestände und Nettoflüsse nach unmittelbarem ausländischem Eigentümer (2006–2025), Bestände nach letztlichem Eigentümer (2008–2025). Historische Kosten, nominale USD. Firmen, einzelne Empfänger und staatliche/private Eigentümer sind in diesen Tabellen nicht getrennt offengelegt.
 - IRS: AIPAC-Formulare 990 für Geschäftsjahre 2014–2025, Originalerklärungen in der öffentlichen ProPublica-Wiedergabe. Die Wiedergabe ist kein IRS-Download. Part I, line 18 bezeichnet Organisationsaufwand, nicht ausschließlich Lobbyaufwand.
 - FEC: amtliche PAC-/Parteizusammenfassungen für Zweijahreszyklen bis 2024; ausgewählt sind AIPAC PAC, United Democracy Project, JStreetPAC und U.S.-Cuba Democracy PAC. Transfers können sich überschneiden. Der Zyklus 2006 enthält 2005; 2025 ist nicht separat eingelesen. Keine vollständige Liste aller US-Interessenorganisationen.
-- LDA: beim Abruf nicht zugänglich und nicht eingelesen. Alle Länder bleiben hier unbekannt. Keine Ersetzung durch geschätzte Werte.
+- LDA: separate Ergänzung aus dem offiziellen House-XML-Archiv; vor 2013 stark lückenhaft. Details, Abgleich und Downloads: [LDA-Methodik](/us-influence/lda/methodology.md).
 
 ## Dateien
 
@@ -52,7 +52,7 @@ Die Website lädt Daten pro Land. Die CSV-Schaltfläche exportiert die aktuell g
 | id | Stabile Kennung innerhalb dieser festen Quelldatei; keine behördliche Transaktions-ID |
 | country | Zugeordnete Herkunfts-ID, ISO alpha-2 oder `extra-…` |
 | origin | Originale Herkunftsbezeichnung der Quelle |
-| category | lobby, media, representation, university, thinktank, investment, domestic; LDA fehlt |
+| category | lobby, media, representation, university, thinktank, investment, domestic; LDA hat einen separaten Datensatz |
 | measure | Konkrete Messgröße, siehe unten |
 | amount | Nominaler USD-Quellenwert oder null. Kein automatischer Nachweis einer Zahlung |
 | amountMin / amountMax | Veröffentlichte Spendenklasse; null als Obergrenze bedeutet offen |
@@ -90,7 +90,7 @@ Kein einheitliches Berichtsjahr wird aus verschiedenartigen Quellen künstlich e
 
 ## Was zur verlangten Vollständigkeit fehlt
 
-Ein Quellenregister kann weder nicht meldepflichtige noch verdeckte Aktivitäten vollständig erfassen. Für eine globale 20-Jahres-Bilanz fehlen insbesondere: LDA-Einzelmeldungen und ausländische Muttergesellschaften, durchgehender Abgleich sämtlicher FARA-Supplemente und Korrekturen, Section-117-Stand nach Februar 2025, genaue Campus-Vertragsanlagen, alle Thinktank-Jahresberichte und gegebenenfalls Grants-Listen, IRS-Schedules und Transfers aller relevanten Organisationen, FEC-Einzeltransaktionen für 2025, Medienfinanzierung außerhalb FARA, einzelne Staatsfonds- und Unternehmensnetzwerke. Kein Land wird deshalb als vollständig erforscht bezeichnet.
+Ein Quellenregister kann weder nicht meldepflichtige noch verdeckte Aktivitäten vollständig erfassen. Für eine globale 20-Jahres-Bilanz fehlen insbesondere: die vollständige historische LDA-Vorgeschichte und lückenlose Länderzuordnung, durchgehender Abgleich sämtlicher FARA-Supplemente und Korrekturen, Section-117-Stand nach Februar 2025, genaue Campus-Vertragsanlagen, alle Thinktank-Jahresberichte und gegebenenfalls Grants-Listen, IRS-Schedules und Transfers aller relevanten Organisationen, FEC-Einzeltransaktionen für 2025, Medienfinanzierung außerhalb FARA, einzelne Staatsfonds- und Unternehmensnetzwerke. Kein Land wird deshalb als vollständig erforscht bezeichnet.
 
 Der frühere Entwurf wurde methodisch ersetzt: dessen zehn FARA-Länder und historische Hochschulaggregate sind keine geprüfte Bilanz 2006–2025. Diese Ausgabe behauptet keine Rechtsverletzung, keine Kausalwirkung auf politische Entscheidungen und enthält keinen politischen Score.
 

@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "detailReportsReaggregated": 190816,
+  "countryMethodYearGroups": 1144,
+  "organizationMethodYearGroups": 39684,
+  "foreignCountryYearRelations": 992,
+  "originalXmlChecks": 508,
+  "originalCountryEvidenceChecks": 501,
+  "latestVersionChecks": 500,
+  "archiveEntriesReconciled": 1132849,
+  "aipac2024": {
+    "quarters": [
+      837889.0,
+      786536.0,
+      789890.0,
+      909953.0
+    ],
+    "sum": 3324268,
+    "country": "US",
+    "excludedFromForeignCountryTotals": true
+  },
+  "limitations": "Checks validate extraction, arithmetic and recorded provenance; they do not certify the truth or completeness of disclosures."
+}

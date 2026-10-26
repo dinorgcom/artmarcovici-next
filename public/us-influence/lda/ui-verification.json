@@ -1,0 +1,22 @@
+{
+  "checked": "2026-10-27",
+  "localUrl": "http://localhost:3096/us-influence",
+  "browser": "Chromium / Codex in-app browser",
+  "checks": [
+    "German and English rendering",
+    "Desktop and 390px mobile viewport, no document horizontal overflow",
+    "AIPAC 2024: four reports and USD 3324268; 2025: four reports and USD 3757105",
+    "Original XML archive and attribution-source links in detail dialog",
+    "Foreign-entity network: Israel, 46 mandates and 131 reports in 2024; amounts are not country-attributed",
+    "Unknown country: Vatican has unknown, not zero",
+    "2006: no numeric ranks; sparse coverage warning",
+    "Accounting method filter excludes unspecified AIPAC method when A is selected",
+    "CSV downloaded and contents checked: domestic/self/all, USD 3324268, four reports",
+    "Compressed summary, annual ledgers and detail shards decode in browser",
+    "Country profile links to LDA data and merged source register",
+    "No browser console errors during final English/detail check"
+  ],
+  "dataVerification": "verification.json",
+  "contributionVerification": "contributions-verification.json",
+  "limitations": "UI and extraction checks do not certify reporting completeness or political influence."
+}
