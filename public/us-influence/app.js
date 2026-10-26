@@ -169,7 +169,7 @@ function downloadCsv(){
  const cell=x=>{let s=x==null?'':typeof x==='object'?JSON.stringify(x):String(x);if(typeof x==='string'&&/^[=+@\-\t\r]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"';};
  const fields=['id','country','origin','category','measure','year','periodStart','periodEnd','date','dateBasis','amount','amountMin','amountMax','recipient','principal','governmentSource','review','locator','source','sourceUrl','possibleDuplicate','duplicateOf','boundaryOverlap','description'];
  const text='\ufeff'+fields.join(',')+'\r\n'+filtered.map(r=>fields.map(k=>cell(k==='sourceUrl'?sourceUrl(r):r[k])).join(',')).join('\r\n');
- const a=document.createElement('a'),url=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.href=url;a.download='biest-us-influence-'+current.id+'-'+($('record-category').value||'all')+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ const a=document.createElement('a'),url=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.href=url;a.download='biest-us-influence-'+current.id+'-'+($('record-category').value||'all')+'.csv';a.textContent=L('CSV herunterladen ↓','Download CSV ↓');toast(L('Datei bereit. ','File ready. '));$('load-status').append(a);a.click();setTimeout(()=>{URL.revokeObjectURL(url);if(a.isConnected)$('load-status').hidden=true;},180000);
 }
 function bind(){
  for(const id of ['compare-measure','compare-year','compare-duplicates'])$(id).addEventListener('change',renderComparison);
