@@ -5,6 +5,14 @@ import type { ProjectNavItem } from "@/data/projects";
 // New data dossiers belong here, not in projects.ts.
 export const dataItems: ProjectNavItem[] = [
   {
+    slug: "paris",
+    title: "PARIS — THE PLEDGES, THE EMISSIONS, THE ECONOMY",
+    image_count: 1,
+    href: "/paris",
+    image: "/paris/cover.png",
+    meta: "Climate dossier · 2015–2026 · English / Deutsch",
+  },
+  {
     slug: "gaza",
     title: "GAZA — MAKE UP YOUR MIND",
     image_count: 1,

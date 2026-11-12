@@ -16,6 +16,16 @@ type Dossier = {
 
 const dossiers: Dossier[] = [
   {
+    href: "/paris",
+    updated: "2026-11-12",
+    kicker: "Climate dossier · 2015–2026",
+    title: <>PARIS — <span className="text-gray-300">WHAT REMAINS OF THE PLEDGE?</span></>,
+    body: <>Original climate pledges, observed emissions and real economic growth across 198 country and party entries. Compare targets and outcomes, examine the economic context, and follow the sources. English · Deutsch.</>,
+    cta: "Examine the pledges",
+    wide: true,
+    background: <><Image src="/paris/cover.png" alt="Paris climate dossier: national pledges, emissions and the economy" fill className="object-cover object-center opacity-70 transition-transform duration-700 group-hover:scale-105" unoptimized /><div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/10" /></>,
+  },
+  {
     href: "/gaza/",
     updated: "2026-10-05",
     kicker: "Data installation · 2023–2026",

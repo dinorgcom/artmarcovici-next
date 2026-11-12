@@ -6,6 +6,9 @@ import type { NextConfig } from "next";
 const GAPMINDER_ORIGIN = "https://gapminder-3d.vercel.app";
 
 const nextConfig: NextConfig = {
+  // Keep this standalone site isolated when checked out inside another project.
+  turbopack: { root: process.cwd() },
+  outputFileTracingRoot: process.cwd(),
   async headers() {
     return [
       {
@@ -49,6 +52,10 @@ const nextConfig: NextConfig = {
         },
       ],
       afterFiles: [
+        {
+          source: "/paris",
+          destination: "/paris/index.html",
+        },
         {
           // CADO Builder: eigenständige 3D-App, gebaut im CADO-Projekt (npm run build:site)
           source: "/cado-builder",

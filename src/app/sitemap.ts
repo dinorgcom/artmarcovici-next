@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/mortality/weekly.html",
     "/js/",
     "/frankreich-bildung/",
+    "/paris",
     "/gaza/",
     "/femizide/",
     "/elements",
